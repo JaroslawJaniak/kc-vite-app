@@ -1,0 +1,53 @@
+const prof3 = {
+  id: "prof3",
+  NAME: "GWARDZISTA",
+  ŻYW: 0,
+  SF: 10,
+  ZR: 0,
+  SZ: 20,
+  INT: 0,
+  MD: 0,
+  UM: 0,
+  CH: 10,
+  PR: 20,
+  WI: 0,
+  ZW: 0,
+
+  k10_ŻYW: 10,
+  k10_SF: 10,
+  k10_ZR: 10,
+  k10_SZ: 10,
+  k10_INT: 0,
+  k10_MD: 0,
+  k10_UM: 0,
+  k10_CH: 10,
+  k10_PR: 10,
+  k10_WI: 10,
+  k10_ZW: 0,
+
+  Odp1: 10,
+  Odp2: 20,
+  Odp3: 10,
+  Odp4: 0,
+  Odp5: 0,
+
+  Odp6: 0,
+  Odp7: 10,
+  Odp8: 10,
+  Odp9: 0,
+  Odp10: 0,
+
+  k10_Odp1: 10,
+  k10_Odp2: 10,
+  k10_Odp3: 10,
+  k10_Odp4: 0,
+  k10_Odp5: 0,
+
+  k10_Odp6: 0,
+  k10_Odp7: 10,
+  k10_Odp8: 10,
+  k10_Odp9: 0,
+  k10_Odp10: 0,
+};
+
+export default prof3;

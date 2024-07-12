@@ -1,0 +1,53 @@
+const prof8 = {
+  id: "prof8",
+  NAME: "ZŁODZIEJ",
+  ŻYW: 0,
+  SF: 0,
+  ZR: 20,
+  SZ: 20,
+  INT: 10,
+  MD: 0,
+  UM: 0,
+  CH: 0,
+  PR: 10,
+  WI: 10,
+  ZW: 0,
+
+  k10_ŻYW: 0,
+  k10_SF: 10,
+  k10_ZR: 10,
+  k10_SZ: 10,
+  k10_INT: 10,
+  k10_MD: 10,
+  k10_UM: 10,
+  k10_CH: 0,
+  k10_PR: 10,
+  k10_WI: 10,
+  k10_ZW: 0,
+
+  Odp1: 0,
+  Odp2: 10,
+  Odp3: 10,
+  Odp4: 0,
+  Odp5: 0,
+
+  Odp6: 20,
+  Odp7: 20,
+  Odp8: 0,
+  Odp9: 0,
+  Odp10: 0,
+
+  k10_Odp1: 0,
+  k10_Odp2: 10,
+  k10_Odp3: 10,
+  k10_Odp4: 0,
+  k10_Odp5: 0,
+
+  k10_Odp6: 10,
+  k10_Odp7: 10,
+  k10_Odp8: 0,
+  k10_Odp9: 0,
+  k10_Odp10: 0,
+};
+
+export default prof8;

@@ -1,0 +1,7 @@
+.sticky {
+  border: 1px solid black;
+  border-radius: 4px;
+  position: sticky;
+  top: 32px;
+  box-shadow: 2px 8px 16px 0px rgb(90, 66, 66);
+}

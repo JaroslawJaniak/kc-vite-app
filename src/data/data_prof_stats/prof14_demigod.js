@@ -1,0 +1,53 @@
+const prof14 = {
+  id: "prof14",
+  NAME: "PÓŁBÓG",
+  ŻYW: 20,
+  SF: 20,
+  ZR: 20,
+  SZ: 20,
+  INT: 0,
+  MD: 0,
+  UM: 0,
+  CH: 0,
+  PR: 0,
+  WI: 0,
+  ZW: 0,
+
+  k10_ŻYW: 10,
+  k10_SF: 10,
+  k10_ZR: 10,
+  k10_SZ: 10,
+  k10_INT: 0,
+  k10_MD: 0,
+  k10_UM: 0,
+  k10_CH: 0,
+  k10_PR: 0,
+  k10_WI: 0,
+  k10_ZW: 0,
+
+  Odp1: 20,
+  Odp2: 0,
+  Odp3: 0,
+  Odp4: 10,
+  Odp5: 0,
+
+  Odp6: 10,
+  Odp7: 0,
+  Odp8: 0,
+  Odp9: 0,
+  Odp10: 20,
+
+  k10_Odp1: 10,
+  k10_Odp2: 0,
+  k10_Odp3: 0,
+  k10_Odp4: 10,
+  k10_Odp5: 0,
+
+  k10_Odp6: 10,
+  k10_Odp7: 0,
+  k10_Odp8: 0,
+  k10_Odp9: 0,
+  k10_Odp10: 10,
+};
+
+export default prof14;

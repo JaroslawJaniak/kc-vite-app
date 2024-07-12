@@ -1,0 +1,70 @@
+export const disabilities = [
+  {
+    id: 1,
+    name: "karzeł",
+    description:
+      "wzrost postaci jest mniejszy od minimalnego wzrostu jego rasy o 20 + k10 cm (patrz punkt V oraztabela V.a) konsekwencją tego jest zmniejszenie SZ postaci o połowę tej różnicy",
+    modStatsId1: 1,
+    modStatsValue: 20,
+    modStatsDice: 10,
+  },
+  {
+    id: 2,
+    name: "kulawy",
+    description:
+      "dwukrotnie zmniejsza szybkość poruszania się postaci oraz o 2k10 pkt. jej PR",
+    modStatsId: 7,
+    modStatsValue: 20,
+    modStatsDice: 10,
+  },
+  {
+    id: 3,
+    name: "platfus",
+    description: "o 10 + k10 zmniejsza szybkość poruszania się postaci",
+    modStatsId: 7,
+    modStatsValue: 10,
+    modStatsDice: 10,
+  },
+  {
+    id: 4,
+    name: "zezowaty",
+    description:
+      "zmniejsza PR o 10 + k10 pkt. oraz powoduje, że każda podjęta przez postać akcja ma o 1 segment większe opóźnienie",
+    modStatsId: 12,
+    modStatsValue: 10,
+    modStatsDice: 10,
+  },
+  {
+    id: 5,
+    name: "kulawy",
+    description: "",
+    modStatsId: 1,
+    modStatsId: 1,
+    modStatsValue: 20,
+    modStatsDice: 10,
+  },
+  {
+    id: 6,
+    name: "kulawy",
+    description: "",
+    modStatsId: 1,
+    modStatsValue: 20,
+    modStatsDice: 10,
+  },
+  {
+    id: 7,
+    name: "kulawy",
+    description: "",
+    modStatsId: 1,
+    modStatsValue: 20,
+    modStatsDice: 10,
+  },
+  {
+    id: 8,
+    name: "kulawy",
+    description: "",
+    modStatsId: 1,
+    modStatsValue: 20,
+    modStatsDice: 10,
+  },
+];

@@ -1,0 +1,53 @@
+const prof6 = {
+  id: "prof6",
+  NAME: "PALADYN",
+  ŻYW: 20,
+  SF: 20,
+  ZR: 0,
+  SZ: 0,
+  INT: 0,
+  MD: 10,
+  UM: 0,
+  CH: 20,
+  PR: 20,
+  WI: 10,
+  ZW: 0,
+
+  k10_ŻYW: 10,
+  k10_SF: 10,
+  k10_ZR: 0,
+  k10_SZ: 10,
+  k10_INT: 10,
+  k10_MD: 10,
+  k10_UM: 10,
+  k10_CH: 10,
+  k10_PR: 10,
+  k10_WI: 10,
+  k10_ZW: 0,
+
+  Odp1: 0,
+  Odp2: 10,
+  Odp3: 0,
+  Odp4: 20,
+  Odp5: 0,
+
+  Odp6: 10,
+  Odp7: 20,
+  Odp8: 10,
+  Odp9: 0,
+  Odp10: 0,
+
+  k10_Odp1: 0,
+  k10_Odp2: 10,
+  k10_Odp3: 0,
+  k10_Odp4: 10,
+  k10_Odp5: 0,
+
+  k10_Odp6: 10,
+  k10_Odp7: 10,
+  k10_Odp8: 10,
+  k10_Odp9: 0,
+  k10_Odp10: 0,
+};
+
+export default prof6;

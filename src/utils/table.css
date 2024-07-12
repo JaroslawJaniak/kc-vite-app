@@ -1,0 +1,53 @@
+/*TABELA*/
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 40%;
+  background-color: white;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.td__k100 {
+  width: 50px;
+  font-weight: bold;
+}
+
+td.td_height,
+td.td_weight {
+  border-left: none;
+  border-right: none;
+}
+
+.unactiveSection {
+  display: none;
+}
+
+tr.tr_height_weight > td {
+  text-align: center;
+}
+
+td.table_base-stats_race {
+  border-top: 0px;
+  border-bottom: 0px;
+}
+td.table_base-stats_female {
+  border-bottom: 1px solid #dddddd;
+}
+
+/*
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+*/
+
+.activeTrTable {
+  color: white;
+  background-color: #000000;
+}
