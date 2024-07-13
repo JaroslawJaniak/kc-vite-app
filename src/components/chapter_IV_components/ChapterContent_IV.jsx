@@ -31,7 +31,7 @@ const ChapterContent_IV = () => {
               {casts1.professions.map((prof, indexProf) => (
                 <div
                   id={"div_profession" + indexProf}
-                  className="mb-1 p-2 bg-white"
+                  className="mb-1 p-2 bg-white border rounded border-gray-300"
                 >
                   <InputComponent
                     id={prof.profName + casts1.id}
@@ -41,6 +41,7 @@ const ChapterContent_IV = () => {
                     checked={false}
                     onChange={handleProfChange}
                   />
+                  <hr className="my-3 " />
                   <div className="md:flex">
                     {prof.subbProfHiddenStatus.map(
                       (subbProfHiddenStat, indexHiddenStat) => (

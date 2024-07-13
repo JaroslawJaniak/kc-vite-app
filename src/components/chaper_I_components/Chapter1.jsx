@@ -11,8 +11,9 @@ export const Chapter1 = () => {
   return (
     <section className="section">
       <h2>I. WYBÓR RASY I PŁCI</h2>
-     
+
       <Chapter1GenderSelection />
+      <hr className="my-3 " />
       <Chapter1RaceSelection chp1_race_description={chp1_race_description} />
     </section>
   );
