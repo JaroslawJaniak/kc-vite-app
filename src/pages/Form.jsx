@@ -38,7 +38,7 @@ export const Form = () => {
       <h2>VII. PODSUMOWANIE PROCESU KREACJI NOWEJ POSTACI</h2>
       <form className="p-8" onSubmit>
         <h3 className="stylized">I. WYBÓR RASY I PŁCI</h3>
-        <div className="[&>*]:">
+        <div className="[&>*]:font-serif">
           <p className="inline-block min-w-24 h-8  p-1 m-1 text-center text-gray-900 uppercase ">
             <b>{renderSex()}</b>
           </p>
@@ -46,7 +46,7 @@ export const Form = () => {
             <b>{renderRace()}</b>
           </p>
 
-          <p className="  w-96 min-h-24 p-4 m-1 text-gray-900  border border-gray-300 rounded bg-white">
+          <p className="  sm:w-96 min-h-24 p-4 m-1 text-gray-900  border border-gray-300 rounded bg-white">
             <NewLineText text={context.chpt1Info.description} />
           </p>
         </div>
@@ -59,7 +59,7 @@ export const Form = () => {
             <b>{context.chpt2Info.placeOfBirth}</b>
           </p>
 
-          <p className="  w-96 min-h-24 p-4 m-3 text-gray-900  border border-gray-300 rounded bg-white">
+          <p className="  sm:w-96 min-h-24 p-4 m-3 text-gray-900  border border-gray-300 rounded bg-white">
             <p>{context.chpt2Info.description}</p>
           </p>
 
@@ -67,7 +67,7 @@ export const Form = () => {
             id="mapForm"
             src={context.srcPlcOfBirthImage}
             alt="map"
-            className="size-2/5 m-3 border border-gray-300 rounded"
+            className="sm:size-96 m-3 border border-gray-300 rounded"
           />
         </div>
         <hr className="my-3" />

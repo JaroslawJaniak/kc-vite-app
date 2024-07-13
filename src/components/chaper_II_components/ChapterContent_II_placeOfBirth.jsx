@@ -56,8 +56,16 @@ th {
       className="section2__place_of_birth"
     >
       <h3>{chp2_info1.title}</h3>
+      <DiceButtonComponent
+        n={1}
+        k={100}
+        k100Result={context.plcOfBirthK100Result}
+        clicked={context.plcOfBirthK100Clicked}
+        handleStateChange={context.setPlcOfBirthK100Clicked}
+        onDiceRoll={k100RollResult}
+      />
       <p>{chp2_info1.tableLabel}</p>
-      <table id="table1_origin_place_of_birth" className="w-2/5">
+      <table id="table1_origin_place_of_birth" className="w-72 sm:w-96">
         {chp2_place_of_birth.map((chp2_place_of_birth) => (
           <tr id={chp2_place_of_birth.id} className={"td__k100"}>
             <td className="w-14">{chp2_place_of_birth.k100}</td>
@@ -69,15 +77,6 @@ th {
         ))}
       </table>
 
-      <DiceButtonComponent
-        n={1}
-        k={100}
-        k100Result={context.plcOfBirthK100Result}
-        clicked={context.plcOfBirthK100Clicked}
-        handleStateChange={context.setPlcOfBirthK100Clicked}
-        onDiceRoll={k100RollResult}
-      />
-
       <div>
         <div>
           miejsce urodzenia:
@@ -87,7 +86,7 @@ th {
           id="map"
           src={context.srcPlcOfBirthImage}
           alt="map"
-          className="size-3/5"
+          className="size-80 sm:size-96 border rounded border-gray-300"
         />
       </div>
     </section>

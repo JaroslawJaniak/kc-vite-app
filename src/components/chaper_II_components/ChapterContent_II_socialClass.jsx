@@ -76,29 +76,9 @@ const ChapterContent_II_socialClass = () => {
   return (
     <section id="chapter_section2__social_class" class="section2__social_class">
       <h3>{chp2_info2.title}</h3>
-      <p>{chp2_info2.tableLabel}</p>
-      {chp2_table_social_class.map((chp2_table_social_class) => (
-        <div>
-          <h3>{chp2_table_social_class.socialClassName}</h3>
-          <span>{chp2_table_social_class.socialClassDescription}</span>
-          <table className={chp2_info2.tableClassname}>
-            {chp2_table_social_class.socialClassTableInfo.map(
-              (socialClassTableInfo) => (
-                <tr id={socialClassTableInfo.id}>
-                  <td className="td__k100">{socialClassTableInfo.k100}</td>
-                  <td>
-                    <b>{socialClassTableInfo.label}</b>
-                    {socialClassTableInfo.text}
-                  </td>
-                </tr>
-              )
-            )}
-          </table>
-        </div>
-      ))}
       <div>
         <p>wyjściowa klasa społeczna:</p>
-        <div className="grid grid-cols-5 gap-2 content-center">
+        <div className="flex gap-4">
           <DiceButtonComponent
             n={1}
             k={100}
@@ -113,7 +93,7 @@ const ChapterContent_II_socialClass = () => {
 
       <div>
         <p>roczny dochód:</p>
-        <div className="grid grid-cols-5 gap-2 content-center">
+        <div className="flex gap-4">
           <DiceButtonComponent
             n={context.dice_nSocialClass}
             k={context.dice_kSocialClass}
@@ -125,6 +105,26 @@ const ChapterContent_II_socialClass = () => {
           <h3 className="text-lg font-bold pt-2">{context.incomeValue} złt</h3>
         </div>
       </div>
+      <p>{chp2_info2.tableLabel}</p>
+      {chp2_table_social_class.map((chp2_table_social_class) => (
+        <div>
+          <h3>{chp2_table_social_class.socialClassName}</h3>
+          <span>{chp2_table_social_class.socialClassDescription}</span>
+          <table className={"w-72 sm:w-96"}>
+            {chp2_table_social_class.socialClassTableInfo.map(
+              (socialClassTableInfo) => (
+                <tr id={socialClassTableInfo.id}>
+                  <td className="td__k100">{socialClassTableInfo.k100}</td>
+                  <td>
+                    <b>{socialClassTableInfo.label}</b>
+                    {socialClassTableInfo.text}
+                  </td>
+                </tr>
+              )
+            )}
+          </table>
+        </div>
+      ))}
     </section>
   );
 };

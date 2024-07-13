@@ -8,6 +8,7 @@ export const OpenCloseButton = (props) => {
         props.handleClick();
       }}
     >
+      
       {props.text}
     </button>
   );
