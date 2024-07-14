@@ -97,7 +97,7 @@ function App() {
     } else if (currentPath === "/chapter7") {
       navigateTo("/");
     } else if (currentPath === "/") {
-      navigateTo("/chapter1");
+      navigateTo("/kc-vite-app");
     }
   };
 
