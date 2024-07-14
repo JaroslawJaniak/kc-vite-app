@@ -52,16 +52,16 @@ export const ChapterContent_III_abilities = () => {
   return (
     <article>
       <h3>III.b Zdolności nadnaturalne</h3>
-      Czy postać ma zdolność nadnaturalną {`(${context.abilitiesChance} % szansa)`}
+      Czy postać ma zdolność nadnaturalną{" "}
+      {`(${context.abilitiesChance} % szansa)`}
       <DiceButtonComponent
         n={1}
         k={100}
         k100Result={context.abilitiesK100Result}
-        clicked={
-          !(context.abilitiesK100Result <= context.abilitiesChance)
-        }
+        clicked={!(context.abilitiesK100Result <= context.abilitiesChance)}
         handleStateChange={context.setAbilitiesK100Clicked}
         onDiceRoll={k100RollResult}
+        className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5  mb-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
       />
       {renderAbilities()}
     </article>

@@ -10,6 +10,7 @@ import { Form } from "./pages/Form";
 import { Menu } from "./components/menu/Menu";
 import Summary from "./components/summary/Summary";
 import { OpenCloseButton } from "./utils/OpenCloseButton";
+import { PreviousNextButton } from "./utils/PreviousNextButton";
 
 function App() {
   const context = useContext(CharacterStatsContext);
@@ -81,6 +82,46 @@ function App() {
         text={summaryBtnText}
         handleClick={handleOpenSummaryBtnState}
         className="top-2 right-3 fixed z-1 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm w-36   py-1.5 me-2 mb-2  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+      />
+
+      <PreviousNextButton
+        text={
+          <svg
+            width="19"
+            height="19"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="inline-block"
+          >
+            <path
+              d="M16.2426 6.34317L14.8284 4.92896L7.75739 12L14.8285 19.0711L16.2427 17.6569L10.5858 12L16.2426 6.34317Z"
+              fill="currentColor"
+            />
+          </svg>
+        }
+        handleClick={handleOpenSummaryBtnState}
+        className="bottom-2 left-3 fixed z-1 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm w-8   py-1.5 me-2 mb-2  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+      />
+
+      <PreviousNextButton
+        text={
+          <svg
+            width="19"
+            height="19"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="inline-block"
+          >
+            <path
+              d="M10.5858 6.34317L12 4.92896L19.0711 12L12 19.0711L10.5858 17.6569L16.2427 12L10.5858 6.34317Z"
+              fill="currentColor"
+            />
+          </svg>
+        }
+        handleClick={handleOpenSummaryBtnState}
+        className="bottom-2 right-3 fixed z-1 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm w-8   py-1.5 me-2 mb-2  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
       />
 
       <Router>

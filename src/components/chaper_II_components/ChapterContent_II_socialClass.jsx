@@ -9,22 +9,6 @@ import { dataSocialClass } from "./chp2_socialClass_Data";
 
 const ChapterContent_II_socialClass = () => {
   const context = useContext(CharacterStatsContext);
-
-  const [socialClassState, setSocialClassState] = useState(
-    "props.defaultSocialClass"
-  );
-
-  const [k100ResultState, setk100ResultState] = useState(
-    "props.defaultSocialClassK100Result"
-  );
-
-  const [k100ResultState2, setk100ResultState2] = useState("dice_n  dice_k");
-  const [table_trIdState, setTable_trIdState] = useState("");
-  const [dice_n, setDice_n] = useState("0");
-  const [dice_k, setDice_k] = useState("0");
-  const [bonusStat, setSocialClassBonusStat] = useState("");
-  const [beneficeValue, setBeneficeValue] = useState("");
-
   /* 
   const [socialClass, setSocialClass] = useState("props.defaultSocialClass");
   const [socialClassK100Result, setSocialClassK100Result] = useState(
@@ -39,7 +23,6 @@ const ChapterContent_II_socialClass = () => {
 
   const k100RollResult = (k) => {
     if (k !== 0) {
-      
       context.setSocialClass(dataSocialClass(k).socialClassName);
       context.setSocialClassFullName(dataSocialClass(k).socialClassFullName);
       context.setSocialClassK100Result(k);
@@ -47,8 +30,7 @@ const ChapterContent_II_socialClass = () => {
       context.setDice_nSocialClass(dataSocialClass(k).n);
       context.setDice_kSocialClass(dataSocialClass(k).k);
 
-      console.log(context.dice_nSocialClass + " ***");
-      console.log(context.dice_kSocialClass + " ***");
+      
 
       document
         .getElementById("table2_row" + dataSocialClass(k).table_trId)
@@ -86,6 +68,7 @@ const ChapterContent_II_socialClass = () => {
             clicked={context.socialClassK100Clicked}
             handleStateChange={context.setSocialClassK100Clicked}
             onDiceRoll={k100RollResult}
+            className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5  mb-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
           />
           <h3 className="text-lg font-bold pt-2">{context.socialClass}</h3>
         </div>
@@ -101,6 +84,7 @@ const ChapterContent_II_socialClass = () => {
             clicked={context.socialClassIncomeK100Clicked}
             handleStateChange={context.setSocialClassIncomeK100Clicked}
             onDiceRoll={k100RollIncomeResult}
+            className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5  mb-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
           />
           <h3 className="text-lg font-bold pt-2">{context.incomeValue} złt</h3>
         </div>

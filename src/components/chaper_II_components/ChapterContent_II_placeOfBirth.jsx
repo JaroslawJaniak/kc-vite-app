@@ -63,6 +63,7 @@ th {
         clicked={context.plcOfBirthK100Clicked}
         handleStateChange={context.setPlcOfBirthK100Clicked}
         onDiceRoll={k100RollResult}
+        className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5  mb-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
       />
       <p>{chp2_info1.tableLabel}</p>
       <table id="table1_origin_place_of_birth" className="w-72 sm:w-96">

@@ -2,8 +2,10 @@ import React, {useContext} from "react";
 
 import CastSubprofession_container from "./CastSubprofession_container";
 import chp4_casts from "./chp4_casts";
+import chp4_casts_ from "./chp4_casts_full";
 import chp4_professions from "./chp4_professions";
 import { ChapterContent_IV_second_profession } from "./ChapterContent_IV_second_profession";
+import { ChapterContent_IV_exeption } from "./ChapterContent_IV_exeption";
 import { InputComponent } from "../utils/InputComponent";
 import { CharacterStatsContext } from "../../context/CharacterStatsContext";
 
@@ -14,6 +16,7 @@ const ChapterContent_IV = () => {
   return (
     <div>
       <ChapterContent_IV_second_profession />
+      <ChapterContent_IV_exeption hidden={!context.secondProfessionChecked} />
 
       <h4></h4>
       <section className="collapsible-sections--item__content--section casts">
@@ -21,20 +24,20 @@ const ChapterContent_IV = () => {
           id="profession_cast1"
           className="subprofession_cast profession_cast "
         >
-          {chp4_casts.map((casts1) => (
+          {chp4_casts_.map((casts) => (
             <div className="h-min p-1 m-8">
               <h4 className=" font-bold font-sans ">
                 {" "}
-                KASTA {casts1.castName}:
+                KASTA {casts.castName}:
               </h4>
 
-              {casts1.professions.map((prof, indexProf) => (
+              {casts.professions.map((prof, indexProf) => (
                 <div
                   id={"div_profession" + indexProf}
                   className="mb-1 p-2 bg-white border rounded border-gray-300"
                 >
                   <InputComponent
-                    id={prof.profName + casts1.id}
+                    id={prof.profName + casts.id}
                     type={"checkbox"}
                     name={prof.profName}
                     className={" "}
@@ -44,13 +47,13 @@ const ChapterContent_IV = () => {
                   <hr className="my-3 " />
                   <div className="md:flex">
                     {prof.subbProfHiddenStatus.map(
-                      (subbProfHiddenStat, indexHiddenStat) => (
+                      (subbProfHiddenStatObjectsList, indexHiddenStat) => (
                         <CastSubprofession_container
-                          key={prof.profName + casts1.id + indexHiddenStat}
-                          id={prof.profName + casts1.id + indexHiddenStat}
+                          key={prof.profName + casts.id + indexHiddenStat}
+                          id={prof.profName + casts.id + indexHiddenStat}
                           hidden={context.secondProfessionChecked}
                           index1={indexHiddenStat}
-                          Item1={subbProfHiddenStat}
+                          Item1={subbProfHiddenStatObjectsList}
                           Item2={chp4_professions}
                         >
                           {indexHiddenStat}
@@ -87,11 +90,11 @@ export default ChapterContent_IV;
 
 
 
-                {casts.map((casts1) => (
+                {casts.map((casts) => (
             <div>
-              <h4>{casts1.castName}</h4>
+              <h4>{casts.castName}</h4>
               <br />
-              {casts1.castHiddenStatus.map((hiddenStatus, index) => (
+              {casts.castHiddenStatus.map((hiddenStatus, index) => (
                 <div>
                   <div>{index}</div>
                   <div>{hiddenStatus.toString()}</div>
@@ -105,11 +108,11 @@ export default ChapterContent_IV;
 
 
 
-          {casts.map((casts1, index1) => (
+          {casts.map((casts, index1) => (
             <div>
-              <h4> KASTA {casts1.castName}</h4>
+              <h4> KASTA {casts.castName}</h4>
               <br />
-              {casts1.professions.map((prof, index) => (
+              {casts.professions.map((prof, index) => (
                 <div
                   id={"div_profession" + index}
                   className="subprofession_container checkbox_container"
@@ -117,7 +120,7 @@ export default ChapterContent_IV;
                   <div>
                     <input
                       type="checkbox"
-                      id={prof.profName + casts1.id}
+                      id={prof.profName + casts.id}
                       name={prof.profName}
                       value={prof.profName}
                       className="checkbox__profession"

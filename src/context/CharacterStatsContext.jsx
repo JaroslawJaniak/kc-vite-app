@@ -46,6 +46,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
   const [profession, setProfession] = useState(false);
   const [secondProfession, setSecondProfession] = useState(false);
   const [secondProfessionChecked, setSecondProfessionChecked] = useState(false);
+  const [exeptionChecked, setExeptionChecked] = useState(false);
 
   const chpt1Info = {
     name: "",
@@ -160,6 +161,8 @@ export const CharacterStatsContextProvider = ({ children }) => {
     setSocialClassIncomeK100Clicked,
     secondProfessionChecked,
     setSecondProfessionChecked,
+    exeptionChecked,
+setExeptionChecked
   };
 
   return (
