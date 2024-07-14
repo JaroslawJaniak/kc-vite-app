@@ -14,8 +14,8 @@ import { Chapter4Page } from "./pages/Chapter4Page";
 import { Form } from "./pages/Form";
 import { Menu } from "./components/menu/Menu";
 import Summary from "./components/summary/Summary";
-import { OpenCloseButton } from "./utils/OpenCloseButton";
-import { PreviousNextButton } from "./utils/PreviousNextButton";
+import {NavButton } from "./utils/NavButton";
+
 
 function App() {
   const context = useContext(CharacterStatsContext);
@@ -125,19 +125,19 @@ function App() {
   };
 
   return (
-    <main className="mt-8 ">
-      <OpenCloseButton
+    <main className="mt-12 ">
+      <NavButton
         text={menuBtnText}
         handleClick={handleOpenMenuBtnState}
         className="md:hidden  top-2 left-3 fixed z-1 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm w-36  py-1.5 me-2 mb-2  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
       />
-      <OpenCloseButton
+      <NavButton
         text={summaryBtnText}
         handleClick={handleOpenSummaryBtnState}
         className="md:hidden top-2 right-3 fixed z-1 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm w-36   py-1.5 me-2 mb-2  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
       />
 
-      <PreviousNextButton
+      <NavButton
         text={
           <svg
             width="19"
@@ -157,7 +157,7 @@ function App() {
         className="bottom-2 left-3 fixed z-1 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm w-16 h-10   py-1.5 me-2 mb-2  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
       />
 
-      <PreviousNextButton
+      <NavButton
         text={
           <svg
             width="19"
@@ -177,12 +177,12 @@ function App() {
         className="bottom-2 right-3 fixed z-1 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm w-16 h-10   py-1.5 me-2 mb-2  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
       />
 
-      <div className="md:grid  md:grid-cols-4 gap-1">
+      <div className="md:grid  md:grid-cols-6 gap-1">
         <div className="md:hidden fixed top-12 left-4">{renderMenu()}</div>
         <div className="hidden md:block">
           <Menu />
         </div>
-        <div className="md:col-span-2 bg-gray-100 rounded w-100 m-1 p-1 pt-3 lg:p-3">
+        <div className="md:col-span-4 bg-gray-100 rounded w-100 m-1 p-1 pt-3 lg:p-3">
           <Routes>
             <Route path="/chapter1" element={<Chapter1Page />}></Route>
             <Route path="/chapter2" element={<Chapter2Page />}></Route>

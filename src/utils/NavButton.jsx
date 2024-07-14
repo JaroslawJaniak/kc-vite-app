@@ -1,6 +1,6 @@
 import React from "react";
 
-export const OpenCloseButton = (props) => {
+export const NavButton = (props) => {
   return (
     <button
       className={props.className}
