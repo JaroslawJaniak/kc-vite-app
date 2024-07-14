@@ -14,7 +14,7 @@ const Chapter1RaceSelection = ({ chp1_race_description }) => {
   };
 
   return (
-    <form style={{ width: "75%" }}>
+    <form >
       {chp1_race_description.map((chp1_race_description) => (
         <Chapter1RaceDescriptionContainer
           key={`${chp1_race_description.id}RaceDescriptionContainer`}

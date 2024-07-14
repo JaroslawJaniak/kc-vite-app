@@ -8,7 +8,9 @@ export const PreviousNextButton = (props) => {
         props.handleClick();
       }}
     >
+      
       {props.text}
     </button>
+    
   );
 };

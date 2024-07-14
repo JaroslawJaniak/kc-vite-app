@@ -94,7 +94,7 @@ const ChapterContent_II_socialClass = () => {
         <div>
           <h3>{chp2_table_social_class.socialClassName}</h3>
           <span>{chp2_table_social_class.socialClassDescription}</span>
-          <table className={"w-72 sm:w-96"}>
+          <table className={"w-72 md:w-auto lg:w-3/4"}>
             {chp2_table_social_class.socialClassTableInfo.map(
               (socialClassTableInfo) => (
                 <tr id={socialClassTableInfo.id}>

@@ -1,7 +1,12 @@
 import { useState, useContext } from "react";
 import { CharacterStatsContext } from "./context/CharacterStatsContext";
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
 import { Chapter1Page } from "./pages/Chapter1Page";
 import { Chapter2Page } from "./pages/Chapter2Page";
 import { Chapter3Page } from "./pages/Chapter3Page";
@@ -34,7 +39,7 @@ function App() {
   };
 
   const summaryBtnText = (
-    <span >
+    <span>
       <svg
         width="19"
         height="19"
@@ -71,17 +76,61 @@ function App() {
     </span>
   );
 
+  // const navigateTo = useNavigate();
+
+  // const handleNext = () => {
+  //   const currentPath = window.location.pathname;
+  //   if (currentPath === "/") {
+  //     navigateTo("/chapter1");
+  //   } else if (currentPath === "/chapter1") {
+  //     navigateTo("/chapter2");
+  //   } else if (currentPath === "/chapter2") {
+  //     navigateTo("/chapter3");
+  //   } else if (currentPath === "/chapter3") {
+  //     navigateTo("/chapter4");
+  //   } else if (currentPath === "/chapter4") {
+  //     navigateTo("/chapter5");
+  //   } else if (currentPath === "/chapter5") {
+  //     navigateTo("/chapter6");
+  //   } else if (currentPath === "/chapter6") {
+  //     navigateTo("/chapter7");
+  //   } else if (currentPath === "/chapter7") {
+  //     navigateTo("/");
+  //   }
+  // };
+
+  // const handlePrevious = () => {
+  //   const currentPath = window.location.pathname;
+  //   if (currentPath === "/") {
+  //     navigateTo("/chapter7");
+  //   } else if (currentPath === "/chapter7") {
+  //     navigateTo("/chapter6");
+  //   } else if (currentPath === "/chapter6") {
+  //     navigateTo("/chapter5");
+  //   } else if (currentPath === "/chapter5") {
+  //     navigateTo("/chapter4");
+  //   } else if (currentPath === "/chapter4") {
+  //     navigateTo("/chapter3");
+  //   } else if (currentPath === "/chapter3") {
+  //     navigateTo("/chapter2");
+  //   } else if (currentPath === "/chapter2") {
+  //     navigateTo("/chapter1");
+  //   } else if (currentPath === "/chapter1") {
+  //     navigateTo("/");
+  //   }
+  // };
+
   return (
-    <main className="mt-8">
+    <main className="mt-8 ">
       <OpenCloseButton
         text={menuBtnText}
         handleClick={handleOpenMenuBtnState}
-        className="top-2 left-3 fixed z-1 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm w-36  py-1.5 me-2 mb-2  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+        className="md:hidden  top-2 left-3 fixed z-1 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm w-36  py-1.5 me-2 mb-2  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
       />
       <OpenCloseButton
         text={summaryBtnText}
         handleClick={handleOpenSummaryBtnState}
-        className="top-2 right-3 fixed z-1 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm w-36   py-1.5 me-2 mb-2  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+        className="md:hidden top-2 right-3 fixed z-1 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm w-36   py-1.5 me-2 mb-2  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
       />
 
       <PreviousNextButton
@@ -100,7 +149,7 @@ function App() {
             />
           </svg>
         }
-        handleClick={handleOpenSummaryBtnState}
+        handleClick
         className="bottom-2 left-3 fixed z-1 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm w-8   py-1.5 me-2 mb-2  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
       />
 
@@ -120,26 +169,34 @@ function App() {
             />
           </svg>
         }
-        handleClick={handleOpenSummaryBtnState}
+        handleClick
         className="bottom-2 right-3 fixed z-1 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm w-8   py-1.5 me-2 mb-2  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
       />
 
       <Router>
-        <div className="fixed top-12">{renderMenu()}</div>
-
-        <div className=" bg-gray-100 rounded w-4/5 mt-24 m-auto p-3">
-          <Routes>
-            <Route path="/chapter1" element={<Chapter1Page />}></Route>
-            <Route path="/chapter2" element={<Chapter2Page />}></Route>
-            <Route path="/chapter3" element={<Chapter3Page />}></Route>
-            <Route path="/chapter4" element={<Chapter4Page />}></Route>
-            <Route path="/" element={<Form />}></Route>
-          </Routes>
+        <div className="md:grid  md:grid-cols-4 gap-1">
+          <div className="md:hidden fixed top-12 left-4">{renderMenu()}</div>
+          <div className="hidden md:block">
+            <Menu />
+          </div>
+          <div className="md:col-span-2 bg-gray-100 rounded w-100 m-1 mt-24 p-1 pt-3 lg:p-3">
+            <Routes>
+              <Route path="/chapter1" element={<Chapter1Page />}></Route>
+              <Route path="/chapter2" element={<Chapter2Page />}></Route>
+              <Route path="/chapter3" element={<Chapter3Page />}></Route>
+              <Route path="/chapter4" element={<Chapter4Page />}></Route>
+              <Route path="/kc-vite-app" element={<Chapter1Page />}></Route>
+              <Route path="/" element={<Form />}></Route>
+            </Routes>
+          </div>{" "}
+          <div className="md:hidden fixed top-12 right-4 ">
+            {renderSummary()}
+          </div>
+          <div className="hidden md:block">
+            <Summary />
+          </div>
         </div>
       </Router>
-      <div className="summary-container fixed top-12 right-4">
-        {renderSummary()}
-      </div>
     </main>
   );
 }

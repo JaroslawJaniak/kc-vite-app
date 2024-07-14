@@ -45,7 +45,7 @@ const ChapterContent_IV = () => {
                     onChange={handleProfChange}
                   />
                   <hr className="my-3 " />
-                  <div className="md:flex">
+                  <div className="xl:flex">
                     {prof.subbProfHiddenStatus.map(
                       (subbProfHiddenStatObjectsList, indexHiddenStat) => (
                         <CastSubprofession_container
