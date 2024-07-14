@@ -60,14 +60,14 @@ export const Form = () => {
           </p>
 
           <p className="  sm:w-96 min-h-24 p-4 m-3 text-gray-900  border border-gray-300 rounded bg-white">
-            <p>{context.chpt2Info.description}</p>
+            <p>{context.chpt2Info.placeOfBirthDescription}</p>
           </p>
 
           <img
             id="mapForm"
             src={context.srcPlcOfBirthImage}
             alt="map"
-            className="sm:size-96 m-3 border border-gray-300 rounded"
+            className="sm:size-4/6 size-100 m-3 border border-gray-300 rounded"
           />
         </div>
         <hr className="my-3" />
@@ -76,6 +76,11 @@ export const Form = () => {
         <div className="[&>*]:font-serif [&>*]:">
           <p className="inline-block min-w-24  p-1 m-1 text-center text-gray-900 uppercase ">
             <b>{renderSocialClassFullname()}</b>
+          </p>
+
+          <p className="  sm:w-96 min-h-24 p-4 m-3 text-gray-900  border border-gray-300 rounded bg-white">
+            <p>{context.chpt2Info.socialClassCastDescription}</p>
+            <p>{context.chpt2Info.socialClassDescription}</p>
           </p>
 
           <p className="inline-block min-w-24  p-1 m-1 text-center text-gray-900 uppercase ">

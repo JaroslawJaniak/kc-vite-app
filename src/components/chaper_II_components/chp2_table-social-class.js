@@ -1,7 +1,7 @@
 const chp2_table_social_class = [
   {
     socialClassName: "BIEDOTA",
-    socialClassDescription: "(chłopstwo)",
+    socialClassCastDescription: "(chłopstwo)",
 
     socialClassTableInfo: [
       {
@@ -32,7 +32,7 @@ const chp2_table_social_class = [
   },
   {
     socialClassName: "MIESZCZAŃSTWO",
-    socialClassDescription: "(ma prawo używać tytułu EL przed imieniem)",
+    socialClassCastDescription: "(ma prawo używać tytułu EL przed imieniem)",
 
     socialClassTableInfo: [
       {
@@ -63,7 +63,7 @@ const chp2_table_social_class = [
   },
   {
     socialClassName: "SZLACHTA",
-    socialClassDescription:
+    socialClassCastDescription:
       "(może używać tytułu TAN przed imieniem; tylko członkowie tej klasy społecznej mogą zostać rycerzami)",
 
     socialClassTableInfo: [

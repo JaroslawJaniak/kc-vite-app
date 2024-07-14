@@ -23,7 +23,10 @@ export const CharacterStatsContextProvider = ({ children }) => {
 
   const [socialClass, setSocialClass] = useState("");
   const [socialClassFullName, setSocialClassFullName] = useState("");
-  const [socialClassK100Result, setSocialClassK100Result] = useState("s2");
+  const [socialClassDescription, setSocialClassDescription] = useState("");
+  const [socialClassCastDescription, setSocialClassCastDescription] =
+    useState("");
+  const [socialClassK100Result, setSocialClassK100Result] = useState("");
   const [socialClassK100Clicked, setSocialClassK100Clicked] = useState(false);
   const [tableSocialClass_trId, setTableSocialClass_trId] = useState("");
   const [dice_nSocialClass, setDice_nSocialClass] = useState("0");
@@ -62,10 +65,12 @@ export const CharacterStatsContextProvider = ({ children }) => {
     socialClass: socialClass,
     socialClassFullName,
 
-    description: placeOfBirthDescription,
+    placeOfBirthDescription: placeOfBirthDescription,
 
     socialClassK100Result,
     socialClassK100Clicked,
+    socialClassDescription,
+    socialClassCastDescription,
     socialClassIncomeK100Clicked,
     tableSocialClass_trId,
     dice_nSocialClass,
@@ -115,6 +120,10 @@ export const CharacterStatsContextProvider = ({ children }) => {
     placeOfBirthDescription,
     socialClass,
     socialClassFullName,
+    socialClassDescription,
+    setSocialClassDescription,
+    socialClassCastDescription,
+    setSocialClassCastDescription,
     socialClassK100Result,
     socialClassK100Clicked,
     tableSocialClass_trId,
@@ -162,7 +171,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
     secondProfessionChecked,
     setSecondProfessionChecked,
     exeptionChecked,
-setExeptionChecked
+    setExeptionChecked,
   };
 
   return (

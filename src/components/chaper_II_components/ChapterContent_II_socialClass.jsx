@@ -24,6 +24,12 @@ const ChapterContent_II_socialClass = () => {
   const k100RollResult = (k) => {
     if (k !== 0) {
       context.setSocialClass(dataSocialClass(k).socialClassName);
+      context.setSocialClassDescription(
+        dataSocialClass(k).socialClassDescription
+      );
+      context.setSocialClassCastDescription(
+        dataSocialClass(k).socialClassCastDescription
+      );
       context.setSocialClassFullName(dataSocialClass(k).socialClassFullName);
       context.setSocialClassK100Result(k);
       context.setTableSocialClass_trId(dataSocialClass(k).table_trId);
@@ -93,7 +99,7 @@ const ChapterContent_II_socialClass = () => {
       {chp2_table_social_class.map((chp2_table_social_class) => (
         <div>
           <h3>{chp2_table_social_class.socialClassName}</h3>
-          <span>{chp2_table_social_class.socialClassDescription}</span>
+          <span>{chp2_table_social_class.socialClassCastDescription}</span>
           <table className={"w-72 md:w-auto lg:w-3/4"}>
             {chp2_table_social_class.socialClassTableInfo.map(
               (socialClassTableInfo) => (

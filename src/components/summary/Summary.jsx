@@ -22,11 +22,13 @@ const Summary = () => {
         <p>
           <b> Miejsce urodzenia:</b> {context.chpt2Info.placeOfBirth};
         </p>
-        <p>{context.chpt2Info.description}</p>
+        <p>{context.chpt2Info.placeOfBirthDescription}</p>
 
         <p>
           <b> Wyjściowa klasa społeczna:</b> {context.chpt2Info.socialClass}
         </p>
+        <p>{context.chpt2Info.socialClassCastDescription}</p>
+        <p>{context.chpt2Info.socialClassDescription}</p>
         <p>
           <b> Roczny dochód: </b>
           {context.chpt2Info.incomeValue}
