@@ -76,49 +76,53 @@ function App() {
     </span>
   );
 
-  // const navigateTo = useNavigate();
+  const navigateTo = useNavigate();
 
-  // const handleNext = () => {
-  //   const currentPath = window.location.pathname;
-  //   if (currentPath === "/") {
-  //     navigateTo("/chapter1");
-  //   } else if (currentPath === "/chapter1") {
-  //     navigateTo("/chapter2");
-  //   } else if (currentPath === "/chapter2") {
-  //     navigateTo("/chapter3");
-  //   } else if (currentPath === "/chapter3") {
-  //     navigateTo("/chapter4");
-  //   } else if (currentPath === "/chapter4") {
-  //     navigateTo("/chapter5");
-  //   } else if (currentPath === "/chapter5") {
-  //     navigateTo("/chapter6");
-  //   } else if (currentPath === "/chapter6") {
-  //     navigateTo("/chapter7");
-  //   } else if (currentPath === "/chapter7") {
-  //     navigateTo("/");
-  //   }
-  // };
+  const handleNext = () => {
+    const currentPath = window.location.pathname;
+    if (currentPath === "/kc-vite-app") {
+      navigateTo("/chapter1");
+    } else if (currentPath === "/chapter1") {
+      navigateTo("/chapter2");
+    } else if (currentPath === "/chapter2") {
+      navigateTo("/chapter3");
+    } else if (currentPath === "/chapter3") {
+      navigateTo("/chapter4");
+    } else if (currentPath === "/chapter4") {
+      navigateTo("/chapter5");
+    } else if (currentPath === "/chapter5") {
+      navigateTo("/chapter6");
+    } else if (currentPath === "/chapter6") {
+      navigateTo("/chapter7");
+    } else if (currentPath === "/chapter7") {
+      navigateTo("/");
+    } else if (currentPath === "/") {
+      navigateTo("/chapter1");
+    }
+  };
 
-  // const handlePrevious = () => {
-  //   const currentPath = window.location.pathname;
-  //   if (currentPath === "/") {
-  //     navigateTo("/chapter7");
-  //   } else if (currentPath === "/chapter7") {
-  //     navigateTo("/chapter6");
-  //   } else if (currentPath === "/chapter6") {
-  //     navigateTo("/chapter5");
-  //   } else if (currentPath === "/chapter5") {
-  //     navigateTo("/chapter4");
-  //   } else if (currentPath === "/chapter4") {
-  //     navigateTo("/chapter3");
-  //   } else if (currentPath === "/chapter3") {
-  //     navigateTo("/chapter2");
-  //   } else if (currentPath === "/chapter2") {
-  //     navigateTo("/chapter1");
-  //   } else if (currentPath === "/chapter1") {
-  //     navigateTo("/");
-  //   }
-  // };
+  const handlePrevious = () => {
+    const currentPath = window.location.pathname;
+    if (currentPath === "/kc-vite-app") {
+      navigateTo("/chapter7");
+    } else if (currentPath === "/chapter7") {
+      navigateTo("/chapter6");
+    } else if (currentPath === "/chapter6") {
+      navigateTo("/chapter5");
+    } else if (currentPath === "/chapter5") {
+      navigateTo("/chapter4");
+    } else if (currentPath === "/chapter4") {
+      navigateTo("/chapter3");
+    } else if (currentPath === "/chapter3") {
+      navigateTo("/chapter2");
+    } else if (currentPath === "/chapter2") {
+      navigateTo("/chapter1");
+    } else if (currentPath === "/chapter1") {
+      navigateTo("/");
+    } else if (currentPath === "/") {
+      navigateTo("/kc-vite-app");
+    }
+  };
 
   return (
     <main className="mt-8 ">
@@ -149,8 +153,8 @@ function App() {
             />
           </svg>
         }
-        handleClick
-        className="bottom-2 left-3 fixed z-1 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm w-8   py-1.5 me-2 mb-2  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+        handleClick={handlePrevious}
+        className="bottom-2 left-3 fixed z-1 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm w-16 h-10   py-1.5 me-2 mb-2  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
       />
 
       <PreviousNextButton
@@ -169,34 +173,30 @@ function App() {
             />
           </svg>
         }
-        handleClick
-        className="bottom-2 right-3 fixed z-1 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm w-8   py-1.5 me-2 mb-2  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+        handleClick={handleNext}
+        className="bottom-2 right-3 fixed z-1 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm w-16 h-10   py-1.5 me-2 mb-2  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
       />
 
-      <Router>
-        <div className="md:grid  md:grid-cols-4 gap-1">
-          <div className="md:hidden fixed top-12 left-4">{renderMenu()}</div>
-          <div className="hidden md:block">
-            <Menu />
-          </div>
-          <div className="md:col-span-2 bg-gray-100 rounded w-100 m-1 mt-24 p-1 pt-3 lg:p-3">
-            <Routes>
-              <Route path="/chapter1" element={<Chapter1Page />}></Route>
-              <Route path="/chapter2" element={<Chapter2Page />}></Route>
-              <Route path="/chapter3" element={<Chapter3Page />}></Route>
-              <Route path="/chapter4" element={<Chapter4Page />}></Route>
-              <Route path="/kc-vite-app" element={<Chapter1Page />}></Route>
-              <Route path="/" element={<Form />}></Route>
-            </Routes>
-          </div>{" "}
-          <div className="md:hidden fixed top-12 right-4 ">
-            {renderSummary()}
-          </div>
-          <div className="hidden md:block">
-            <Summary />
-          </div>
+      <div className="md:grid  md:grid-cols-4 gap-1">
+        <div className="md:hidden fixed top-12 left-4">{renderMenu()}</div>
+        <div className="hidden md:block">
+          <Menu />
         </div>
-      </Router>
+        <div className="md:col-span-2 bg-gray-100 rounded w-100 m-1 p-1 pt-3 lg:p-3">
+          <Routes>
+            <Route path="/chapter1" element={<Chapter1Page />}></Route>
+            <Route path="/chapter2" element={<Chapter2Page />}></Route>
+            <Route path="/chapter3" element={<Chapter3Page />}></Route>
+            <Route path="/chapter4" element={<Chapter4Page />}></Route>
+            <Route path="/kc-vite-app" element={<Chapter1Page />}></Route>
+            <Route path="/" element={<Form />}></Route>
+          </Routes>
+        </div>{" "}
+        <div className="md:hidden fixed top-12 right-4 ">{renderSummary()}</div>
+        <div className="hidden md:block">
+          <Summary />
+        </div>
+      </div>
     </main>
   );
 }
