@@ -1,6 +1,9 @@
 import React from "react";
 import ChapterContent_IV from "../components/chapter_IV_components/ChapterContent_IV";
+import { ChapterContent_IVv2 } from "../components/chapter_IV_components/ChapterContent_IVv2";
+
+
 
 export const Chapter4Page = () => {
-  return <ChapterContent_IV />;
+  return <ChapterContent_IVv2 />;
 };

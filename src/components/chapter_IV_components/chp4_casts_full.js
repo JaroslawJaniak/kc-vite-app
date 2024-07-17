@@ -40,6 +40,7 @@ const chp4_casts_ = [
             { availabilityHiddenStatus: false, exeptionHiddenStatus: true },
           ],
         ],
+        
       },
       {
         profName: "ŁOWCA",

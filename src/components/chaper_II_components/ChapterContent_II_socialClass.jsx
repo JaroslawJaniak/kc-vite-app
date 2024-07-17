@@ -31,12 +31,12 @@ const ChapterContent_II_socialClass = () => {
         dataSocialClass(k).socialClassCastDescription
       );
       context.setSocialClassFullName(dataSocialClass(k).socialClassFullName);
+      context.setIsSocialClassNobility(dataSocialClass(k).nobility);
+
       context.setSocialClassK100Result(k);
       context.setTableSocialClass_trId(dataSocialClass(k).table_trId);
       context.setDice_nSocialClass(dataSocialClass(k).n);
       context.setDice_kSocialClass(dataSocialClass(k).k);
-
-      
 
       document
         .getElementById("table2_row" + dataSocialClass(k).table_trId)

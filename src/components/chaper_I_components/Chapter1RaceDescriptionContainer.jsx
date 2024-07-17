@@ -9,6 +9,9 @@ export const Chapter1RaceDescriptionContainer = (props) => {
   const handleElementChange = (raceName) => {
     props.handleElementChange(raceName);
     context.setRaceDescription(props.race_description.description);
+    context.setAvailableProfessionsByRace(
+      props.race_description.availableProfessions
+    );
   };
 
   return (
@@ -25,6 +28,7 @@ export const Chapter1RaceDescriptionContainer = (props) => {
       />
 
       <NewLineText text={props.race_description.description} />
+      
     </div>
   );
 };

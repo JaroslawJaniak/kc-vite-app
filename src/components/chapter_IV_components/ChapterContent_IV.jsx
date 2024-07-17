@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 
 import CastSubprofession_container from "./CastSubprofession_container";
 import chp4_casts from "./chp4_casts";
@@ -11,8 +11,10 @@ import { CharacterStatsContext } from "../../context/CharacterStatsContext";
 
 const ChapterContent_IV = () => {
   const context = useContext(CharacterStatsContext);
-  const handleProfChange = () => { };
-  
+  const handleElementChange = (profName) => {
+    context.setProfession(profName);
+  };
+
   return (
     <div>
       <ChapterContent_IV_second_profession />
@@ -25,7 +27,13 @@ const ChapterContent_IV = () => {
           className="subprofession_cast profession_cast "
         >
           {chp4_casts_.map((casts) => (
-            <div className="h-min p-1 m-8">
+            <div
+              className="h-min p-1 m-8"
+              hidden={
+                casts.castName === "RYCERSKA" &&
+                context.isSocialClassNobility === false
+              }
+            >
               <h4 className=" font-bold font-sans ">
                 {" "}
                 KASTA {casts.castName}:
@@ -41,10 +49,11 @@ const ChapterContent_IV = () => {
                     type={"checkbox"}
                     name={prof.profName}
                     className={" "}
-                    checked={false}
-                    onChange={handleProfChange}
+                    checked={context.profession === prof.profName}
+                    onChange={() => handleElementChange(prof.profName)}
                   />
-                  <hr className="my-3 " />
+
+                  
                   <div className="xl:flex">
                     {prof.subbProfHiddenStatus.map(
                       (subbProfHiddenStatObjectsList, indexHiddenStat) => (
@@ -55,6 +64,8 @@ const ChapterContent_IV = () => {
                           index1={indexHiddenStat}
                           Item1={subbProfHiddenStatObjectsList}
                           Item2={chp4_professions}
+                          firstProfession={prof.profName}
+                          disabled={!(context.profession === prof.profName)}
                         >
                           {indexHiddenStat}
                         </CastSubprofession_container>

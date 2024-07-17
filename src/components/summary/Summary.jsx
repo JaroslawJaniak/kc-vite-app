@@ -33,6 +33,11 @@ const Summary = () => {
           <b> Roczny dochód: </b>
           {context.chpt2Info.incomeValue}
         </p>
+        <p>
+          <b> Profesja: </b>
+          {context.profession} - {context.secondProfession}
+        </p>
+        <p>{context.availableProfessionsByRace.map((el) => <p>{el.profName }</p>)}</p>
       </article>
     </section>
   );

@@ -38,21 +38,25 @@ const CastSubprofession_container = (props) => {
 
   return (
     <div className="subprofession_container cast" hidden={!props.hidden}>
-      {props.Item1.map((stat, indexStat) => (
+      {props.Item1.map((subbProfHiddenStatus, index) => (
         <Subprofession
-          indexOfArray={props.index1}
-          indexStat2={indexStat}
+          
+          //index1- wskazuje na kastę
+          //index - wskazauje na profesje danej kasty
           hiddenStat={isSubprofessionHidden(
-            stat.availabilityHiddenStatus,
-            stat.exeptionHiddenStatus,
+            subbProfHiddenStatus.availabilityHiddenStatus,
+            subbProfHiddenStatus.exeptionHiddenStatus,
             context.exeptionChecked
           )}
           professions={props.Item2}
+          firstProfession={props.firstProfession}
+          secondProfession={props.Item2[props.index1][index]}
+          disabled={props.disabled}
         >
-          {props.Item2[props.index1][indexStat]}
+          {props.Item2[props.index1][index]}
           {exeptionRenderText(
-            stat.availabilityHiddenStatus,
-            stat.exeptionHiddenStatus
+            subbProfHiddenStatus.availabilityHiddenStatus,
+            subbProfHiddenStatus.exeptionHiddenStatus
           )}
         </Subprofession>
       ))}

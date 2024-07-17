@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 import imageMap0 from "../assets/map0.jpg";
+import { chp4_professionsList } from "../components/chapter_IV_components/chp4_professions";
 
 export const CharacterStatsContext = createContext();
 
@@ -35,6 +36,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
   const [incomeValue, setIncomeValue] = useState(0);
   const [socialClassIncomeK100Clicked, setSocialClassIncomeK100Clicked] =
     useState(false);
+  const [isSocialClassNobility, setIsSocialClassNobility] = useState(false);
 
   const [disabilities, setDisabilities] = useState([]);
   const [disabilitiesK100Result, setDisabilitiesK100Result] = useState(0);
@@ -46,10 +48,47 @@ export const CharacterStatsContextProvider = ({ children }) => {
   const [abilitiesK100Clicked, setAbilitiesK100Clicked] = useState(false);
   const [abilitiesChance, setAbilitiesChance] = useState(100);
 
-  const [profession, setProfession] = useState(false);
-  const [secondProfession, setSecondProfession] = useState(false);
+  const [profession, setProfession] = useState("");
+  const [secondProfession, setSecondProfession] = useState("");
+  const [professionChecked, setProfessionChecked] = useState(false);
   const [secondProfessionChecked, setSecondProfessionChecked] = useState(false);
   const [exeptionChecked, setExeptionChecked] = useState(false);
+  const [availableProfessionsByRace, setAvailableProfessionsByRace] = useState([
+    { profName: "WOJOWNIK", maxLevel: "" },
+    { profName: "ŁOWCA", maxLevel: "" },
+    { profName: "GWARDZISTA", maxLevel: "" },
+    { profName: "BARBARZYŃCA", maxLevel: "" },
+    { profName: "RYCERZ", maxLevel: "" },
+    { profName: "PALADYN", maxLevel: "" },
+    { profName: "CZARNY RYCERZ", maxLevel: "" },
+    { profName: "ZŁODZIEJ", maxLevel: "" },
+    { profName: "ZABÓJCA", maxLevel: "" },
+    { profName: "KUPIEC", maxLevel: "" },
+    { profName: "KAPŁAN", maxLevel: "" },
+    { profName: "DRUID", maxLevel: "" },
+    { profName: "ASTROLOG", maxLevel: "" },
+    { profName: "PÓŁBÓG", maxLevel: "" },
+    { profName: "MAG", maxLevel: "" },
+    { profName: "CZARNOKSIĘŻNIK", maxLevel: "" },
+    { profName: "ILUZJONISTA", maxLevel: "" },
+    { profName: "ALCHEMIK", maxLevel: "" },
+  ]);
+  const [isProfAvailable, setIsProfAvailable] = useState();
+
+  const [availableProfessions, setAvailableProfessions] =
+    useState(chp4_professionsList);
+  const [renderProfessions, setRenderProfessions] =
+    useState(chp4_professionsList);
+   
+  const filterProfessionByRace = () => {
+    const newProfList = availableProfessions.filter((prof) =>
+      availableProfessionsByRace.some(
+        (raceProf) => raceProf.profName === prof.profName
+      )
+    );
+
+    setRenderProfessions(newProfList);
+  };
 
   const chpt1Info = {
     name: "",
@@ -121,6 +160,8 @@ export const CharacterStatsContextProvider = ({ children }) => {
     socialClass,
     socialClassFullName,
     socialClassDescription,
+    isSocialClassNobility,
+    setIsSocialClassNobility,
     setSocialClassDescription,
     socialClassCastDescription,
     setSocialClassCastDescription,
@@ -167,11 +208,21 @@ export const CharacterStatsContextProvider = ({ children }) => {
     setDice_kSocialClass,
     setSocialClassBonusStats,
     setIncomeValue,
+    profession,
+    setProfession,
+    secondProfession,
+    setSecondProfession,
     setSocialClassIncomeK100Clicked,
     secondProfessionChecked,
     setSecondProfessionChecked,
     exeptionChecked,
     setExeptionChecked,
+    availableProfessionsByRace,
+    setAvailableProfessionsByRace,
+    isProfAvailable,
+    setIsProfAvailable,
+    filterProfessionByRace,
+    renderProfessions,
   };
 
   return (

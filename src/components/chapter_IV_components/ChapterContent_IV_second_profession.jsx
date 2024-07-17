@@ -1,15 +1,16 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import chp4_info from "./chp4_info";
 import { InputComponent } from "../utils/InputComponent";
 import { CharacterStatsContext } from "../../context/CharacterStatsContext";
 
 export const ChapterContent_IV_second_profession = () => {
-
   const context = useContext(CharacterStatsContext);
 
-   const handleElementChange = () => {
-     context.setSecondProfessionChecked(!context.secondProfessionChecked);
-   };
+  const handleElementChange = () => {
+    context.setSecondProfessionChecked(!context.secondProfessionChecked);
+
+    context.setSecondProfession("");
+  };
   return (
     <div className="mb-8">
       <InputComponent

@@ -22,6 +22,7 @@ const Chapter1RaceSelection = ({ chp1_race_description }) => {
           checkedElement={context.raceChecked}
           handleElementChange={handleElementChange}
         />
+        
       ))}
     </form>
   );
