@@ -13,12 +13,12 @@ export const ChapterContent_IV_CAST_subProfList = (props) => {
 
   
   return (
-    <div
-      className="ml-4 border [&>*]:lowercase grid grid-cols-2"
-      hidden={!(context.firstProfession === props.mainProf.profName)}
-    >
+    <div className="ml-4 border [&>*]:lowercase grid grid-cols-2">
       {props.mainProf.combiningProfessions.map((subProfList) => (
-        <div className="border rounded bg-white  m-1 p-1">
+        <div
+          className="border rounded bg-white  m-1 p-1"
+          hidden={!(context.firstProfession === props.mainProf.profName)}
+        >
           {subProfList
             .filter((subProfName) =>
               props.professionsList.some(
