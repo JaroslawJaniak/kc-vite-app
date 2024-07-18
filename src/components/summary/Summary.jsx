@@ -37,7 +37,17 @@ const Summary = () => {
           <b> Profesja: </b>
           {context.profession} - {context.secondProfession}
         </p>
-        <p>{context.availableProfessionsByRace.map((el) => <p>{el.profName }</p>)}</p>
+        <p>
+          {context.renderProfessions.map((el) => (
+            <p>{el.profName}</p>
+          ))}
+        </p>
+
+        <p>
+          {context.renderCharacters.map((el) => (
+            <p>{el}</p>
+          ))}
+        </p>
       </article>
     </section>
   );

@@ -4,28 +4,15 @@ import { InputComponent } from "../utils/InputComponent";
 
 const Subprofession = (props) => {
   const context = useContext(CharacterStatsContext);
-  const [isProfAvailable, setIsProfAvailable] = useState(false);
+ 
 
   const handleElementChange = (profName) => {
     context.setSecondProfession(profName);
   };
 
-  const isProfessionAvailable = (prof) => {
-    return prof;
-    // context.availableProfessionsByRace.forEach((el) => {
-    //   if (el.profName !== prof) {return prof}
-    // });
-  };
-
-  
-
-  useEffect(() => {
-    
-    return () => {
-      
-    };
-  }, []);
-  
+  const isChecked =
+    context.secondProfession === props.secondProfession &&
+    context.profession === props.firstProfession;
 
   return (
     <div className="subprofession ml-5" hidden={props.hiddenStat}>
@@ -34,8 +21,7 @@ const Subprofession = (props) => {
         name={props.children}
         className={"lowercase"}
         checked={
-          context.secondProfession === props.secondProfession &&
-          context.profession === props.firstProfession
+          isChecked
         }
         onChange={() => {
           handleElementChange(props.secondProfession);

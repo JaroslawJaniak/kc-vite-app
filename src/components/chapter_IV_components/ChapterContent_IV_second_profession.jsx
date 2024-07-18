@@ -7,7 +7,7 @@ export const ChapterContent_IV_second_profession = () => {
   const context = useContext(CharacterStatsContext);
 
   const handleElementChange = () => {
-    context.setSecondProfessionChecked(!context.secondProfessionChecked);
+    context.setIsSecondProfessionChecked(!context.isSecondProfessionChecked);
 
     context.setSecondProfession("");
   };
@@ -17,7 +17,7 @@ export const ChapterContent_IV_second_profession = () => {
         type={"checkbox"}
         name={chp4_info.text1}
         className={""}
-        checked={context.secondProfessionChecked}
+        checked={context.isSecondProfessionChecked}
         onChange={handleElementChange}
       />
     </div>

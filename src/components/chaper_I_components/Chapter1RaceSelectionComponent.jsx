@@ -8,7 +8,6 @@ const Chapter1RaceSelection = ({ chp1_race_description }) => {
   const context = useContext(CharacterStatsContext);
 
   const handleElementChange = (raceName) => {
-    
     context.setRaceChecked(raceName);
     
   };

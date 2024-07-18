@@ -20,7 +20,7 @@ export const InputComponent = (props) => {
           disabled={props.disabled}
         />
 
-        <span>{props.name} - {props.hidden}</span>
+        <span>{props.name}</span>
       </label>
     </div>
   );

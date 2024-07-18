@@ -48,10 +48,12 @@ export const CharacterStatsContextProvider = ({ children }) => {
   const [abilitiesK100Clicked, setAbilitiesK100Clicked] = useState(false);
   const [abilitiesChance, setAbilitiesChance] = useState(100);
 
-  const [profession, setProfession] = useState("");
+  const [firstProfession, setFirstProfession] = useState("");
   const [secondProfession, setSecondProfession] = useState("");
-  const [professionChecked, setProfessionChecked] = useState(false);
+  const [firstProfessionChecked, setFirstProfessionChecked] = useState(false);
   const [secondProfessionChecked, setSecondProfessionChecked] = useState(false);
+  const [isSecondProfessionChecked, setIsSecondProfessionChecked] =
+    useState(false);
   const [exeptionChecked, setExeptionChecked] = useState(false);
   const [availableProfessionsByRace, setAvailableProfessionsByRace] = useState([
     { profName: "WOJOWNIK", maxLevel: "" },
@@ -77,18 +79,42 @@ export const CharacterStatsContextProvider = ({ children }) => {
 
   const [availableProfessions, setAvailableProfessions] =
     useState(chp4_professionsList);
+  const [availableCharacters, setAvailableCharacters] = useState([
+    "praworządny-dobry",
+    "praworządny-neutralny",
+    "praworządny-zły",
+    "neutralny-dobry",
+    "neutralny-neutralny",
+    "neutralny-zły",
+    "chaotyczny-dobry",
+    "chaotyczny-neutralny",
+    "chaotyczny-zły",
+  ]);
+
   const [renderProfessions, setRenderProfessions] =
     useState(chp4_professionsList);
-   
+  const [renderCharacters, setRenderCharacters] = useState([
+    "praworządny-dobry",
+    "praworządny-neutralny",
+    "praworządny-zły",
+    "neutralny-dobry",
+    "neutralny-neutralny",
+    "neutralny-zły",
+    "chaotyczny-dobry",
+    "chaotyczny-neutralny",
+    "chaotyczny-zły",
+  ]);
+
   const filterProfessionByRace = () => {
     const newProfList = availableProfessions.filter((prof) =>
       availableProfessionsByRace.some(
         (raceProf) => raceProf.profName === prof.profName
       )
     );
-
     setRenderProfessions(newProfList);
   };
+
+  const filterCharactersByProfession = () => {};
 
   const chpt1Info = {
     name: "",
@@ -208,11 +234,12 @@ export const CharacterStatsContextProvider = ({ children }) => {
     setDice_kSocialClass,
     setSocialClassBonusStats,
     setIncomeValue,
-    profession,
-    setProfession,
+    setSocialClassIncomeK100Clicked,
+
+    firstProfession,
+    setFirstProfession,
     secondProfession,
     setSecondProfession,
-    setSocialClassIncomeK100Clicked,
     secondProfessionChecked,
     setSecondProfessionChecked,
     exeptionChecked,
@@ -222,7 +249,14 @@ export const CharacterStatsContextProvider = ({ children }) => {
     isProfAvailable,
     setIsProfAvailable,
     filterProfessionByRace,
+    filterCharactersByProfession,
     renderProfessions,
+    renderCharacters,
+    setRenderCharacters,
+    firstProfessionChecked,
+    setFirstProfessionChecked,
+    isSecondProfessionChecked,
+    setIsSecondProfessionChecked,
   };
 
   return (

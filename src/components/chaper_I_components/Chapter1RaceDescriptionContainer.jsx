@@ -12,6 +12,7 @@ export const Chapter1RaceDescriptionContainer = (props) => {
     context.setAvailableProfessionsByRace(
       props.race_description.availableProfessions
     );
+   
   };
 
   return (
@@ -24,6 +25,7 @@ export const Chapter1RaceDescriptionContainer = (props) => {
         checked={props.checkedElement === props.race_description.raceName}
         onChange={() => {
           handleElementChange(`${props.race_description.raceName}`);
+           
         }}
       />
 

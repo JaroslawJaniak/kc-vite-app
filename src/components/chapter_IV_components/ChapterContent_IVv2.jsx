@@ -1,21 +1,20 @@
-import React, { useContext } from "react";
-import {
- 
-  useNavigate,
-} from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { ChapterContent_IV_second_profession } from "./ChapterContent_IV_second_profession";
 import { ChapterContent_IV_exeption } from "./ChapterContent_IV_exeption";
 import { CharacterStatsContext } from "../../context/CharacterStatsContext";
-import { chp4_professionsList } from "./chp4_professions";
 import { NavButton } from "../../utils/NavButton";
 import { ChapterContent_IV_CAST_Component } from "./ChapterContent_IV_CAST_Component";
 
 export const ChapterContent_IVv2 = () => {
   const context = useContext(CharacterStatsContext);
+  useEffect(() => {
+    context.filterProfessionByRace();
+    context.filterCharactersByProfession();
+    return () => {};
+  }, []);
+
   const navigateTo = useNavigate();
-  const handleElementChange = (profName) => {
-    context.setProfession(profName);
-  };
 
   const backBtnText = (
     <span>
@@ -38,19 +37,13 @@ export const ChapterContent_IVv2 = () => {
 
   return (
     <div>
-      <button
-        className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5  mb-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
-        onClick={() => context.filterProfessionByRace()}
-      >
-        setProfX
-      </button>
       <NavButton
         text={backBtnText}
         handleClick={() => navigateTo("/chapter1")}
-        className=" top-18 right-96 fixed z-1 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm  px-4  py-1.5 me-2 mb-2  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+        className=" top-18 right-2 md:right-72 fixed z-1 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm  px-4  py-1.5 me-2 mb-2  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
       />
       <ChapterContent_IV_second_profession />
-      <ChapterContent_IV_exeption hidden={!context.secondProfessionChecked} />
+      <ChapterContent_IV_exeption hidden={!context.isSecondProfessionChecked} />
       <hr className="my-3 " />
 
       <ChapterContent_IV_CAST_Component
