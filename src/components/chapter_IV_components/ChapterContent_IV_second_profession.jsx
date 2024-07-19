@@ -8,9 +8,9 @@ export const ChapterContent_IV_second_profession = () => {
 
   const handleElementChange = () => {
     context.setIsSecondProfessionChecked(!context.isSecondProfessionChecked);
-
     context.setSecondProfession("");
   };
+  
   return (
     <div className="mb-8">
       <InputComponent

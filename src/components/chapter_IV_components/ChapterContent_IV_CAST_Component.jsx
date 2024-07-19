@@ -6,9 +6,23 @@ import { InputComponent } from "../utils/InputComponent";
 export const ChapterContent_IV_CAST_Component = (props) => {
   const context = useContext(CharacterStatsContext);
 
-  const handleElementChange = (profName) => {
+  const handleElementChange = (prof, profName) => {
     context.setFirstProfession(profName);
-    context.setFirstProfessionChecked(!context.firstProfessionChecked);
+    context.setFirstProfessionInfo(prof);
+
+    
+   
+    if (profName === context.firstProfession) {
+      context.setFirstProfessionChecked(!context.firstProfessionChecked);
+
+      context.setFirstProfession("");
+    } else {
+      context.setFirstProfessionChecked(true);
+
+      //unchecked 2-nd prof
+      context.setSecondProfessionChecked(false);
+      context.setSecondProfession("");
+    }
   };
 
   return (
@@ -25,7 +39,7 @@ export const ChapterContent_IV_CAST_Component = (props) => {
                 context.firstProfessionChecked &&
                 context.firstProfession === prof.profName
               }
-              onChange={() => handleElementChange(prof.profName)}
+              onChange={() => handleElementChange(prof, prof.profName)}
             />
             <ChapterContent_IV_CAST_subProfList
               mainProf={prof}

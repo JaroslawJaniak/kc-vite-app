@@ -1,17 +1,33 @@
 import React, { useContext, useState } from "react";
 import { CharacterStatsContext } from "../../context/CharacterStatsContext";
 import { InputComponent } from "../utils/InputComponent";
+import chp4_professionsList from "./chp4_professions";
 
 export const ChapterContent_IV_CAST_subProfList = (props) => {
   const context = useContext(CharacterStatsContext);
-  
 
   const handleElementChange = (profName) => {
     context.setSecondProfession(profName);
-    context.setSecondProfessionChecked(!context.secondProfessionChecked);
+
+    const newCharList = context.firstProfessionInfo.character.filter((char1) =>
+      context.secondProfessionInfo.character.some((char2) => char2 === char1)
+    );
+    context.setAvailableCharacters(newCharList);
+
+    const secondProfToSet = context.renderProfessions.filter(
+      (prof) => prof.profName === profName
+    );
+
+    context.setSecondProfessionInfo(...secondProfToSet);
+
+    if (profName === context.secondProfession) {
+      context.setSecondProfessionChecked(!context.secondProfessionChecked);
+      context.setSecondProfession("");
+    } else {
+      context.setSecondProfessionChecked(true);
+    }
   };
 
-  
   return (
     <div className="ml-4 border [&>*]:lowercase grid grid-cols-2">
       {props.mainProf.combiningProfessions.map((subProfList) => (

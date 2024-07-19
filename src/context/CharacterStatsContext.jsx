@@ -50,6 +50,37 @@ export const CharacterStatsContextProvider = ({ children }) => {
 
   const [firstProfession, setFirstProfession] = useState("");
   const [secondProfession, setSecondProfession] = useState("");
+  //const [professionInfo, setProfessionInfo] = useState({firstProfessionInfo, secondProfessionInfo});
+  const [firstProfessionInfo, setFirstProfessionInfo] = useState({
+    profName: "",
+    castName: "",
+    combiningProfessions: [
+      ["", "", ""],
+      ["", "", ""],
+      ["", "", "", ""],
+    ],
+    exeptionCombiningProfessions: [],
+    character: ["", "", "", "", "", "", "", "", ""],
+    usedWeapons: "",
+    usedArmour: "",
+    uesedMagic: "",
+    formation: "",
+  });
+  const [secondProfessionInfo, setSecondProfessionInfo] = useState({
+    profName: "",
+    castName: "",
+    combiningProfessions: [
+      ["", "", ""],
+      ["", "", ""],
+      ["", "", "", ""],
+    ],
+    exeptionCombiningProfessions: [],
+    character: ["", "", "", "", "", "", "", "", ""],
+    usedWeapons: "",
+    usedArmour: "",
+    uesedMagic: "",
+    formation: "",
+  });
   const [firstProfessionChecked, setFirstProfessionChecked] = useState(false);
   const [secondProfessionChecked, setSecondProfessionChecked] = useState(false);
   const [isSecondProfessionChecked, setIsSecondProfessionChecked] =
@@ -105,6 +136,33 @@ export const CharacterStatsContextProvider = ({ children }) => {
     "chaotyczny-zły",
   ]);
 
+  // const renderCharacterSet = () => {
+  //   // console.log("1. " + firstProfessionInfo.character);
+  //   // console.log("2. " + secondProfessionInfo.character);
+  //   const newCharList = firstProfessionInfo.character.filter((char1) =>
+  //     secondProfessionInfo.character.some((char2) => char2 === char1)
+  //   );
+
+  //   //console.log("3. " + newCharList);
+  //   setAvailableCharacters((prevList) => (prevList = newCharList));
+  // };
+
+  const setDATAProfessionInfo = () => {
+    if (firstProfession !== "") {
+      const firstProfToSet = renderProfessions.filter(
+        (prof) => prof.profName === firstProfession
+      );
+      setFirstProfessionInfo(...firstProfToSet);
+    }
+
+    if (secondProfession !== "") {
+      const secondProfToSet = renderProfessions.filter(
+        (prof) => prof.profName === secondProfession
+      );
+      setSecondProfessionInfo(...secondProfToSet);
+    }
+  };
+
   const filterProfessionByRace = () => {
     const newProfList = availableProfessions.filter((prof) =>
       availableProfessionsByRace.some(
@@ -114,7 +172,9 @@ export const CharacterStatsContextProvider = ({ children }) => {
     setRenderProfessions(newProfList);
   };
 
-  const filterCharactersByProfession = () => {};
+  const filterCharactersByProfession = () => {
+    console.log(firstProfessionInfo.profName);
+  };
 
   const chpt1Info = {
     name: "",
@@ -257,6 +317,16 @@ export const CharacterStatsContextProvider = ({ children }) => {
     setFirstProfessionChecked,
     isSecondProfessionChecked,
     setIsSecondProfessionChecked,
+    //professionInfo,
+    firstProfessionInfo,
+    setFirstProfessionInfo,
+    setSecondProfessionInfo,
+    secondProfessionInfo,
+    setDATAProfessionInfo,
+    availableCharacters,
+    setAvailableCharacters,
+    filterCharactersByProfession,
+   
   };
 
   return (

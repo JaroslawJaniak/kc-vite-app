@@ -10,7 +10,7 @@ export const ChapterContent_IVv2 = () => {
   const context = useContext(CharacterStatsContext);
   useEffect(() => {
     context.filterProfessionByRace();
-    context.filterCharactersByProfession();
+
     return () => {};
   }, []);
 
