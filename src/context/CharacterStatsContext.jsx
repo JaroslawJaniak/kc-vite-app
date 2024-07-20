@@ -110,31 +110,20 @@ export const CharacterStatsContextProvider = ({ children }) => {
 
   const [availableProfessions, setAvailableProfessions] =
     useState(chp4_professionsList);
+
   const [availableCharacters, setAvailableCharacters] = useState([
-    "praworządny-dobry",
-    "praworządny-neutralny",
-    "praworządny-zły",
-    "neutralny-dobry",
-    "neutralny-neutralny",
-    "neutralny-zły",
-    "chaotyczny-dobry",
-    "chaotyczny-neutralny",
-    "chaotyczny-zły",
+    
   ]);
+
+  const [firstProfessionCharacters, setFirstProfessionCharacters] = useState(
+    []
+  );
+  const [secondProfessionCharacters, setSecondProfessionCharacters] = useState(
+    []
+  );
 
   const [renderProfessions, setRenderProfessions] =
     useState(chp4_professionsList);
-  const [renderCharacters, setRenderCharacters] = useState([
-    "praworządny-dobry",
-    "praworządny-neutralny",
-    "praworządny-zły",
-    "neutralny-dobry",
-    "neutralny-neutralny",
-    "neutralny-zły",
-    "chaotyczny-dobry",
-    "chaotyczny-neutralny",
-    "chaotyczny-zły",
-  ]);
 
   // const renderCharacterSet = () => {
   //   // console.log("1. " + firstProfessionInfo.character);
@@ -147,21 +136,21 @@ export const CharacterStatsContextProvider = ({ children }) => {
   //   setAvailableCharacters((prevList) => (prevList = newCharList));
   // };
 
-  const setDATAProfessionInfo = () => {
-    if (firstProfession !== "") {
-      const firstProfToSet = renderProfessions.filter(
-        (prof) => prof.profName === firstProfession
-      );
-      setFirstProfessionInfo(...firstProfToSet);
-    }
+  // const setDATAProfessionInfo = () => {
+  //   if (firstProfession !== "") {
+  //     const firstProfToSet = renderProfessions.filter(
+  //       (prof) => prof.profName === firstProfession
+  //     );
+  //     setFirstProfessionInfo(...firstProfToSet);
+  //   }
 
-    if (secondProfession !== "") {
-      const secondProfToSet = renderProfessions.filter(
-        (prof) => prof.profName === secondProfession
-      );
-      setSecondProfessionInfo(...secondProfToSet);
-    }
-  };
+  //   if (secondProfession !== "") {
+  //     const secondProfToSet = renderProfessions.filter(
+  //       (prof) => prof.profName === secondProfession
+  //     );
+  //     setSecondProfessionInfo(...secondProfToSet);
+  //   }
+  // };
 
   const filterProfessionByRace = () => {
     const newProfList = availableProfessions.filter((prof) =>
@@ -311,8 +300,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
     filterProfessionByRace,
     filterCharactersByProfession,
     renderProfessions,
-    renderCharacters,
-    setRenderCharacters,
+
     firstProfessionChecked,
     setFirstProfessionChecked,
     isSecondProfessionChecked,
@@ -322,11 +310,14 @@ export const CharacterStatsContextProvider = ({ children }) => {
     setFirstProfessionInfo,
     setSecondProfessionInfo,
     secondProfessionInfo,
-    setDATAProfessionInfo,
+    //setDATAProfessionInfo,
     availableCharacters,
     setAvailableCharacters,
     filterCharactersByProfession,
-   
+    firstProfessionCharacters,
+    setFirstProfessionCharacters,
+    secondProfessionCharacters,
+    setSecondProfessionCharacters,
   };
 
   return (

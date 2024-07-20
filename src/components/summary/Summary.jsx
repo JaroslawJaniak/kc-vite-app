@@ -11,7 +11,7 @@ const Summary = () => {
       context.secondProfessionInfo.character.some((char2) => char2 === char1)
     );
 
-    console.log("vd: " + newCharList);
+    console.log("sm: " + newCharList);
     return newCharList.map((el) => <p>{el}</p>);
   };
 
@@ -69,8 +69,7 @@ const Summary = () => {
           ))}
         </p>
 
-        <p>{...context.firstProfessionInfo.profName}</p>
-        <p>{...context.secondProfessionInfo.profName}</p>
+       
       </article>
     </section>
   );

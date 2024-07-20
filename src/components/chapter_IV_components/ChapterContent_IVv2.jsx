@@ -46,30 +46,43 @@ export const ChapterContent_IVv2 = () => {
       <ChapterContent_IV_exeption hidden={!context.isSecondProfessionChecked} />
       <hr className="my-3 " />
 
-      <ChapterContent_IV_CAST_Component
-        professionsList={context.renderProfessions}
-        castName={"ŻOŁNIERSKA"}
-      />
-      <hr className="my-3 " />
-      <ChapterContent_IV_CAST_Component
-        professionsList={context.renderProfessions}
-        castName={"RYCERSKA"}
-      />
-      <hr className="my-3 " />
-      <ChapterContent_IV_CAST_Component
-        professionsList={context.renderProfessions}
-        castName={"ZŁODZIEJSKA"}
-      />
-      <hr className="my-3 " />
-      <ChapterContent_IV_CAST_Component
-        professionsList={context.renderProfessions}
-        castName={"KAPŁAŃSKA"}
-      />
-      <hr className="my-3 " />
-      <ChapterContent_IV_CAST_Component
-        professionsList={context.renderProfessions}
-        castName={"CZARODZIEJSKA"}
-      />
+      <div className="flex justify-between pr-28">
+        <div>
+          {" "}
+          <ChapterContent_IV_CAST_Component
+            professionsList={context.renderProfessions}
+            castName={"ŻOŁNIERSKA"}
+          />
+          <ChapterContent_IV_CAST_Component
+            professionsList={context.renderProfessions}
+            castName={"RYCERSKA"}
+          />
+          <ChapterContent_IV_CAST_Component
+            professionsList={context.renderProfessions}
+            castName={"ZŁODZIEJSKA"}
+          />
+          <ChapterContent_IV_CAST_Component
+            professionsList={context.renderProfessions}
+            castName={"KAPŁAŃSKA"}
+          />
+          <ChapterContent_IV_CAST_Component
+            professionsList={context.renderProfessions}
+            castName={"CZARODZIEJSKA"}
+          />
+        </div>{" "}
+        <div>
+          CHARACTERS1:
+          {context.firstProfessionCharacters.map((el) => (
+            <p>{el}</p>
+          ))}
+        </div>
+        <div>
+          CHARACTERS2:
+          {context.availableCharacters.map((el) => (
+            <p>{el}</p>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

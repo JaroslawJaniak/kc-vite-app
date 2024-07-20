@@ -117,7 +117,7 @@ export const chp4_professionsList = [
     castName: "RYCERSKA",
     combiningProfessions: [["KAPŁAN"]],
     exeptionCombiningProfessions: [],
-    character: ["praworządny - zły"],
+    character: ["praworządny-zły"],
     usedWeapons: "",
     usedArmour: "",
     uesedMagic: "",

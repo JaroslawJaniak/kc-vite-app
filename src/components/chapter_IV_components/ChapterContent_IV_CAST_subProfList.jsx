@@ -9,20 +9,28 @@ export const ChapterContent_IV_CAST_subProfList = (props) => {
   const handleElementChange = (profName) => {
     context.setSecondProfession(profName);
 
-    const newCharList = context.firstProfessionInfo.character.filter((char1) =>
-      context.secondProfessionInfo.character.some((char2) => char2 === char1)
-    );
-    context.setAvailableCharacters(newCharList);
-
     const secondProfToSet = context.renderProfessions.filter(
       (prof) => prof.profName === profName
     );
 
     context.setSecondProfessionInfo(...secondProfToSet);
 
+    /**
+     const removeNumber = (numberToRemove) => {
+  return numbers.filter((number) => number !== numberToRemove);
+};
+     */
+
+    const newCharList = context.firstProfessionCharacters.filter((char1) =>
+      secondProfToSet[0].character.some((char2) => char2 === char1)
+    );
+    context.setSecondProfessionCharacters(newCharList);
+    context.setAvailableCharacters(newCharList);
+
     if (profName === context.secondProfession) {
       context.setSecondProfessionChecked(!context.secondProfessionChecked);
       context.setSecondProfession("");
+      context.setSecondProfessionCharacters([]);
     } else {
       context.setSecondProfessionChecked(true);
     }
