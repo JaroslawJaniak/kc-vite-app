@@ -47,27 +47,10 @@ const Summary = () => {
           {context.firstProfession} - {context.secondProfession}
         </p>
         <p>
-          <b> Charakter1: </b>
-          {context.firstProfessionInfo.character.map((el) => (
-            <p>{el}</p>
-          ))}
+          <b> Charakter: </b>
+         {context.character}
         </p>
-        <p>
-          <b> Charakter2: </b>
-          {context.secondProfessionInfo.character.map((el) => (
-            <p>{el}</p>
-          ))}
-        </p>
-        <p>
-          <b> Charakter3: </b>
-          {renderCharacter()}
-        </p>
-        <p>
-          <b> Charakter4: </b>
-          {context.availableCharacters.map((el) => (
-            <p>{el}</p>
-          ))}
-        </p>
+        
 
        
       </article>

@@ -9,9 +9,9 @@ export const ChapterContent_IV_CAST_Component = (props) => {
   const handleElementChange = (prof, profName) => {
     context.setFirstProfession(profName);
     context.setFirstProfessionInfo(prof);
-    
     context.setFirstProfessionCharacters(prof.character);
     context.setAvailableCharacters(prof.character);
+    context.setCharacter("");
 
     if (profName === context.firstProfession) {
       context.setFirstProfessionChecked(!context.firstProfessionChecked);
@@ -43,10 +43,12 @@ export const ChapterContent_IV_CAST_Component = (props) => {
               }
               onChange={() => handleElementChange(prof, prof.profName)}
             />
-            <ChapterContent_IV_CAST_subProfList
-              mainProf={prof}
-              professionsList={props.professionsList}
-            />
+            <div hidden={!context.isSecondProfessionChecked}>
+              <ChapterContent_IV_CAST_subProfList
+                mainProf={prof}
+                professionsList={props.professionsList}
+              />
+            </div>
           </p>
         ))}
     </div>

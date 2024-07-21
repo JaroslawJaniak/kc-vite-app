@@ -34,7 +34,7 @@ export const Form = () => {
   };
 
   return (
-    <div>
+    <div className="mb-20">
       <h2>VII. PODSUMOWANIE PROCESU KREACJI NOWEJ POSTACI</h2>
       <form className="p-8" onSubmit>
         <h3 className="stylized">I. WYBÓR RASY I PŁCI</h3>

@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+
 import { ChapterContent_IV_second_profession } from "./ChapterContent_IV_second_profession";
 import { ChapterContent_IV_exeption } from "./ChapterContent_IV_exeption";
 import { CharacterStatsContext } from "../../context/CharacterStatsContext";
-import { NavButton } from "../../utils/NavButton";
+
 import { ChapterContent_IV_CAST_Component } from "./ChapterContent_IV_CAST_Component";
 
 export const ChapterContent_IVv2 = () => {
@@ -14,7 +14,7 @@ export const ChapterContent_IVv2 = () => {
     return () => {};
   }, []);
 
-  const navigateTo = useNavigate();
+  
 
   const backBtnText = (
     <span>
@@ -36,17 +36,12 @@ export const ChapterContent_IVv2 = () => {
   );
 
   return (
-    <div>
-      <NavButton
-        text={backBtnText}
-        handleClick={() => navigateTo("/chapter1")}
-        className=" top-18 right-2 md:right-72 fixed z-1 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm  px-4  py-1.5 me-2 mb-2  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
-      />
+    <div className="mb-20">
       <ChapterContent_IV_second_profession />
       <ChapterContent_IV_exeption hidden={!context.isSecondProfessionChecked} />
       <hr className="my-3 " />
 
-      <div className="flex justify-between pr-28">
+      <div className="">
         <div>
           {" "}
           <ChapterContent_IV_CAST_Component
@@ -70,18 +65,8 @@ export const ChapterContent_IVv2 = () => {
             castName={"CZARODZIEJSKA"}
           />
         </div>{" "}
-        <div>
-          CHARACTERS1:
-          {context.firstProfessionCharacters.map((el) => (
-            <p>{el}</p>
-          ))}
-        </div>
-        <div>
-          CHARACTERS2:
-          {context.availableCharacters.map((el) => (
-            <p>{el}</p>
-          ))}
-        </div>
+        
+        
       </div>
     </div>
   );

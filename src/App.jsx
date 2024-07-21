@@ -11,7 +11,8 @@ import { Chapter1Page } from "./pages/Chapter1Page";
 import { Chapter2Page } from "./pages/Chapter2Page";
 import { Chapter3Page } from "./pages/Chapter3Page";
 import { Chapter4Page } from "./pages/Chapter4Page";
-import { Form } from "./pages/Form";
+import { Chapter8Page } from "./pages/Chapter8Page";
+import { Form } from "./pages/Chapter7Page";
 import { Menu } from "./components/menu/Menu";
 import Summary from "./components/summary/Summary";
 import { NavButton } from "./utils/NavButton";
@@ -88,8 +89,8 @@ function App() {
     } else if (currentPath === "/chapter3") {
       navigateTo("/chapter4");
     } else if (currentPath === "/chapter4") {
-      navigateTo("/chapter5");
-    } else if (currentPath === "/chapter5") {
+      navigateTo("/chapter8");
+    } else if (currentPath === "/chapter8") {
       navigateTo("/chapter6");
     } else if (currentPath === "/chapter6") {
       navigateTo("/chapter7");
@@ -107,8 +108,8 @@ function App() {
     } else if (currentPath === "/chapter7") {
       navigateTo("/chapter6");
     } else if (currentPath === "/chapter6") {
-      navigateTo("/chapter5");
-    } else if (currentPath === "/chapter5") {
+      navigateTo("/chapter8");
+    } else if (currentPath === "/chapter8") {
       navigateTo("/chapter4");
     } else if (currentPath === "/chapter4") {
       navigateTo("/chapter3");
@@ -187,6 +188,7 @@ function App() {
             <Route path="/chapter2" element={<Chapter2Page />}></Route>
             <Route path="/chapter3" element={<Chapter3Page />}></Route>
             <Route path="/chapter4" element={<Chapter4Page />}></Route>
+            <Route path="/chapter8" element={<Chapter8Page />}></Route>
             <Route path="/kc-vite-app" element={<Chapter1Page />}></Route>
             <Route path="/" element={<Form />}></Route>
           </Routes>

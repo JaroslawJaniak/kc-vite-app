@@ -15,33 +15,29 @@ export const ChapterContent_IV_CAST_subProfList = (props) => {
 
     context.setSecondProfessionInfo(...secondProfToSet);
 
-    /**
-     const removeNumber = (numberToRemove) => {
-  return numbers.filter((number) => number !== numberToRemove);
-};
-     */
-
     const newCharList = context.firstProfessionCharacters.filter((char1) =>
       secondProfToSet[0].character.some((char2) => char2 === char1)
     );
     context.setSecondProfessionCharacters(newCharList);
     context.setAvailableCharacters(newCharList);
+    context.setCharacter("");
 
     if (profName === context.secondProfession) {
       context.setSecondProfessionChecked(!context.secondProfessionChecked);
       context.setSecondProfession("");
       context.setSecondProfessionCharacters([]);
+      context.setSecondProfessionInfo({});
     } else {
       context.setSecondProfessionChecked(true);
     }
   };
 
   return (
-    <div className="ml-4 border [&>*]:lowercase grid grid-cols-2">
+    <div className="ml-4  [&>*]:lowercase grid grid-cols-2">
       {props.mainProf.combiningProfessions.map((subProfList) => (
         <div
-          className="border rounded bg-white  m-1 p-1"
-          hidden={!(context.firstProfession === props.mainProf.profName)}
+          className="border rounded bg-white p-1"
+          //hidden={!(context.firstProfession === props.mainProf.profName)}
         >
           {subProfList
             .filter((subProfName) =>

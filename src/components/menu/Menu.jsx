@@ -72,6 +72,21 @@ export const Menu = () => {
               </NavLink>
             </li>
             <li>
+              <NavLink
+                to="/chapter8"
+                className={({ isActive }) =>
+                  isActive
+                    ? "pl-8 transition-all ease-in-out delay-250 text-red-800"
+                    : "pl-2 transition-all ease-in-out delay-250"
+                }
+                onClick={() => {
+                  context.setOpenMenuBtnState(false);
+                }}
+              >
+                IV.a WYBÓR CHARAKTERU
+              </NavLink>
+            </li>
+            <li>
               {" "}
               <NavLink
                 to="/chapter5"

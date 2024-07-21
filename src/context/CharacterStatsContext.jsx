@@ -111,9 +111,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
   const [availableProfessions, setAvailableProfessions] =
     useState(chp4_professionsList);
 
-  const [availableCharacters, setAvailableCharacters] = useState([
-    
-  ]);
+  const [availableCharacters, setAvailableCharacters] = useState([]);
 
   const [firstProfessionCharacters, setFirstProfessionCharacters] = useState(
     []
@@ -121,6 +119,9 @@ export const CharacterStatsContextProvider = ({ children }) => {
   const [secondProfessionCharacters, setSecondProfessionCharacters] = useState(
     []
   );
+
+  const [character, setCharacter] = useState("");
+  const [characterChecked, setCharacterChecked] = useState(false);
 
   const [renderProfessions, setRenderProfessions] =
     useState(chp4_professionsList);
@@ -318,6 +319,10 @@ export const CharacterStatsContextProvider = ({ children }) => {
     setFirstProfessionCharacters,
     secondProfessionCharacters,
     setSecondProfessionCharacters,
+    character,
+    setCharacter,
+    characterChecked,
+    setCharacterChecked,
   };
 
   return (
