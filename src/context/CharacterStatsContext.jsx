@@ -169,7 +169,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
   const chpt1Info = {
     name: "",
     sex: sex,
-    race: raceChecked,
+    race: race,
     description: raceDescription,
   };
   const chpt2Info = {
@@ -227,6 +227,8 @@ export const CharacterStatsContextProvider = ({ children }) => {
     maleChecked,
     femaleChecked,
     raceChecked,
+    race,
+    setRace,
     placeOfBirth,
     srcPlcOfBirthImage,
     plcOfBirthK100Result,
@@ -254,7 +256,6 @@ export const CharacterStatsContextProvider = ({ children }) => {
     setAbilities,
     disabilitiesK100Result,
     setDisabilitiesK100Result,
-    disabilitiesK100Clicked,
     setDisabilitiesK100Clicked,
     abilitiesK100Result,
     setAbilitiesK100Result,

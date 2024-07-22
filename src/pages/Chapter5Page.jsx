@@ -1,7 +1,7 @@
 import React from "react";
 
-import { Chapter1 } from "../components/chaper_I_components/Chapter1.jsx";
+import ChapterContent_V from "../components/chapter_V_components/ChapterContent_V";
 
-export const Chapter1Page = () => {
-  return <Chapter1 />;
+export const Chapter5Page = () => {
+  return <ChapterContent_V />;
 };

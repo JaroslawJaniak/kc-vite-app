@@ -1,6 +1,7 @@
+import React from 
 import DiceButtonComponent from "../../../../../data/k100/DiceButtonComponent";
 
-const ChapterContent_V_k100 = () => {
+export const ChapterContent_V_k100 = () => {
   const k100WeightRollResult = (k) => {
     if (k !== 0) {
       console.log("weight result2: " + k);
@@ -44,5 +45,3 @@ const ChapterContent_V_k100 = () => {
     </div>
   );
 };
-
-export default ChapterContent_V_k100;

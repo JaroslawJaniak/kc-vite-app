@@ -16,6 +16,7 @@ import { Form } from "./pages/Chapter7Page";
 import { Menu } from "./components/menu/Menu";
 import Summary from "./components/summary/Summary";
 import { NavButton } from "./utils/NavButton";
+import { Chapter5Page } from "./pages/Chapter5Page";
 
 function App() {
   const context = useContext(CharacterStatsContext);
@@ -188,6 +189,7 @@ function App() {
             <Route path="/chapter2" element={<Chapter2Page />}></Route>
             <Route path="/chapter3" element={<Chapter3Page />}></Route>
             <Route path="/chapter4" element={<Chapter4Page />}></Route>
+            <Route path="/chapter5" element={<Chapter5Page />}></Route>
             <Route path="/chapter8" element={<Chapter8Page />}></Route>
             <Route path="/kc-vite-app" element={<Chapter1Page />}></Route>
             <Route path="/" element={<Form />}></Route>

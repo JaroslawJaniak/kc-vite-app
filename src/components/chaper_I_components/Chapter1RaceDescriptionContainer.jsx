@@ -7,7 +7,8 @@ export const Chapter1RaceDescriptionContainer = (props) => {
   const context = useContext(CharacterStatsContext);
 
   const handleElementChange = (raceName) => {
-    props.handleElementChange(raceName);
+    context.setRace(raceName);
+    context.setRaceChecked(!context.raceChecked);
     context.setRaceDescription(props.race_description.description);
     context.setAvailableProfessionsByRace(
       props.race_description.availableProfessions
@@ -22,15 +23,13 @@ export const Chapter1RaceDescriptionContainer = (props) => {
         type={props.race_description.type}
         name={props.race_description.raceName}
         className={props.race_description.class}
-        checked={props.checkedElement === props.race_description.raceName}
+        checked={context.race === props.race_description.raceName}
         onChange={() => {
           handleElementChange(`${props.race_description.raceName}`);
-           
         }}
       />
 
       <NewLineText text={props.race_description.description} />
-      
     </div>
   );
 };

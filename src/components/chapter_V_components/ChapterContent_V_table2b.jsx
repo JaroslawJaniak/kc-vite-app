@@ -6,9 +6,9 @@ const ChapterContent_V_table2b = (props) => {
       <td>{tableContent.race}</td>
       <td>{tableContent.heightMin - 10}</td>
       <td>{tableContent.heightAvr - 10 + "-" + tableContent.heightAvr}</td>
-      <td>{tableContent.heightMax - 10}</td>
+      <td>{tableContent.heightMax - 10}</td> 
       <td>{tableContent.weightMin - 10}</td>
-      <td>{tableContent.weightAvr + "-" + tableContent.weightAvr}</td>
+      <td>{tableContent.weightAvr-10 +  "-" + tableContent.weightAvr}</td>
       <td>{tableContent.weightMax - 10}</td>
       <td>{tableContent.age}</td>
     </tr>
