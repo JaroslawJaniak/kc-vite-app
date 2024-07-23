@@ -1,7 +1,7 @@
-const chp5_table2 = [
+export const chp5_table2 = [
   {
     id: "ch5t2a1",
-    race: "LUDZIE",
+    race: "Ludzie",
     heightMin: 150,
     heightAvr: 170,
     heightMax: 200,
@@ -12,7 +12,7 @@ const chp5_table2 = [
   },
   {
     id: "ch5t2a2",
-    race: "PÓŁELFY",
+    race: "Półelfy",
     heightMin: 150,
     heightAvr: 170,
     heightMax: 200,
@@ -23,7 +23,7 @@ const chp5_table2 = [
   },
   {
     id: "ch5t2a3",
-    race: "ELFY",
+    race: "Elfy",
     heightMin: 160,
     heightAvr: 180,
     heightMax: 210,
@@ -35,7 +35,7 @@ const chp5_table2 = [
 
   {
     id: "ch5t2a4",
-    race: "PÓŁOLBRZYMY",
+    race: "Półolbrzymy",
     heightMin: 180,
     heightAvr: 200,
     heightMax: 230,
@@ -46,7 +46,7 @@ const chp5_table2 = [
   },
   {
     id: "ch5t2a5",
-    race: "PÓŁORKI",
+    race: "Półorki",
     heightMin: 150,
     heightAvr: 170,
     heightMax: 200,
@@ -57,7 +57,7 @@ const chp5_table2 = [
   },
   {
     id: "ch5t2a6",
-    race: "KRASNOLUDY",
+    race: "Krasnoludy",
     heightMin: 100,
     heightAvr: 120,
     heightMax: 150,
@@ -68,7 +68,7 @@ const chp5_table2 = [
   },
   {
     id: "ch5t2a7",
-    race: "GNOMY",
+    race: "Gnomy",
     heightMin: 100,
     heightAvr: 120,
     heightMax: 150,
@@ -79,7 +79,7 @@ const chp5_table2 = [
   },
   {
     id: "ch5t2a8",
-    race: "HOBBICI",
+    race: "Hobbici",
     heightMin: 90,
     heightAvr: 110,
     heightMax: 140,
@@ -90,7 +90,7 @@ const chp5_table2 = [
   },
   {
     id: "ch5t2a9",
-    race: "REPTILIONI",
+    race: "Reptilioni",
     heightMin: 150,
     heightAvr: 170,
     heightMax: 200,
@@ -101,4 +101,4 @@ const chp5_table2 = [
   },
 ];
 
-export default chp5_table2;
+

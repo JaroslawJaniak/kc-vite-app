@@ -126,6 +126,16 @@ export const CharacterStatsContextProvider = ({ children }) => {
   const [renderProfessions, setRenderProfessions] =
     useState(chp4_professionsList);
 
+  const [height, setHeight] = useState("");
+  const [heightK100Result, setHeightK100Result] = useState("");
+  const [heightK100Clicked, setHeightK100Clicked] = useState(false);
+  const [tableHeight_trId, setTableHeight_trId] = useState("");
+
+  const [weight, setWeight] = useState("");
+  const [weightK100Result, setWeightK100Result] = useState("");
+  const [weightK100Clicked, setWeightK100Clicked] = useState(false);
+  const [tableWeight_trId, setTableWeight_trId] = useState("");
+
   // const renderCharacterSet = () => {
   //   // console.log("1. " + firstProfessionInfo.character);
   //   // console.log("2. " + secondProfessionInfo.character);
@@ -307,12 +317,12 @@ export const CharacterStatsContextProvider = ({ children }) => {
     setFirstProfessionChecked,
     isSecondProfessionChecked,
     setIsSecondProfessionChecked,
-    //professionInfo,
+
     firstProfessionInfo,
     setFirstProfessionInfo,
     setSecondProfessionInfo,
     secondProfessionInfo,
-    //setDATAProfessionInfo,
+
     availableCharacters,
     setAvailableCharacters,
     filterCharactersByProfession,
@@ -324,6 +334,24 @@ export const CharacterStatsContextProvider = ({ children }) => {
     setCharacter,
     characterChecked,
     setCharacterChecked,
+
+    height,
+    setHeight,
+    weight,
+    setWeight,
+    heightK100Result,
+    setHeightK100Result,
+    heightK100Clicked,
+    setHeightK100Clicked,
+    tableHeight_trId,
+    setTableHeight_trId,
+
+    weightK100Result,
+    setWeightK100Result,
+    weightK100Clicked,
+    setWeightK100Clicked,
+    tableWeight_trId,
+    setTableWeight_trId,
   };
 
   return (

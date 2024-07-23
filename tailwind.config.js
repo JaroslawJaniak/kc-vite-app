@@ -21,6 +21,9 @@ export default withMT({
         sans: ["Graphik", "sans-serif"],
         serif: ["Merriweather", "serif"],
       },
+      fontSize: {
+        xxs: "0.425rem", // Customize this size as needed
+      },
     },
   },
   plugins: [],

@@ -11,12 +11,13 @@ import { Chapter1Page } from "./pages/Chapter1Page";
 import { Chapter2Page } from "./pages/Chapter2Page";
 import { Chapter3Page } from "./pages/Chapter3Page";
 import { Chapter4Page } from "./pages/Chapter4Page";
-import { Chapter8Page } from "./pages/Chapter8Page";
+
 import { Form } from "./pages/Chapter7Page";
 import { Menu } from "./components/menu/Menu";
 import Summary from "./components/summary/Summary";
 import { NavButton } from "./utils/NavButton";
 import { Chapter5Page } from "./pages/Chapter5Page";
+import { Chapter4aPage } from "./pages/Chapter4aPage";
 
 function App() {
   const context = useContext(CharacterStatsContext);
@@ -81,7 +82,7 @@ function App() {
 
   const handleNext = () => {
     const currentPath = window.location.pathname;
-    if (currentPath === "/kc-vite-app") {
+    if (currentPath === "/") {
       navigateTo("/chapter1");
     } else if (currentPath === "/chapter1") {
       navigateTo("/chapter2");
@@ -90,27 +91,29 @@ function App() {
     } else if (currentPath === "/chapter3") {
       navigateTo("/chapter4");
     } else if (currentPath === "/chapter4") {
-      navigateTo("/chapter8");
-    } else if (currentPath === "/chapter8") {
+      navigateTo("/chapter4a");
+    } else if (currentPath === "/chapter4a") {
+      navigateTo("/chapter5");
+    } else if (currentPath === "/chapter5") {
       navigateTo("/chapter6");
     } else if (currentPath === "/chapter6") {
       navigateTo("/chapter7");
     } else if (currentPath === "/chapter7") {
       navigateTo("/");
-    } else if (currentPath === "/") {
-      navigateTo("/kc-vite-app");
     }
   };
 
   const handlePrevious = () => {
     const currentPath = window.location.pathname;
-    if (currentPath === "/kc-vite-app") {
+    if (currentPath === "/") {
       navigateTo("/chapter7");
     } else if (currentPath === "/chapter7") {
       navigateTo("/chapter6");
     } else if (currentPath === "/chapter6") {
-      navigateTo("/chapter8");
-    } else if (currentPath === "/chapter8") {
+      navigateTo("/chapter5");
+    } else if (currentPath === "/chapter5") {
+      navigateTo("/chapter4a");
+    } else if (currentPath === "/chapter4a") {
       navigateTo("/chapter4");
     } else if (currentPath === "/chapter4") {
       navigateTo("/chapter3");
@@ -120,8 +123,6 @@ function App() {
       navigateTo("/chapter1");
     } else if (currentPath === "/chapter1") {
       navigateTo("/");
-    } else if (currentPath === "/") {
-      navigateTo("/kc-vite-app");
     }
   };
 
@@ -190,7 +191,7 @@ function App() {
             <Route path="/chapter3" element={<Chapter3Page />}></Route>
             <Route path="/chapter4" element={<Chapter4Page />}></Route>
             <Route path="/chapter5" element={<Chapter5Page />}></Route>
-            <Route path="/chapter8" element={<Chapter8Page />}></Route>
+            <Route path="/chapter8" element={<Chapter4aPage />}></Route>
             <Route path="/kc-vite-app" element={<Chapter1Page />}></Route>
             <Route path="/" element={<Form />}></Route>
           </Routes>

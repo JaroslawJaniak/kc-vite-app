@@ -3,7 +3,7 @@
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 40%;
+  
   background-color: white;
 }
 
@@ -41,11 +41,7 @@ td.table_base-stats_female {
   border-bottom: 1px solid #dddddd;
 }
 
-/*
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-*/
+
 
 .activeTrTable {
   color: white;
