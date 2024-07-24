@@ -8,7 +8,7 @@ const ChapterContent_V_table2a = (props) => {
       <table
         hidden={false}
         id="table1_height_weight_male"
-        className="[&>*]:p-0 [&>*]:m-0 text-xxs md:text-base"
+        className="[&>*]:p-0 [&>*]:m-0 text-xxs md:text-xs"
       >
         <tr id="table1_tr1" class="tr_height_weight">
           <td>{chp5_table2a_rw1.text1}</td>

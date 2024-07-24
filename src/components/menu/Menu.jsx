@@ -13,7 +13,7 @@ export const Menu = () => {
           <ul className="[&>*]:my-2">
             <li>
               <NavLink
-                to="/chapter1"
+                to="/kc-vite-app/chapter1"
                 className={({ isActive }) =>
                   isActive
                     ? "pl-8 transition-all ease-in-out delay-250 text-red-800"
@@ -28,7 +28,7 @@ export const Menu = () => {
             </li>
             <li>
               <NavLink
-                to="/chapter2"
+                to="/kc-vite-app/chapter2"
                 className={({ isActive }) =>
                   isActive
                     ? "pl-8 transition-all ease-in-out delay-250 text-red-800"
@@ -43,7 +43,7 @@ export const Menu = () => {
             </li>
             <li>
               <NavLink
-                to="/chapter3"
+                to="/kc-vite-app/chapter3"
                 className={({ isActive }) =>
                   isActive
                     ? "pl-8 transition-all ease-in-out delay-250 text-red-800"
@@ -58,7 +58,7 @@ export const Menu = () => {
             </li>
             <li>
               <NavLink
-                to="/chapter4"
+                to="/kc-vite-app/chapter4"
                 className={({ isActive }) =>
                   isActive
                     ? "pl-8 transition-all ease-in-out delay-250 text-red-800"
@@ -73,7 +73,7 @@ export const Menu = () => {
             </li>
             <li>
               <NavLink
-                to="/chapter8"
+                to="/kc-vite-app/chapter4a"
                 className={({ isActive }) =>
                   isActive
                     ? "pl-8 transition-all ease-in-out delay-250 text-red-800"
@@ -89,7 +89,7 @@ export const Menu = () => {
             <li>
               {" "}
               <NavLink
-                to="/chapter5"
+                to="/kc-vite-app/chapter5"
                 className={({ isActive }) =>
                   isActive
                     ? "pl-8 transition-all ease-in-out delay-250 text-red-800"
@@ -104,7 +104,7 @@ export const Menu = () => {
             </li>
             <li>
               <NavLink
-                to="/chapter6"
+                to="/kc-vite-app/chapter6"
                 className={({ isActive }) =>
                   isActive
                     ? "pl-8 transition-all ease-in-out delay-250 text-red-800"
@@ -119,7 +119,7 @@ export const Menu = () => {
             </li>
             <li>
               <NavLink
-                to="/"
+                to="/kc-vite-app/chapter7"
                 className={({ isActive }) =>
                   isActive
                     ? "pl-8 transition-all ease-in-out delay-250 text-red-800"

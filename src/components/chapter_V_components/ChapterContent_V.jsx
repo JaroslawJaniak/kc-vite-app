@@ -20,6 +20,17 @@ const ChapterContent_V = () => {
     //console.log("m: " + context.maleChecked);
     //console.log("f: " + context.femaleChecked);
     //console.log("r: " + context.raceChecked);
+    if (context.tableHeight_trId !== "") {
+      document
+        .getElementById("td_height_male" + context.tableHeight_trId)
+        .classList.add("activeTrTable");
+    }
+
+    if (context.tableWeight_trId !== "") {
+      document
+        .getElementById("td_weight_male" + context.tableWeight_trId)
+        .classList.add("activeTrTable");
+    }
 
     isRaceGenderChecked =
       (context.maleChecked || context.femaleChecked) && context.raceChecked;
@@ -30,6 +41,11 @@ const ChapterContent_V = () => {
     if (k !== 0) {
       context.setHeightK100Result(k);
       context.setHeight(dataHeight(k, context.race).height);
+      context.setTableHeight_trId(dataHeight(k, context.race).tdId);
+
+      document
+        .getElementById("td_height_male" + dataHeight(k, context.race).tdId)
+        .classList.add("activeTrTable");
     }
   };
 
@@ -37,6 +53,11 @@ const ChapterContent_V = () => {
     if (k !== 0) {
       context.setWeightK100Result(k);
       context.setWeight(dataWeight(k, context.race).weight);
+      context.setTableWeight_trId(dataWeight(k, context.race).tdId);
+
+      document
+        .getElementById("td_weight_male" + dataWeight(k, context.race).tdId)
+        .classList.add("activeTrTable");
     }
   };
   /*
@@ -67,6 +88,7 @@ const ChapterContent_V = () => {
           !(isRaceGenderChecked || context.maleChecked || context.femaleChecked)
         }
       >
+        <ChapterContent_V_table1 />
         <div>
           {" "}
           <DiceButtonComponent
@@ -95,15 +117,13 @@ const ChapterContent_V = () => {
         </div>
       </div>
 
-      <div hidden={!isRaceGenderChecked && !context.maleChecked} >
+      <div hidden={!isRaceGenderChecked && !context.maleChecked}>
         <ChapterContent_V_table2a item={chp5_table2} />
       </div>
 
       <div hidden={!isRaceGenderChecked && !context.femaleChecked}>
         <ChapterContent_V_table2b item={chp5_table2} />
       </div>
-
-      <ChapterContent_V_table1 />
     </section>
   );
 };

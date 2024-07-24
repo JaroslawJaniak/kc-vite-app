@@ -82,47 +82,47 @@ function App() {
 
   const handleNext = () => {
     const currentPath = window.location.pathname;
-    if (currentPath === "/") {
-      navigateTo("/chapter1");
-    } else if (currentPath === "/chapter1") {
-      navigateTo("/chapter2");
-    } else if (currentPath === "/chapter2") {
-      navigateTo("/chapter3");
-    } else if (currentPath === "/chapter3") {
-      navigateTo("/chapter4");
-    } else if (currentPath === "/chapter4") {
+    if (currentPath === "/kc-vite-app/") {
+      navigateTo("/kc-vite-app/chapter1");
+    } else if (currentPath === "/kc-vite-app/chapter1") {
+      navigateTo("/kc-vite-app/chapter2");
+    } else if (currentPath === "/kc-vite-app/chapter2") {
+      navigateTo("/kc-vite-app/chapter3");
+    } else if (currentPath === "/kc-vite-app/chapter3") {
+      navigateTo("/kc-vite-app/chapter4");
+    } else if (currentPath === "/kc-vite-app/chapter4") {
       navigateTo("/chapter4a");
-    } else if (currentPath === "/chapter4a") {
-      navigateTo("/chapter5");
-    } else if (currentPath === "/chapter5") {
-      navigateTo("/chapter6");
-    } else if (currentPath === "/chapter6") {
-      navigateTo("/chapter7");
-    } else if (currentPath === "/chapter7") {
-      navigateTo("/");
+    } else if (currentPath === "/kc-vite-app/chapter4a") {
+      navigateTo("/kc-vite-app/chapter5");
+    } else if (currentPath === "/kc-vite-app/chapter5") {
+      navigateTo("/kc-vite-app/chapter6");
+    } else if (currentPath === "/kc-vite-app/chapter6") {
+      navigateTo("/kc-vite-app/chapter7");
+    } else if (currentPath === "/kc-vite-app/chapter7") {
+      navigateTo("/kc-vite-app/");
     }
   };
 
   const handlePrevious = () => {
     const currentPath = window.location.pathname;
-    if (currentPath === "/") {
-      navigateTo("/chapter7");
-    } else if (currentPath === "/chapter7") {
-      navigateTo("/chapter6");
-    } else if (currentPath === "/chapter6") {
-      navigateTo("/chapter5");
-    } else if (currentPath === "/chapter5") {
-      navigateTo("/chapter4a");
-    } else if (currentPath === "/chapter4a") {
-      navigateTo("/chapter4");
-    } else if (currentPath === "/chapter4") {
-      navigateTo("/chapter3");
-    } else if (currentPath === "/chapter3") {
-      navigateTo("/chapter2");
-    } else if (currentPath === "/chapter2") {
-      navigateTo("/chapter1");
-    } else if (currentPath === "/chapter1") {
-      navigateTo("/");
+    if (currentPath === "/kc-vite-app/") {
+      navigateTo("/kc-vite-app/chapter7");
+    } else if (currentPath === "/kc-vite-app/chapter7") {
+      navigateTo("/kc-vite-app/chapter6");
+    } else if (currentPath === "/kc-vite-app/chapter6") {
+      navigateTo("/kc-vite-app/chapter5");
+    } else if (currentPath === "/kc-vite-app/chapter5") {
+      navigateTo("/kc-vite-app/chapter4a");
+    } else if (currentPath === "/kc-vite-app/chapter4a") {
+      navigateTo("/kc-vite-app/chapter4");
+    } else if (currentPath === "/kc-vite-app/chapter4") {
+      navigateTo("/kc-vite-app/chapter3");
+    } else if (currentPath === "/kc-vite-app/chapter3") {
+      navigateTo("/kc-vite-app/chapter2");
+    } else if (currentPath === "/kc-vite-app/chapter2") {
+      navigateTo("/kc-vite-app/chapter1");
+    } else if (currentPath === "/kc-vite-app/chapter1") {
+      navigateTo("/kc-vite-app/");
     }
   };
 
@@ -186,14 +186,32 @@ function App() {
         </div>
         <div className="md:col-span-4 bg-gray-100 rounded w-100 m-2 p-1 pt-3 lg:p-3">
           <Routes>
-            <Route path="/chapter1" element={<Chapter1Page />}></Route>
-            <Route path="/chapter2" element={<Chapter2Page />}></Route>
-            <Route path="/chapter3" element={<Chapter3Page />}></Route>
-            <Route path="/chapter4" element={<Chapter4Page />}></Route>
-            <Route path="/chapter5" element={<Chapter5Page />}></Route>
-            <Route path="/chapter8" element={<Chapter4aPage />}></Route>
-            <Route path="/kc-vite-app" element={<Chapter1Page />}></Route>
-            <Route path="/" element={<Form />}></Route>
+            <Route
+              path="/kc-vite-app/chapter1"
+              element={<Chapter1Page />}
+            ></Route>
+            <Route
+              path="/kc-vite-app/chapter2"
+              element={<Chapter2Page />}
+            ></Route>
+            <Route
+              path="/kc-vite-app/chapter3"
+              element={<Chapter3Page />}
+            ></Route>
+            <Route
+              path="/kc-vite-app/chapter4"
+              element={<Chapter4Page />}
+            ></Route>
+            <Route
+              path="/kc-vite-app/chapter5"
+              element={<Chapter5Page />}
+            ></Route>
+            <Route
+              path="/kc-vite-app/chapter4a"
+              element={<Chapter4aPage />}
+            ></Route>
+            <Route path="/kc-vite-app/chapter7" element={<Form />}></Route>
+            <Route path="/kc-vite-app/" element={<Form />}></Route>
           </Routes>
         </div>{" "}
         <div className="md:hidden fixed top-12 right-4 ">{renderSummary()}</div>
