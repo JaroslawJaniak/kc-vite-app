@@ -208,18 +208,19 @@ export const CharacterStatsContextProvider = ({ children }) => {
   const chpt5Info = { weight: "", height: "" };
   const chpt6Info = {
     stats: {
-      zyw: "",
-      sf: "",
-      zr: "",
-      sz: "",
-      md: "",
-      int: "",
-      um: "",
-      ch: "",
-      pr: "",
-      wi: "",
-      zw: "",
-      ob: "",
+      zyw: 0,
+      sf: 0,
+      zr: 0,
+      sz: 0,
+      md: 0,
+      int: 0,
+      um: 0,
+      ch: 0,
+      pr: 0,
+      wi: 0,
+      zw: 0,
+      o: 0,
+      w: 0,
     },
   };
 

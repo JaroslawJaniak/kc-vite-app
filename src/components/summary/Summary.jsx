@@ -40,7 +40,7 @@ const Summary = () => {
         <p>{context.chpt2Info.socialClassDescription}</p>
         <p>
           <b> Roczny dochód: </b>
-          {context.chpt2Info.incomeValue} złt
+          {context.chpt2Info.incomeValue} złt;
         </p>
         <p>
           <b> Profesja: </b>
@@ -53,12 +53,12 @@ const Summary = () => {
 
         <p>
           <b> Wzrost: </b>
-          {context.height} cm
+          {context.height} cm;
         </p>
 
         <p>
           <b> Waga: </b>
-          {context.weight} kg
+          {context.weight} kg;
         </p>
       </article>
     </section>

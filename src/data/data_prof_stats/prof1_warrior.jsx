@@ -1,4 +1,4 @@
-const prof1 = {
+export const prof1 = {
   id: "prof1",
   NAME: "WOJOWNIK",
   ŻYW: 10,
@@ -49,5 +49,3 @@ const prof1 = {
   k10_Odp9: 10,
   k10_Odp10: 0,
 };
-
-export default prof1;

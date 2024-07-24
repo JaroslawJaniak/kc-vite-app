@@ -17,6 +17,7 @@ import { Menu } from "./components/menu/Menu";
 import Summary from "./components/summary/Summary";
 import { NavButton } from "./utils/NavButton";
 import { Chapter5Page } from "./pages/Chapter5Page";
+import { Chapter6Page } from "./pages/Chapter6Page";
 import { Chapter4aPage } from "./pages/Chapter4aPage";
 
 function App() {
@@ -203,13 +204,18 @@ function App() {
               element={<Chapter4Page />}
             ></Route>
             <Route
+              path="/kc-vite-app/chapter4a"
+              element={<Chapter4aPage />}
+            ></Route>
+            <Route
               path="/kc-vite-app/chapter5"
               element={<Chapter5Page />}
             ></Route>
             <Route
-              path="/kc-vite-app/chapter4a"
-              element={<Chapter4aPage />}
+              path="/kc-vite-app/chapter6"
+              element={<Chapter6Page />}
             ></Route>
+
             <Route path="/kc-vite-app/chapter7" element={<Form />}></Route>
             <Route path="/kc-vite-app/" element={<Form />}></Route>
           </Routes>

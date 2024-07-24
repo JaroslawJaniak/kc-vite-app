@@ -4,7 +4,10 @@ import chp6_table_prof_stats2 from "./chp6_table-prof-stats2";
 const ChapterContent_VIc = () => {
   const deafaultView = (
     <div>
-      <table id="table_base-stats" class="table_base-stats">
+      <table
+        id="table_base-stats"
+        class="table_base-stats [&>*]:p-0 [&>*]:m-0 text-xxs md:text-xs"
+      >
         <tr>
           {chp6_table_prof_stats1.map((item) => (
             <td>

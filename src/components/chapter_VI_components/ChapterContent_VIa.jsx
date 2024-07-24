@@ -4,7 +4,10 @@ import chp6_table_base_stats2 from "./chp6_table-base-stats2";
 const ChapterContent_VIa = () => {
   const deafaultView = (
     <div>
-      <table id="table_base-stats" class="table_base-stats">
+      <table
+        id="table_base-stats"
+        class="table_base-stats [&>*]:p-0 [&>*]:m-0 text-xxs md:text-xs"
+      >
         <tr>
           {chp6_table_base_stats1.map((item) => (
             <td>

@@ -24,11 +24,17 @@ const ChapterContent_V = () => {
       document
         .getElementById("td_height_male" + context.tableHeight_trId)
         .classList.add("activeTrTable");
+      document
+        .getElementById("td_height_female" + context.tableHeight_trId)
+        .classList.add("activeTrTable");
     }
 
     if (context.tableWeight_trId !== "") {
       document
         .getElementById("td_weight_male" + context.tableWeight_trId)
+        .classList.add("activeTrTable");
+      document
+        .getElementById("td_weight_female" + context.tableWeight_trId)
         .classList.add("activeTrTable");
     }
 
@@ -46,6 +52,9 @@ const ChapterContent_V = () => {
       document
         .getElementById("td_height_male" + dataHeight(k, context.race).tdId)
         .classList.add("activeTrTable");
+      document
+        .getElementById("td_height_female" + dataHeight(k, context.race).tdId)
+        .classList.add("activeTrTable");
     }
   };
 
@@ -57,6 +66,9 @@ const ChapterContent_V = () => {
 
       document
         .getElementById("td_weight_male" + dataWeight(k, context.race).tdId)
+        .classList.add("activeTrTable");
+      document
+        .getElementById("td_weight_female" + context.tableWeight_trId)
         .classList.add("activeTrTable");
     }
   };
@@ -80,7 +92,9 @@ const ChapterContent_V = () => {
           isRaceGenderChecked || context.maleChecked || context.femaleChecked
         }
       >
-        <p id="warning1">{chp5_info.text2}</p>
+        <div className="border rounded md:w-96 h-32 m-auto mt-4 flex justify-center shadow-md">
+          <p className="text-xl m-auto font-mono ">- {chp5_info.text2} -</p>
+        </div>
       </div>
 
       <div
@@ -100,7 +114,7 @@ const ChapterContent_V = () => {
             onDiceRoll={k100RollHeightResult}
             className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5  my-2 mr-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
           />{" "}
-          wzrost: {context.height}
+          wzrost: {context.height} cm;
         </div>
         <div>
           {" "}
@@ -113,7 +127,7 @@ const ChapterContent_V = () => {
             onDiceRoll={k100RollWeightResult}
             className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5  my-2  mr-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
           />{" "}
-          waga: {context.weight}
+          waga: {context.weight} kg;
         </div>
       </div>
 

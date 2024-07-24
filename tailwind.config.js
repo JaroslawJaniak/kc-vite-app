@@ -18,8 +18,9 @@ export default withMT({
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Graphik", "sans-serif"],
-        serif: ["Merriweather", "serif"],
+        sans: ['ui-sans-serif', 'system-ui'],
+      serif: ['ui-serif', 'Georgia'],
+      mono: ['ui-monospace', 'SFMono-Regular'],
       },
       fontSize: {
         xxs: "0.425rem", // Customize this size as needed

@@ -7,7 +7,7 @@ import chp6_info from "./chp6_info";
 
 const ChapterContent_VI = () => {
   return (
-    <div>
+    <div className="mb-20">
       <p>{chp6_info.text1}</p>
       <ChapterContent_VIa />
       <p>{chp6_info.text2}</p>
