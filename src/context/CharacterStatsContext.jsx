@@ -1,6 +1,8 @@
 import { createContext, useState } from "react";
 import imageMap0 from "../assets/map0.jpg";
 import { chp4_professionsList } from "../components/chapter_IV_components/chp4_professions";
+import { chp1_race_description } from "../components/chaper_I_components/chp1_race_description";
+import { chp6_table_prof_stats2 } from "../components/chapter_VI_components/chp6_table-prof-stats2";
 
 export const CharacterStatsContext = createContext();
 
@@ -129,12 +131,12 @@ export const CharacterStatsContextProvider = ({ children }) => {
   const [height, setHeight] = useState("");
   const [heightK100Result, setHeightK100Result] = useState("");
   const [heightK100Clicked, setHeightK100Clicked] = useState(false);
-  const [tableHeight_trId, setTableHeight_trId] = useState("");
+  const [tableHeight_tdId, setTableHeight_tdId] = useState("");
 
   const [weight, setWeight] = useState("");
   const [weightK100Result, setWeightK100Result] = useState("");
   const [weightK100Clicked, setWeightK100Clicked] = useState(false);
-  const [tableWeight_trId, setTableWeight_trId] = useState("");
+  const [tableWeight_tdId, setTableWeight_tdId] = useState("");
 
   // const renderCharacterSet = () => {
   //   // console.log("1. " + firstProfessionInfo.character);
@@ -170,6 +172,64 @@ export const CharacterStatsContextProvider = ({ children }) => {
       )
     );
     setRenderProfessions(newProfList);
+  };
+
+  const [baseRaceStats, setbaseRaceStats] = useState({
+    ŻYW: 0,
+    SF: 0,
+    ZR: 0,
+    SZ: 0,
+    INT: 0,
+    MD: 0,
+    UM: 0,
+    CH: 0,
+    PR: 0,
+    WI: 0,
+    ZW: 0,
+    O: 0,
+    W: 0,
+  });
+
+  const filterBaseRaceStatsByRaceName = () => {
+    if (race !== "") {
+      const [filteredRace] = chp1_race_description.filter(
+        (raceData) => raceData.raceName === race
+      );
+
+      if (maleChecked) {
+        setbaseRaceStats(filteredRace.stats.male);
+      } else if (femaleChecked) {
+        setbaseRaceStats(filteredRace.stats.female);
+      }
+    }
+    //console.log("2: " + baseRaceStats);
+  };
+
+  const [profStats, setprofStats] = useState({
+    ŻYW: 0,
+    SF: 0,
+    ZR: 0,
+    SZ: 0,
+    INT: 0,
+    MD: 0,
+    UM: 0,
+    CH: 0,
+    PR: 0,
+    WI: 0,
+    ZW: 0,
+    O: 0,
+    W: 0,
+  });
+
+  const filterProfStatsByFirstProf = () => {
+    if (firstProfession !== "") {
+      const [filteredProf] = chp6_table_prof_stats2.filter((profData) => {
+        console.log(profData);
+        return profData.name === firstProfession;
+      });
+      console.log(filteredProf);
+      setprofStats(filteredProf);
+    }
   };
 
   const filterCharactersByProfession = () => {
@@ -344,15 +404,20 @@ export const CharacterStatsContextProvider = ({ children }) => {
     setHeightK100Result,
     heightK100Clicked,
     setHeightK100Clicked,
-    tableHeight_trId,
-    setTableHeight_trId,
+    tableHeight_tdId,
+    setTableHeight_tdId,
 
     weightK100Result,
     setWeightK100Result,
     weightK100Clicked,
     setWeightK100Clicked,
-    tableWeight_trId,
-    setTableWeight_trId,
+    tableWeight_tdId,
+    setTableWeight_tdId,
+    filterBaseRaceStatsByRaceName,
+    baseRaceStats,
+
+    profStats,
+    filterProfStatsByFirstProf,
   };
 
   return (

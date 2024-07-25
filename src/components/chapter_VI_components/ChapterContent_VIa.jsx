@@ -6,7 +6,7 @@ const ChapterContent_VIa = () => {
     <div>
       <table
         id="table_base-stats"
-        class="table_base-stats [&>*]:p-0 [&>*]:m-0 text-xxs md:text-xs"
+        className=" [&>*]:p-0 [&>*]:m-0 text-xxs md:text-xs"
       >
         <tr>
           {chp6_table_base_stats1.map((item) => (
@@ -18,9 +18,13 @@ const ChapterContent_VIa = () => {
         {chp6_table_base_stats2.map((baseStats) => (
           <tr
             id="table_base-stats_tr_race1_male"
-            className="table_base-stats_tr"
+            className=""
           >
-            <td className={baseStats.className}>{baseStats.race}</td>
+            <td
+              className={`${baseStats.className} `}
+            >
+              {baseStats.race}
+            </td>
             <td>{baseStats.sex}</td>
             <td>{baseStats.ŻYW}</td>
             <td>{baseStats.SF}</td>

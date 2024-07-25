@@ -18,7 +18,7 @@ import prof18 from "../../data/data_prof_stats/prof18_alchemist";
 
 import { prof1 } from "../../data/data_prof_stats/prof1_warrior";
 
-const chp6_table_prof_stats2 = [
+export const chp6_table_prof_stats2 = [
   prof1,
   prof2,
   prof3,
@@ -39,4 +39,4 @@ const chp6_table_prof_stats2 = [
   prof18,
 ];
 
-export default chp6_table_prof_stats2;
+

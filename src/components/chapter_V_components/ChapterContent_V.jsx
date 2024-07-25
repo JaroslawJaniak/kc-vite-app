@@ -20,21 +20,21 @@ const ChapterContent_V = () => {
     //console.log("m: " + context.maleChecked);
     //console.log("f: " + context.femaleChecked);
     //console.log("r: " + context.raceChecked);
-    if (context.tableHeight_trId !== "") {
+    if (context.tableHeight_tdId !== "") {
       document
-        .getElementById("td_height_male" + context.tableHeight_trId)
+        .getElementById("td_height_male" + context.tableHeight_tdId)
         .classList.add("activeTrTable");
       document
-        .getElementById("td_height_female" + context.tableHeight_trId)
+        .getElementById("td_height_female" + context.tableHeight_tdId)
         .classList.add("activeTrTable");
     }
 
-    if (context.tableWeight_trId !== "") {
+    if (context.tableWeight_tdId !== "") {
       document
-        .getElementById("td_weight_male" + context.tableWeight_trId)
+        .getElementById("td_weight_male" + context.tableWeight_tdId)
         .classList.add("activeTrTable");
       document
-        .getElementById("td_weight_female" + context.tableWeight_trId)
+        .getElementById("td_weight_female" + context.tableWeight_tdId)
         .classList.add("activeTrTable");
     }
 
@@ -47,7 +47,7 @@ const ChapterContent_V = () => {
     if (k !== 0) {
       context.setHeightK100Result(k);
       context.setHeight(dataHeight(k, context.race).height);
-      context.setTableHeight_trId(dataHeight(k, context.race).tdId);
+      context.setTableHeight_tdId(dataHeight(k, context.race).tdId);
 
       document
         .getElementById("td_height_male" + dataHeight(k, context.race).tdId)
@@ -62,28 +62,17 @@ const ChapterContent_V = () => {
     if (k !== 0) {
       context.setWeightK100Result(k);
       context.setWeight(dataWeight(k, context.race).weight);
-      context.setTableWeight_trId(dataWeight(k, context.race).tdId);
+      context.setTableWeight_tdId(dataWeight(k, context.race).tdId);
 
-      document
-        .getElementById("td_weight_male" + dataWeight(k, context.race).tdId)
-        .classList.add("activeTrTable");
-      document
-        .getElementById("td_weight_female" + context.tableWeight_trId)
-        .classList.add("activeTrTable");
+       document
+         .getElementById("td_weight_male" + dataWeight(k, context.race).tdId)
+         .classList.add("activeTrTable");
+       document
+         .getElementById("td_weight_female" + dataWeight(k, context.race).tdId)
+         .classList.add("activeTrTable");
     }
   };
-  /*
-  useEffect(() => {
-    if (context.tablePlcOfBirth_trId !== "") {
-      console.log(" effeect table1_tr" + context.tablePlcOfBirth_trId);
-
-      document
-        .getElementById("table1_tr" + context.tablePlcOfBirth_trId)
-        .classList.add("activeTrTable");
-    }
-    return () => {};
-  }, []);
-*/
+  
   return (
     <section className="section mb-20">
       <h3>{chp5_info.text1}</h3>
@@ -93,7 +82,7 @@ const ChapterContent_V = () => {
         }
       >
         <div className="border rounded md:w-96 h-32 m-auto mt-4 flex justify-center shadow-md">
-          <p className="text-xl m-auto font-mono ">- {chp5_info.text2} -</p>
+          <p className="text-xl m-auto font-mono font-bold text-red-900">{chp5_info.text2}</p>
         </div>
       </div>
 
