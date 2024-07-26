@@ -192,17 +192,20 @@ export const CharacterStatsContextProvider = ({ children }) => {
 
   const filterBaseRaceStatsByRaceName = () => {
     if (race !== "") {
-      const [filteredRace] = chp1_race_description.filter(
-        (raceData) => raceData.raceName === race
-      );
+      const [filteredRace] = chp1_race_description.filter((raceData) => {
+        console.log(raceData.raceName + "===" + race);
+        return raceData.raceName === race;
+      });
 
-      if (maleChecked) {
-        setbaseRaceStats(filteredRace.stats.male);
-      } else if (femaleChecked) {
-        setbaseRaceStats(filteredRace.stats.female);
+      console.log(filteredRace);
+      console.log(filteredRace.statsmale);
+
+      if (maleChecked && filteredRace.statsmale !== undefined) {
+        setbaseRaceStats(filteredRace.statsmale);
+      } else if (femaleChecked && filteredRace.statsfemale !== undefined) {
+        setbaseRaceStats(filteredRace.statsfemale);
       }
     }
-    //console.log("2: " + baseRaceStats);
   };
 
   const [profStats, setprofStats] = useState({
