@@ -7,15 +7,14 @@ import {
   Route,
   useNavigate,
 } from "react-router-dom";
-import { Chapter1Page } from "./pages/Chapter1Page";
-import { Chapter2Page } from "./pages/Chapter2Page";
-import { Chapter3Page } from "./pages/Chapter3Page";
-import { Chapter4Page } from "./pages/Chapter4Page";
-
 import { Form } from "./pages/Chapter7Page";
 import { Menu } from "./components/menu/Menu";
 import Summary from "./components/summary/Summary";
 import { NavButton } from "./utils/NavButton";
+import { Chapter1Page } from "./pages/Chapter1Page";
+import { Chapter2Page } from "./pages/Chapter2Page";
+import { Chapter3Page } from "./pages/Chapter3Page";
+import { Chapter4Page } from "./pages/Chapter4Page";
 import { Chapter5Page } from "./pages/Chapter5Page";
 import { Chapter6Page } from "./pages/Chapter6Page";
 import { Chapter4aPage } from "./pages/Chapter4aPage";
@@ -217,7 +216,7 @@ function App() {
             ></Route>
 
             <Route path="/kc-vite-app/chapter7" element={<Form />}></Route>
-            <Route path="/kc-vite-app/" element={<Form />}></Route>
+            <Route path="/kc-vite-app/" element={<Chapter1Page />}></Route>
           </Routes>
         </div>{" "}
         <div className="md:hidden fixed top-12 right-4 ">{renderSummary()}</div>

@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import chp6_table_base_stats1 from "./chp6_table-base-stats1";
 import chp6_table_base_stats2 from "./chp6_table-base-stats2";
+import { CharacterStatsContext } from "../../context/CharacterStatsContext";
 
 const ChapterContent_VIa = () => {
+const context = useContext(CharacterStatsContext);
+
   const deafaultView = (
     <div>
       <table
@@ -15,16 +19,16 @@ const ChapterContent_VIa = () => {
             </td>
           ))}
         </tr>
-        {chp6_table_base_stats2.map((baseStats) => (
+        {chp6_table_base_stats2.map((baseStats, index) => (
           <tr
-            id="table_base-stats_tr_race1_male"
-            className=""
+            id=""
+            className={` ${
+              context.race.toUpperCase() === baseStats.race
+                ? "bg-black text-white"
+                : ""
+            }`}
           >
-            <td
-              className={`${baseStats.className} `}
-            >
-              {baseStats.race}
-            </td>
+            <td className={`${baseStats.className} `}>{baseStats.race}</td>
             <td>{baseStats.sex}</td>
             <td>{baseStats.ŻYW}</td>
             <td>{baseStats.SF}</td>

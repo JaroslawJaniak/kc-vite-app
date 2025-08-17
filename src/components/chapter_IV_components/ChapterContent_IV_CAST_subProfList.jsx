@@ -36,7 +36,11 @@ export const ChapterContent_IV_CAST_subProfList = (props) => {
     <div className="ml-4  [&>*]:lowercase grid grid-cols-2">
       {props.mainProf.combiningProfessions.map((subProfList) => (
         <div
-          className="border rounded bg-white p-1"
+          className={`border rounded bg-white p-1 ${
+            !(context.firstProfession === props.mainProf.profName)
+              ? "text-gray-400 "
+              : "text-black shadow-lg mb-4"
+          }`}
           //hidden={!(context.firstProfession === props.mainProf.profName)}
         >
           {subProfList

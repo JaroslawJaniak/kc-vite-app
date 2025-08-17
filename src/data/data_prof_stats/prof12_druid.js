@@ -1,6 +1,7 @@
 const prof12 = {
   id: "prof12",
   name: "DRUID",
+
   ŻYW: 10,
   SF: 0,
   ZR: 0,

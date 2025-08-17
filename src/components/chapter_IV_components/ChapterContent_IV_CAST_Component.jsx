@@ -32,7 +32,7 @@ export const ChapterContent_IV_CAST_Component = (props) => {
       {props.professionsList
         .filter((mainProf) => mainProf.castName === props.castName)
         .map((prof) => (
-          <p>
+          <div className="">
             <InputComponent
               type={"checkbox"}
               name={prof.profName}
@@ -49,7 +49,7 @@ export const ChapterContent_IV_CAST_Component = (props) => {
                 professionsList={props.professionsList}
               />
             </div>
-          </p>
+          </div>
         ))}
     </div>
   );

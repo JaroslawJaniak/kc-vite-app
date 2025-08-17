@@ -1,4 +1,4 @@
-import React from 
+import React from "react";
 import DiceButtonComponent from "../../../../../data/k100/DiceButtonComponent";
 
 export const ChapterContent_V_k100 = () => {
@@ -25,7 +25,7 @@ export const ChapterContent_V_k100 = () => {
       <span id="result4"></span>
       <div id="tmpl3"></div>
       <div>
-        wzrost:
+        wzrost:fsdfdsf
         <span id="height_character"></span>
       </div>
       <DiceButtonComponent

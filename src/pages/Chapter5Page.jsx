@@ -1,4 +1,3 @@
-import React from "react";
 
 import ChapterContent_V from "../components/chapter_V_components/ChapterContent_V";
 

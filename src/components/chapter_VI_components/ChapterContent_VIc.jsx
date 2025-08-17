@@ -1,7 +1,11 @@
 import chp6_table_prof_stats1 from "./chp6_table-prof-stats1";
-import{ chp6_table_prof_stats2} from "./chp6_table-prof-stats2";
+import { chp6_table_prof_stats2 } from "./chp6_table-prof-stats2";
+import { useContext } from "react";
+import { CharacterStatsContext } from "../../context/CharacterStatsContext";
+
 
 const ChapterContent_VIc = () => {
+  const context = useContext(CharacterStatsContext);
   const deafaultView = (
     <div>
       <table
@@ -16,7 +20,16 @@ const ChapterContent_VIc = () => {
           ))}
         </tr>
         {chp6_table_prof_stats2.map((profBonus) => (
-          <tr key={Math.random()} id="" className="">
+          <tr
+            key={Math.random()}
+            id=""
+            className={`${
+              context.firstProfession === profBonus.name ||
+              context.secondProfession === profBonus.name
+                ? "bg-black text-white"
+                : ""
+            }`}
+          >
             <td className={""}>{profBonus.name}</td>
 
             <td>

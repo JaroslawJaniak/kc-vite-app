@@ -12,7 +12,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
 
   const [maleChecked, setMaleChecked] = useState(false);
   const [femaleChecked, setFemaleChecked] = useState(false);
-  const [raceChecked, setRaceChecked] = useState("");
+  const [raceChecked, setRaceChecked] = useState(false);
   const [raceDescription, setRaceDescription] = useState("");
   const [sex, setSex] = useState("");
   const [race, setRace] = useState("");
@@ -85,8 +85,10 @@ export const CharacterStatsContextProvider = ({ children }) => {
   });
   const [firstProfessionChecked, setFirstProfessionChecked] = useState(false);
   const [secondProfessionChecked, setSecondProfessionChecked] = useState(false);
+  
   const [isSecondProfessionChecked, setIsSecondProfessionChecked] =
     useState(false);
+    
   const [exeptionChecked, setExeptionChecked] = useState(false);
   const [availableProfessionsByRace, setAvailableProfessionsByRace] = useState([
     { profName: "WOJOWNIK", maxLevel: "" },
@@ -224,14 +226,115 @@ export const CharacterStatsContextProvider = ({ children }) => {
     W: 0,
   });
 
+  const [secondProfStats, setsecondProfStats] = useState({
+    ŻYW: 0,
+    SF: 0,
+    ZR: 0,
+    SZ: 0,
+    INT: 0,
+    MD: 0,
+    UM: 0,
+    CH: 0,
+    PR: 0,
+    WI: 0,
+    ZW: 0,
+    O: 0,
+    W: 0,
+  });
+
+  const [diceRollResultBaseStats, setdiceRollResultBaseStats] = useState({
+    ŻYW: 0,
+    SF: 0,
+    ZR: 0,
+    SZ: 0,
+    INT: 0,
+    MD: 0,
+    UM: 0,
+    CH: 0,
+    PR: 0,
+    WI: 0,
+    ZW: 0,
+    O: 0,
+    W: 0,
+  });
+
+  const [rollK100ResultBaseStats, setRollK100Result] = useState({
+    ŻYW: "",
+    SF: "",
+    ZR: "",
+    SZ: "",
+    INT: "",
+    MD: "",
+    UM: "",
+    CH: "",
+    PR: "",
+    WI: "",
+    ZW: "",
+    O: "",
+    W: "",
+  });
+  const [rollK100ClickedBaseStats, setRollK100Clicked] = useState({
+    ŻYW: false,
+    SF: false,
+    ZR: false,
+    SZ: false,
+    INT: false,
+    MD: false,
+    UM: false,
+    CH: false,
+    PR: false,
+    WI: false,
+    ZW: false,
+    O: false,
+    W: false,
+  });
+
+  const [isChecked, setIsChecked] = useState({ male:false, female: false, proffesion1: false, proffesion2: false });
+
+  const [isClicked, setIsClicked] = useState({
+    plcOfBirthDice: false,
+    socialClassDice: false,
+    socialClassIncomeDice: false,
+    disabilitiesDice: false,
+    abilitiesDice: false,
+    HeightDice: false,
+    WeightDice: false,
+    baseStatsDice: {
+      ŻYW: false,
+      SF: false,
+      ZR: false,
+      SZ: false,
+      INT: false,
+      MD: false,
+      UM: false,
+      CH: false,
+      PR: false,
+      WI: false,
+      ZW: false,
+      O: false,
+      W: false,
+    },
+  });
+
   const filterProfStatsByFirstProf = () => {
     if (firstProfession !== "") {
       const [filteredProf] = chp6_table_prof_stats2.filter((profData) => {
         console.log(profData);
         return profData.name === firstProfession;
       });
-      console.log(filteredProf);
+
       setprofStats(filteredProf);
+    }
+  };
+
+  const filterProfStatsBySecondProf = () => {
+    if (secondProfession !== "") {
+      const [filteredProf] = chp6_table_prof_stats2.filter((profData) => {
+        console.log(profData);
+        return profData.name === secondProfession;
+      });
+
+      setsecondProfStats(filteredProf);
     }
   };
 
@@ -302,6 +405,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
     femaleChecked,
     raceChecked,
     race,
+    sex,
     setRace,
     placeOfBirth,
     srcPlcOfBirthImage,
@@ -421,6 +525,13 @@ export const CharacterStatsContextProvider = ({ children }) => {
 
     profStats,
     filterProfStatsByFirstProf,
+    secondProfStats,
+    filterProfStatsBySecondProf,
+
+    diceRollResultBaseStats,
+    setdiceRollResultBaseStats,
+    rollK100ResultBaseStats,
+    setRollK100Result,
   };
 
   return (
