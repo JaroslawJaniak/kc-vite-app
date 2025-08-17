@@ -24,6 +24,27 @@ export const ChapterContent_VI_statsCalculations = () => {
 
   return (
     <div>
+      <button
+        className={btnStyle}
+        onClick={() => context.toggleClick("baseStatsDice", "ZR")}
+      >
+        toggle ZR
+      </button>
+      <div className="text-xxs md:text-xs">
+        Toggle ZR (aktualnie:{" "}
+        {context.isClicked.baseStatsDice.ZR ? "true" : "false"})
+      </div>
+      <button
+        className={btnStyle}
+        onClick={() => context.toggleClick("plcOfBirthDice")}
+      >
+        Toggle plcOfBirthDice (aktualnie:{" "}
+        {context.isClicked.plcOfBirthDice ? "true" : "false"})
+      </button>
+      <div className="text-xxs md:text-xs">
+        Toggle SF test (aktualnie:{" "}
+        {context.isClicked.baseStatsDice.SF ? "true" : "false"})
+      </div>
       ChapterContent_VI_statsSelection
       <table className=" [&>*]:p-0 [&>*]:m-0 text-xxs md:text-xs">
         <thead>
@@ -90,8 +111,10 @@ export const ChapterContent_VI_statsCalculations = () => {
                 n={1}
                 k={100}
                 k100Result={"k100"}
-                clicked
-                handleStateChange
+                clicked={context.isClicked.baseStatsDice.SF}
+                mainKey={"baseStatsDice"}
+                subKey={"SF"}
+                toggleClick={context.toggleClick}
                 onDiceRoll={k100RollResultSF}
                 className={btnStyle}
               />
@@ -391,7 +414,6 @@ export const ChapterContent_VI_statsCalculations = () => {
                 (context.profStats.CH > context.secondProfStats.CH
                   ? context.profStats.CH
                   : context.secondProfStats.CH)}
-              CH
             </td>
           </tr>
           <tr>

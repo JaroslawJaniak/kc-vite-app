@@ -60,13 +60,21 @@ th {
         n={1}
         k={100}
         k100Result={context.plcOfBirthK100Result}
-        clicked={context.plcOfBirthK100Clicked}
-        handleStateChange={context.setPlcOfBirthK100Clicked}
+        clicked={context.isClicked.plcOfBirthDice }
+        mainKey={"plcOfBirthDice"}
+        subKey
+        toggleClick={context.toggleClick}
         onDiceRoll={k100RollResult}
         className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5  mb-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
       />
+      <div className="text-gray-500 mb-2">
+        {context.isClicked.plcOfBirthDice ? "true" : "false"}
+      </div>
       <p>{chp2_info1.tableLabel}</p>
-      <table id="table1_origin_place_of_birth" className="w-72 md:w-auto lg:w-3/4">
+      <table
+        id="table1_origin_place_of_birth"
+        className="w-72 md:w-auto lg:w-3/4"
+      >
         {chp2_place_of_birth.map((chp2_place_of_birth) => (
           <tr id={chp2_place_of_birth.id} className={"td__k100"}>
             <td className="w-14">{chp2_place_of_birth.k100}</td>

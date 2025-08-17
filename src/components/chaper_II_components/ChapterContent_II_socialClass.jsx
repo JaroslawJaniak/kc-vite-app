@@ -71,8 +71,10 @@ const ChapterContent_II_socialClass = () => {
             n={1}
             k={100}
             k100Result={context.socialClassK100Result}
-            clicked={context.socialClassK100Clicked}
-            handleStateChange={context.setSocialClassK100Clicked}
+            clicked={context.isClicked.socialClassDice}
+            mainKey={"socialClassDice"}
+            subKey
+            toggleClick={context.toggleClick}
             onDiceRoll={k100RollResult}
             className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5  mb-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
           />
@@ -87,8 +89,10 @@ const ChapterContent_II_socialClass = () => {
             n={context.dice_nSocialClass}
             k={context.dice_kSocialClass}
             k100Result={context.incomeValue}
-            clicked={context.socialClassIncomeK100Clicked}
-            handleStateChange={context.setSocialClassIncomeK100Clicked}
+            clicked={context.isClicked.incomeValueDice}
+            mainKey={"incomeValueDice"}
+            subKey
+            toggleClick={context.toggleClick}
             onDiceRoll={k100RollIncomeResult}
             className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5  mb-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
           />
