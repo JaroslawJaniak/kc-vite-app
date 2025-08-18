@@ -1,5 +1,6 @@
 {
   "name": "kc-vite-app",
+  "homepage": "https://github.com/JaroslawJaniak/kc-vite-app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
