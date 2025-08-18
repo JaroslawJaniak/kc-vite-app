@@ -1,6 +1,7 @@
 const prof16 = {
   id: "prof16",
   name: "CZARNOKSIĘŻNIK",
+  castName: "CZARODZIEJSKA",
   ŻYW: 0,
   SF: 0,
   ZR: 0,
@@ -17,7 +18,7 @@ const prof16 = {
   k10_SF: true,
   k10_ZR: true,
   k10_SZ: true,
-  k10_INT:true,
+  k10_INT: true,
   k10_MD: true,
   k10_UM: true,
   k10_CH: true,

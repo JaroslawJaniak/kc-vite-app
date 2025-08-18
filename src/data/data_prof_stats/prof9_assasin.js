@@ -1,6 +1,7 @@
 const prof9 = {
   id: "prof9",
   name: "ZABÓJCA",
+  cast: "ZŁODZIEJSKA",
   ŻYW: 0,
   SF: 10,
   ZR: 20,

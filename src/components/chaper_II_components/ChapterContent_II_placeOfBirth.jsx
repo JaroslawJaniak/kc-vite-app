@@ -60,7 +60,8 @@ th {
         n={1}
         k={100}
         k100Result={context.plcOfBirthK100Result}
-        clicked={context.isClicked.plcOfBirthDice }
+        clicked={context.isClicked.plcOfBirthDice}
+        disabled={context.isClicked.plcOfBirthDice}
         mainKey={"plcOfBirthDice"}
         subKey
         toggleClick={context.toggleClick}

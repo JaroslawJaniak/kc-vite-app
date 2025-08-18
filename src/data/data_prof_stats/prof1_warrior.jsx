@@ -1,6 +1,7 @@
 export const prof1 = {
   id: "prof1",
   name: "WOJOWNIK",
+  cast: "ŻOŁNIERSKA",
   ŻYW: 10,
   SF: 20,
   ZR: 10,

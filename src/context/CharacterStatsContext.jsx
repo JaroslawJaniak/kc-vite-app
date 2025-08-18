@@ -52,7 +52,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
 
   const [firstProfession, setFirstProfession] = useState("");
   const [secondProfession, setSecondProfession] = useState("");
-  //const [professionInfo, setProfessionInfo] = useState({firstProfessionInfo, secondProfessionInfo});
+ 
   const [firstProfessionInfo, setFirstProfessionInfo] = useState({
     profName: "",
     castName: "",
@@ -195,17 +195,18 @@ export const CharacterStatsContextProvider = ({ children }) => {
   const filterBaseRaceStatsByRaceName = () => {
     if (race !== "") {
       const [filteredRace] = chp1_race_description.filter((raceData) => {
-        console.log(raceData.raceName + "===" + race);
-        return raceData.raceName === race;
+        console.log(raceData.raceName + "===" + race); // Debugging line
+        // Check if the raceName matches
+        return raceData.raceName === race; // This will return the first matching raceData object
       });
 
       console.log(filteredRace);
-      console.log(filteredRace.statsmale);
+      console.log(filteredRace.stats.male);
 
-      if (maleChecked && filteredRace.statsmale !== undefined) {
-        setbaseRaceStats(filteredRace.statsmale);
-      } else if (femaleChecked && filteredRace.statsfemale !== undefined) {
-        setbaseRaceStats(filteredRace.statsfemale);
+      if (maleChecked && filteredRace.stats.male !== undefined) {
+        setbaseRaceStats(filteredRace.stats.male);
+      } else if (femaleChecked && filteredRace.stats.female !== undefined) {
+        setbaseRaceStats(filteredRace.stats.female);
       }
     }
   };
@@ -273,21 +274,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
     O: "",
     W: "",
   });
-  const [rollK100ClickedBaseStats, setRollK100Clicked] = useState({
-    ŻYW: false,
-    SF: false,
-    ZR: false,
-    SZ: false,
-    INT: false,
-    MD: false,
-    UM: false,
-    CH: false,
-    PR: false,
-    WI: false,
-    ZW: false,
-    O: false,
-    W: false,
-  });
+  
 
   const [isChecked, setIsChecked] = useState({
     male: false,

@@ -64,7 +64,7 @@ const ChapterContent_II_socialClass = () => {
   return (
     <section id="chapter_section2__social_class" class="section2__social_class">
       <h3>{chp2_info2.title}</h3>
-      <div>
+      <div className="flex flex-col gap-4">
         <p>wyjściowa klasa społeczna:</p>
         <div className="flex gap-4">
           <DiceButtonComponent
@@ -72,6 +72,7 @@ const ChapterContent_II_socialClass = () => {
             k={100}
             k100Result={context.socialClassK100Result}
             clicked={context.isClicked.socialClassDice}
+            disabled={context.isClicked.socialClassDice}
             mainKey={"socialClassDice"}
             subKey
             toggleClick={context.toggleClick}
@@ -82,7 +83,7 @@ const ChapterContent_II_socialClass = () => {
         </div>
       </div>
 
-      <div>
+      <div disabled={!context.isClicked.socialClassDice}>
         <p>roczny dochód:</p>
         <div className="flex gap-4">
           <DiceButtonComponent
@@ -90,6 +91,7 @@ const ChapterContent_II_socialClass = () => {
             k={context.dice_kSocialClass}
             k100Result={context.incomeValue}
             clicked={context.isClicked.incomeValueDice}
+            disabled={!context.isClicked.socialClassDice}
             mainKey={"incomeValueDice"}
             subKey
             toggleClick={context.toggleClick}

@@ -1,6 +1,7 @@
 const prof13 = {
   id: "prof13",
   name: "ASTROLOG",
+  castName: "KAPŁAŃSKA",
   ŻYW: 0,
   SF: 0,
   ZR: 0,

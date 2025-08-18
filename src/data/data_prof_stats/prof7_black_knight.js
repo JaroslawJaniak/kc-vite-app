@@ -1,6 +1,7 @@
 const prof7 = {
   id: "prof7",
   name: "CZARNY RYCERZ",
+  cast: "RYCERSKA",
   ŻYW: 20,
   SF: 20,
   ZR: 0,

@@ -45,8 +45,12 @@ export const ChapterContent_VI_statsCalculations = () => {
         Toggle SF test (aktualnie:{" "}
         {context.isClicked.baseStatsDice.SF ? "true" : "false"})
       </div>
-      ChapterContent_VI_statsSelection
-      <table className=" [&>*]:p-0 [&>*]:m-0 text-xxs md:text-xs">
+
+      {/* <table className=" [&>*]:p-0 [&>*]:m-0 text-xxs md:text-xs "> */}
+      <table className=" w-full text-xxs md:text-xs dark:text-gray-400">
+        <caption className="text-left">
+          ChapterContent_VI_statsSelection
+        </caption>
         <thead>
           <tr>
             <th></th>
@@ -112,12 +116,17 @@ export const ChapterContent_VI_statsCalculations = () => {
                 k={100}
                 k100Result={"k100"}
                 clicked={context.isClicked.baseStatsDice.SF}
+                disabled={context.isClicked.baseStatsDice.SF}
                 mainKey={"baseStatsDice"}
                 subKey={"SF"}
                 toggleClick={context.toggleClick}
                 onDiceRoll={k100RollResultSF}
                 className={btnStyle}
               />
+              {
+                (context.profStats.ŻYW > context.secondProfStats.ŻYW
+                  ? context.profStats.ŻYW
+                  : context.secondProfStats.ŻYW)}
             </td>
 
             <td>{context.profStats.SF}</td>

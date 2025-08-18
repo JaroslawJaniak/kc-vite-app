@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 
 import CastSubprofession_container from "./CastSubprofession_container";
-import chp4_casts from "./chp4_casts";
+
 import chp4_casts_ from "./chp4_casts_full";
 import chp4_professions from "./chp4_professions";
 import { ChapterContent_IV_second_profession } from "./ChapterContent_IV_second_profession";

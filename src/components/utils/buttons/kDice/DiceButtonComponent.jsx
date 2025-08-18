@@ -7,6 +7,7 @@ const DiceButtonComponent = (props) => {
     k,
     k100Result,
     clicked,
+    disabled,
     mainKey, 
     subKey,
     toggleClick,
@@ -15,7 +16,8 @@ const DiceButtonComponent = (props) => {
   } = props;
 
   const handleClick = () => {
-    if (!clicked) {
+    if (!clicked) { // Sprawdzenie, czy przycisk nie jest już kliknięty
+      // Wywołanie funkcji kDice z parametrami n i k
       // Rzut kością
       onDiceRoll(kDice(n, k));
 
@@ -25,7 +27,7 @@ const DiceButtonComponent = (props) => {
   };
 
   return (
-    <button disabled={clicked} className={className} onClick={handleClick}>
+    <button disabled={disabled} className={className} onClick={handleClick}>
       {clicked ? k100Result : `${n}k${k}`}
     </button>
   );
