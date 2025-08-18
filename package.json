@@ -1,13 +1,13 @@
 {
   "name": "kc-vite-app",
-  "homepage": "https://jaroslawjaniak.github.io/kc-vite-app",
+  "homepage": "https://JaroslawJaniak.github.io/kc-vite-app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
+    "deploy": "gh-pages -d dist -r https://github.com/JaroslawJaniak/kc-vite-app.git",
     "clean": "rm -rf dist",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
