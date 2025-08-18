@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import imageMap0 from "../assets/map0.jpg";
-import { chp4_professionsList } from "../components/chapter_IV_components/chp4_professions";
+
+import { professions } from "../data/data_prof_stats/professions";
 import { chp1_race_description } from "../components/chaper_I_components/chp1_race_description";
 import { chp6_table_prof_stats2 } from "../components/chapter_VI_components/chp6_table-prof-stats2";
 
@@ -52,7 +53,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
 
   const [firstProfession, setFirstProfession] = useState("");
   const [secondProfession, setSecondProfession] = useState("");
- 
+
   const [firstProfessionInfo, setFirstProfessionInfo] = useState({
     profName: "",
     castName: "",
@@ -112,8 +113,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
   ]);
   const [isProfAvailable, setIsProfAvailable] = useState();
 
-  const [availableProfessions, setAvailableProfessions] =
-    useState(chp4_professionsList);
+  const [availableProfessions, setAvailableProfessions] = useState(professions);
 
   const [availableCharacters, setAvailableCharacters] = useState([]);
 
@@ -127,8 +127,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
   const [character, setCharacter] = useState("");
   const [characterChecked, setCharacterChecked] = useState(false);
 
-  const [renderProfessions, setRenderProfessions] =
-    useState(chp4_professionsList);
+  const [renderProfessions, setRenderProfessions] = useState(professions);
 
   const [height, setHeight] = useState("");
   const [heightK100Result, setHeightK100Result] = useState("");
@@ -274,7 +273,6 @@ export const CharacterStatsContextProvider = ({ children }) => {
     O: "",
     W: "",
   });
-  
 
   const [isChecked, setIsChecked] = useState({
     male: false,
@@ -329,15 +327,29 @@ export const CharacterStatsContextProvider = ({ children }) => {
 
   const filterProfStatsByFirstProf = () => {
     if (firstProfession !== "") {
-      const [filteredProf] = chp6_table_prof_stats2.filter((profData) => {
+      const [filteredProf] = professions.filter((profData) => {
         console.log(profData);
-        return profData.name === firstProfession;
+        return profData.profName === firstProfession;
       });
 
-      setprofStats(filteredProf);
+      setprofStats(filteredProf.stats); // Assuming stats is the correct property to access
+      console.log("Filtered Profession Stats: ", filteredProf.stats); // Debugging line
     }
   };
 
+  const filterProfStatsBySecondProf = () => {
+    if (secondProfession !== "") {
+      const [filteredProf] = professions.filter((profData) => {
+        console.log(profData);
+        return profData.profName === secondProfession;
+      });
+
+      setsecondProfStats(filteredProf.stats); // Assuming stats is the correct property to access
+      console.log("Filtered Second Profession Stats: ", filteredProf.stats); // Debugging line
+    }
+  };
+
+  /*
   const filterProfStatsBySecondProf = () => {
     if (secondProfession !== "") {
       const [filteredProf] = chp6_table_prof_stats2.filter((profData) => {
@@ -348,6 +360,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
       setsecondProfStats(filteredProf);
     }
   };
+  */
 
   const filterCharactersByProfession = () => {
     console.log(firstProfessionInfo.profName);

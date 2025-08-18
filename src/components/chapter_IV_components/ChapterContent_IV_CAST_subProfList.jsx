@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { CharacterStatsContext } from "../../context/CharacterStatsContext";
 import { InputComponent } from "../utils/InputComponent";
-import chp4_professionsList from "./chp4_professions";
+
 
 export const ChapterContent_IV_CAST_subProfList = (props) => {
   const context = useContext(CharacterStatsContext);
