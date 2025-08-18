@@ -47,7 +47,7 @@ export const ChapterContent_VI_statsCalculations = () => {
       </div>
 
       {/* <table className=" [&>*]:p-0 [&>*]:m-0 text-xxs md:text-xs "> */}
-      <table className=" w-full text-xxs md:text-xs dark:text-gray-400">
+      <table className=" w-full text-xxs md:text-xs dark:text-gray-400 [&_*]:border-hidden bg-transparent">
         <caption className="text-left">
           ChapterContent_VI_statsSelection
         </caption>
@@ -123,10 +123,6 @@ export const ChapterContent_VI_statsCalculations = () => {
                 onDiceRoll={k100RollResultSF}
                 className={btnStyle}
               />
-              {
-                (context.profStats.ŻYW > context.secondProfStats.ŻYW
-                  ? context.profStats.ŻYW
-                  : context.secondProfStats.ŻYW)}
             </td>
 
             <td>{context.profStats.SF}</td>
