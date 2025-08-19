@@ -47,7 +47,7 @@ export const ChapterContent_VI_statsCalculations = () => {
       </div>
 
       {/* <table className=" [&>*]:p-0 [&>*]:m-0 text-xxs md:text-xs "> */}
-      <table className=" w-full text-xxs md:text-xs dark:text-gray-400 [&_*]:border-hidden bg-transparent">
+      <table className=" w-full text-xxs md:text-xs dark:text-gray-400 [&_*]:border-hidden bg-transparent [&_*]:text-center">
         <caption className="text-left">
           ChapterContent_VI_statsSelection
         </caption>
@@ -56,7 +56,10 @@ export const ChapterContent_VI_statsCalculations = () => {
             <th></th>
             <th>{context.race}</th>
             <th>k100/k50</th>
-            {context.firstProfession ? (
+
+            <th>{context.firstProfessionData.profName}</th>
+            <th>{context.secondProfessionData.profName}</th>
+            {/* {context.firstProfession ? (
               <>
                 <th>{context.firstProfession}</th>
               </>
@@ -65,7 +68,7 @@ export const ChapterContent_VI_statsCalculations = () => {
               <>
                 <th>{context.secondProfession}</th>
               </>
-            ) : null}
+            ) : null} */}
 
             <th>k10+</th>
             <th>sum</th>
@@ -79,11 +82,12 @@ export const ChapterContent_VI_statsCalculations = () => {
             </td>
             <td>{context.baseRaceStats.ŻYW}</td>
             <td>-</td>
-            <td>{context.profStats.ŻYW}</td>
+            <td>{context.firstProfessionData.stats.ŻYW}</td>
 
-            <td>{context.secondProfStats.ŻYW}</td>
+            <td>{context.secondProfessionData.stats.ŻYW}</td>
             <td>
-              {context.profStats.k10_ŻYW || context.secondProfStats.k10_ŻYW ? (
+              {context.firstProfessionData.stats.k10_ŻYW ||
+              context.secondProfessionData.stats.k10_ŻYW ? (
                 <DiceButtonComponent
                   n={1}
                   k={10}
@@ -100,9 +104,10 @@ export const ChapterContent_VI_statsCalculations = () => {
             </td>
             <td>
               {context.baseRaceStats.ŻYW +
-                (context.profStats.ŻYW > context.secondProfStats.ŻYW
-                  ? context.profStats.ŻYW
-                  : context.secondProfStats.ŻYW)}
+                Math.max(
+                  context.firstProfessionData.stats.ŻYW,
+                  context.secondProfessionData.stats.ŻYW
+                )}
             </td>
           </tr>
           <tr>
@@ -123,13 +128,35 @@ export const ChapterContent_VI_statsCalculations = () => {
                 onDiceRoll={k100RollResultSF}
                 className={btnStyle}
               />
+              {["ŻOŁNIERSKA", "RYCERSKA"].includes(
+                context.firstProfessionData.castName
+              ) ||
+              ["ŻOŁNIERSKA", "RYCERSKA"].includes(
+                context.secondProfessionData.castName
+              ) ? (
+                <DiceButtonComponent
+                  n={1}
+                  k={100}
+                  k100Result={"k100"}
+                  clicked={context.isClicked.baseStatsDice.SF}
+                  disabled={context.isClicked.baseStatsDice.SF}
+                  mainKey={"baseStatsDice"}
+                  subKey={"SF"}
+                  toggleClick={context.toggleClick}
+                  onDiceRoll={k100RollResultSF}
+                  className={btnStyle}
+                />
+              ) : (
+                ""
+              )}
             </td>
 
-            <td>{context.profStats.SF}</td>
+            <td>{context.firstProfessionData.stats.SF}</td>
 
-            <td>{context.secondProfStats.SF}</td>
+            <td>{context.secondProfessionData.stats.SF}</td>
             <td>
-              {context.profStats.k10_SF || context.secondProfStats.k10_SF ? (
+              {context.firstProfessionData.stats.k10_SF ||
+              context.secondProfessionData.stats.k10_SF ? (
                 <DiceButtonComponent
                   n={1}
                   k={10}
@@ -146,9 +173,10 @@ export const ChapterContent_VI_statsCalculations = () => {
             </td>
             <td>
               {context.baseRaceStats.SF +
-                (context.profStats.SF > context.secondProfStats.SF
-                  ? context.profStats.SF
-                  : context.secondProfStats.SF)}
+                Math.max(
+                  context.firstProfessionData.stats.SF,
+                  context.secondProfessionData.stats.SF
+                )}
             </td>
           </tr>
           <tr>
@@ -166,12 +194,32 @@ export const ChapterContent_VI_statsCalculations = () => {
                 onDiceRoll
                 className={btnStyle}
               />
+              {["ZŁODZIEJSKA"].includes(context.firstProfessionData.castName) ||
+              ["ZŁODZIEJSKA"].includes(
+                context.secondProfessionData.castName
+              ) ? (
+                <DiceButtonComponent
+                  n={1}
+                  k={50}
+                  k100Result={"k50"}
+                  clicked={context.isClicked.baseStatsDice.ZR}
+                  disabled={context.isClicked.baseStatsDice.ZR}
+                  mainKey={"baseStatsDice"}
+                  subKey={"ZR"}
+                  toggleClick={context.toggleClick}
+                  onDiceRoll={k100RollResultSF}
+                  className={btnStyle}
+                />
+              ) : (
+                ""
+              )}
             </td>
-            <td>{context.profStats.ZR}</td>
+            <td>{context.firstProfessionData.stats.ZR}</td>
 
-            <td>{context.secondProfStats.ZR}</td>
+            <td>{context.secondProfessionData.stats.ZR}</td>
             <td>
-              {context.profStats.k10_ZR || context.secondProfStats.k10_ZR ? (
+              {context.firstProfessionData.stats.k10_ZR ||
+              context.secondProfessionData.stats.k10_ZR ? (
                 <DiceButtonComponent
                   n={1}
                   k={10}
@@ -188,9 +236,10 @@ export const ChapterContent_VI_statsCalculations = () => {
             </td>
             <td>
               {context.baseRaceStats.ZR +
-                (context.profStats.ZR > context.secondProfStats.ZR
-                  ? context.profStats.ZR
-                  : context.secondProfStats.ZR)}
+                Math.max(
+                  context.firstProfessionData.stats.ZR,
+                  context.secondProfessionData.stats.ZR
+                )}
             </td>
           </tr>
           <tr>
@@ -209,11 +258,12 @@ export const ChapterContent_VI_statsCalculations = () => {
                 className={btnStyle}
               />
             </td>
-            <td>{context.profStats.SZ}</td>
+            <td>{context.firstProfessionData.stats.SZ}</td>
 
-            <td>{context.secondProfStats.SZ}</td>
+            <td>{context.secondProfessionData.stats.SZ}</td>
             <td>
-              {context.profStats.k10_SZ || context.secondProfStats.k10_SZ ? (
+              {context.firstProfessionData.stats.k10_SZ ||
+              context.secondProfessionData.stats.k10_SZ ? (
                 <DiceButtonComponent
                   n={1}
                   k={10}
@@ -230,9 +280,10 @@ export const ChapterContent_VI_statsCalculations = () => {
             </td>
             <td>
               {context.baseRaceStats.SZ +
-                (context.profStats.SZ > context.secondProfStats.SZ
-                  ? context.profStats.SZ
-                  : context.secondProfStats.SZ)}
+                Math.max(
+                  context.firstProfessionData.stats.SZ,
+                  context.secondProfessionData.stats.SZ
+                )}
             </td>
           </tr>
           <tr>
@@ -251,11 +302,12 @@ export const ChapterContent_VI_statsCalculations = () => {
                 className={btnStyle}
               />
             </td>
-            <td>{context.profStats.INT}</td>
+            <td>{context.firstProfessionData.stats.INT}</td>
 
-            <td>{context.secondProfStats.INT}</td>
+            <td>{context.secondProfessionData.stats.INT}</td>
             <td>
-              {context.profStats.k10_INT || context.secondProfStats.k10_INT ? (
+              {context.firstProfessionData.stats.k10_INT ||
+              context.secondProfessionData.stats.k10_INT ? (
                 <DiceButtonComponent
                   n={1}
                   k={10}
@@ -272,9 +324,10 @@ export const ChapterContent_VI_statsCalculations = () => {
             </td>
             <td>
               {context.baseRaceStats.INT +
-                (context.profStats.INT > context.secondProfStats.INT
-                  ? context.profStats.INT
-                  : context.secondProfStats.INT)}
+                Math.max(
+                  context.firstProfessionData.stats.INT,
+                  context.secondProfessionData.stats.INT
+                )}
             </td>
           </tr>
           <tr>
@@ -293,11 +346,12 @@ export const ChapterContent_VI_statsCalculations = () => {
                 className={btnStyle}
               />
             </td>
-            <td>{context.profStats.MD}</td>
+            <td>{context.firstProfessionData.stats.MD}</td>
 
-            <td>{context.secondProfStats.MD}</td>
+            <td>{context.secondProfessionData.stats.MD}</td>
             <td>
-              {context.profStats.k10_MD || context.secondProfStats.k10_MD ? (
+              {context.firstProfessionData.stats.k10_MD ||
+              context.secondProfessionData.stats.k10_MD ? (
                 <DiceButtonComponent
                   n={1}
                   k={10}
@@ -314,9 +368,10 @@ export const ChapterContent_VI_statsCalculations = () => {
             </td>
             <td>
               {context.baseRaceStats.MD +
-                (context.profStats.MD > context.secondProfStats.MD
-                  ? context.profStats.MD
-                  : context.secondProfStats.MD)}
+                Math.max(
+                  context.firstProfessionData.stats.MD,
+                  context.secondProfessionData.stats.MD
+                )}
             </td>
           </tr>
           <tr>
@@ -326,14 +381,49 @@ export const ChapterContent_VI_statsCalculations = () => {
             <td>
               {context.race !== "Ludzie" ? (
                 context.baseRaceStats.UM
+              ) : ["CZARODZIEJSKA"].includes(
+                  context.firstProfessionData.castName
+                ) ||
+                ["CZARODZIEJSKA"].includes(
+                  context.secondProfessionData.castName
+                ) ? (
+                <>
+                  <DiceButtonComponent
+                    n={1}
+                    k={100}
+                    k100Result={"k100"}
+                    clicked={context.isClicked.baseStatsDice.UM}
+                    disabled={context.isClicked.baseStatsDice.UM}
+                    mainKey={"baseStatsDice"}
+                    subKey={"UM"}
+                    toggleClick={context.toggleClick}
+                    onDiceRoll={k100RollResultSF}
+                    className={btnStyle}
+                  />{" "}
+                  <DiceButtonComponent
+                    n={1}
+                    k={100}
+                    k100Result={"k100"}
+                    clicked={context.isClicked.baseStatsDice.UM}
+                    disabled={context.isClicked.baseStatsDice.UM}
+                    mainKey={"baseStatsDice"}
+                    subKey={"UM"}
+                    toggleClick={context.toggleClick}
+                    onDiceRoll={k100RollResultSF}
+                    className={btnStyle}
+                  />
+                </>
               ) : (
                 <DiceButtonComponent
                   n={1}
                   k={100}
                   k100Result={"k100"}
-                  clicked
-                  handleStateChange
-                  onDiceRoll
+                  clicked={context.isClicked.baseStatsDice.UM}
+                  disabled={context.isClicked.baseStatsDice.UM}
+                  mainKey={"baseStatsDice"}
+                  subKey={"UM"}
+                  toggleClick={context.toggleClick}
+                  onDiceRoll={k100RollResultSF}
                   className={btnStyle}
                 />
               )}
@@ -341,23 +431,59 @@ export const ChapterContent_VI_statsCalculations = () => {
             <td>
               {context.race === "Ludzie" ? (
                 "-"
+              ) : ["CZARODZIEJSKA"].includes(
+                  context.firstProfessionData.castName
+                ) ||
+                ["CZARODZIEJSKA"].includes(
+                  context.secondProfessionData.castName
+                ) ? (
+                <>
+                  <DiceButtonComponent
+                    n={1}
+                    k={50}
+                    k100Result={"k50"}
+                    clicked={context.isClicked.baseStatsDice.UM}
+                    disabled={context.isClicked.baseStatsDice.UM}
+                    mainKey={"baseStatsDice"}
+                    subKey={"UM"}
+                    toggleClick={context.toggleClick}
+                    onDiceRoll={k100RollResultSF}
+                    className={btnStyle}
+                  />
+                  <DiceButtonComponent
+                    n={1}
+                    k={50}
+                    k100Result={"k50"}
+                    clicked={context.isClicked.baseStatsDice.UM}
+                    disabled={context.isClicked.baseStatsDice.UM}
+                    mainKey={"baseStatsDice"}
+                    subKey={"UM"}
+                    toggleClick={context.toggleClick}
+                    onDiceRoll={k100RollResultSF}
+                    className={btnStyle}
+                  />
+                </>
               ) : (
                 <DiceButtonComponent
                   n={1}
                   k={50}
                   k100Result={"k50"}
-                  clicked
-                  handleStateChange
-                  onDiceRoll
+                  clicked={context.isClicked.baseStatsDice.UM}
+                  disabled={context.isClicked.baseStatsDice.UM}
+                  mainKey={"baseStatsDice"}
+                  subKey={"ZR"}
+                  toggleClick={context.toggleClick}
+                  onDiceRoll={k100RollResultSF}
                   className={btnStyle}
                 />
               )}
             </td>
-            <td>{context.profStats.UM}</td>
+            <td>{context.firstProfessionData.stats.UM}</td>
 
-            <td>{context.secondProfStats.UM}</td>
+            <td>{context.secondProfessionData.stats.UM}</td>
             <td>
-              {context.profStats.k10_UM || context.secondProfStats.k10_UM ? (
+              {context.firstProfessionData.stats.k10_UM ||
+              context.secondProfessionData.stats.k10_UM ? (
                 <DiceButtonComponent
                   n={1}
                   k={10}
@@ -374,9 +500,10 @@ export const ChapterContent_VI_statsCalculations = () => {
             </td>
             <td>
               {context.baseRaceStats.UM +
-                (context.profStats.UM > context.secondProfStats.UM
-                  ? context.profStats.UM
-                  : context.secondProfStats.UM)}
+                Math.max(
+                  context.firstProfessionData.stats.UM,
+                  context.secondProfessionData.stats.UM
+                )}
             </td>
           </tr>
           <tr>
@@ -395,11 +522,12 @@ export const ChapterContent_VI_statsCalculations = () => {
                 className={btnStyle}
               />
             </td>
-            <td>{context.profStats.CH}</td>
+            <td>{context.firstProfessionData.stats.CH}</td>
 
-            <td>{context.secondProfStats.CH}</td>
+            <td>{context.secondProfessionData.stats.CH}</td>
             <td>
-              {context.profStats.k10_CH || context.secondProfStats.k10_CH ? (
+              {context.firstProfessionData.stats.k10_CH ||
+              context.secondProfessionData.stats.k10_CH ? (
                 <DiceButtonComponent
                   n={1}
                   k={10}
@@ -416,9 +544,10 @@ export const ChapterContent_VI_statsCalculations = () => {
             </td>
             <td>
               {context.baseRaceStats.CH +
-                (context.profStats.CH > context.secondProfStats.CH
-                  ? context.profStats.CH
-                  : context.secondProfStats.CH)}
+                Math.max(
+                  context.firstProfessionData.stats.CH,
+                  context.secondProfessionData.stats.CH
+                )}
             </td>
           </tr>
           <tr>
@@ -437,11 +566,12 @@ export const ChapterContent_VI_statsCalculations = () => {
                 className={btnStyle}
               />
             </td>
-            <td>{context.profStats.PR}</td>
+            <td>{context.firstProfessionData.stats.PR}</td>
 
-            <td>{context.secondProfStats.PR}</td>
+            <td>{context.secondProfessionData.stats.PR}</td>
             <td>
-              {context.profStats.k10_PR || context.secondProfStats.k10_PR ? (
+              {context.firstProfessionData.stats.k10_PR ||
+              context.secondProfessionData.stats.k10_PR ? (
                 <DiceButtonComponent
                   n={1}
                   k={10}
@@ -458,9 +588,10 @@ export const ChapterContent_VI_statsCalculations = () => {
             </td>
             <td>
               {context.baseRaceStats.PR +
-                (context.profStats.PR > context.secondProfStats.PR
-                  ? context.profStats.PR
-                  : context.secondProfStats.PR)}
+                Math.max(
+                  context.firstProfessionData.stats.PR,
+                  context.secondProfessionData.stats.PR
+                )}
             </td>
           </tr>
           <tr>
@@ -478,12 +609,30 @@ export const ChapterContent_VI_statsCalculations = () => {
                 onDiceRoll
                 className={btnStyle}
               />
+              {["KAPŁAŃSKA"].includes(context.firstProfessionData.castName) ||
+              ["KAPŁAŃSKA"].includes(context.secondProfessionData.castName) ? (
+                <DiceButtonComponent
+                  n={1}
+                  k={50}
+                  k100Result={"k50"}
+                  clicked={context.isClicked.baseStatsDice.WI}
+                  disabled={context.isClicked.baseStatsDice.WI}
+                  mainKey={"baseStatsDice"}
+                  subKey={"WI"}
+                  toggleClick={context.toggleClick}
+                  onDiceRoll={k100RollResultSF}
+                  className={btnStyle}
+                />
+              ) : (
+                ""
+              )}
             </td>
-            <td>{context.profStats.WI}</td>
+            <td>{context.firstProfessionData.stats.WI}</td>
 
-            <td>{context.secondProfStats.WI}</td>
+            <td>{context.secondProfessionData.stats.WI}</td>
             <td>
-              {context.profStats.k10_WI || context.secondProfStats.k10_WI ? (
+              {context.firstProfessionData.stats.k10_WI ||
+              context.secondProfessionData.stats.k10_WI ? (
                 <DiceButtonComponent
                   n={1}
                   k={10}
@@ -500,9 +649,10 @@ export const ChapterContent_VI_statsCalculations = () => {
             </td>
             <td>
               {context.baseRaceStats.WI +
-                (context.profStats.WI > context.secondProfStats.WI
-                  ? context.profStats.WI
-                  : context.secondProfStats.WI)}
+                Math.max(
+                  context.firstProfessionData.stats.WI,
+                  context.secondProfessionData.stats.WI
+                )}
             </td>
           </tr>
           <tr>
@@ -510,24 +660,59 @@ export const ChapterContent_VI_statsCalculations = () => {
               <b>ZW</b>
             </td>
             <td>
-              {" "}
-              <DiceButtonComponent
-                n={1}
-                k={5}
-                k100Result={"k5+"}
-                isPremium
-                clicked
-                handleStateChange
-                onDiceRoll
-                className={btnStyle}
-              />
+              {["KAPŁAŃSKA"].includes(context.firstProfessionData.castName) ||
+              ["KAPŁAŃSKA"].includes(context.secondProfessionData.castName) ? (
+                <>
+                  <DiceButtonComponent
+                    n={1}
+                    k={10}
+                    k100Result={"k10"}
+                    clicked={context.isClicked.baseStatsDice.ZW}
+                    disabled={context.isClicked.baseStatsDice.ZW}
+                    mainKey={"baseStatsDice"}
+                    subKey={"ZW"}
+                    toggleClick={context.toggleClick}
+                    onDiceRoll={k100RollResultSF}
+                    className={btnStyle}
+                  />
+                  <DiceButtonComponent
+                    n={1}
+                    k={10}
+                    k100Result={"k10"}
+                    clicked={context.isClicked.baseStatsDice.ZW}
+                    disabled={context.isClicked.baseStatsDice.ZW}
+                    mainKey={"baseStatsDice"}
+                    subKey={"ZW"}
+                    toggleClick={context.toggleClick}
+                    onDiceRoll={k100RollResultSF}
+                    className={btnStyle}
+                  />
+                </>
+              ) : (
+                <DiceButtonComponent
+                  n={1}
+                  k={5}
+                  k100Result={"k5"}
+                  clicked={context.isClicked.baseStatsDice.ZW}
+                  disabled={context.isClicked.baseStatsDice.ZW}
+                  mainKey={"baseStatsDice"}
+                  subKey={"ZW"}
+                  toggleClick={context.toggleClick}
+                  onDiceRoll={k100RollResultSF}
+                  className={btnStyle}
+                />
+              )}
+
+             
             </td>
 
             <td>-</td>
             <td>-</td>
             <td>-</td>
             <td>-</td>
-            <td>{context.baseRaceStats.ZW + context.profStats.ZW}</td>
+            <td>
+              {context.baseRaceStats.ZW + context.firstProfessionData.stats.ZW}
+            </td>
           </tr>
         </tbody>
       </table>

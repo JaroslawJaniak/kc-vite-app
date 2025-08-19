@@ -13,7 +13,7 @@ export const ChapterContent_IV_CAST_subProfList = (props) => {
       (prof) => prof.profName === profName
     );
 
-    context.setSecondProfessionInfo(...secondProfToSet);
+    context.setSecondProfessionData(...secondProfToSet);
 
     const newCharList = context.firstProfessionCharacters.filter((char1) =>
       secondProfToSet[0].character.some((char2) => char2 === char1)
@@ -36,12 +36,12 @@ export const ChapterContent_IV_CAST_subProfList = (props) => {
     <div className="ml-4  [&>*]:lowercase grid grid-cols-2">
       {props.mainProf.combiningProfessions.map((subProfList) => (
         <div
-          className={`border rounded bg-white p-1 ${
+          className={` p-1 ${
             !(context.firstProfession === props.mainProf.profName)
               ? "text-gray-400 "
-              : "text-black shadow-lg mb-4"
+              : "text-black"
           }`}
-          //hidden={!(context.firstProfession === props.mainProf.profName)}
+          hidden={!(context.firstProfession === props.mainProf.profName)} //ukrywa jeśli nie jest to pierwsza profesja
         >
           {subProfList
             .filter((subProfName) =>
@@ -54,7 +54,7 @@ export const ChapterContent_IV_CAST_subProfList = (props) => {
                 <InputComponent
                   type={"checkbox"}
                   name={subProf}
-                  className={"lowercase"}
+                  className={`lowercase`}
                   checked={
                     context.secondProfession === subProf &&
                     context.firstProfession === props.mainProf.profName &&

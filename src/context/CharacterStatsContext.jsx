@@ -3,7 +3,6 @@ import imageMap0 from "../assets/map0.jpg";
 
 import { professions } from "../data/data_prof_stats/professions";
 import { chp1_race_description } from "../components/chaper_I_components/chp1_race_description";
-import { chp6_table_prof_stats2 } from "../components/chapter_VI_components/chp6_table-prof-stats2";
 
 export const CharacterStatsContext = createContext();
 
@@ -54,7 +53,8 @@ export const CharacterStatsContextProvider = ({ children }) => {
   const [firstProfession, setFirstProfession] = useState("");
   const [secondProfession, setSecondProfession] = useState("");
 
-  const [firstProfessionInfo, setFirstProfessionInfo] = useState({
+  const [firstProfessionData, setFirstProfessionData] = useState({
+    id: "",
     profName: "",
     castName: "",
     combiningProfessions: [
@@ -68,8 +68,22 @@ export const CharacterStatsContextProvider = ({ children }) => {
     usedArmour: "",
     uesedMagic: "",
     formation: "",
+    stats: {
+      ŻYW: 0,
+      SF: 0,
+      ZR: 0,
+      SZ: 0,
+      INT: 0,
+      MD: 0,
+      UM: 0,
+      CH: 0,
+      PR: 0,
+      WI: 0,
+      ZW: 0,
+    },
   });
-  const [secondProfessionInfo, setSecondProfessionInfo] = useState({
+  const [secondProfessionData, setSecondProfessionData] = useState({
+    id: "",
     profName: "",
     castName: "",
     combiningProfessions: [
@@ -83,6 +97,19 @@ export const CharacterStatsContextProvider = ({ children }) => {
     usedArmour: "",
     uesedMagic: "",
     formation: "",
+    stats: {
+      ŻYW: 0,
+      SF: 0,
+      ZR: 0,
+      SZ: 0,
+      INT: 0,
+      MD: 0,
+      UM: 0,
+      CH: 0,
+      PR: 0,
+      WI: 0,
+      ZW: 0,
+    },
   });
   const [firstProfessionChecked, setFirstProfessionChecked] = useState(false);
   const [secondProfessionChecked, setSecondProfessionChecked] = useState(false);
@@ -210,38 +237,6 @@ export const CharacterStatsContextProvider = ({ children }) => {
     }
   };
 
-  const [profStats, setprofStats] = useState({
-    ŻYW: 0,
-    SF: 0,
-    ZR: 0,
-    SZ: 0,
-    INT: 0,
-    MD: 0,
-    UM: 0,
-    CH: 0,
-    PR: 0,
-    WI: 0,
-    ZW: 0,
-    O: 0,
-    W: 0,
-  });
-
-  const [secondProfStats, setsecondProfStats] = useState({
-    ŻYW: 0,
-    SF: 0,
-    ZR: 0,
-    SZ: 0,
-    INT: 0,
-    MD: 0,
-    UM: 0,
-    CH: 0,
-    PR: 0,
-    WI: 0,
-    ZW: 0,
-    O: 0,
-    W: 0,
-  });
-
   const [diceRollResultBaseStats, setdiceRollResultBaseStats] = useState({
     ŻYW: 0,
     SF: 0,
@@ -307,6 +302,62 @@ export const CharacterStatsContextProvider = ({ children }) => {
     },
   });
 
+  const [diceRollResult, setDiceRollResult] = useState({
+    plcOfBirthDice: 0,
+    socialClassDice: 0,
+    incomeValueDice: 0,
+    socialClassIncomeDice: 0,
+    disabilitiesDice: 0,
+    abilitiesDice: 0,
+    HeightDice: 0,
+    WeightDice: 0,
+    baseStatsDice: {
+      ŻYW: 0,
+      SF: 0,
+      ZR: 0,
+      SZ: 0,
+      INT: 0,
+      MD: 0,
+      UM: 0,
+      CH: 0,
+      PR: 0,
+      WI: 0,
+      ZW: 0,
+      O: 0,
+      W: 0,
+    },
+    bonusBaseStatsDice: {
+      ŻYW: 0,
+      SF: 0,
+      ZR: 0,
+      SZ: 0,
+      INT: 0,
+      MD: 0,
+      UM: 0,
+      CH: 0,
+      PR: 0,
+      WI: 0,
+      ZW: 0,
+      O: 0,
+      W: 0,
+    },
+    bonusImmunityStatsDice: {
+      ŻYW: 0,
+      SF: 0,
+      ZR: 0,
+      SZ: 0,
+      INT: 0,
+      MD: 0,
+      UM: 0,
+      CH: 0,
+      PR: 0,
+      WI: 0,
+      ZW: 0,
+      O: 0,
+      W: 0,
+    },
+  });
+
   const toggleClick = (key, subKey = null) => {
     setIsClicked((prev) => {
       if (subKey) {
@@ -328,24 +379,28 @@ export const CharacterStatsContextProvider = ({ children }) => {
   const filterProfStatsByFirstProf = () => {
     if (firstProfession !== "") {
       const [filteredProf] = professions.filter((profData) => {
-        console.log(profData);
+        //console.log(profData);
         return profData.profName === firstProfession;
       });
 
-      setprofStats(filteredProf.stats); // Assuming stats is the correct property to access
-      console.log("Filtered Profession Stats: ", filteredProf.stats); // Debugging line
+      setFirstProfessionData(filteredProf); // Assuming stats is the correct property to access
+      console.log("Filtered Profession Data: ", filteredProf); // Debugging line
+      //setprofStats(filteredProf.stats); // Assuming stats is the correct property to access
+      //console.log("Filtered Profession Stats: ", filteredProf.stats); // Debugging line
     }
   };
 
   const filterProfStatsBySecondProf = () => {
     if (secondProfession !== "") {
       const [filteredProf] = professions.filter((profData) => {
-        console.log(profData);
+        //console.log(profData);
         return profData.profName === secondProfession;
       });
 
-      setsecondProfStats(filteredProf.stats); // Assuming stats is the correct property to access
-      console.log("Filtered Second Profession Stats: ", filteredProf.stats); // Debugging line
+      setSecondProfessionData(filteredProf);
+      console.log("Filtered Second Profession Data: ", filteredProf); // Debugging line
+      //setsecondProfStats(filteredProf.stats); // Assuming stats is the correct property to access
+      //console.log("Filtered Second Profession Stats: ", filteredProf.stats); // Debugging line
     }
   };
 
@@ -510,10 +565,10 @@ export const CharacterStatsContextProvider = ({ children }) => {
     isSecondProfessionChecked,
     setIsSecondProfessionChecked,
 
-    firstProfessionInfo,
-    setFirstProfessionInfo,
-    setSecondProfessionInfo,
-    secondProfessionInfo,
+    firstProfessionData,
+    setFirstProfessionData,
+    setSecondProfessionData,
+    secondProfessionData,
 
     availableCharacters,
     setAvailableCharacters,
@@ -547,9 +602,8 @@ export const CharacterStatsContextProvider = ({ children }) => {
     filterBaseRaceStatsByRaceName,
     baseRaceStats,
 
-    profStats,
     filterProfStatsByFirstProf,
-    secondProfStats,
+
     filterProfStatsBySecondProf,
 
     diceRollResultBaseStats,
@@ -559,6 +613,8 @@ export const CharacterStatsContextProvider = ({ children }) => {
 
     isClicked,
     toggleClick,
+    diceRollResult,
+    setDiceRollResult,
   };
 
   return (

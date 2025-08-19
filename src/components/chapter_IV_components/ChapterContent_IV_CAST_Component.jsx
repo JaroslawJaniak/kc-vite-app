@@ -8,7 +8,7 @@ export const ChapterContent_IV_CAST_Component = (props) => {
 
   const handleElementChange = (prof, profName) => {
     context.setFirstProfession(profName);
-    context.setFirstProfessionInfo(prof);
+    context.setFirstProfessionData(prof);
     context.setFirstProfessionCharacters(prof.character);
     context.setAvailableCharacters(prof.character);
     context.setCharacter("");
