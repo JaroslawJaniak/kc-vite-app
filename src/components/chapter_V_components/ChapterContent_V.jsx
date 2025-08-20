@@ -64,15 +64,15 @@ const ChapterContent_V = () => {
       context.setWeight(dataWeight(k, context.race).weight);
       context.setTableWeight_tdId(dataWeight(k, context.race).tdId);
 
-       document
-         .getElementById("td_weight_male" + dataWeight(k, context.race).tdId)
-         .classList.add("activeTrTable");
-       document
-         .getElementById("td_weight_female" + dataWeight(k, context.race).tdId)
-         .classList.add("activeTrTable");
+      document
+        .getElementById("td_weight_male" + dataWeight(k, context.race).tdId)
+        .classList.add("activeTrTable");
+      document
+        .getElementById("td_weight_female" + dataWeight(k, context.race).tdId)
+        .classList.add("activeTrTable");
     }
   };
-  
+
   return (
     <section className="section mb-20">
       <h3>{chp5_info.text1}</h3>
@@ -82,7 +82,9 @@ const ChapterContent_V = () => {
         }
       >
         <div className="border rounded md:w-96 h-32 m-auto mt-4 flex justify-center shadow-md">
-          <p className="text-xl m-auto font-mono font-bold text-red-900">{chp5_info.text2}</p>
+          <p className="text-xl m-auto font-mono font-bold text-red-900">
+            {chp5_info.text2}
+          </p>
         </div>
       </div>
 
@@ -97,10 +99,14 @@ const ChapterContent_V = () => {
           <DiceButtonComponent
             n={1}
             k={100}
-            k100Result={context.heightK100Result}
-            clicked={context.heightK100Clicked}
-            handleStateChange={context.setHeightK100Clicked}
-            onDiceRoll={k100RollHeightResult}
+            diceRollResult={context.heightK100Result}
+            clicked={context.isClicked.HeightDice}
+            disabled={context.isClicked.HeightDice}
+            mainKey={"HeightDice"}
+            subKey
+            toggleClick={context.toggleClick}
+            updateDiceRollResult={context.updateDiceRollResult}
+            resolveDiceRoll={k100RollHeightResult}
             className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5  my-2 mr-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
           />{" "}
           wzrost: {context.height} cm;
@@ -110,10 +116,14 @@ const ChapterContent_V = () => {
           <DiceButtonComponent
             n={1}
             k={100}
-            k100Result={context.weightK100Result}
-            clicked={context.weightK100Clicked}
-            handleStateChange={context.setWeightK100Clicked}
-            onDiceRoll={k100RollWeightResult}
+            diceRollResult={context.weightK100Result}
+            clicked={context.isClicked.WeightDice}
+            disabled={context.isClicked.WeightDice}
+            mainKey={"WeightDice"}
+            subKey
+            toggleClick={context.toggleClick}
+            updateDiceRollResult={context.updateDiceRollResult}
+            resolveDiceRoll={k100RollWeightResult}
             className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5  my-2  mr-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
           />{" "}
           waga: {context.weight} kg;

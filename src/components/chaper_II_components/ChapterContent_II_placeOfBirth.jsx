@@ -59,13 +59,14 @@ th {
       <DiceButtonComponent
         n={1}
         k={100}
-        k100Result={context.plcOfBirthK100Result}
+        diceRollResult={context.plcOfBirthK100Result}
         clicked={context.isClicked.plcOfBirthDice}
         disabled={context.isClicked.plcOfBirthDice}
         mainKey={"plcOfBirthDice"}
         subKey
         toggleClick={context.toggleClick}
-        onDiceRoll={k100RollResult}
+        updateDiceRollResult={context.updateDiceRollResult}
+        resolveDiceRoll={k100RollResult}
         className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5  mb-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
       />
       <div className="text-gray-500 mb-2">

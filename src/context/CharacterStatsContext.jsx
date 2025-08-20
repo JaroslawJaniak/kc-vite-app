@@ -265,8 +265,6 @@ export const CharacterStatsContextProvider = ({ children }) => {
     PR: "",
     WI: "",
     ZW: "",
-    O: "",
-    W: "",
   });
 
   const [isChecked, setIsChecked] = useState({
@@ -297,8 +295,32 @@ export const CharacterStatsContextProvider = ({ children }) => {
       PR: false,
       WI: false,
       ZW: false,
-      O: false,
-      W: false,
+    },
+    bonusBaseStatsDice: {
+      ŻYW: false,
+      SF: false,
+      ZR: false,
+      SZ: false,
+      INT: false,
+      MD: false,
+      UM: false,
+      CH: false,
+      PR: false,
+      WI: false,
+      ZW: false,
+    },
+    bonusImmunityStatsDice: {
+      ŻYW: 0,
+      SF: 0,
+      ZR: 0,
+      SZ: 0,
+      INT: 0,
+      MD: 0,
+      UM: 0,
+      CH: 0,
+      PR: 0,
+      WI: 0,
+      ZW: 0,
     },
   });
 
@@ -313,16 +335,16 @@ export const CharacterStatsContextProvider = ({ children }) => {
     WeightDice: 0,
     baseStatsDice: {
       ŻYW: 0,
-      SF: 0,
-      ZR: 0,
+      SF: { result1: 0, result2: 0 },
+      ZR: { result1: 0, result2: 0 },
       SZ: 0,
       INT: 0,
       MD: 0,
-      UM: 0,
+      UM: { result1: 0, result2: 0 },
       CH: 0,
       PR: 0,
-      WI: 0,
-      ZW: 0,
+      WI: { result1: 0, result2: 0 },
+      ZW: { result1: 0, result2: 0 },
       O: 0,
       W: 0,
     },
@@ -338,8 +360,6 @@ export const CharacterStatsContextProvider = ({ children }) => {
       PR: 0,
       WI: 0,
       ZW: 0,
-      O: 0,
-      W: 0,
     },
     bonusImmunityStatsDice: {
       ŻYW: 0,
@@ -353,10 +373,38 @@ export const CharacterStatsContextProvider = ({ children }) => {
       PR: 0,
       WI: 0,
       ZW: 0,
-      O: 0,
-      W: 0,
     },
   });
+
+  // function updateDiceRollResult(mainKey, subKey, value) {
+  //   setDiceRollResult((prev) => ({
+  //     ...prev,
+  //     [mainKey]: {
+  //       ...prev[mainKey],
+  //       [subKey]: value,
+  //     },
+  //   }));
+  // }
+
+  function updateDiceRollResult(path, value) {
+    setDiceRollResult((prev) => {
+      const newState = { ...prev };
+      let current = newState;
+
+      for (let i = 0; i < path.length - 1; i++) {
+        current[path[i]] = { ...current[path[i]] }; // kopiujemy zagnieżdżenia
+        current = current[path[i]];
+      }
+
+      current[path[path.length - 1]] = value;
+
+      return newState;
+    });
+  }
+
+  // updateDiceRollResult(["baseStatsDice", "SF", "value2"], 15);
+  //updateDiceRollResult(["incomeValueDice"], 42);
+  //updateDiceRollResult(["baseStatsDice", "UM", "value1"], 7);
 
   const toggleClick = (key, subKey = null) => {
     setIsClicked((prev) => {
@@ -417,9 +465,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
   };
   */
 
-  const filterCharactersByProfession = () => {
-    console.log(firstProfessionInfo.profName);
-  };
+  const filterCharactersByProfession = () => {};
 
   const chpt1Info = {
     name: "",
@@ -572,7 +618,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
 
     availableCharacters,
     setAvailableCharacters,
-    filterCharactersByProfession,
+
     firstProfessionCharacters,
     setFirstProfessionCharacters,
     secondProfessionCharacters,
@@ -613,8 +659,10 @@ export const CharacterStatsContextProvider = ({ children }) => {
 
     isClicked,
     toggleClick,
+
     diceRollResult,
-    setDiceRollResult,
+    updateDiceRollResult,
+    
   };
 
   return (

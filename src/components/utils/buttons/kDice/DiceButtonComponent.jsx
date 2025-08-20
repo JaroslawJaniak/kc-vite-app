@@ -5,30 +5,33 @@ const DiceButtonComponent = (props) => {
   const {
     n,
     k,
-    k100Result,
+    diceRollResult,
     clicked,
     disabled,
-    mainKey, 
-    subKey,
+    path,
     toggleClick,
-    onDiceRoll,
+    updateDiceRollResult,
+    resolveDiceRoll,
     className,
   } = props;
 
   const handleClick = () => {
-    if (!clicked) { // Sprawdzenie, czy przycisk nie jest już kliknięty
-      // Wywołanie funkcji kDice z parametrami n i k
-      // Rzut kością
-      onDiceRoll(kDice(n, k));
-
+    if (!clicked) {
+      // Sprawdzenie, czy przycisk nie jest już kliknięty
       // Zmiana stanu przez context
-      toggleClick(mainKey, subKey);
+      const diceRollResult = kDice(n, k); // Rzut kością i uzyskanie wyniku
+      toggleClick(mainKey, subKey); // Zmiana stanu kliknięcia przycisku
+
+      updateDiceRollResult(path, diceRollResult); // updateDiceRollResult(["baseStatsDice", "SF", "value2"], 15);
+      console.log(`Rolling ${n}d${k}: ${diceRollResult}`); // Logowanie informacji o rzucie
+
+      resolveDiceRoll(diceRollResult); // Wywołanie funkcji resolveDiceRoll z wynikiem rzutu
     }
   };
 
   return (
     <button disabled={disabled} className={className} onClick={handleClick}>
-      {clicked ? k100Result : `${n}k${k}`}
+      {clicked ? diceRollResult : `${n}k${k}`}
     </button>
   );
 };
@@ -44,7 +47,7 @@ const DiceButtonComponent = (props) => {
     const newState = event.type;
 
     if (props.clicked === false) {
-      props.onDiceRoll(kDice(props.n, props.k)); // Call the kDice function to roll the dice end get the result
+      props.resolveDiceRoll(kDice(props.n, props.k)); // Call the kDice function to roll the dice end get the result
       props.handleStateChange(true); // Update the clicked state to true
     }
   };
@@ -58,7 +61,7 @@ const DiceButtonComponent = (props) => {
         toggleClick(props.key, props.subKey);
       }}
     >
-      {`${props.k100Result}`}
+      {`${props.diceRollResult}`}
     </button>
   );
 

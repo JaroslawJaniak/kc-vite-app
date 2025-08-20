@@ -57,7 +57,7 @@ export const ChapterContent_III_abilities = () => {
       <DiceButtonComponent
         n={1}
         k={100}
-        k100Result={context.abilitiesK100Result}
+        diceRollResult={context.abilitiesK100Result}
         clicked={!(context.abilitiesK100Result <= context.abilitiesChance)}
         handleStateChange={context.setAbilitiesK100Clicked}
         onDiceRoll={k100RollResult}
