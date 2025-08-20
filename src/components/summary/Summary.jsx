@@ -60,6 +60,53 @@ const Summary = () => {
           <b> Waga: </b>
           {context.weight} kg;
         </p>
+        <p>
+          <b> WSPÓŁCZYNNIKI: </b>
+        </p>
+        <p>
+          <b> ŻYW: </b>
+          {context.characterData.stats.ŻYW};
+        </p>
+        <p>
+          <b> SF: </b>
+          {context.characterData.stats.SF};
+        </p>
+        <p>
+          <b> ZR: </b>
+          {context.characterData.stats.ZR};
+        </p>
+        <p>
+          <b> SZ: </b>
+          {context.characterData.stats.SZ};
+        </p>
+        <p>
+          <b> INT: </b>
+          {context.characterData.stats.INT};
+        </p>
+        <p>
+          <b> MD: </b>
+          {context.characterData.stats.MD};
+        </p>
+        <p>
+          <b> UM: </b>
+          {context.characterData.stats.UM};
+        </p>
+        <p>
+          <b> WI: </b>
+          {context.characterData.stats.WI};
+        </p>
+        <p>
+          <b> ZW: </b>
+          {context.characterData.stats.ZW};
+        </p>
+        <p>
+          <b> CH: </b>
+          {context.characterData.stats.CH};
+        </p>
+        <p>
+          <b> PR: </b>
+          {context.characterData.stats.PR};
+        </p>
       </article>
     </section>
   );

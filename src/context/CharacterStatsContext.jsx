@@ -34,7 +34,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
   const [tableSocialClass_trId, setTableSocialClass_trId] = useState("");
   const [dice_nSocialClass, setDice_nSocialClass] = useState("0");
   const [dice_kSocialClass, setDice_kSocialClass] = useState("0");
-  const [bonusStats, setSocialClassBonusStats] = useState({});
+  const [socialClassBonusStats, setSocialClassBonusStats] = useState({});
   const [incomeValue, setIncomeValue] = useState(0);
   const [socialClassIncomeK100Clicked, setSocialClassIncomeK100Clicked] =
     useState(false);
@@ -52,6 +52,65 @@ export const CharacterStatsContextProvider = ({ children }) => {
 
   const [firstProfession, setFirstProfession] = useState("");
   const [secondProfession, setSecondProfession] = useState("");
+
+  const [characterData, setCharacterData] = useState({
+    raceData: { sex: "", race: "", description: "" },
+    placeOfBirthData: { placeOfBirth: "", placeOfBirthDescription: "" },
+    socialClassData: {
+      socialClass: "",
+      socialClassFullName: "",
+      socialClassDescription: "",
+      socialClassCastDescription: "",
+      incomeValue: 0,
+    },
+    firstProfessionData: {},
+    secondProfessionData: {},
+    stats: {
+      ŻYW: 0,
+      SF: 0,
+      ZR: 0,
+      SZ: 0,
+      INT: 0,
+      MD: 0,
+      UM: 0,
+      CH: 0,
+      PR: 0,
+      WI: 0,
+      ZW: 0,
+      O: 0,
+      W: 0,
+    },
+    immunity: {
+      bPsych: 0,
+      bFiz: 0,
+      odp1: 0,
+      odp2: 0,
+      odp3: 0,
+      odp4: 0,
+      odp5: 0,
+      odp6: 0,
+      odp7: 0,
+      odp8: 0,
+      odp9: 0,
+      odp10: 0,
+    },
+  });
+
+  function updateCharacterData(path, value) {
+    setCharacterData((prev) => {
+      const newData = { ...prev };
+      let current = newData;
+
+      for (let i = 0; i < path.length - 1; i++) {
+        current[path[i]] = { ...current[path[i]] }; // kopiujemy zagnieżdżenia
+        current = current[path[i]];
+      }
+
+      current[path[path.length - 1]] = value;
+
+      return newData;
+    });
+  }
 
   const [firstProfessionData, setFirstProfessionData] = useState({
     id: "",
@@ -166,33 +225,6 @@ export const CharacterStatsContextProvider = ({ children }) => {
   const [weightK100Clicked, setWeightK100Clicked] = useState(false);
   const [tableWeight_tdId, setTableWeight_tdId] = useState("");
 
-  // const renderCharacterSet = () => {
-  //   // console.log("1. " + firstProfessionInfo.character);
-  //   // console.log("2. " + secondProfessionInfo.character);
-  //   const newCharList = firstProfessionInfo.character.filter((char1) =>
-  //     secondProfessionInfo.character.some((char2) => char2 === char1)
-  //   );
-
-  //   //console.log("3. " + newCharList);
-  //   setAvailableCharacters((prevList) => (prevList = newCharList));
-  // };
-
-  // const setDATAProfessionInfo = () => {
-  //   if (firstProfession !== "") {
-  //     const firstProfToSet = renderProfessions.filter(
-  //       (prof) => prof.profName === firstProfession
-  //     );
-  //     setFirstProfessionInfo(...firstProfToSet);
-  //   }
-
-  //   if (secondProfession !== "") {
-  //     const secondProfToSet = renderProfessions.filter(
-  //       (prof) => prof.profName === secondProfession
-  //     );
-  //     setSecondProfessionInfo(...secondProfToSet);
-  //   }
-  // };
-
   const filterProfessionByRace = () => {
     const newProfList = availableProfessions.filter((prof) =>
       availableProfessionsByRace.some(
@@ -236,36 +268,6 @@ export const CharacterStatsContextProvider = ({ children }) => {
       }
     }
   };
-
-  const [diceRollResultBaseStats, setdiceRollResultBaseStats] = useState({
-    ŻYW: 0,
-    SF: 0,
-    ZR: 0,
-    SZ: 0,
-    INT: 0,
-    MD: 0,
-    UM: 0,
-    CH: 0,
-    PR: 0,
-    WI: 0,
-    ZW: 0,
-    O: 0,
-    W: 0,
-  });
-
-  const [rollK100ResultBaseStats, setRollK100Result] = useState({
-    ŻYW: "",
-    SF: "",
-    ZR: "",
-    SZ: "",
-    INT: "",
-    MD: "",
-    UM: "",
-    CH: "",
-    PR: "",
-    WI: "",
-    ZW: "",
-  });
 
   const [isChecked, setIsChecked] = useState({
     male: false,
@@ -446,9 +448,6 @@ export const CharacterStatsContextProvider = ({ children }) => {
     });
   };
 
-
-  
-
   const filterProfStatsByFirstProf = () => {
     if (firstProfession !== "") {
       const [filteredProf] = professions.filter((profData) => {
@@ -516,7 +515,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
     tableSocialClass_trId,
     dice_nSocialClass,
     dice_kSocialClass,
-    bonusStats,
+    socialClassBonusStats,
     incomeValue,
   };
   const chpt3Info = { disabilities: "", abilities: "" };
@@ -677,17 +676,13 @@ export const CharacterStatsContextProvider = ({ children }) => {
 
     filterProfStatsBySecondProf,
 
-    diceRollResultBaseStats,
-    setdiceRollResultBaseStats,
-    rollK100ResultBaseStats,
-    setRollK100Result,
-
     isClicked,
     toggleClick,
-
     diceRollResult,
     updateDiceRollResult,
-    
+
+    characterData,
+    updateCharacterData,
   };
 
   return (
