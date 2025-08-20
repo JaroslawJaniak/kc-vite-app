@@ -17,9 +17,6 @@ const ChapterContent_V = () => {
   let isRaceGenderChecked = false;
 
   useEffect(() => {
-    //console.log("m: " + context.maleChecked);
-    //console.log("f: " + context.femaleChecked);
-    //console.log("r: " + context.raceChecked);
     if (context.tableHeight_tdId !== "") {
       document
         .getElementById("td_height_male" + context.tableHeight_tdId)
