@@ -285,16 +285,16 @@ export const CharacterStatsContextProvider = ({ children }) => {
     WeightDice: false,
     baseStatsDice: {
       ŻYW: false,
-      SF: false,
-      ZR: false,
+      SF: { result1: false, result2: false },
+      ZR: { result1: false, result2: false },
       SZ: false,
       INT: false,
       MD: false,
-      UM: false,
+      UM: { result1: false, result2: false },
       CH: false,
       PR: false,
-      WI: false,
-      ZW: false,
+      WI: { result1: false, result2: false },
+      ZW: { result1: false, result2: false },
     },
     bonusBaseStatsDice: {
       ŻYW: false,
@@ -310,17 +310,17 @@ export const CharacterStatsContextProvider = ({ children }) => {
       ZW: false,
     },
     bonusImmunityStatsDice: {
-      ŻYW: 0,
-      SF: 0,
-      ZR: 0,
-      SZ: 0,
-      INT: 0,
-      MD: 0,
-      UM: 0,
-      CH: 0,
-      PR: 0,
-      WI: 0,
-      ZW: 0,
+      ŻYW: false,
+      SF: false,
+      ZR: false,
+      SZ: false,
+      INT: false,
+      MD: false,
+      UM: false,
+      CH: false,
+      PR: false,
+      WI: false,
+      ZW: false,
     },
   });
 
@@ -406,7 +406,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
   //updateDiceRollResult(["incomeValueDice"], 42);
   //updateDiceRollResult(["baseStatsDice", "UM", "value1"], 7);
 
-  const toggleClick = (key, subKey = null) => {
+  const toggleClickOld = (key, subKey = null) => {
     setIsClicked((prev) => {
       if (subKey) {
         return {
@@ -423,6 +423,31 @@ export const CharacterStatsContextProvider = ({ children }) => {
       };
     });
   };
+
+  const toggleClick = (keys) => {
+    setIsClicked((prev) => {
+      // Rekurencyjna pomocnicza funkcja, która klonuje tylko potrzebną gałąź
+      const update = (obj, depth = 0) => {
+        const key = keys[depth];
+
+        // jeśli to ostatni klucz → toggle
+        if (depth === keys.length - 1) {
+          return { ...obj, [key]: !obj[key] };
+        }
+
+        // w przeciwnym razie → kopiujemy ten poziom i schodzimy głębiej
+        return {
+          ...obj,
+          [key]: update(obj[key], depth + 1),
+        };
+      };
+
+      return update(prev);
+    });
+  };
+
+
+  
 
   const filterProfStatsByFirstProf = () => {
     if (firstProfession !== "") {

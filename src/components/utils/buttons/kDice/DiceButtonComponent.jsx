@@ -19,13 +19,11 @@ const DiceButtonComponent = (props) => {
     if (!clicked) {
       // Sprawdzenie, czy przycisk nie jest już kliknięty
       // Zmiana stanu przez context
-      const diceRollResult = kDice(n, k); // Rzut kością i uzyskanie wyniku
-      toggleClick(mainKey, subKey); // Zmiana stanu kliknięcia przycisku
-
-      updateDiceRollResult(path, diceRollResult); // updateDiceRollResult(["baseStatsDice", "SF", "value2"], 15);
-      console.log(`Rolling ${n}d${k}: ${diceRollResult}`); // Logowanie informacji o rzucie
-
-      resolveDiceRoll(diceRollResult); // Wywołanie funkcji resolveDiceRoll z wynikiem rzutu
+      const diceRoll = kDice(n, k); // Rzut kością i uzyskanie wyniku
+      toggleClick(path); // Zmiana stanu kliknięcia przycisku
+      updateDiceRollResult(path, diceRoll); // updateDiceRollResult(["baseStatsDice", "SF", "value2"], 15);
+      console.log(`Rolling ${n}d${k}: ${diceRoll}`); // Logowanie informacji o rzucie
+      resolveDiceRoll(diceRoll, path); // Wywołanie funkcji resolveDiceRoll z wynikiem rzutu
     }
   };
 

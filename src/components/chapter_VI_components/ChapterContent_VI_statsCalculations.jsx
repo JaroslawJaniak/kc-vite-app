@@ -7,10 +7,9 @@ export const ChapterContent_VI_statsCalculations = () => {
   const btnStyle =
     "text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300  rounded text-xxs md:text-xs p-0.5 md:p-2  mb-2 w-8 md:w-12 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700";
 
-  const k100RollResultSF = (k) => {
-    console.log("k100RollResultSF", k);
+  const k100RollResultSF = (k, path) => {
     if (k !== 0) {
-      console.log("k100RollResultSF", k);
+      console.log(`${path}`, k);
     }
   };
 
@@ -24,29 +23,6 @@ export const ChapterContent_VI_statsCalculations = () => {
 
   return (
     <div>
-      <button
-        className={btnStyle}
-        onClick={() => context.toggleClick("baseStatsDice", "ZR")}
-      >
-        toggle ZR
-      </button>
-      <div className="text-xxs md:text-xs">
-        Toggle ZR (aktualnie:{" "}
-        {context.isClicked.baseStatsDice.ZR ? "true" : "false"})
-      </div>
-      <button
-        className={btnStyle}
-        onClick={() => context.toggleClick("plcOfBirthDice")}
-      >
-        Toggle plcOfBirthDice (aktualnie:{" "}
-        {context.isClicked.plcOfBirthDice ? "true" : "false"})
-      </button>
-      <div className="text-xxs md:text-xs">
-        Toggle SF test (aktualnie:{" "}
-        {context.isClicked.baseStatsDice.SF ? "true" : "false"})
-      </div>
-
-      {/* <table className=" [&>*]:p-0 [&>*]:m-0 text-xxs md:text-xs "> */}
       <table className=" w-full text-xxs md:text-xs dark:text-gray-400 [&_*]:border-hidden bg-transparent [&_*]:text-center">
         <caption className="text-left">
           ChapterContent_VI_statsSelection
@@ -99,7 +75,8 @@ export const ChapterContent_VI_statsCalculations = () => {
                 Math.max(
                   context.firstProfessionData.stats.ŻYW,
                   context.secondProfessionData.stats.ŻYW
-                )}
+                ) +
+                context.diceRollResult.bonusBaseStatsDice.ŻYW}
             </td>
           </tr>
           <tr>
@@ -112,15 +89,14 @@ export const ChapterContent_VI_statsCalculations = () => {
                 n={1}
                 k={100}
                 diceRollResult={context.diceRollResult.baseStatsDice.SF.result1}
-                clicked={context.isClicked.baseStatsDice.SF}
-                disabled={context.isClicked.baseStatsDice.SF}
+                clicked={context.isClicked.baseStatsDice.SF.result1}
+                disabled={context.isClicked.baseStatsDice.SF.result1}
                 path={["baseStatsDice", "SF", "result1"]}
                 toggleClick={context.toggleClick}
                 updateDiceRollResult={context.updateDiceRollResult}
                 resolveDiceRoll={k100RollResultSF}
                 className={btnStyle}
-              />
-
+              />{" "}
               {["ŻOŁNIERSKA", "RYCERSKA"].includes(
                 context.firstProfessionData.castName
               ) ||
@@ -133,8 +109,8 @@ export const ChapterContent_VI_statsCalculations = () => {
                   diceRollResult={
                     context.diceRollResult.baseStatsDice.SF.result2
                   }
-                  clicked={context.isClicked.baseStatsDice.SF}
-                  disabled={context.isClicked.baseStatsDice.SF}
+                  clicked={context.isClicked.baseStatsDice.SF.result2}
+                  disabled={context.isClicked.baseStatsDice.SF.result2}
                   path={["baseStatsDice", "SF", "result2"]}
                   toggleClick={context.toggleClick}
                   updateDiceRollResult={context.updateDiceRollResult}
@@ -171,9 +147,14 @@ export const ChapterContent_VI_statsCalculations = () => {
             <td>
               {context.baseRaceStats.SF +
                 Math.max(
+                  context.diceRollResult.baseStatsDice.SF.result1,
+                  context.diceRollResult.baseStatsDice.SF.result2
+                ) +
+                Math.max(
                   context.firstProfessionData.stats.SF,
                   context.secondProfessionData.stats.SF
-                )}
+                ) +
+                context.diceRollResult.bonusBaseStatsDice.SF}
             </td>
           </tr>
           <tr>
@@ -186,14 +167,14 @@ export const ChapterContent_VI_statsCalculations = () => {
                 n={1}
                 k={50}
                 diceRollResult={context.diceRollResult.baseStatsDice.ZR.result1}
-                clicked={context.isClicked.baseStatsDice.ZR}
-                disabled={context.isClicked.baseStatsDice.ZR}
+                clicked={context.isClicked.baseStatsDice.ZR.result1}
+                disabled={context.isClicked.baseStatsDice.ZR.result1}
                 path={["baseStatsDice", "ZR", "result1"]}
                 toggleClick={context.toggleClick}
                 updateDiceRollResult={context.updateDiceRollResult}
                 resolveDiceRoll={k100RollResultSF}
                 className={btnStyle}
-              />
+              />{" "}
               {["ZŁODZIEJSKA"].includes(context.firstProfessionData.castName) ||
               ["ZŁODZIEJSKA"].includes(
                 context.secondProfessionData.castName
@@ -204,8 +185,8 @@ export const ChapterContent_VI_statsCalculations = () => {
                   diceRollResult={
                     context.diceRollResult.baseStatsDice.ZR.result2
                   }
-                  clicked={context.isClicked.baseStatsDice.ZR}
-                  disabled={context.isClicked.baseStatsDice.ZR}
+                  clicked={context.isClicked.baseStatsDice.ZR.result2}
+                  disabled={context.isClicked.baseStatsDice.ZR.result2}
                   path={["baseStatsDice", "ZR", "result2"]}
                   toggleClick={context.toggleClick}
                   updateDiceRollResult={context.updateDiceRollResult}
@@ -241,9 +222,14 @@ export const ChapterContent_VI_statsCalculations = () => {
             <td>
               {context.baseRaceStats.ZR +
                 Math.max(
+                  context.diceRollResult.baseStatsDice.ZR.result1,
+                  context.diceRollResult.baseStatsDice.ZR.result2
+                ) +
+                Math.max(
                   context.firstProfessionData.stats.ZR,
                   context.secondProfessionData.stats.ZR
-                )}
+                ) +
+                context.diceRollResult.bonusBaseStatsDice.ZR}
             </td>
           </tr>
           <tr>
@@ -289,10 +275,12 @@ export const ChapterContent_VI_statsCalculations = () => {
             </td>
             <td>
               {context.baseRaceStats.SZ +
+                context.diceRollResult.baseStatsDice.SZ +
                 Math.max(
                   context.firstProfessionData.stats.SZ,
                   context.secondProfessionData.stats.SZ
-                )}
+                ) +
+                context.diceRollResult.bonusBaseStatsDice.SZ}
             </td>
           </tr>
           <tr>
@@ -338,10 +326,12 @@ export const ChapterContent_VI_statsCalculations = () => {
             </td>
             <td>
               {context.baseRaceStats.INT +
+                context.diceRollResult.baseStatsDice.INT +
                 Math.max(
                   context.firstProfessionData.stats.INT,
                   context.secondProfessionData.stats.INT
-                )}
+                ) +
+                context.diceRollResult.bonusBaseStatsDice.INT}
             </td>
           </tr>
           <tr>
@@ -387,10 +377,12 @@ export const ChapterContent_VI_statsCalculations = () => {
             </td>
             <td>
               {context.baseRaceStats.MD +
+                context.diceRollResult.baseStatsDice.MD +
                 Math.max(
                   context.firstProfessionData.stats.MD,
                   context.secondProfessionData.stats.MD
-                )}
+                ) +
+                context.diceRollResult.bonusBaseStatsDice.MD}
             </td>
           </tr>
           <tr>
@@ -413,8 +405,8 @@ export const ChapterContent_VI_statsCalculations = () => {
                     diceRollResult={
                       context.diceRollResult.baseStatsDice.UM.result1
                     }
-                    clicked={context.isClicked.baseStatsDice.UM}
-                    disabled={context.isClicked.baseStatsDice.UM}
+                    clicked={context.isClicked.baseStatsDice.UM.result1}
+                    disabled={context.isClicked.baseStatsDice.UM.result1}
                     path={["baseStatsDice", "UM", "result1"]}
                     toggleClick={context.toggleClick}
                     updateDiceRollResult={context.updateDiceRollResult}
@@ -427,8 +419,8 @@ export const ChapterContent_VI_statsCalculations = () => {
                     diceRollResult={
                       context.diceRollResult.baseStatsDice.UM.result2
                     }
-                    clicked={context.isClicked.baseStatsDice.UM}
-                    disabled={context.isClicked.baseStatsDice.UM}
+                    clicked={context.isClicked.baseStatsDice.UM.result2}
+                    disabled={context.isClicked.baseStatsDice.UM.result2}
                     path={["baseStatsDice", "UM", "result2"]}
                     toggleClick={context.toggleClick}
                     updateDiceRollResult={context.updateDiceRollResult}
@@ -439,10 +431,12 @@ export const ChapterContent_VI_statsCalculations = () => {
               ) : (
                 <DiceButtonComponent
                   n={1}
-                  k={50}
-                  diceRollResult={context.diceRollResult.baseStatsDice.UM}
-                  clicked={context.isClicked.baseStatsDice.UM}
-                  disabled={context.isClicked.baseStatsDice.UM}
+                  k={100}
+                  diceRollResult={
+                    context.diceRollResult.baseStatsDice.UM.result1
+                  }
+                  clicked={context.isClicked.baseStatsDice.UM.result1}
+                  disabled={context.isClicked.baseStatsDice.UM.result1}
                   path={["baseStatsDice", "UM", "result1"]}
                   toggleClick={context.toggleClick}
                   updateDiceRollResult={context.updateDiceRollResult}
@@ -467,22 +461,22 @@ export const ChapterContent_VI_statsCalculations = () => {
                     diceRollResult={
                       context.diceRollResult.baseStatsDice.UM.result1
                     }
-                    clicked={context.isClicked.baseStatsDice.UM}
-                    disabled={context.isClicked.baseStatsDice.UM}
+                    clicked={context.isClicked.baseStatsDice.UM.result1}
+                    disabled={context.isClicked.baseStatsDice.UM.result1}
                     path={["baseStatsDice", "UM", "result1"]}
                     toggleClick={context.toggleClick}
                     updateDiceRollResult={context.updateDiceRollResult}
                     resolveDiceRoll={k100RollResultSF}
                     className={btnStyle}
-                  />
+                  />{" "}
                   <DiceButtonComponent
                     n={1}
                     k={50}
                     diceRollResult={
                       context.diceRollResult.baseStatsDice.UM.result2
                     }
-                    clicked={context.isClicked.baseStatsDice.UM}
-                    disabled={context.isClicked.baseStatsDice.UM}
+                    clicked={context.isClicked.baseStatsDice.UM.result2}
+                    disabled={context.isClicked.baseStatsDice.UM.result2}
                     path={["baseStatsDice", "UM", "result2"]}
                     toggleClick={context.toggleClick}
                     updateDiceRollResult={context.updateDiceRollResult}
@@ -497,8 +491,8 @@ export const ChapterContent_VI_statsCalculations = () => {
                   diceRollResult={
                     context.diceRollResult.baseStatsDice.UM.result1
                   }
-                  clicked={context.isClicked.baseStatsDice.UM}
-                  disabled={context.isClicked.baseStatsDice.UM}
+                  clicked={context.isClicked.baseStatsDice.UM.result1}
+                  disabled={context.isClicked.baseStatsDice.UM.result1}
                   path={["baseStatsDice", "UM", "result1"]}
                   toggleClick={context.toggleClick}
                   updateDiceRollResult={context.updateDiceRollResult}
@@ -532,9 +526,14 @@ export const ChapterContent_VI_statsCalculations = () => {
             <td>
               {context.baseRaceStats.UM +
                 Math.max(
+                  context.diceRollResult.baseStatsDice.UM.result1,
+                  context.diceRollResult.baseStatsDice.UM.result2
+                ) +
+                Math.max(
                   context.firstProfessionData.stats.UM,
                   context.secondProfessionData.stats.UM
-                )}
+                ) +
+                context.diceRollResult.bonusBaseStatsDice.UM}
             </td>
           </tr>
           <tr>
@@ -582,10 +581,12 @@ export const ChapterContent_VI_statsCalculations = () => {
             </td>
             <td>
               {context.baseRaceStats.CH +
+                context.diceRollResult.baseStatsDice.CH +
                 Math.max(
                   context.firstProfessionData.stats.CH,
                   context.secondProfessionData.stats.CH
-                )}
+                ) +
+                context.diceRollResult.bonusBaseStatsDice.CH}
             </td>
           </tr>
           <tr>
@@ -633,10 +634,12 @@ export const ChapterContent_VI_statsCalculations = () => {
             </td>
             <td>
               {context.baseRaceStats.PR +
+                context.diceRollResult.baseStatsDice.PR +
                 Math.max(
                   context.firstProfessionData.stats.PR,
                   context.secondProfessionData.stats.PR
-                )}
+                ) +
+                context.diceRollResult.bonusBaseStatsDice.PR}
             </td>
           </tr>
           <tr>
@@ -649,14 +652,14 @@ export const ChapterContent_VI_statsCalculations = () => {
                 n={1}
                 k={50}
                 diceRollResult={context.diceRollResult.baseStatsDice.WI.result1}
-                clicked={context.isClicked.baseStatsDice.WI}
-                disabled={context.isClicked.baseStatsDice.WI}
+                clicked={context.isClicked.baseStatsDice.WI.result1}
+                disabled={context.isClicked.baseStatsDice.WI.result1}
                 path={["baseStatsDice", "WI", "result1"]}
                 toggleClick={context.toggleClick}
                 updateDiceRollResult={context.updateDiceRollResult}
                 resolveDiceRoll={k100RollResultSF}
                 className={btnStyle}
-              />
+              />{" "}
               {["KAPŁAŃSKA"].includes(context.firstProfessionData.castName) ||
               ["KAPŁAŃSKA"].includes(context.secondProfessionData.castName) ? (
                 <DiceButtonComponent
@@ -665,8 +668,8 @@ export const ChapterContent_VI_statsCalculations = () => {
                   diceRollResult={
                     context.diceRollResult.baseStatsDice.WI.result2
                   }
-                  clicked={context.isClicked.baseStatsDice.WI}
-                  disabled={context.isClicked.baseStatsDice.WI}
+                  clicked={context.isClicked.baseStatsDice.WI.result2}
+                  disabled={context.isClicked.baseStatsDice.WI.result2}
                   path={["baseStatsDice", "WI", "result2"]}
                   toggleClick={context.toggleClick}
                   updateDiceRollResult={context.updateDiceRollResult}
@@ -702,9 +705,14 @@ export const ChapterContent_VI_statsCalculations = () => {
             <td>
               {context.baseRaceStats.WI +
                 Math.max(
+                  context.diceRollResult.baseStatsDice.WI.result1,
+                  context.diceRollResult.baseStatsDice.WI.result2
+                ) +
+                Math.max(
                   context.firstProfessionData.stats.WI,
                   context.secondProfessionData.stats.WI
-                )}
+                ) +
+                context.diceRollResult.bonusBaseStatsDice.WI}
             </td>
           </tr>
           <tr>
@@ -721,8 +729,8 @@ export const ChapterContent_VI_statsCalculations = () => {
                     diceRollResult={
                       context.diceRollResult.baseStatsDice.ZW.result1
                     }
-                    clicked={context.isClicked.baseStatsDice.ZW}
-                    disabled={context.isClicked.baseStatsDice.ZW}
+                    clicked={context.isClicked.baseStatsDice.ZW.result1}
+                    disabled={context.isClicked.baseStatsDice.ZW.result1}
                     mainKey={"baseStatsDice"}
                     subKey={"ZW"}
                     path={["baseStatsDice", "ZW", "result1"]}
@@ -730,15 +738,15 @@ export const ChapterContent_VI_statsCalculations = () => {
                     updateDiceRollResult={context.updateDiceRollResult}
                     resolveDiceRoll={k100RollResultSF}
                     className={btnStyle}
-                  />
+                  />{" "}
                   <DiceButtonComponent
                     n={1}
                     k={10}
                     diceRollResult={
                       context.diceRollResult.baseStatsDice.ZW.result2
                     }
-                    clicked={context.isClicked.baseStatsDice.ZW}
-                    disabled={context.isClicked.baseStatsDice.ZW}
+                    clicked={context.isClicked.baseStatsDice.ZW.result2}
+                    disabled={context.isClicked.baseStatsDice.ZW.result2}
                     path={["baseStatsDice", "ZW", "result2"]}
                     toggleClick={context.toggleClick}
                     updateDiceRollResult={context.updateDiceRollResult}
@@ -753,8 +761,8 @@ export const ChapterContent_VI_statsCalculations = () => {
                   diceRollResult={
                     context.diceRollResult.baseStatsDice.ZW.result1
                   }
-                  clicked={context.isClicked.baseStatsDice.ZW}
-                  disabled={context.isClicked.baseStatsDice.ZW}
+                  clicked={context.isClicked.baseStatsDice.ZW.result1}
+                  disabled={context.isClicked.baseStatsDice.ZW.result1}
                   path={["baseStatsDice", "ZW", "result1"]}
                   toggleClick={context.toggleClick}
                   updateDiceRollResult={context.updateDiceRollResult}
@@ -769,7 +777,12 @@ export const ChapterContent_VI_statsCalculations = () => {
             <td>-</td>
             <td>-</td>
             <td>
-              {context.baseRaceStats.ZW + context.firstProfessionData.stats.ZW}
+              {context.baseRaceStats.ZW +
+                context.firstProfessionData.stats.ZW +
+                Math.max(
+                  context.diceRollResult.baseStatsDice.ZW.result1,
+                  context.diceRollResult.baseStatsDice.ZW.result2
+                )}
             </td>
           </tr>
         </tbody>
