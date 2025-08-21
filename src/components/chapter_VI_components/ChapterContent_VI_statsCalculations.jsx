@@ -7,8 +7,6 @@ export const ChapterContent_VI_statsCalculations = () => {
   const btnStyle =
     "text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300  rounded text-xxs md:text-xs p-0.5 md:p-2  mb-2 w-8 md:w-12 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700";
 
-  
-
   useEffect(() => {
     context.filterBaseRaceStatsByRaceName();
     context.filterProfStatsByFirstProf();
@@ -20,9 +18,7 @@ export const ChapterContent_VI_statsCalculations = () => {
   return (
     <div>
       <table className=" w-full text-xxs md:text-xs dark:text-gray-400 [&_*]:border-hidden bg-transparent [&_*]:text-center">
-        <caption className="text-left">
-          ChapterContent_VI_statsSelection
-        </caption>
+        
         <thead>
           <tr>
             <th></th>
@@ -53,6 +49,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                 <DiceButtonComponent
                   n={1}
                   k={10}
+                  isPremium={true}
                   diceRollResult={context.diceRollResult.bonusBaseStatsDice.ŻYW}
                   clicked={context.isClicked.bonusBaseStatsDice.ŻYW}
                   disabled={context.isClicked.bonusBaseStatsDice.ŻYW}
@@ -120,6 +117,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                 <DiceButtonComponent
                   n={1}
                   k={10}
+                  isPremium={true}
                   diceRollResult={context.diceRollResult.bonusBaseStatsDice.SF}
                   clicked={context.isClicked.bonusBaseStatsDice.SF}
                   disabled={context.isClicked.bonusBaseStatsDice.SF}
@@ -195,6 +193,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                 <DiceButtonComponent
                   n={1}
                   k={10}
+                  isPremium={true}
                   diceRollResult={context.diceRollResult.bonusBaseStatsDice.ZR}
                   clicked={context.isClicked.bonusBaseStatsDice.ZR}
                   disabled={context.isClicked.bonusBaseStatsDice.ZR}
@@ -249,6 +248,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                 <DiceButtonComponent
                   n={1}
                   k={10}
+                  isPremium={true}
                   diceRollResult={context.diceRollResult.bonusBaseStatsDice.SZ}
                   clicked={context.isClicked.bonusBaseStatsDice.SZ}
                   disabled={context.isClicked.bonusBaseStatsDice.SZ}
@@ -300,6 +300,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                 <DiceButtonComponent
                   n={1}
                   k={10}
+                  isPremium={true}
                   diceRollResult={context.diceRollResult.bonusBaseStatsDice.INT}
                   clicked={context.isClicked.bonusBaseStatsDice.INT}
                   disabled={context.isClicked.bonusBaseStatsDice.INT}
@@ -351,6 +352,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                 <DiceButtonComponent
                   n={1}
                   k={10}
+                  isPremium={true}
                   diceRollResult={context.diceRollResult.bonusBaseStatsDice.MD}
                   clicked={context.isClicked.bonusBaseStatsDice.MD}
                   disabled={context.isClicked.bonusBaseStatsDice.MD}
@@ -499,6 +501,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                 <DiceButtonComponent
                   n={1}
                   k={10}
+                  isPremium={true}
                   diceRollResult={context.diceRollResult.bonusBaseStatsDice.UM}
                   clicked={context.isClicked.bonusBaseStatsDice.UM}
                   disabled={context.isClicked.bonusBaseStatsDice.UM}
@@ -555,6 +558,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                 <DiceButtonComponent
                   n={1}
                   k={10}
+                  isPremium={true}
                   diceRollResult={context.diceRollResult.bonusBaseStatsDice.CH}
                   clicked={context.isClicked.bonusBaseStatsDice.CH}
                   disabled={context.isClicked.bonusBaseStatsDice.CH}
@@ -606,6 +610,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                 <DiceButtonComponent
                   n={1}
                   k={10}
+                  isPremium={true}
                   diceRollResult={context.diceRollResult.bonusBaseStatsDice.PR}
                   clicked={context.isClicked.bonusBaseStatsDice.PR}
                   disabled={context.isClicked.bonusBaseStatsDice.PR}
@@ -678,6 +683,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                 <DiceButtonComponent
                   n={1}
                   k={10}
+                  isPremium={true}
                   diceRollResult={context.diceRollResult.bonusBaseStatsDice.WI}
                   clicked={context.isClicked.bonusBaseStatsDice.WI}
                   disabled={context.isClicked.bonusBaseStatsDice.WI}

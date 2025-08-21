@@ -73,23 +73,8 @@ const ChapterContent_V = () => {
   return (
     <section className="section mb-20">
       <h3>{chp5_info.text1}</h3>
-      <div
-        hidden={
-          isRaceGenderChecked || context.maleChecked || context.femaleChecked
-        }
-      >
-        <div className="border rounded md:w-96 h-32 m-auto mt-4 flex justify-center shadow-md">
-          <p className="text-xl m-auto font-mono font-bold text-red-900">
-            {chp5_info.text2}
-          </p>
-        </div>
-      </div>
 
-      <div
-        hidden={
-          !(isRaceGenderChecked || context.maleChecked || context.femaleChecked)
-        }
-      >
+      <div>
         <ChapterContent_V_table1 />
         <div>
           {" "}
@@ -98,8 +83,13 @@ const ChapterContent_V = () => {
             k={100}
             diceRollResult={context.heightK100Result}
             clicked={context.isClicked.HeightDice}
-            disabled={context.isClicked.HeightDice}
-            
+            disabled={
+              context.isClicked.HeightDice ||
+              !(
+                (context.maleChecked || context.femaleChecked) &&
+                context.raceChecked
+              )
+            }
             path={["HeightDice"]}
             toggleClick={context.toggleClick}
             updateDiceRollResult={context.updateDiceRollResult}
@@ -115,8 +105,13 @@ const ChapterContent_V = () => {
             k={100}
             diceRollResult={context.weightK100Result}
             clicked={context.isClicked.WeightDice}
-            disabled={context.isClicked.WeightDice}
-            
+            disabled={
+              context.isClicked.WeightDice ||
+              !(
+                (context.maleChecked || context.femaleChecked) &&
+                context.raceChecked
+              )
+            }
             path={["WeightDice"]}
             toggleClick={context.toggleClick}
             updateDiceRollResult={context.updateDiceRollResult}
@@ -126,13 +121,22 @@ const ChapterContent_V = () => {
           waga: {context.weight} kg;
         </div>
       </div>
-
       <div hidden={!isRaceGenderChecked && !context.maleChecked}>
         <ChapterContent_V_table2a item={chp5_table2} />
       </div>
-
       <div hidden={!isRaceGenderChecked && !context.femaleChecked}>
         <ChapterContent_V_table2b item={chp5_table2} />
+      </div>
+      <div
+        hidden={
+          isRaceGenderChecked || context.maleChecked || context.femaleChecked
+        }
+      >
+        <div className="md:w-96 h-32 m-auto mt-4 flex justify-center ">
+          <p className="text-xl m-auto font-mono font-bold text-red-900">
+            {chp5_info.text2}
+          </p>
+        </div>
       </div>
     </section>
   );
