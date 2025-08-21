@@ -1,9 +1,13 @@
+import React, { useEffect, useContext, useState } from "react";
+import { CharacterStatsContext } from "../../context/CharacterStatsContext";
+
 const ChapterContent_VIb = () => {
+  const context = useContext(CharacterStatsContext);
   const deafaultView = (
     <>
       <div>
         <p>
-          Niedowaga <span> kg</span>:
+          Niedowaga <span>{context.underweight} kg</span>:
         </p>
         <p>
           <span>ŻYW:</span> <span> </span>
@@ -14,7 +18,7 @@ const ChapterContent_VIb = () => {
       </div>
       <div>
         <p>
-          Niedowaga <span> kg</span>
+          Niedowaga <span>{context.overweight} kg</span>
         </p>
         <p>
           <span>ŻYW:</span> <span> </span>

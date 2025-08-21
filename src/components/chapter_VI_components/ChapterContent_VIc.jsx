@@ -3,26 +3,32 @@ import { chp6_table_prof_stats2 } from "./chp6_table-prof-stats2";
 import { useContext } from "react";
 import { CharacterStatsContext } from "../../context/CharacterStatsContext";
 
+const renderStatCell = (stat, k10Stat) => {
+  if (stat === 0) {
+    return k10Stat ? "+" : "-";
+  }
+  return stat + (k10Stat ? "+" : "");
+};
 
 const ChapterContent_VIc = () => {
   const context = useContext(CharacterStatsContext);
+
   const deafaultView = (
     <div>
       <table
         id="table_base-stats"
-        class=" [&>*]:p-0 [&>*]:m-0 text-xxs md:text-xs "
+        className="[&>*]:p-0 [&>*]:m-0 text-xxs md:text-xs"
       >
         <tr>
           {chp6_table_prof_stats1.map((item) => (
-            <td key={Math.random()}>
+            <td key={item}>
               <b>{item}</b>
             </td>
           ))}
         </tr>
         {chp6_table_prof_stats2.map((profBonus) => (
           <tr
-            key={Math.random()}
-            id=""
+            key={profBonus.name}
             className={`${
               context.firstProfession === profBonus.name ||
               context.secondProfession === profBonus.name
@@ -30,80 +36,17 @@ const ChapterContent_VIc = () => {
                 : ""
             }`}
           >
-            <td className={""}>{profBonus.name}</td>
-
-            <td>
-              {profBonus.ŻYW === 0
-                ? profBonus.k10_ŻYW
-                  ? "+"
-                  : "-"
-                : profBonus.ŻYW + (profBonus.k10_ŻYW ? "+" : "")}
-            </td>
-            <td>
-              {profBonus.SF === 0
-                ? profBonus.k10_SF
-                  ? "+"
-                  : "-"
-                : profBonus.SF + (profBonus.k10_SF ? "+" : "")}
-            </td>
-            <td>
-              {profBonus.ZR === 0
-                ? profBonus.k10_ZR
-                  ? "+"
-                  : "-"
-                : profBonus.ZR + (profBonus.k10_ZR ? "+" : "")}
-            </td>
-            <td>
-              {profBonus.SZ === 0
-                ? profBonus.k10_SZ
-                  ? "+"
-                  : "-"
-                : profBonus.SZ + (profBonus.k10_SZ ? "+" : "")}
-            </td>
-
-            <td>
-              {profBonus.INT === 0
-                ? profBonus.k10_INT
-                  ? "+"
-                  : "-"
-                : profBonus.INT + (profBonus.k10_INT ? "+" : "")}
-            </td>
-            <td>
-              {profBonus.MD === 0
-                ? profBonus.k10_MD
-                  ? "+"
-                  : "-"
-                : profBonus.MD + (profBonus.k10_MD ? "+" : "")}
-            </td>
-            <td>
-              {profBonus.UM === 0
-                ? profBonus.k10_UM
-                  ? "+"
-                  : "-"
-                : profBonus.UM + (profBonus.k10_UM ? "+" : "")}
-            </td>
-
-            <td>
-              {profBonus.CH === 0
-                ? profBonus.k10_CH
-                  ? "+"
-                  : "-"
-                : profBonus.CH + (profBonus.k10_CH ? "+" : "")}
-            </td>
-            <td>
-              {profBonus.PR === 0
-                ? profBonus.k10_PR
-                  ? "+"
-                  : "-"
-                : profBonus.PR + (profBonus.k10_PR ? "+" : "")}
-            </td>
-            <td>
-              {profBonus.WI === 0
-                ? profBonus.k10_WI
-                  ? "+"
-                  : "-"
-                : profBonus.WI + (profBonus.k10_WI ? "+" : "")}
-            </td>
+            <td>{profBonus.name}</td>
+            <td>{renderStatCell(profBonus.ŻYW, profBonus.k10_ŻYW)}</td>
+            <td>{renderStatCell(profBonus.SF, profBonus.k10_SF)}</td>
+            <td>{renderStatCell(profBonus.ZR, profBonus.k10_ZR)}</td>
+            <td>{renderStatCell(profBonus.SZ, profBonus.k10_SZ)}</td>
+            <td>{renderStatCell(profBonus.INT, profBonus.k10_INT)}</td>
+            <td>{renderStatCell(profBonus.MD, profBonus.k10_MD)}</td>
+            <td>{renderStatCell(profBonus.UM, profBonus.k10_UM)}</td>
+            <td>{renderStatCell(profBonus.CH, profBonus.k10_CH)}</td>
+            <td>{renderStatCell(profBonus.PR, profBonus.k10_PR)}</td>
+            <td>{renderStatCell(profBonus.WI, profBonus.k10_WI)}</td>
           </tr>
         ))}
       </table>

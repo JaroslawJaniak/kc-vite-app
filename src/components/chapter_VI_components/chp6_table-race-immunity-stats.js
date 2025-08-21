@@ -1,0 +1,156 @@
+const chp6_table_race_immunity_stats = [
+  {
+    id: "ch6t3rw1",
+    className: "table_base-stats_race",
+    race: "LUDZIE",
+    Odp1: 10,
+    Odp2: 0,
+    Odp3: 20,
+    Odp4: 10,
+    Odp5: 10,
+
+    Odp6: 0,
+    Odp7: 0,
+    Odp8: 0,
+    Odp9: 10,
+    Odp10: 0,
+  },
+
+  {
+    id: "ch6t3rw2",
+    className: "table_base-stats_race",
+    race: "PÓŁELFY",
+    Odp1: 10,
+    Odp2: 10,
+    Odp3: 10,
+    Odp4: 0,
+    Odp5: 10,
+
+    Odp6: 0,
+    Odp7: 0,
+    Odp8: 0,
+    Odp9: 10,
+    Odp10: 10,
+  },
+
+  {
+    id: "ch6t3rw3",
+    className: "table_base-stats_race",
+    race: "ELFY",
+    Odp1: 20,
+    Odp2: 20,
+    Odp3: 0,
+    Odp4: 0,
+    Odp5: 10,
+
+    Odp6: 0,
+    Odp7: 0,
+    Odp8: 0,
+    Odp9: 0,
+    Odp10: 10,
+  },
+
+  {
+    id: "ch6t3rw4",
+    className: "table_base-stats_race",
+    race: "PÓŁOLBRZYMY",
+    Odp1: 10,
+    Odp2: 0,
+    Odp3: 10,
+    Odp4: 20,
+    Odp5: 0,
+
+    Odp6: 0,
+    Odp7: 0,
+    Odp8: 0,
+    Odp9: 0,
+    Odp10: 20,
+  },
+
+  {
+    id: "ch6t3rw5",
+    className: "table_base-stats_race",
+    race: "PÓŁORKI",
+    Odp1: 0,
+    Odp2: 0,
+    Odp3: 10,
+    Odp4: 0,
+    Odp5: 0,
+
+    Odp6: 10,
+    Odp7: 10,
+    Odp8: 10,
+    Odp9: 10,
+    Odp10: 10,
+  },
+
+  {
+    id: "ch6t3rw6",
+    className: "table_base-stats_race",
+    race: "KRASNOLUDY",
+    Odp1: 0,
+    Odp2: 0,
+    Odp3: 0,
+    Odp4: 10,
+    Odp5: 10,
+
+    Odp6: 10,
+    Odp7: 10,
+    Odp8: 10,
+    Odp9: 10,
+    Odp10: 0,
+  },
+
+  {
+    id: "ch6t3rw7",
+    className: "table_base-stats_race",
+    race: "GNOMY",
+    Odp1: 20,
+    Odp2: 0,
+    Odp3: 0,
+    Odp4: 0,
+    Odp5: 10,
+
+    Odp6: 10,
+    Odp7: 10,
+    Odp8: 0,
+    Odp9: 0,
+    Odp10: 10,
+  },
+
+  {
+    id: "ch6t3rw8",
+    className: "table_base-stats_race",
+    race: "HOBBICI",
+    Odp1: 10,
+    Odp2: 10,
+    Odp3: 20,
+    Odp4: 0,
+    Odp5: 0,
+
+    Odp6: 10,
+    Odp7: 10,
+    Odp8: 0,
+    Odp9: 0,
+    Odp10: 0,
+  },
+
+  {
+    id: "ch6t3rw9",
+    className: "table_base-stats_race",
+    race: "REPTILIONI",
+    Odp1: 20,
+    Odp2: 0,
+    Odp3: 0,
+    Odp4: 10,
+    Odp5: 0,
+
+    Odp6: 20,
+    Odp7: 10,
+    Odp8: 0,
+    Odp9: 0,
+    Odp10: 0,
+  },
+];
+
+export default chp6_table_race_immunity_stats;

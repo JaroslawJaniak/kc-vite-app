@@ -259,6 +259,8 @@ export const CharacterStatsContextProvider = ({ children }) => {
   const [weightK100Result, setWeightK100Result] = useState("");
   const [weightK100Clicked, setWeightK100Clicked] = useState(false);
   const [tableWeight_tdId, setTableWeight_tdId] = useState("");
+  const [underweight, setUnderweight] = useState(0);
+  const [overweight, setOverweight] = useState(0);
 
   const filterProfessionByRace = () => {
     const newProfList = availableProfessions.filter((prof) =>
@@ -346,18 +348,20 @@ export const CharacterStatsContextProvider = ({ children }) => {
       WI: false,
       ZW: false,
     },
-    bonusImmunityStatsDice: {
-      ŻYW: false,
-      SF: false,
-      ZR: false,
-      SZ: false,
-      INT: false,
-      MD: false,
-      UM: false,
-      CH: false,
-      PR: false,
-      WI: false,
-      ZW: false,
+    
+    bonusImmunityDice: {
+      bPsych: false,
+      bFiz: false,
+      odp1: false,
+      odp2: false,
+      odp3: false,
+      odp4: false,
+      odp5: false,
+      odp6: false,
+      odp7: false,
+      odp8: false,
+      odp9: false,
+      odp10: false,
     },
   });
 
@@ -398,18 +402,19 @@ export const CharacterStatsContextProvider = ({ children }) => {
       WI: 0,
       ZW: 0,
     },
-    bonusImmunityStatsDice: {
-      ŻYW: 0,
-      SF: 0,
-      ZR: 0,
-      SZ: 0,
-      INT: 0,
-      MD: 0,
-      UM: 0,
-      CH: 0,
-      PR: 0,
-      WI: 0,
-      ZW: 0,
+    bonusImmunityDice: {
+      bPsych: 0,
+      bFiz: 0,
+      odp1: 0,
+      odp2: 0,
+      odp3: 0,
+      odp4: 0,
+      odp5: 0,
+      odp6: 0,
+      odp7: 0,
+      odp8: 0,
+      odp9: 0,
+      odp10: 0,
     },
   });
 
@@ -689,6 +694,11 @@ export const CharacterStatsContextProvider = ({ children }) => {
     setHeight,
     weight,
     setWeight,
+    underweight,
+    setUnderweight,
+    overweight,
+    setOverweight,
+
     heightK100Result,
     setHeightK100Result,
     heightK100Clicked,

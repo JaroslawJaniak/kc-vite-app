@@ -43,14 +43,20 @@ const ChapterContent_V = () => {
   const k100RollHeightResult = (k) => {
     if (k !== 0) {
       context.setHeightK100Result(k);
-      context.setHeight(dataHeight(k, context.race).height);
-      context.setTableHeight_tdId(dataHeight(k, context.race).tdId);
+      context.setHeight(dataHeight(k, context.race, context.sex).height);
+      context.setTableHeight_tdId(
+        dataHeight(k, context.race, context.sex).tdId
+      );
 
       document
-        .getElementById("td_height_male" + dataHeight(k, context.race).tdId)
+        .getElementById(
+          "td_height_male" + dataHeight(k, context.race, context.sex).tdId
+        )
         .classList.add("activeTrTable");
       document
-        .getElementById("td_height_female" + dataHeight(k, context.race).tdId)
+        .getElementById(
+          "td_height_female" + dataHeight(k, context.race, context.sex).tdId
+        )
         .classList.add("activeTrTable");
     }
   };
@@ -58,14 +64,27 @@ const ChapterContent_V = () => {
   const k100RollWeightResult = (k) => {
     if (k !== 0) {
       context.setWeightK100Result(k);
-      context.setWeight(dataWeight(k, context.race).weight);
-      context.setTableWeight_tdId(dataWeight(k, context.race).tdId);
+      context.setWeight(dataWeight(k, context.race, context.sex).weight);
+      context.setUnderweight(
+        dataWeight(k, context.race, context.sex).underweight
+      );
+      context.setOverweight(
+        dataWeight(k, context.race, context.sex).overweight
+      );
+
+      context.setTableWeight_tdId(
+        dataWeight(k, context.race, context.sex).tdId
+      );
 
       document
-        .getElementById("td_weight_male" + dataWeight(k, context.race).tdId)
+        .getElementById(
+          "td_weight_male" + dataWeight(k, context.race, context.sex).tdId
+        )
         .classList.add("activeTrTable");
       document
-        .getElementById("td_weight_female" + dataWeight(k, context.race).tdId)
+        .getElementById(
+          "td_weight_female" + dataWeight(k, context.race, context.sex).tdId
+        )
         .classList.add("activeTrTable");
     }
   };

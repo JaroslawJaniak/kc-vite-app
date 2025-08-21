@@ -7,6 +7,7 @@ import chp6_info from "./chp6_info";
 
 import { ChapterContent_VI_statsCalculations } from "./ChapterContent_VI_statsCalculations.jsx";
 import ChapterContent_VIb from "./ChapterContent_VIb.jsx";
+import ChapterContent_VIe from "./ChapterContent_VIe.jsx";
 
 const ChapterContent_VI = () => {
   return (
@@ -19,6 +20,7 @@ const ChapterContent_VI = () => {
       <ChapterContent_VIb />
       <p>{chp6_info.text4}</p>
       <ChapterContent_VIc />
+      <ChapterContent_VIe />
     </section>
   );
 };

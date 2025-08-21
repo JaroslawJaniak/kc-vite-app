@@ -31,7 +31,7 @@ const Summary = () => {
         context.diceRollResult.baseStatsDice.SF.result1,
         context.diceRollResult.baseStatsDice.SF.result2
       ),
-    }, //to-do: poprawić
+    }, 
     {
       key: "ZR",
       label: "ZR",
@@ -39,7 +39,7 @@ const Summary = () => {
         context.diceRollResult.baseStatsDice.ZR.result1,
         context.diceRollResult.baseStatsDice.ZR.result2
       ),
-    }, //to-do: poprawić
+    }, 
     {
       key: "SZ",
       label: "SZ",
@@ -49,7 +49,7 @@ const Summary = () => {
       key: "INT",
       label: "INT",
       diceRoll: context.diceRollResult.baseStatsDice.INT,
-    }, //to-do: poprawić
+    }, 
     {
       key: "MD",
       label: "MD",
@@ -62,7 +62,7 @@ const Summary = () => {
         context.diceRollResult.baseStatsDice.UM.result1,
         context.diceRollResult.baseStatsDice.UM.result2
       ),
-    }, //to-do: poprawić
+    }, 
     {
       key: "WI",
       label: "WI",
@@ -70,7 +70,7 @@ const Summary = () => {
         context.diceRollResult.baseStatsDice.WI.result1,
         context.diceRollResult.baseStatsDice.WI.result2
       ),
-    }, //to-do: poprawić
+    }, 
     {
       key: "ZW",
       label: "ZW",
@@ -78,7 +78,7 @@ const Summary = () => {
         context.diceRollResult.baseStatsDice.ZW.result1,
         context.diceRollResult.baseStatsDice.ZW.result2
       ),
-    }, //to-do: poprawić
+    }, 
     {
       key: "CH",
       label: "CH",
