@@ -62,8 +62,8 @@ th {
         diceRollResult={context.plcOfBirthK100Result}
         clicked={context.isClicked.plcOfBirthDice}
         disabled={context.isClicked.plcOfBirthDice}
-        mainKey={"plcOfBirthDice"}
-        subKey
+       
+        path={["plcOfBirthDice"]}
         toggleClick={context.toggleClick}
         updateDiceRollResult={context.updateDiceRollResult}
         resolveDiceRoll={k100RollResult}

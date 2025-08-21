@@ -7,43 +7,7 @@ export const ChapterContent_VI_statsCalculations = () => {
   const btnStyle =
     "text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300  rounded text-xxs md:text-xs p-0.5 md:p-2  mb-2 w-8 md:w-12 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700";
 
-  const calculateStat1 = (statName) => {
-    const total =
-      context.baseRaceStats[statName] +
-      Math.max(
-        context.diceRollResult.baseStatsDice[statName],
-        context.diceRollResult.baseStatsDice[statName]
-      ) +
-      Math.max(
-        context.firstProfessionData.stats[statName],
-        context.secondProfessionData.stats[statName]
-      ) +
-      context.diceRollResult.bonusBaseStatsDice[statName];
-
-    // zapisujemy wynik w kontekście (np. do characterData.stats)
-    context.updateCharacterData(["stats", statName], total);
-
-    return total;
-  };
-  const calculateStat2 = (statName) => {
-   
-    const total =
-      context.baseRaceStats[statName] +
-      Math.max(
-        context.diceRollResult.baseStatsDice[statName].result1,
-        context.diceRollResult.baseStatsDice[statName].result2
-      ) +
-      Math.max(
-        context.firstProfessionData.stats[statName],
-        context.secondProfessionData.stats[statName]
-      ) +
-      context.diceRollResult.bonusBaseStatsDice[statName];
-
-    // zapisujemy wynik w kontekście (np. do characterData.stats)
-    context.updateCharacterData(["stats", statName], total);
-
-    return total;
-  };
+  
 
   useEffect(() => {
     context.filterBaseRaceStatsByRaceName();
@@ -95,7 +59,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                   path={["bonusBaseStatsDice", "ŻYW"]}
                   toggleClick={context.toggleClick}
                   updateDiceRollResult={context.updateDiceRollResult}
-                  resolveDiceRoll={calculateStat1}
+                  resolveDiceRoll={context.calculateStat1}
                   className={btnStyle}
                 />
               ) : (
@@ -119,7 +83,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                 path={["baseStatsDice", "SF", "result1"]}
                 toggleClick={context.toggleClick}
                 updateDiceRollResult={context.updateDiceRollResult}
-                resolveDiceRoll={calculateStat2}
+                resolveDiceRoll={context.calculateStat2}
                 className={btnStyle}
               />{" "}
               {["ŻOŁNIERSKA", "RYCERSKA"].includes(
@@ -139,7 +103,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                   path={["baseStatsDice", "SF", "result2"]}
                   toggleClick={context.toggleClick}
                   updateDiceRollResult={context.updateDiceRollResult}
-                  resolveDiceRoll={calculateStat2}
+                  resolveDiceRoll={context.calculateStat2}
                   className={btnStyle}
                 />
               ) : (
@@ -162,7 +126,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                   path={["bonusBaseStatsDice", "SF"]}
                   toggleClick={context.toggleClick}
                   updateDiceRollResult={context.updateDiceRollResult}
-                  resolveDiceRoll={calculateStat2}
+                  resolveDiceRoll={context.calculateStat2}
                   className={btnStyle}
                 />
               ) : (
@@ -197,7 +161,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                 path={["baseStatsDice", "ZR", "result1"]}
                 toggleClick={context.toggleClick}
                 updateDiceRollResult={context.updateDiceRollResult}
-                resolveDiceRoll={calculateStat2}
+                resolveDiceRoll={context.calculateStat2}
                 className={btnStyle}
               />{" "}
               {["ZŁODZIEJSKA"].includes(context.firstProfessionData.castName) ||
@@ -215,7 +179,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                   path={["baseStatsDice", "ZR", "result2"]}
                   toggleClick={context.toggleClick}
                   updateDiceRollResult={context.updateDiceRollResult}
-                  resolveDiceRoll={calculateStat2}
+                  resolveDiceRoll={context.calculateStat2}
                   className={btnStyle}
                 />
               ) : (
@@ -237,7 +201,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                   path={["bonusBaseStatsDice", "ZR"]}
                   toggleClick={context.toggleClick}
                   updateDiceRollResult={context.updateDiceRollResult}
-                  resolveDiceRoll={calculateStat2}
+                  resolveDiceRoll={context.calculateStat2}
                   className={btnStyle}
                 />
               ) : (
@@ -272,7 +236,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                 path={["baseStatsDice", "SZ"]}
                 toggleClick={context.toggleClick}
                 updateDiceRollResult={context.updateDiceRollResult}
-                resolveDiceRoll={calculateStat1}
+                resolveDiceRoll={context.calculateStat1}
                 className={btnStyle}
               />
             </td>
@@ -291,7 +255,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                   path={["bonusBaseStatsDice", "SZ"]}
                   toggleClick={context.toggleClick}
                   updateDiceRollResult={context.updateDiceRollResult}
-                  resolveDiceRoll={calculateStat1}
+                  resolveDiceRoll={context.calculateStat1}
                   className={btnStyle}
                 />
               ) : (
@@ -323,7 +287,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                 path={["baseStatsDice", "INT"]}
                 toggleClick={context.toggleClick}
                 updateDiceRollResult={context.updateDiceRollResult}
-                resolveDiceRoll={calculateStat1}
+                resolveDiceRoll={context.calculateStat1}
                 className={btnStyle}
               />
             </td>
@@ -342,7 +306,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                   path={["bonusBaseStatsDice", "INT"]}
                   toggleClick={context.toggleClick}
                   updateDiceRollResult={context.updateDiceRollResult}
-                  resolveDiceRoll={calculateStat1}
+                  resolveDiceRoll={context.calculateStat1}
                   className={btnStyle}
                 />
               ) : (
@@ -374,7 +338,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                 path={["baseStatsDice", "MD"]}
                 toggleClick={context.toggleClick}
                 updateDiceRollResult={context.updateDiceRollResult}
-                resolveDiceRoll={calculateStat1}
+                resolveDiceRoll={context.calculateStat1}
                 className={btnStyle}
               />
             </td>
@@ -393,7 +357,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                   path={["bonusBaseStatsDice", "MD"]}
                   toggleClick={context.toggleClick}
                   updateDiceRollResult={context.updateDiceRollResult}
-                  resolveDiceRoll={calculateStat1}
+                  resolveDiceRoll={context.calculateStat1}
                   className={btnStyle}
                 />
               ) : (
@@ -435,7 +399,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                     path={["baseStatsDice", "UM", "result1"]}
                     toggleClick={context.toggleClick}
                     updateDiceRollResult={context.updateDiceRollResult}
-                    resolveDiceRoll={calculateStat2}
+                    resolveDiceRoll={context.calculateStat2}
                     className={btnStyle}
                   />{" "}
                   <DiceButtonComponent
@@ -449,7 +413,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                     path={["baseStatsDice", "UM", "result2"]}
                     toggleClick={context.toggleClick}
                     updateDiceRollResult={context.updateDiceRollResult}
-                    resolveDiceRoll={calculateStat2}
+                    resolveDiceRoll={context.calculateStat2}
                     className={btnStyle}
                   />
                 </>
@@ -465,7 +429,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                   path={["baseStatsDice", "UM", "result1"]}
                   toggleClick={context.toggleClick}
                   updateDiceRollResult={context.updateDiceRollResult}
-                  resolveDiceRoll={calculateStat2}
+                  resolveDiceRoll={context.calculateStat2}
                   className={btnStyle}
                 />
               )}
@@ -491,7 +455,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                     path={["baseStatsDice", "UM", "result1"]}
                     toggleClick={context.toggleClick}
                     updateDiceRollResult={context.updateDiceRollResult}
-                    resolveDiceRoll={calculateStat2}
+                    resolveDiceRoll={context.calculateStat2}
                     className={btnStyle}
                   />{" "}
                   <DiceButtonComponent
@@ -505,7 +469,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                     path={["baseStatsDice", "UM", "result2"]}
                     toggleClick={context.toggleClick}
                     updateDiceRollResult={context.updateDiceRollResult}
-                    resolveDiceRoll={calculateStat2}
+                    resolveDiceRoll={context.calculateStat2}
                     className={btnStyle}
                   />
                 </>
@@ -521,7 +485,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                   path={["baseStatsDice", "UM", "result1"]}
                   toggleClick={context.toggleClick}
                   updateDiceRollResult={context.updateDiceRollResult}
-                  resolveDiceRoll={calculateStat2}
+                  resolveDiceRoll={context.calculateStat2}
                   className={btnStyle}
                 />
               )}
@@ -541,7 +505,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                   path={["bonusBaseStatsDice", "UM"]}
                   toggleClick={context.toggleClick}
                   updateDiceRollResult={context.updateDiceRollResult}
-                  resolveDiceRoll={calculateStat2}
+                  resolveDiceRoll={context.calculateStat2}
                   className={btnStyle}
                 />
               ) : (
@@ -578,7 +542,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                 path={["baseStatsDice", "CH"]}
                 toggleClick={context.toggleClick}
                 updateDiceRollResult={context.updateDiceRollResult}
-                resolveDiceRoll={calculateStat1}
+                resolveDiceRoll={context.calculateStat1}
                 className={btnStyle}
               />
             </td>
@@ -597,7 +561,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                   path={["bonusBaseStatsDice", "CH"]}
                   toggleClick={context.toggleClick}
                   updateDiceRollResult={context.updateDiceRollResult}
-                  resolveDiceRoll={calculateStat1}
+                  resolveDiceRoll={context.calculateStat1}
                   className={btnStyle}
                 />
               ) : (
@@ -629,7 +593,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                 path={["baseStatsDice", "PR"]}
                 toggleClick={context.toggleClick}
                 updateDiceRollResult={context.updateDiceRollResult}
-                resolveDiceRoll={calculateStat1}
+                resolveDiceRoll={context.calculateStat1}
                 className={btnStyle}
               />
             </td>
@@ -650,7 +614,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                   path={["bonusBaseStatsDice", "PR"]}
                   toggleClick={context.toggleClick}
                   updateDiceRollResult={context.updateDiceRollResult}
-                  resolveDiceRoll={calculateStat1}
+                  resolveDiceRoll={context.calculateStat1}
                   className={btnStyle}
                 />
               ) : (
@@ -682,7 +646,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                 path={["baseStatsDice", "WI", "result1"]}
                 toggleClick={context.toggleClick}
                 updateDiceRollResult={context.updateDiceRollResult}
-                resolveDiceRoll={calculateStat2}
+                resolveDiceRoll={context.calculateStat2}
                 className={btnStyle}
               />{" "}
               {["KAPŁAŃSKA"].includes(context.firstProfessionData.castName) ||
@@ -698,7 +662,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                   path={["baseStatsDice", "WI", "result2"]}
                   toggleClick={context.toggleClick}
                   updateDiceRollResult={context.updateDiceRollResult}
-                  resolveDiceRoll={calculateStat2}
+                  resolveDiceRoll={context.calculateStat2}
                   className={btnStyle}
                 />
               ) : (
@@ -720,7 +684,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                   path={["bonusBaseStatsDice", "WI"]}
                   toggleClick={context.toggleClick}
                   updateDiceRollResult={context.updateDiceRollResult}
-                  resolveDiceRoll={calculateStat2}
+                  resolveDiceRoll={context.calculateStat2}
                   className={btnStyle}
                 />
               ) : (
@@ -761,7 +725,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                     path={["baseStatsDice", "ZW", "result1"]}
                     toggleClick={context.toggleClick}
                     updateDiceRollResult={context.updateDiceRollResult}
-                    resolveDiceRoll={calculateStat2}
+                    resolveDiceRoll={context.calculateStat2}
                     className={btnStyle}
                   />{" "}
                   <DiceButtonComponent
@@ -775,7 +739,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                     path={["baseStatsDice", "ZW", "result2"]}
                     toggleClick={context.toggleClick}
                     updateDiceRollResult={context.updateDiceRollResult}
-                    resolveDiceRoll={calculateStat2}
+                    resolveDiceRoll={context.calculateStat2}
                     className={btnStyle}
                   />
                 </>
@@ -791,7 +755,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                   path={["baseStatsDice", "ZW", "result1"]}
                   toggleClick={context.toggleClick}
                   updateDiceRollResult={context.updateDiceRollResult}
-                  resolveDiceRoll={calculateStat2}
+                  resolveDiceRoll={context.calculateStat2}
                   className={btnStyle}
                 />
               )}

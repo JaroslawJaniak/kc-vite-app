@@ -9,10 +9,8 @@ const DiceButtonComponent = (props) => {
     clicked,
     disabled,
     path,
-
     toggleClick,
     updateDiceRollResult,
-
     resolveDiceRoll,
     className,
   } = props;
@@ -26,11 +24,11 @@ const DiceButtonComponent = (props) => {
       toggleClick(path); // Zmiana stanu kliknięcia przycisku
       updateDiceRollResult(path, diceRoll); // updateDiceRollResult(["baseStatsDice", "SF", "value2"], 15);
       console.log(`Rolling from button ${n}d${k}: ${diceRoll}`); // Logowanie informacji o rzucie
-      console.log(`path[1] : ${path[1]}`);
-      resolveDiceRoll(path[1]); // Wywołanie funkcji resolveDiceRoll z wynikiem rzutu
+      
+      resolveDiceRoll(diceRoll,path[1]); // Wywołanie funkcji resolveDiceRoll z wynikiem rzutu
     }
   };
-
+ 
   return (
     <button disabled={disabled} className={className} onClick={handleClick}>
       {clicked ? diceRollResult : `${n}k${k}`}

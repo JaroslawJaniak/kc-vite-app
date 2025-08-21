@@ -67,9 +67,9 @@ export const CharacterStatsContextProvider = ({ children }) => {
     secondProfessionData: {},
     stats: {
       ŻYW: 0,
-      SF: 0,
+      SF: 999,
       ZR: 0,
-      SZ: 0,
+      SZ: 666,
       INT: 0,
       MD: 0,
       UM: 0,
@@ -111,6 +111,41 @@ export const CharacterStatsContextProvider = ({ children }) => {
       return newData;
     });
   }
+
+  const calculateStat1 = (k, statName) => {
+    // obliczamy wartość statystyki na podstawie rasy, profesji i wyników rzutów kośćmi
+    const total =
+      baseRaceStats[statName] +
+      diceRollResult.baseStatsDice[statName] +
+      Math.max(
+        firstProfessionData.stats[statName],
+        secondProfessionData.stats[statName]
+      ) +
+      diceRollResult.bonusBaseStatsDice[statName];
+
+    // zapisujemy wynik w kontekście (np. do characterData.stats)
+    updateCharacterData(["stats", statName], total);
+
+    return total;
+  };
+  const calculateStat2 = (k, statName) => {
+    const total =
+      baseRaceStats[statName] +
+      Math.max(
+        diceRollResult.baseStatsDice[statName].result1,
+        diceRollResult.baseStatsDice[statName].result2
+      ) +
+      Math.max(
+        firstProfessionData.stats[statName],
+        secondProfessionData.stats[statName]
+      ) +
+      diceRollResult.bonusBaseStatsDice[statName];
+
+    // zapisujemy wynik w kontekście (np. do characterData.stats)
+    updateCharacterData(["stats", statName], total);
+
+    return total;
+  };
 
   const [firstProfessionData, setFirstProfessionData] = useState({
     id: "",
@@ -523,19 +558,17 @@ export const CharacterStatsContextProvider = ({ children }) => {
   const chpt5Info = { weight: "", height: "" };
   const chpt6Info = {
     stats: {
-      zyw: 0,
-      sf: 0,
-      zr: 0,
-      sz: 0,
-      md: 0,
-      int: 0,
-      um: 0,
-      ch: 0,
-      pr: 0,
-      wi: 0,
-      zw: 0,
-      o: 0,
-      w: 0,
+      ŻYW: characterData.stats.ŻYW,
+      SF: characterData.stats.SF,
+      ZR: characterData.stats.ZR,
+      SZ: characterData.stats.SZ,
+      INT: characterData.stats.INT,
+      MD: characterData.stats.MD,
+      UM: characterData.stats.UM,
+      CH: characterData.stats.CH,
+      PR: characterData.stats.PR,
+      WI: characterData.stats.WI,
+      ZW: characterData.stats.ZW,
     },
   };
 
@@ -683,6 +716,8 @@ export const CharacterStatsContextProvider = ({ children }) => {
 
     characterData,
     updateCharacterData,
+    calculateStat1,
+    calculateStat2,
   };
 
   return (

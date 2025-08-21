@@ -11,7 +11,12 @@ const StatRow = ({ label, value }) => (
 );
 
 const calculateStat = (base, diceRoll, firstProf, secondProf, bonus) => {
-  return base + diceRoll + Math.max(firstProf, secondProf) + (bonus || 0);
+  return (
+    base +
+    Math.max(diceRoll?.result1 || 0, diceRoll?.result2 || 0) +
+    Math.max(firstProf, secondProf) +
+    (bonus || 0)
+  );
 };
 
 const Summary = () => {
@@ -21,24 +26,17 @@ const Summary = () => {
     return () => {};
   }, []);
 
-  //tutaj porównać max i podem w calculate dodawać bez Max.math
   const stats = [
     { key: "ŻYW", label: "ŻYW", diceRoll: null },
     {
       key: "SF",
       label: "SF",
-      diceRoll: Math.max(
-        context.diceRollResult.baseStatsDice.SF.result1,
-        context.diceRollResult.baseStatsDice.SF.result2
-      ),
+      diceRoll: context.diceRollResult.baseStatsDice.SF,
     }, //to-do: poprawić
     {
       key: "ZR",
       label: "ZR",
-      diceRoll: Math.max(
-        context.diceRollResult.baseStatsDice.ZR.result1,
-        context.diceRollResult.baseStatsDice.ZR.result2
-      ),
+      diceRoll: context.diceRollResult.baseStatsDice.ZR,
     }, //to-do: poprawić
     {
       key: "SZ",
@@ -58,26 +56,17 @@ const Summary = () => {
     {
       key: "UM",
       label: "UM",
-      diceRoll: Math.max(
-        context.diceRollResult.baseStatsDice.UM.result1,
-        context.diceRollResult.baseStatsDice.UM.result2
-      ),
+      diceRoll: context.diceRollResult.baseStatsDice.UM,
     }, //to-do: poprawić
     {
       key: "WI",
       label: "WI",
-      diceRoll: Math.max(
-        context.diceRollResult.baseStatsDice.WI.result1,
-        context.diceRollResult.baseStatsDice.WI.result2
-      ),
+      diceRoll: context.diceRollResult.baseStatsDice.WI,
     }, //to-do: poprawić
     {
       key: "ZW",
       label: "ZW",
-      diceRoll: Math.max(
-        context.diceRollResult.baseStatsDice.ZW.result1,
-        context.diceRollResult.baseStatsDice.ZW.result2
-      ),
+      diceRoll: context.diceRollResult.baseStatsDice.ZW,
     }, //to-do: poprawić
     {
       key: "CH",
@@ -92,32 +81,18 @@ const Summary = () => {
   ];
 
   return (
-    <section
-      className={`${styles.sticky} p-4 bg-white cursor-grab active:cursor-grabbing select-none overflow-auto`}
-    >
-      <article className="">
+    <section className={`${styles.sticky} p-4 bg-white`}>
+      <article>
         <StatRow label="Płeć" value={context.chpt1Info.sex} />
         <StatRow label="Rasa" value={context.chpt1Info.race} />
         <NewLineText text={context.chpt1Info.description} />
-        <StatRow
-          label="Miejsce urodzenia"
-          value={context.chpt2Info.placeOfBirth}
-        />
+        <StatRow label="Miejsce urodzenia" value={context.chpt2Info.placeOfBirth} />
         <p>{context.chpt2Info.placeOfBirthDescription}</p>
-        <StatRow
-          label="Wyjściowa klasa społeczna"
-          value={context.chpt2Info.socialClass}
-        />
+        <StatRow label="Wyjściowa klasa społeczna" value={context.chpt2Info.socialClass} />
         <p>{context.chpt2Info.socialClassCastDescription}</p>
         <p>{context.chpt2Info.socialClassDescription}</p>
-        <StatRow
-          label="Roczny dochód"
-          value={`${context.chpt2Info.incomeValue} złt`}
-        />
-        <StatRow
-          label="Profesja"
-          value={`${context.firstProfession} - ${context.secondProfession}`}
-        />
+        <StatRow label="Roczny dochód" value={`${context.chpt2Info.incomeValue} złt`} />
+        <StatRow label="Profesja" value={`${context.firstProfession} - ${context.secondProfession}`} />
         <StatRow label="Charakter" value={context.character} />
         <StatRow label="Wzrost" value={`${context.height} cm`} />
         <StatRow label="Waga" value={`${context.weight} kg`} />

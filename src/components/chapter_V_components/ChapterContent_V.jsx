@@ -99,8 +99,8 @@ const ChapterContent_V = () => {
             diceRollResult={context.heightK100Result}
             clicked={context.isClicked.HeightDice}
             disabled={context.isClicked.HeightDice}
-            mainKey={"HeightDice"}
-            subKey
+            
+            path={["HeightDice"]}
             toggleClick={context.toggleClick}
             updateDiceRollResult={context.updateDiceRollResult}
             resolveDiceRoll={k100RollHeightResult}
@@ -116,8 +116,8 @@ const ChapterContent_V = () => {
             diceRollResult={context.weightK100Result}
             clicked={context.isClicked.WeightDice}
             disabled={context.isClicked.WeightDice}
-            mainKey={"WeightDice"}
-            subKey
+            
+            path={["WeightDice"]}
             toggleClick={context.toggleClick}
             updateDiceRollResult={context.updateDiceRollResult}
             resolveDiceRoll={k100RollWeightResult}
