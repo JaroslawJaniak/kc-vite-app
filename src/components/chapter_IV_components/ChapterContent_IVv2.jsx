@@ -14,8 +14,6 @@ export const ChapterContent_IVv2 = () => {
     return () => {};
   }, []);
 
-  
-
   const backBtnText = (
     <span>
       <svg
@@ -48,10 +46,12 @@ export const ChapterContent_IVv2 = () => {
             professionsList={context.renderProfessions}
             castName={"ŻOŁNIERSKA"}
           />
-          <ChapterContent_IV_CAST_Component
-            professionsList={context.renderProfessions}
-            castName={"RYCERSKA"}
-          />
+          <div hidden={!context.isSocialClassNobility}>
+            <ChapterContent_IV_CAST_Component
+              professionsList={context.renderProfessions}
+              castName={"RYCERSKA"}
+            />
+          </div>
           <ChapterContent_IV_CAST_Component
             professionsList={context.renderProfessions}
             castName={"ZŁODZIEJSKA"}
@@ -65,8 +65,6 @@ export const ChapterContent_IVv2 = () => {
             castName={"CZARODZIEJSKA"}
           />
         </div>{" "}
-        
-        
       </div>
     </div>
   );
