@@ -57,6 +57,19 @@ export const chp1_race_description = [
         W: 0,
       },
     },
+    immunity: {
+      Odp1: 10,
+      Odp2: 0,
+      Odp3: 20,
+      Odp4: 10,
+      Odp5: 10,
+
+      Odp6: 0,
+      Odp7: 0,
+      Odp8: 0,
+      Odp9: 10,
+      Odp10: 0,
+    },
     description:
       "- +5 pkt. do biegłości w mieczach, lancach, kopiach, kuszach, włóczniach i rapierach;\n- samouzdrowienie (czyli automatyczne odzyskiwanie punktów Wytrzymałości utraconych w wyniku odniesionych obrażeń) 2 pkt. obrażeń po każdych 8 godzinach wypoczynku;",
   },
@@ -118,6 +131,19 @@ export const chp1_race_description = [
         W: 0,
       },
     },
+    immunity: {
+      Odp1: 10,
+      Odp2: 10,
+      Odp3: 10,
+      Odp4: 0,
+      Odp5: 10,
+
+      Odp6: 0,
+      Odp7: 0,
+      Odp8: 0,
+      Odp9: 10,
+      Odp10: 10,
+    },
     description:
       "- 10 pkt. do biegłości w mieczach oraz 5 pkt. w łukach. włóczniach i lancach;\n- infrawizja (zdolność widzenia w naturalnych ciemnościach) o zasięgu równym 1/10 SZ (metrów);\n- samouzdrowienie 1 pkt. obrażeń po 8 godzinach wypoczynku;",
   },
@@ -175,6 +201,19 @@ export const chp1_race_description = [
         O: 0,
         W: 0,
       },
+    },
+    immunity: {
+      Odp1: 20,
+      Odp2: 20,
+      Odp3: 0,
+      Odp4: 0,
+      Odp5: 10,
+
+      Odp6: 0,
+      Odp7: 0,
+      Odp8: 0,
+      Odp9: 0,
+      Odp10: 10,
     },
     description:
       "- 10 pkt. do biegłości w mieczach i łukach (z wyjątkiem refleksyjnych) oraz 5 pkt. we włóczniach i sztyletach;\n- infrawizja o zasięgu równym 2/10 SZ;\n- dwukrotnie większy niż wynikający ze współczynników zasięg słuchu i wzroku;\n- samouzdrowienie 1 pkt. obrażeń po 8 godzinach wypoczynku;",
@@ -235,6 +274,19 @@ export const chp1_race_description = [
         O: 5,
         W: 20,
       },
+    },
+    immunity: {
+      Odp1: 10,
+      Odp2: 0,
+      Odp3: 10,
+      Odp4: 20,
+      Odp5: 0,
+
+      Odp6: 0,
+      Odp7: 0,
+      Odp8: 0,
+      Odp9: 0,
+      Odp10: 20,
     },
     description:
       "- 5 pkt. do biegłości w kamieniach, maczugach, pałach, młotach oraz w walce na pięści;\n- dodatkowa Obrona 5 pkt. i Wyparowania 20 pkt., wynikające z grubości skóry (wszelkich obrażeń odniesionych w wyniku każdego rodzaju ataku - kłutego, tnącego lub obuchowego);\n- samouzdrowienie 4 pkt. obrażeń po 8 godzinach wypoczynku;",
@@ -297,6 +349,19 @@ export const chp1_race_description = [
         W: 0,
       },
     },
+    immunity: {
+      Odp1: 0,
+      Odp2: 0,
+      Odp3: 10,
+      Odp4: 0,
+      Odp5: 0,
+
+      Odp6: 10,
+      Odp7: 10,
+      Odp8: 10,
+      Odp9: 10,
+      Odp10: 10,
+    },
     description:
       "- 10 pkt. do biegłości w szablach, łukach refleksyjnych oraz 5 pkt. w nożach\n- infrawizja (1/10 SZ);\n- samouzdrowienie 2 pkt. obrażeń po 8 godzinach wypoczynku;",
   },
@@ -349,6 +414,19 @@ export const chp1_race_description = [
         O: 5,
         W: 20,
       },
+    },
+    immunity: {
+      Odp1: 0,
+      Odp2: 0,
+      Odp3: 0,
+      Odp4: 10,
+      Odp5: 10,
+
+      Odp6: 10,
+      Odp7: 10,
+      Odp8: 10,
+      Odp9: 10,
+      Odp10: 0,
     },
     description:
       "- 10 pkt. do biegłości w toporach oraz 5 pkt. w kuszach, młotach, oskardach i sztyletach;\n- infrawizja (2/10 SZ);\n- dodatkowa Obrona 5 pkt. i Wyparowania 20 pkt.;\n- samouzdrowienie 3 pkt. obrażeń po 8 godzinach wypoczynku;",
@@ -407,6 +485,19 @@ export const chp1_race_description = [
         W: 10,
       },
     },
+    immunity: {
+      Odp1: 20,
+      Odp2: 0,
+      Odp3: 0,
+      Odp4: 0,
+      Odp5: 10,
+
+      Odp6: 10,
+      Odp7: 10,
+      Odp8: 0,
+      Odp9: 0,
+      Odp10: 10,
+    },
     description:
       "- 10 pkt. do biegłości w młotach i toporach oraz 5 pkt. w krótkich mieczach;\n- infrawizja (2/10 SZ);\n- dodatkowa Obrona 2pkt. i Wyparowania 10 pkt.;\n- samouzdrowienie 3 pkt. obrażeń po 8 godzinach wypoczynku;",
   },
@@ -461,6 +552,19 @@ export const chp1_race_description = [
         O: 5,
         W: 20,
       },
+    },
+    immunity: {
+      Odp1: 10,
+      Odp2: 10,
+      Odp3: 20,
+      Odp4: 0,
+      Odp5: 10,
+
+      Odp6: 10,
+      Odp7: 0,
+      Odp8: 0,
+      Odp9: 0,
+      Odp10: 0,
     },
     description:
       "- 10 pkt. do biegłości w kamieniach oraz 5 pkt. w krótkich łukach, sztyletach i krótkich mieczach;\n- dodatkowa Obrona 5 pkt. i Wyparowania 20 pkt.;\n- samouzdrowienie 3 pkt. obrażeń po 8 godzinach wypoczynku;",
@@ -521,6 +625,19 @@ export const chp1_race_description = [
         O: 20,
         W: 60,
       },
+    },
+    immunity: {
+      Odp1: 20,
+      Odp2: 0,
+      Odp3: 0,
+      Odp4: 10,
+      Odp5: 0,
+
+      Odp6: 20,
+      Odp7: 10,
+      Odp8: 0,
+      Odp9: 0,
+      Odp10: 0,
     },
     description:
       "- 10 pkt. do biegłości w toporomieczach i w ataku pazurami oraz 5 pkt. w mieczach i kuszach;\n- nie mogą nosić smoczych skór i zbroi o ograniczeniach większych niż 1/2 ZR, 1/2 SZ;\n- dodatkowa Obrona 20 pkt. i Wyparowania 60 pki.;\n- samouzdrowienie 5 pkt. obrażeń po 8 godzinach wypoczynku;",

@@ -16,6 +16,7 @@ const Chapter1GenderSelection = () => {
     context.setFemaleChecked(!context.femaleChecked);
     context.setMaleChecked(false);
     context.setSex(chp1_sex_info.female.nameSex);
+    context.setRaceData();
   };
 
   return (

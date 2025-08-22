@@ -147,6 +147,80 @@ export const CharacterStatsContextProvider = ({ children }) => {
     return total;
   };
 
+  const [raceData, setRaceData] = useState({
+    id: "",
+
+    raceName: "",
+
+    availableProfessions: [
+      { profName: "WOJOWNIK", maxLevel: "" },
+      { profName: "ŁOWCA", maxLevel: "" },
+      { profName: "GWARDZISTA", maxLevel: "" },
+      { profName: "BARBARZYŃCA", maxLevel: "" },
+      { profName: "RYCERZ", maxLevel: "" },
+      { profName: "PALADYN", maxLevel: "" },
+      { profName: "CZARNY RYCERZ", maxLevel: "" },
+      { profName: "ZŁODZIEJ", maxLevel: "" },
+      { profName: "ZABÓJCA", maxLevel: "" },
+      { profName: "KUPIEC", maxLevel: "" },
+      { profName: "KAPŁAN", maxLevel: "" },
+      { profName: "DRUID", maxLevel: "" },
+      { profName: "ASTROLOG", maxLevel: "" },
+      { profName: "PÓŁBÓG", maxLevel: "" },
+      { profName: "MAG", maxLevel: "" },
+      { profName: "CZARNOKSIĘŻNIK", maxLevel: "" },
+      { profName: "ILUZJONISTA", maxLevel: "" },
+      { profName: "ALCHEMIK", maxLevel: "" },
+    ],
+
+    stats: {
+      male: {
+        ŻYW: 0,
+        SF: 0,
+        ZR: 0,
+        SZ: 0,
+        INT: 0,
+        MD: 0,
+        UM: 0,
+        CH: 0,
+        PR: 0,
+        WI: 0,
+        ZW: 0,
+        O: 0,
+        W: 0,
+      },
+      female: {
+        ŻYW: 0,
+        SF: 0,
+        ZR: 0,
+        SZ: 0,
+        INT: 0,
+        MD: 0,
+        UM: 0,
+        CH: 0,
+        PR: 0,
+        WI: 0,
+        ZW: 0,
+        O: 0,
+        W: 0,
+      },
+    },
+    immunity: {
+      Odp1: 0,
+      Odp2: 0,
+      Odp3: 0,
+      Odp4: 0,
+      Odp5: 0,
+
+      Odp6: 0,
+      Odp7: 0,
+      Odp8: 0,
+      Odp9: 0,
+      Odp10: 0,
+    },
+    description: "",
+  });
+
   const [firstProfessionData, setFirstProfessionData] = useState({
     id: "",
     profName: "",
@@ -174,7 +248,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
       PR: 0,
       WI: 0,
       ZW: 0,
-      Odp1: 999,
+      Odp1: 0,
       Odp2: 0,
       Odp3: 0,
       Odp4: 0,
@@ -370,8 +444,8 @@ export const CharacterStatsContextProvider = ({ children }) => {
     },
 
     bonusImmunityDice: {
-      bPsych: false,
-      bFiz: false,
+      BPsych: false,
+      BFiz: false,
       odp1: false,
       odp2: false,
       odp3: false,
@@ -423,8 +497,8 @@ export const CharacterStatsContextProvider = ({ children }) => {
       ZW: 0,
     },
     bonusImmunityDice: {
-      bPsych: 0,
-      bFiz: 0,
+      BPsych: 0,
+      BFiz: 0,
       odp1: 0,
       odp2: 0,
       odp3: 0,
@@ -693,6 +767,8 @@ export const CharacterStatsContextProvider = ({ children }) => {
     isSecondProfessionChecked,
     setIsSecondProfessionChecked,
 
+    raceData,
+    setRaceData,
     firstProfessionData,
     setFirstProfessionData,
     setSecondProfessionData,

@@ -6,14 +6,13 @@ import { NewLineText } from "../utils/NewLineText";
 export const Chapter1RaceDescriptionContainer = (props) => {
   const context = useContext(CharacterStatsContext);
 
-  const handleElementChange = (raceName) => {
-    context.setRace(raceName);
+  const handleElementChange = (race) => {
+    context.setRace(race.raceName);
     context.setRaceChecked(!context.raceChecked);
-    context.setRaceDescription(props.race_description.description);
-    context.setAvailableProfessionsByRace(
-      props.race_description.availableProfessions
-    );
-   
+    context.setRaceDescription(race.description);
+    context.setAvailableProfessionsByRace(race.availableProfessions);
+    context.setRaceData(race);
+    console.log("raceData.raceName:", context.raceData.raceName);
   };
 
   return (
@@ -25,7 +24,7 @@ export const Chapter1RaceDescriptionContainer = (props) => {
         className={props.race_description.class}
         checked={context.race === props.race_description.raceName}
         onChange={() => {
-          handleElementChange(`${props.race_description.raceName}`);
+          handleElementChange(props.race_description);
         }}
       />
 

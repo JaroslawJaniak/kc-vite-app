@@ -755,6 +755,80 @@ const ChapterContent_VIe_statsCalculations = () => {
     </>
   );
 
+  const deafaultView = (
+    <div>
+      <table
+        id="table_base-stats"
+        className="[&>*]:p-0 [&>*]:m-0 text-xxs md:text-xs"
+      >
+        <tr>
+          <td></td>
+          <td colspan="10" className="text-center font-bold">
+            ODPORNOŚĆ NR
+          </td>
+        </tr>
+        <tr>
+          {chp6_table_immunity_stats_0.map((item) => (
+            <td key={item}>
+              <b>{item}</b>
+            </td>
+          ))}
+        </tr>
+        {chp6_table_race_immunity_stats.map((immunity) => (
+          <tr
+            key={immunity.name}
+            className={` ${
+              context.race.toUpperCase() === immunity.race
+                ? "bg-black text-white"
+                : ""
+            }`}
+          >
+            <td>{immunity.race}</td>
+            <td>{renderStatCell(immunity.Odp1)}</td>
+          </tr>
+        ))}
+      </table>
+      <table
+        id="table_base-stats_prof"
+        className="[&>*]:p-0 [&>*]:m-0 text-xxs md:text-xs"
+      >
+        <tr>
+          <td></td>
+          <td colspan="10" className="text-center font-bold">
+            ODPORNOŚĆ NR
+          </td>
+        </tr>
+        <tr>
+          {chp6_table_immunity_stats_0.map((item, index) =>
+            index === 0 ? (
+              <td key={item}>
+                <b>{"PROFESJA"}</b>
+              </td>
+            ) : (
+              <td key={item}>
+                <b>{item}</b>
+              </td>
+            )
+          )}
+        </tr>
+        {chp6_table_prof_stats2.map((profBonus) => (
+          <tr
+            key={profBonus.name}
+            className={`${
+              context.firstProfession === profBonus.name ||
+              context.secondProfession === profBonus.name
+                ? "bg-black text-white"
+                : ""
+            }`}
+          >
+            <td>{profBonus.name}</td>
+            <td>{renderStatCell(profBonus.Odp1, profBonus.k10_Odp1)}</td>
+          </tr>
+        ))}
+      </table>
+    </div>
+  );
+
   return defaultViewImmunityCalculations;
 };
 
