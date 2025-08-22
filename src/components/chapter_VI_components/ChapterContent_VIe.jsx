@@ -35,7 +35,14 @@ const ChapterContent_VIe = () => {
           ))}
         </tr>
         {chp6_table_race_immunity_stats.map((immunity) => (
-          <tr key={immunity.name}>
+          <tr
+            key={immunity.name}
+            className={` ${
+              context.race.toUpperCase() === immunity.race
+                ? "bg-black text-white"
+                : ""
+            }`}
+          >
             <td>{immunity.race}</td>
             <td>{renderStatCell(immunity.Odp1)}</td>
             <td>{renderStatCell(immunity.Odp2)}</td>

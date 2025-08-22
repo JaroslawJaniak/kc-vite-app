@@ -67,9 +67,9 @@ export const CharacterStatsContextProvider = ({ children }) => {
     secondProfessionData: {},
     stats: {
       ŻYW: 0,
-      SF: 999,
+      SF: 0,
       ZR: 0,
-      SZ: 666,
+      SZ: 0,
       INT: 0,
       MD: 0,
       UM: 0,
@@ -174,6 +174,16 @@ export const CharacterStatsContextProvider = ({ children }) => {
       PR: 0,
       WI: 0,
       ZW: 0,
+      Odp1: 999,
+      Odp2: 0,
+      Odp3: 0,
+      Odp4: 0,
+      Odp5: 0,
+      Odp6: 0,
+      Odp7: 0,
+      Odp8: 0,
+      Odp9: 0,
+      Odp10: 0,
     },
   });
   const [secondProfessionData, setSecondProfessionData] = useState({
@@ -203,6 +213,16 @@ export const CharacterStatsContextProvider = ({ children }) => {
       PR: 0,
       WI: 0,
       ZW: 0,
+      Odp1: 0,
+      Odp2: 0,
+      Odp3: 0,
+      Odp4: 0,
+      Odp5: 0,
+      Odp6: 0,
+      Odp7: 0,
+      Odp8: 0,
+      Odp9: 0,
+      Odp10: 0,
     },
   });
   const [firstProfessionChecked, setFirstProfessionChecked] = useState(false);
@@ -348,7 +368,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
       WI: false,
       ZW: false,
     },
-    
+
     bonusImmunityDice: {
       bPsych: false,
       bFiz: false,

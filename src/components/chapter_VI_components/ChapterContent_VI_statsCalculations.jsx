@@ -2,10 +2,6 @@ import React, { useEffect, useContext, useState } from "react";
 import { CharacterStatsContext } from "../../context/CharacterStatsContext";
 import DiceButtonComponent from "../utils/buttons/kDice/DiceButtonComponent";
 
-const calculateStat = (base, diceRoll, firstProf, secondProf, bonus) => {
-  return base + diceRoll + Math.max(firstProf, secondProf) + (bonus || 0);
-};
-
 export const ChapterContent_VI_statsCalculations = () => {
   const context = useContext(CharacterStatsContext);
   const btnStyle =
@@ -18,75 +14,6 @@ export const ChapterContent_VI_statsCalculations = () => {
 
     return () => {};
   }, []);
-
-  const stats = [
-    { key: "ŻYW", label: "ŻYW", diceRoll: null },
-    {
-      key: "SF",
-      label: "SF",
-      diceRoll: Math.max(
-        context.diceRollResult.baseStatsDice.SF.result1,
-        context.diceRollResult.baseStatsDice.SF.result2
-      ),
-    },
-    {
-      key: "ZR",
-      label: "ZR",
-      diceRoll: Math.max(
-        context.diceRollResult.baseStatsDice.ZR.result1,
-        context.diceRollResult.baseStatsDice.ZR.result2
-      ),
-    },
-    {
-      key: "SZ",
-      label: "SZ",
-      diceRoll: context.diceRollResult.baseStatsDice.SZ,
-    },
-    {
-      key: "INT",
-      label: "INT",
-      diceRoll: context.diceRollResult.baseStatsDice.INT,
-    },
-    {
-      key: "MD",
-      label: "MD",
-      diceRoll: context.diceRollResult.baseStatsDice.MD,
-    },
-    {
-      key: "UM",
-      label: "UM",
-      diceRoll: Math.max(
-        context.diceRollResult.baseStatsDice.UM.result1,
-        context.diceRollResult.baseStatsDice.UM.result2
-      ),
-    },
-    {
-      key: "WI",
-      label: "WI",
-      diceRoll: Math.max(
-        context.diceRollResult.baseStatsDice.WI.result1,
-        context.diceRollResult.baseStatsDice.WI.result2
-      ),
-    },
-    {
-      key: "ZW",
-      label: "ZW",
-      diceRoll: Math.max(
-        context.diceRollResult.baseStatsDice.ZW.result1,
-        context.diceRollResult.baseStatsDice.ZW.result2
-      ),
-    },
-    {
-      key: "CH",
-      label: "CH",
-      diceRoll: context.diceRollResult.baseStatsDice.CH,
-    },
-    {
-      key: "PR",
-      label: "PR",
-      diceRoll: context.diceRollResult.baseStatsDice.PR,
-    },
-  ];
 
   return (
     <div>
@@ -135,7 +62,16 @@ export const ChapterContent_VI_statsCalculations = () => {
                 ""
               )}
             </td>
-            <td>{"ŻYW"}</td>
+            <td>
+              {" "}
+              {context.baseRaceStats.ŻYW +
+                context.diceRollResult.baseStatsDice.ŻYW +
+                Math.max(
+                  context.firstProfessionData.stats.ŻYW,
+                  context.secondProfessionData.stats.ŻYW
+                ) +
+                context.diceRollResult.bonusBaseStatsDice.ŻYW}
+            </td>
           </tr>
           <tr>
             <td>
@@ -854,96 +790,6 @@ export const ChapterContent_VI_statsCalculations = () => {
           </tr>
         </tbody>
       </table>
-      <div className=" text-xs mt-2">
-        <b>ODPORNOŚCI:</b>
-        <div className="">
-          <span>BPsych</span> <span>{`(1/20ŻYW + 1/10INT + 1/10MD + `}</span>
-          <DiceButtonComponent
-            n={1}
-            k={10}
-            isPremium={true}
-            diceRollResult={context.diceRollResult.bonusImmunityDice.bFiz}
-            clicked={context.isClicked.bonusImmunityDice.bFiz}
-            disabled={context.isClicked.bonusImmunityDice.bFiz}
-            path={["bonusImmunityDice", "bFiz"]}
-            toggleClick={context.toggleClick}
-            updateDiceRollResult={context.updateDiceRollResult}
-            resolveDiceRoll={context.calculateStat1}
-            className={btnStyle}
-          />
-          {"):"}
-          <span className="ml-2">
-            {" "}
-            {Math.ceil(
-              calculateStat(
-                context.baseRaceStats["ŻYW"],
-                stats[0].diceRoll,
-                context.firstProfessionData.stats["ŻYW"],
-                context.secondProfessionData.stats["ŻYW"],
-                context.diceRollResult.bonusBaseStatsDice["ŻYW"]
-              ) / 20
-            ) +
-              Math.ceil(
-                calculateStat(
-                  context.baseRaceStats["INT"],
-                  stats[4].diceRoll,
-                  context.firstProfessionData.stats["INT"],
-                  context.secondProfessionData.stats["INT"],
-                  context.diceRollResult.bonusBaseStatsDice["INT"]
-                ) / 10
-              ) +
-              Math.ceil(
-                calculateStat(
-                  context.baseRaceStats["MD"],
-                  stats[5].diceRoll,
-                  context.firstProfessionData.stats["MD"],
-                  context.secondProfessionData.stats["MD"],
-                  context.diceRollResult.bonusBaseStatsDice["MD"]
-                ) / 10
-              ) +
-              context.diceRollResult.bonusImmunityDice.bFiz}{" "}
-          </span>
-        </div>
-        <div className="">
-          <span>BFiz</span> <span>{`(1/10ŻYW + 1/10SF + `}</span>
-          <DiceButtonComponent
-            n={1}
-            k={10}
-            isPremium={true}
-            diceRollResult={context.diceRollResult.bonusImmunityDice.bPsych}
-            clicked={context.isClicked.bonusImmunityDice.bPsych}
-            disabled={context.isClicked.bonusImmunityDice.bPsych}
-            path={["bonusImmunityDice", "bPsych"]}
-            toggleClick={context.toggleClick}
-            updateDiceRollResult={context.updateDiceRollResult}
-            resolveDiceRoll={context.calculateStat1}
-            className={btnStyle}
-          />
-          {"):"}
-          <span className="ml-2">
-            {" "}
-            {Math.ceil(
-              calculateStat(
-                context.baseRaceStats["ŻYW"],
-                stats[0].diceRoll,
-                context.firstProfessionData.stats["ŻYW"],
-                context.secondProfessionData.stats["ŻYW"],
-                context.diceRollResult.bonusBaseStatsDice["ŻYW"]
-              ) / 10
-            ) +
-              Math.ceil(
-                calculateStat(
-                  context.baseRaceStats["SF"],
-                  stats[1].diceRoll,
-                  context.firstProfessionData.stats["SF"],
-                  context.secondProfessionData.stats["SF"],
-                  context.diceRollResult.bonusBaseStatsDice["SF"]
-                ) / 10
-              ) +
-              context.diceRollResult.bonusImmunityDice.bPsych}{" "}
-          </span>
-        </div>
-      </div>
     </div>
   );
 };

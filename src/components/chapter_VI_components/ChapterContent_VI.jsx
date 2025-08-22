@@ -8,12 +8,14 @@ import chp6_info from "./chp6_info";
 import { ChapterContent_VI_statsCalculations } from "./ChapterContent_VI_statsCalculations.jsx";
 import ChapterContent_VIb from "./ChapterContent_VIb.jsx";
 import ChapterContent_VIe from "./ChapterContent_VIe.jsx";
+import ChapterContent_VIe_statsCalculations from "./ChapterContent_VIe_statsCalculations.jsx";
 
 const ChapterContent_VI = () => {
   return (
     <section className="section mb-20">
       <p>{chp6_info.text1}</p>
       <ChapterContent_VI_statsCalculations />
+      <ChapterContent_VIe_statsCalculations />
       <p>{chp6_info.text2}</p>
       <ChapterContent_VIa />
       <p>{chp6_info.text3}</p>
