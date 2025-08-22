@@ -4,66 +4,93 @@ import { CharacterStatsContext } from "../../context/CharacterStatsContext";
 
 export const ChapterContent_III_abilities = () => {
   const context = useContext(CharacterStatsContext);
-  //const [chance, setChance] = useState(100);
 
-  const abilitie = {
-    name: "",
-    k100: 0,
-  };
+  const abilitiesChance = context.abilitiesChance;
 
-  const k100RollResult = (k) => {
-    context.setAbilitiesK100Result(k);
+  console.log("log from abilitiesChance:", abilitiesChance);
 
-    if (k <= context.abilitiesChance) {
-      if (context.abilitiesChance >= 0) {
-        context.setAbilitiesChance(
-          100 - 5 * (context.abilities.length + 1)
-        );
-        context.setAbilitiesK100Clicked(true);
-      }
+  useEffect(() => {
+    return () => {};
+  }, []);
 
-      abilitie.name = "newAbilitie";
-      abilitie.k100 = context.abilitiesK100Result;
-      context.setAbilities([...context.abilities, abilitie]);
-    }
-  };
-
-  const renderAbilitiesChanceInfo = (index) => {
-    if (
-      context.abilitiesChance > 0 &&
-      context.abilitiesK100Result <= context.abilitiesChance
-    ) {
-      return `(${100 - 5 * (index + 1)} % szansa na zdolność nadnaturalną) RZUĆ PONOWNIE!`;
-    }
-    return "";
-  };
-
-  const renderAbilities = () => {
-    if (context.abilities.length) {
-      return context.abilities.map((abilitie, index) => (
-        <p>
-          {abilitie.name}
-          {abilitie.k100} <span>{renderAbilitiesChanceInfo(index)}</span>{" "}
-        </p>
-      ));
-    } else return <p>Brak;</p>;
-  };
+  const btnStyle =
+    "text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300  rounded text-xxs md:text-xs p-0.5 md:p-2  mb-2 w-8 md:w-12 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700";
 
   return (
     <article>
       <h3>III.b Zdolności nadnaturalne</h3>
-      Czy postać ma zdolność nadnaturalną{" "}
-      {`(${context.abilitiesChance} % szansa)`}
+      Czy postać ma zdolność nadnaturalną {`(10 % szansa)`}{" "}
       <DiceButtonComponent
         n={1}
         k={100}
-        diceRollResult={context.abilitiesK100Result}
-        clicked={!(context.abilitiesK100Result <= context.abilitiesChance)}
-        handleStateChange={context.setAbilitiesK100Clicked}
-        onDiceRoll={k100RollResult}
-        className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5  mb-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
-      />
-      {renderAbilities()}
+        diceRollResult={context.diceRollResult.abilitiesChanceDice.result1}
+        clicked={context.isClicked.abilitiesChanceDice.result1}
+        disabled={context.isClicked.abilitiesChanceDice.result1}
+        path={["abilitiesChanceDice", "result1"]}
+        toggleClick={context.toggleClick}
+        updateDiceRollResult={context.updateDiceRollResult}
+        resolveDiceRoll={context.updateAbilitiesData}
+        className={btnStyle}
+      />{" "}
+      {context.diceRollResult.abilitiesChanceDice.result1 <=
+      context.abilitiesChance ? (
+        <>
+          <span>
+            {" : zdonlność "}
+            <DiceButtonComponent
+              n={1}
+              k={100}
+              diceRollResult={context.diceRollResult.abilitiesDice.result1}
+              clicked={context.isClicked.abilitiesDice.result1}
+              disabled={context.isClicked.abilitiesDice.result1}
+              path={["abilitiesDice", "result1"]}
+              toggleClick={context.toggleClick}
+              updateDiceRollResult={context.updateDiceRollResult}
+              resolveDiceRoll={context.updateAbilitiesData}
+              className={btnStyle}
+            />
+          </span>
+          <div>
+            Czy postać ma drugą zdolność nadnaturalną {`(5 % szansa)`}{" "}
+            <DiceButtonComponent
+              n={1}
+              k={100}
+              diceRollResult={
+                context.diceRollResult.abilitiesChanceDice.result2
+              }
+              clicked={context.isClicked.abilitiesChanceDice.result2}
+              disabled={context.isClicked.abilitiesChanceDice.result2}
+              path={["abilitiesChanceDice", "result2"]}
+              toggleClick={context.toggleClick}
+              updateDiceRollResult={context.updateDiceRollResult}
+              resolveDiceRoll={context.updateAbilitiesData}
+              className={btnStyle}
+            />
+            {context.diceRollResult.abilitiesChanceDice.result2 <=
+            context.abilitiesChance ? (
+              <span>
+                {" : zdonlność "}
+                <DiceButtonComponent
+                  n={1}
+                  k={100}
+                  diceRollResult={context.diceRollResult.abilitiesDice.result2}
+                  clicked={context.isClicked.abilitiesDice.result2}
+                  disabled={context.isClicked.abilitiesDice.result2}
+                  path={["abilitiesDice", "result2"]}
+                  toggleClick={context.toggleClick}
+                  updateDiceRollResult={context.updateDiceRollResult}
+                  resolveDiceRoll={context.updateAbilitiesData}
+                  className={btnStyle}
+                />
+              </span>
+            ) : (
+              ""
+            )}
+          </div>
+        </>
+      ) : (
+        ""
+      )}
     </article>
   );
 };

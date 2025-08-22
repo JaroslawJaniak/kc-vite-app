@@ -43,12 +43,23 @@ export const CharacterStatsContextProvider = ({ children }) => {
   const [disabilities, setDisabilities] = useState([]);
   const [disabilitiesK100Result, setDisabilitiesK100Result] = useState(0);
   const [disabilitiesK100Clicked, setDisabilitiesK100Clicked] = useState(false);
-  const [disabilitiesChance, setDisabilitiesChance] = useState(100);
+  const [disabilitiesChance, setDisabilitiesChance] = useState(70);
 
-  const [abilities, setAbilities] = useState([]);
+  const [abilities, setAbilities] = useState([
+    "Telepatia",
+    "Aura grozy",
+    "Wizje prorocze",
+    "Niewidzialność",
+    "Regeneracja",
+    "Kontrola ognia",
+    "Rozmowa ze zmarłymi",
+    "Przenikanie przez ściany",
+    "Hipnoza",
+    "Lot",
+  ]);
   const [abilitiesK100Result, setAbilitiesK100Result] = useState(0);
   const [abilitiesK100Clicked, setAbilitiesK100Clicked] = useState(false);
-  const [abilitiesChance, setAbilitiesChance] = useState(100);
+  const [abilitiesChance, setAbilitiesChance] = useState(50);
 
   const [firstProfession, setFirstProfession] = useState("");
   const [secondProfession, setSecondProfession] = useState("");
@@ -145,6 +156,14 @@ export const CharacterStatsContextProvider = ({ children }) => {
     updateCharacterData(["stats", statName], total);
 
     return total;
+  };
+
+  const updateAbilitiesData = (k) => {
+    console.log(`context abilitiesChance1: `, abilitiesChance);
+    if (k <= abilitiesChance) {
+      setAbilitiesChance(abilitiesChance - 5);
+      console.log(`context abilitiesChance2: `, abilitiesChance);
+    }
   };
 
   const [raceData, setRaceData] = useState({
@@ -412,8 +431,14 @@ export const CharacterStatsContextProvider = ({ children }) => {
     socialClassDice: false,
     incomeValueDice: false,
     socialClassIncomeDice: false,
-    disabilitiesDice: false,
-    abilitiesDice: false,
+    disabilitiesDice: {
+      result1: false,
+      result2: false,
+      result3: false,
+      result4: false,
+    },
+    abilitiesChanceDice: { result1: false, result2: false },
+    abilitiesDice: { result1: false, result2: false },
     HeightDice: false,
     WeightDice: false,
     baseStatsDice: {
@@ -464,8 +489,14 @@ export const CharacterStatsContextProvider = ({ children }) => {
     socialClassDice: 0,
     incomeValueDice: 0,
     socialClassIncomeDice: 0,
-    disabilitiesDice: 0,
-    abilitiesDice: 0,
+    disabilitiesDice: {
+      result1: 0,
+      result2: null,
+      result3: null,
+      result4: null,
+    },
+    abilitiesChanceDice: { result1: 999, result2: 999 },
+    abilitiesDice: { result1: 999, result2: 999 },
     HeightDice: 0,
     WeightDice: 0,
     baseStatsDice: {
@@ -824,6 +855,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
     updateCharacterData,
     calculateStat1,
     calculateStat2,
+    updateAbilitiesData,
   };
 
   return (
