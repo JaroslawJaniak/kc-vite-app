@@ -8,7 +8,8 @@ const CastSubprofession_container = (props) => {
 
   const isSubprofessionHidden = (
     availabilityHiddenStatus,
-    exeptionHiddenStatus, exeptionChecked
+    exeptionHiddenStatus,
+    exeptionChecked
   ) => {
     if (availabilityHiddenStatus === true && exeptionHiddenStatus === true) {
       return true;
@@ -40,7 +41,6 @@ const CastSubprofession_container = (props) => {
     <div className="subprofession_container cast" hidden={!props.hidden}>
       {props.Item1.map((subbProfHiddenStatus, index) => (
         <Subprofession
-          
           //index1- wskazuje na kastę
           //index - wskazauje na profesje danej kasty
           hiddenStat={isSubprofessionHidden(

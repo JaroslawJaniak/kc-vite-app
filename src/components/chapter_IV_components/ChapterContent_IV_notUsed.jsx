@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 
-import CastSubprofession_container from "./CastSubprofession_container";
+import CastSubprofession_container from "./CastSubprofession_container_notUsed";
 
 import chp4_casts_ from "./chp4_casts_full";
 import chp4_professions from "./chp4_professions";
@@ -53,14 +53,15 @@ const ChapterContent_IV = () => {
                     onChange={() => handleElementChange(prof.profName)}
                   />
 
-                  
                   <div className="xl:flex">
                     {prof.subbProfHiddenStatus.map(
                       (subbProfHiddenStatObjectsList, indexHiddenStat) => (
                         <CastSubprofession_container
                           key={prof.profName + casts.id + indexHiddenStat}
                           id={prof.profName + casts.id + indexHiddenStat}
-                          hidden={context.secondProfessionChecked}
+                          hidden={
+                            context.secondProfessionChecked
+                          }
                           index1={indexHiddenStat}
                           Item1={subbProfHiddenStatObjectsList}
                           Item2={chp4_professions}

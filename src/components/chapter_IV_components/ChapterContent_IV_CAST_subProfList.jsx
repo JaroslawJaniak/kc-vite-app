@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import { CharacterStatsContext } from "../../context/CharacterStatsContext";
 import { InputComponent } from "../utils/InputComponent";
 
-
 export const ChapterContent_IV_CAST_subProfList = (props) => {
   const context = useContext(CharacterStatsContext);
 
@@ -51,6 +50,7 @@ export const ChapterContent_IV_CAST_subProfList = (props) => {
             )
             .map((subProf) => (
               <p>
+                {console.log("subprof: ", typeof(subProf))}
                 <InputComponent
                   type={"checkbox"}
                   name={subProf}
