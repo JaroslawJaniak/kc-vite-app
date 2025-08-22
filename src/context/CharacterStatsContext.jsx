@@ -43,12 +43,12 @@ export const CharacterStatsContextProvider = ({ children }) => {
   const [disabilities, setDisabilities] = useState(["", "", "", ""]);
   const [disabilitiesK100Result, setDisabilitiesK100Result] = useState(0);
   const [disabilitiesK100Clicked, setDisabilitiesK100Clicked] = useState(false);
-  const [disabilitiesChance, setDisabilitiesChance] = useState(50);
+  const [disabilitiesChance, setDisabilitiesChance] = useState(20);
 
   const [abilities, setAbilities] = useState(["", ""]);
   const [abilitiesK100Result, setAbilitiesK100Result] = useState(0);
   const [abilitiesK100Clicked, setAbilitiesK100Clicked] = useState(false);
-  const [abilitiesChance, setAbilitiesChance] = useState(70);
+  const [abilitiesChance, setAbilitiesChance] = useState(10);
 
   const [firstProfession, setFirstProfession] = useState("");
   const [secondProfession, setSecondProfession] = useState("");
@@ -152,6 +152,14 @@ export const CharacterStatsContextProvider = ({ children }) => {
     if (k <= abilitiesChance) {
       setAbilitiesChance(abilitiesChance - 5);
       console.log(`context abilitiesChance2: `, abilitiesChance);
+    }
+  };
+
+  const updateDisbilitiesData = (k) => {
+    console.log(`context abilitiesChance1: `, disabilitiesChance);
+    if (k <= disabilitiesChance) {
+      setAbilitiesChance(disabilitiesChance - 5);
+      console.log(`context abilitiesChance2: `, disabilitiesChance);
     }
   };
 
@@ -857,6 +865,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
     calculateStat1,
     calculateStat2,
     updateAbilitiesData,
+    updateDisbilitiesData,
   };
 
   return (

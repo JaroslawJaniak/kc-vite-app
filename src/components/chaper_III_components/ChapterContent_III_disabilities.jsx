@@ -4,27 +4,9 @@ import { CharacterStatsContext } from "../../context/CharacterStatsContext";
 
 export const ChapterContent_III_disabilities = () => {
   const context = useContext(CharacterStatsContext);
-  
+
   const btnStyle =
     "text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300  rounded text-xxs md:text-xs p-0.5 md:p-2  mb-2 w-8 md:w-12 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700";
-
-
-  const disabilitie = {
-    name: "",
-    k100: 0,
-  };
-
-  
-
-  const renderDisabilitiesChanceInfo = (index) => {
-    if (
-      context.disabilitiesChance > 0 &&
-      context.disabilitiesK100Result <= context.disabilitiesChance
-    ) {
-      return `(${100 - 5 * (index + 1)} % szansa na ułomność) RZUĆ PONOWNIE!`;
-    }
-    return "";
-  };
 
   const renderDisabilities = () => {
     if (context.disabilities.length) {
@@ -43,7 +25,7 @@ export const ChapterContent_III_disabilities = () => {
               path={["disabilitiesChanceDice", "result1"]}
               toggleClick={context.toggleClick}
               updateDiceRollResult={context.updateDiceRollResult}
-              resolveDiceRoll={context.updateAbilitiesData}
+              resolveDiceRoll={context.updateDisbilitiesData}
               className={btnStyle}
             />{" "}
             {context.diceRollResult.disabilitiesChanceDice.result1 <=
@@ -61,7 +43,7 @@ export const ChapterContent_III_disabilities = () => {
                   path={["disabilitiesDice", "result1"]}
                   toggleClick={context.toggleClick}
                   updateDiceRollResult={context.updateDiceRollResult}
-                  resolveDiceRoll={context.updateAbilitiesData}
+                  resolveDiceRoll={context.updateDisbilitiesData}
                   className={btnStyle}
                 />
               </span>
@@ -74,7 +56,7 @@ export const ChapterContent_III_disabilities = () => {
             key={index}
           >
             <div key={index}>
-              Czy postać ma ułomność 2222{" "}
+              Czy postać ma ułomność{" "}
               {`(${context.disabilitiesChance} % szansa)`}
               <DiceButtonComponent
                 n={1}
@@ -93,7 +75,7 @@ export const ChapterContent_III_disabilities = () => {
                 path={["disabilitiesChanceDice", `result${index + 1}`]}
                 toggleClick={context.toggleClick}
                 updateDiceRollResult={context.updateDiceRollResult}
-                resolveDiceRoll={context.updateAbilitiesData}
+                resolveDiceRoll={context.updateDisbilitiesData}
                 className={btnStyle}
               />{" "}
               {context.diceRollResult.disabilitiesChanceDice[
@@ -118,7 +100,7 @@ export const ChapterContent_III_disabilities = () => {
                     path={["disabilitiesDice", `result${index + 1}`]}
                     toggleClick={context.toggleClick}
                     updateDiceRollResult={context.updateDiceRollResult}
-                    resolveDiceRoll={context.updateAbilitiesData}
+                    resolveDiceRoll={context.updateDisbilitiesData}
                     className={btnStyle}
                   />
                 </span>
@@ -133,8 +115,6 @@ export const ChapterContent_III_disabilities = () => {
   return (
     <article>
       <h3>III.a Ułomności</h3>
-      Czy postać ma ułomność 'old version' {`(${context.disabilitiesChance} % szansa)`}
-      
       {renderDisabilities()}
     </article>
   );
