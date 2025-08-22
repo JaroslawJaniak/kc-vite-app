@@ -4,29 +4,17 @@ import { CharacterStatsContext } from "../../context/CharacterStatsContext";
 
 export const ChapterContent_III_disabilities = () => {
   const context = useContext(CharacterStatsContext);
-  //const [chance, setChance] = useState(100);
+  
+  const btnStyle =
+    "text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300  rounded text-xxs md:text-xs p-0.5 md:p-2  mb-2 w-8 md:w-12 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700";
+
 
   const disabilitie = {
     name: "",
     k100: 0,
   };
 
-  const k100RollResult = (k) => {
-    context.setDisabilitiesK100Result(k);
-
-    if (k <= context.disabilitiesChance) {
-      if (context.disabilitiesChance >= 0) {
-        context.setDisabilitiesChance(
-          100 - 5 * (context.disabilities.length + 1)
-        );
-        context.setDisabilitiesK100Clicked(true);
-      }
-
-      disabilitie.name = "newDisabilitie";
-      disabilitie.k100 = context.disabilitiesK100Result;
-      context.setDisabilities([...context.disabilities, disabilitie]);
-    }
-  };
+  
 
   const renderDisabilitiesChanceInfo = (index) => {
     if (
@@ -40,31 +28,196 @@ export const ChapterContent_III_disabilities = () => {
 
   const renderDisabilities = () => {
     if (context.disabilities.length) {
-      return context.disabilities.map((disabilitie, index) => (
-        <p>
-          {disabilitie.name}
-          {disabilitie.k100} <span>{renderDisabilitiesChanceInfo(index)}</span>{" "}
-        </p>
-      ));
+      return context.disabilities.map((disabilitie, index) =>
+        index === 0 ? (
+          <div key={index}>
+            Czy postać ma ułomność {`(${context.disabilitiesChance} % szansa)`}
+            <DiceButtonComponent
+              n={1}
+              k={100}
+              diceRollResult={
+                context.diceRollResult.disabilitiesChanceDice.result1
+              }
+              clicked={context.isClicked.disabilitiesChanceDice.result1}
+              disabled={context.isClicked.disabilitiesChanceDice.result1}
+              path={["disabilitiesChanceDice", "result1"]}
+              toggleClick={context.toggleClick}
+              updateDiceRollResult={context.updateDiceRollResult}
+              resolveDiceRoll={context.updateAbilitiesData}
+              className={btnStyle}
+            />{" "}
+            {context.diceRollResult.disabilitiesChanceDice.result1 <=
+            context.disabilitiesChance ? (
+              <span>
+                {" : ułomność "}
+                <DiceButtonComponent
+                  n={1}
+                  k={100}
+                  diceRollResult={
+                    context.diceRollResult.disabilitiesDice.result1
+                  }
+                  clicked={context.isClicked.disabilitiesDice.result1}
+                  disabled={context.isClicked.disabilitiesDice.result1}
+                  path={["disabilitiesDice", "result1"]}
+                  toggleClick={context.toggleClick}
+                  updateDiceRollResult={context.updateDiceRollResult}
+                  resolveDiceRoll={context.updateAbilitiesData}
+                  className={btnStyle}
+                />
+              </span>
+            ) : null}
+          </div>
+        ) : context.diceRollResult.disabilitiesChanceDice[`result${index}`] <=
+          context.disabilitiesChance ? (
+          <div
+            hidden={!context.isClicked.disabilitiesChanceDice[`result${index}`]}
+            key={index}
+          >
+            <div key={index}>
+              Czy postać ma ułomność 2222{" "}
+              {`(${context.disabilitiesChance} % szansa)`}
+              <DiceButtonComponent
+                n={1}
+                k={100}
+                diceRollResult={
+                  context.diceRollResult.disabilitiesChanceDice[
+                    `result${index + 1}`
+                  ]
+                }
+                clicked={
+                  context.isClicked.disabilitiesChanceDice[`result${index + 1}`]
+                }
+                disabled={
+                  context.isClicked.disabilitiesChanceDice[`result${index + 1}`]
+                }
+                path={["disabilitiesChanceDice", `result${index + 1}`]}
+                toggleClick={context.toggleClick}
+                updateDiceRollResult={context.updateDiceRollResult}
+                resolveDiceRoll={context.updateAbilitiesData}
+                className={btnStyle}
+              />{" "}
+              {context.diceRollResult.disabilitiesChanceDice[
+                `result${index + 1}`
+              ] <= context.disabilitiesChance ? (
+                <span>
+                  {" : ułomność "}
+                  <DiceButtonComponent
+                    n={1}
+                    k={100}
+                    diceRollResult={
+                      context.diceRollResult.disabilitiesDice[
+                        `result${index + 1}`
+                      ]
+                    }
+                    clicked={
+                      context.isClicked.disabilitiesDice[`result${index + 1}`]
+                    }
+                    disabled={
+                      context.isClicked.disabilitiesDice[`result${index + 1}`]
+                    }
+                    path={["disabilitiesDice", `result${index + 1}`]}
+                    toggleClick={context.toggleClick}
+                    updateDiceRollResult={context.updateDiceRollResult}
+                    resolveDiceRoll={context.updateAbilitiesData}
+                    className={btnStyle}
+                  />
+                </span>
+              ) : null}
+            </div>
+          </div>
+        ) : null
+      );
     } else return <p>Brak;</p>;
   };
 
   return (
     <article>
       <h3>III.a Ułomności</h3>
-      Czy postać ma ułomność {`(${context.disabilitiesChance} % szansa)`}
-      <DiceButtonComponent
-        n={1}
-        k={100}
-        k100Result={context.disabilitiesK100Result}
-        clicked={
-          !(context.disabilitiesK100Result <= context.disabilitiesChance)
-        }
-        handleStateChange={context.setDisabilitiesK100Clicked}
-        onDiceRoll={k100RollResult}
-        className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5  mb-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
-      />
+      Czy postać ma ułomność 'old version' {`(${context.disabilitiesChance} % szansa)`}
+      
       {renderDisabilities()}
     </article>
   );
 };
+
+/*
+
+<article>
+      <h3>III.a Ułomności</h3>
+      Czy postać ma ułomność {`(${context.disabilitiesChance} % szansa)`}
+      <DiceButtonComponent
+        n={1}
+        k={100}
+        diceRollResult={context.diceRollResult.disabilitiesChanceDice.result1}
+        clicked={context.isClicked.disabilitiesChanceDice.result1}
+        disabled={context.isClicked.disabilitiesChanceDice.result1}
+        path={["disabilitiesChanceDice", "result1"]}
+        toggleClick={context.toggleClick}
+        updateDiceRollResult={context.updateDiceRollResult}
+        resolveDiceRoll={context.updateAbilitiesData}
+        className={btnStyle}
+      />{" "}
+      {context.diceRollResult.disabilitiesChanceDice.result1 <=
+      context.disabilitiesChance ? (
+        <>
+          <span>
+            {" : ułomność "}
+            <DiceButtonComponent
+              n={1}
+              k={100}
+              diceRollResult={context.diceRollResult.disabilitiesDice.result1}
+              clicked={context.isClicked.disabilitiesDice.result1}
+              disabled={context.isClicked.disabilitiesDice.result1}
+              path={["disabilitiesDice", "result1"]}
+              toggleClick={context.toggleClick}
+              updateDiceRollResult={context.updateDiceRollResult}
+              resolveDiceRoll={context.updateAbilitiesData}
+              className={btnStyle}
+            />
+          </span>
+          <div>
+            Czy postać ma drugą zdolność nadnaturalną {`(5 % szansa)`}{" "}
+            <DiceButtonComponent
+              n={1}
+              k={100}
+              diceRollResult={
+                context.diceRollResult.disabilitiesChanceDice.result2
+              }
+              clicked={context.isClicked.disabilitiesChanceDice.result2}
+              disabled={context.isClicked.disabilitiesChanceDice.result2}
+              path={["disabilitiesChanceDice", "result2"]}
+              toggleClick={context.toggleClick}
+              updateDiceRollResult={context.updateDiceRollResult}
+              resolveDiceRoll={context.updateAbilitiesData}
+              className={btnStyle}
+            />
+            {context.diceRollResult.disabilitiesChanceDice.result2 <=
+            context.abilitiesChance ? (
+              <span>
+                {" : ułomność "}
+                <DiceButtonComponent
+                  n={1}
+                  k={100}
+                  diceRollResult={
+                    context.diceRollResult.disabilitiesDice.result2
+                  }
+                  clicked={context.isClicked.disabilitiesDice.result2}
+                  disabled={context.isClicked.disabilitiesDice.result2}
+                  path={["disabilitiesDice", "result2"]}
+                  toggleClick={context.toggleClick}
+                  updateDiceRollResult={context.updateDiceRollResult}
+                  resolveDiceRoll={context.updateAbilitiesData}
+                  className={btnStyle}
+                />
+              </span>
+            ) : (
+              ""
+            )}
+          </div>
+        </>
+      ) : (
+        ""
+      )}
+    </article>
+
+*/

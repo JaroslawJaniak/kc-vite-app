@@ -40,26 +40,15 @@ export const CharacterStatsContextProvider = ({ children }) => {
     useState(false);
   const [isSocialClassNobility, setIsSocialClassNobility] = useState(false);
 
-  const [disabilities, setDisabilities] = useState([]);
+  const [disabilities, setDisabilities] = useState(["", "", "", ""]);
   const [disabilitiesK100Result, setDisabilitiesK100Result] = useState(0);
   const [disabilitiesK100Clicked, setDisabilitiesK100Clicked] = useState(false);
-  const [disabilitiesChance, setDisabilitiesChance] = useState(70);
+  const [disabilitiesChance, setDisabilitiesChance] = useState(50);
 
-  const [abilities, setAbilities] = useState([
-    "Telepatia",
-    "Aura grozy",
-    "Wizje prorocze",
-    "Niewidzialność",
-    "Regeneracja",
-    "Kontrola ognia",
-    "Rozmowa ze zmarłymi",
-    "Przenikanie przez ściany",
-    "Hipnoza",
-    "Lot",
-  ]);
+  const [abilities, setAbilities] = useState(["", ""]);
   const [abilitiesK100Result, setAbilitiesK100Result] = useState(0);
   const [abilitiesK100Clicked, setAbilitiesK100Clicked] = useState(false);
-  const [abilitiesChance, setAbilitiesChance] = useState(50);
+  const [abilitiesChance, setAbilitiesChance] = useState(70);
 
   const [firstProfession, setFirstProfession] = useState("");
   const [secondProfession, setSecondProfession] = useState("");
@@ -431,6 +420,12 @@ export const CharacterStatsContextProvider = ({ children }) => {
     socialClassDice: false,
     incomeValueDice: false,
     socialClassIncomeDice: false,
+    disabilitiesChanceDice: {
+      result1: false,
+      result2: false,
+      result3: false,
+      result4: false,
+    },
     disabilitiesDice: {
       result1: false,
       result2: false,
@@ -489,14 +484,20 @@ export const CharacterStatsContextProvider = ({ children }) => {
     socialClassDice: 0,
     incomeValueDice: 0,
     socialClassIncomeDice: 0,
+    disabilitiesChanceDice: {
+      result1: 999,
+      result2: 999,
+      result3: 999,
+      result4: 999,
+    },
     disabilitiesDice: {
       result1: 0,
-      result2: null,
-      result3: null,
-      result4: null,
+      result2: 0,
+      result3: 0,
+      result4: 0,
     },
     abilitiesChanceDice: { result1: 999, result2: 999 },
-    abilitiesDice: { result1: 999, result2: 999 },
+    abilitiesDice: { result1: 0, result2: 0 },
     HeightDice: 0,
     WeightDice: 0,
     baseStatsDice: {
