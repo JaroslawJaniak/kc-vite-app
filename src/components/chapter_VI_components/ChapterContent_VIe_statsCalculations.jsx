@@ -313,7 +313,7 @@ const ChapterContent_VIe_statsCalculations = () => {
             diceRollResult={context.diceRollResult.bonusImmunityDice.BFiz}
             clicked={context.isClicked.bonusImmunityDice.BFiz}
             disabled={context.isClicked.bonusImmunityDice.BFiz}
-            path={["bonusImmunityDice", "BPsych"]}
+            path={["bonusImmunityDice", "BFiz"]}
             toggleClick={context.toggleClick}
             updateDiceRollResult={context.updateDiceRollResult}
             resolveDiceRoll={context.calculateStat1}
