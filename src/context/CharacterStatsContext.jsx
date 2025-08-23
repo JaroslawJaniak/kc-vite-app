@@ -7,6 +7,9 @@ import { chp1_race_description } from "../components/chaper_I_components/chp1_ra
 export const CharacterStatsContext = createContext();
 
 export const CharacterStatsContextProvider = ({ children }) => {
+  const btnStyle =
+    "text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300  rounded text-xxs md:text-xs p-0.5 md:p-2  mb-2 w-8 md:w-12 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700";
+
   const [openMenuBtnState, setOpenMenuBtnState] = useState(false);
   const [openSummaryBtnState, setOpenSummaryBtnState] = useState(false);
 
@@ -42,7 +45,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
 
   const [disabilities, setDisabilities] = useState(["", "", "", ""]);
   const [disabilitiesK100Result, setDisabilitiesK100Result] = useState(0);
-  const [disabilitiesK100Clicked, setDisabilitiesK100Clicked] = useState(false);
+
   const [disabilitiesChance, setDisabilitiesChance] = useState(20);
 
   const [abilities, setAbilities] = useState(["", ""]);
@@ -112,6 +115,8 @@ export const CharacterStatsContextProvider = ({ children }) => {
     });
   }
 
+  const safeMax = (...values) => Math.max(...values.map((v) => v ?? 0));
+
   const calculateStat1 = (k, statName) => {
     // obliczamy wartość statystyki na podstawie rasy, profesji i wyników rzutów kośćmi
     const total =
@@ -158,7 +163,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
   const updateDisbilitiesData = (k) => {
     console.log(`context abilitiesChance1: `, disabilitiesChance);
     if (k <= disabilitiesChance) {
-      setAbilitiesChance(disabilitiesChance - 5);
+      setDisabilitiesChance(disabilitiesChance - 5);
       console.log(`context abilitiesChance2: `, disabilitiesChance);
     }
   };
@@ -248,6 +253,11 @@ export const CharacterStatsContextProvider = ({ children }) => {
     ],
     exeptionCombiningProfessions: [],
     character: ["", "", "", "", "", "", "", "", ""],
+    proficiency: {
+      number: 0,
+      minValue: 0,
+      bonusValue: 0,
+    },
     usedWeapons: "",
     usedArmour: "",
     uesedMagic: "",
@@ -287,6 +297,11 @@ export const CharacterStatsContextProvider = ({ children }) => {
     ],
     exeptionCombiningProfessions: [],
     character: ["", "", "", "", "", "", "", "", ""],
+    proficiency: {
+      number: 0,
+      minValue: 0,
+      bonusValue: 0,
+    },
     usedWeapons: "",
     usedArmour: "",
     uesedMagic: "",
@@ -397,6 +412,8 @@ export const CharacterStatsContextProvider = ({ children }) => {
     W: 0,
   });
 
+  const [career, setCareer] = useState([]);
+
   const filterBaseRaceStatsByRaceName = () => {
     if (race !== "") {
       const [filteredRace] = chp1_race_description.filter((raceData) => {
@@ -428,34 +445,24 @@ export const CharacterStatsContextProvider = ({ children }) => {
     socialClassDice: false,
     incomeValueDice: false,
     socialClassIncomeDice: false,
-    disabilitiesChanceDice: {
-      result1: false,
-      result2: false,
-      result3: false,
-      result4: false,
-    },
-    disabilitiesDice: {
-      result1: false,
-      result2: false,
-      result3: false,
-      result4: false,
-    },
-    abilitiesChanceDice: { result1: false, result2: false },
-    abilitiesDice: { result1: false, result2: false },
+    disabilitiesChanceDice: {},
+    disabilitiesDice: {},
+    abilitiesChanceDice: {},
+    abilitiesDice: {},
     HeightDice: false,
     WeightDice: false,
     baseStatsDice: {
       ŻYW: false,
-      SF: { result1: false, result2: false },
-      ZR: { result1: false, result2: false },
+      SF: {},
+      ZR: {},
       SZ: false,
       INT: false,
       MD: false,
-      UM: { result1: false, result2: false },
+      UM: {},
       CH: false,
       PR: false,
-      WI: { result1: false, result2: false },
-      ZW: { result1: false, result2: false },
+      WI: {},
+      ZW: {},
     },
     bonusBaseStatsDice: {
       ŻYW: false,
@@ -485,6 +492,9 @@ export const CharacterStatsContextProvider = ({ children }) => {
       odp9: false,
       odp10: false,
     },
+    careerNumber: false,
+    career: {},
+    proficiency:{},
   });
 
   const [diceRollResult, setDiceRollResult] = useState({
@@ -492,34 +502,24 @@ export const CharacterStatsContextProvider = ({ children }) => {
     socialClassDice: 0,
     incomeValueDice: 0,
     socialClassIncomeDice: 0,
-    disabilitiesChanceDice: {
-      result1: 999,
-      result2: 999,
-      result3: 999,
-      result4: 999,
-    },
-    disabilitiesDice: {
-      result1: 0,
-      result2: 0,
-      result3: 0,
-      result4: 0,
-    },
-    abilitiesChanceDice: { result1: 999, result2: 999 },
-    abilitiesDice: { result1: 0, result2: 0 },
+    disabilitiesChanceDice: {},
+    disabilitiesDice: {},
+    abilitiesChanceDice: {},
+    abilitiesDice: {},
     HeightDice: 0,
     WeightDice: 0,
     baseStatsDice: {
       ŻYW: 0,
-      SF: { result1: 0, result2: 0 },
-      ZR: { result1: 0, result2: 0 },
+      SF: {},
+      ZR: {},
       SZ: 0,
       INT: 0,
       MD: 0,
-      UM: { result1: 0, result2: 0 },
+      UM: {},
       CH: 0,
       PR: 0,
-      WI: { result1: 0, result2: 0 },
-      ZW: { result1: 0, result2: 0 },
+      WI: {},
+      ZW: {},
       O: 0,
       W: 0,
     },
@@ -550,7 +550,54 @@ export const CharacterStatsContextProvider = ({ children }) => {
       odp9: 0,
       odp10: 0,
     },
+    careerNumber: 0,
+    career: {},
+    proficiency: {},
   });
+
+  function updateDiceRollResult(path, value) {
+    setDiceRollResult((prev) => {
+      const newState = { ...prev };
+      let current = newState;
+
+      for (let i = 0; i < path.length - 1; i++) {
+        // jeśli nie istnieje, inicjalizujemy pusty obiekt
+        if (!current[path[i]]) {
+          current[path[i]] = {};
+        } else {
+          current[path[i]] = { ...current[path[i]] };
+        }
+        current = current[path[i]];
+      }
+
+      current[path[path.length - 1]] = value;
+
+      return newState;
+    });
+  }
+
+  const toggleClick = (keys) => {
+    setIsClicked((prev) => {
+      const update = (obj, depth = 0) => {
+        const key = keys[depth];
+
+        // ostatni klucz → toggle, jeśli brak to ustawiamy true
+        if (depth === keys.length - 1) {
+          return { ...obj, [key]: !obj[key] ?? true };
+        }
+
+        // jeśli brak klucza → inicjalizujemy pustym obiektem
+        const next = obj[key] ? { ...obj[key] } : {};
+
+        return {
+          ...obj,
+          [key]: update(next, depth + 1),
+        };
+      };
+
+      return update(prev);
+    });
+  };
 
   // function updateDiceRollResult(mainKey, subKey, value) {
   //   setDiceRollResult((prev) => ({
@@ -562,45 +609,45 @@ export const CharacterStatsContextProvider = ({ children }) => {
   //   }));
   // }
 
-  function updateDiceRollResult(path, value) {
-    setDiceRollResult((prev) => {
-      const newState = { ...prev };
-      let current = newState;
+  // function updateDiceRollResult1(path, value) {
+  //   setDiceRollResult((prev) => {
+  //     const newState = { ...prev };
+  //     let current = newState;
 
-      for (let i = 0; i < path.length - 1; i++) {
-        current[path[i]] = { ...current[path[i]] }; // kopiujemy zagnieżdżenia
-        current = current[path[i]];
-      }
+  //     for (let i = 0; i < path.length - 1; i++) {
+  //       current[path[i]] = { ...current[path[i]] }; // kopiujemy zagnieżdżenia
+  //       current = current[path[i]];
+  //     }
 
-      current[path[path.length - 1]] = value;
+  //     current[path[path.length - 1]] = value;
 
-      return newState;
-    });
-  }
+  //     return newState;
+  //   });
+  // }
 
   // updateDiceRollResult(["baseStatsDice", "SF", "value2"], 15);
   //updateDiceRollResult(["incomeValueDice"], 42);
   //updateDiceRollResult(["baseStatsDice", "UM", "value1"], 7);
 
-  const toggleClickOld = (key, subKey = null) => {
-    setIsClicked((prev) => {
-      if (subKey) {
-        return {
-          ...prev,
-          [key]: {
-            ...prev[key],
-            [subKey]: !prev[key][subKey],
-          },
-        };
-      }
-      return {
-        ...prev,
-        [key]: !prev[key],
-      };
-    });
-  };
+  // const toggleClickOld = (key, subKey = null) => {
+  //   setIsClicked((prev) => {
+  //     if (subKey) {
+  //       return {
+  //         ...prev,
+  //         [key]: {
+  //           ...prev[key],
+  //           [subKey]: !prev[key][subKey],
+  //         },
+  //       };
+  //     }
+  //     return {
+  //       ...prev,
+  //       [key]: !prev[key],
+  //     };
+  //   });
+  // };
 
-  const toggleClick = (keys) => {
+  const toggleClick1 = (keys) => {
     setIsClicked((prev) => {
       // Rekurencyjna pomocnicza funkcja, która klonuje tylko potrzebną gałąź
       const update = (obj, depth = 0) => {
@@ -755,7 +802,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
     setAbilities,
     disabilitiesK100Result,
     setDisabilitiesK100Result,
-    setDisabilitiesK100Clicked,
+
     abilitiesK100Result,
     setAbilitiesK100Result,
     abilitiesK100Clicked,
@@ -862,10 +909,13 @@ export const CharacterStatsContextProvider = ({ children }) => {
 
     characterData,
     updateCharacterData,
+    safeMax,
     calculateStat1,
     calculateStat2,
     updateAbilitiesData,
     updateDisbilitiesData,
+
+    btnStyle,
   };
 
   return (

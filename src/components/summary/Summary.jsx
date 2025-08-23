@@ -27,19 +27,19 @@ const Summary = () => {
     {
       key: "SF",
       label: "SF",
-      diceRoll: Math.max(
-        context.diceRollResult.baseStatsDice.SF.result1,
-        context.diceRollResult.baseStatsDice.SF.result2
+      diceRoll: context.safeMax(
+        context.diceRollResult?.baseStatsDice?.SF?.result1,
+        context.diceRollResult?.baseStatsDice?.SF?.result2
       ),
-    }, 
+    },
     {
       key: "ZR",
       label: "ZR",
-      diceRoll: Math.max(
-        context.diceRollResult.baseStatsDice.ZR.result1,
-        context.diceRollResult.baseStatsDice.ZR.result2
+      diceRoll: context.safeMax(
+        context.diceRollResult?.baseStatsDice?.ZR?.result1,
+        context.diceRollResult?.baseStatsDice?.ZR?.result2
       ),
-    }, 
+    },
     {
       key: "SZ",
       label: "SZ",
@@ -49,7 +49,7 @@ const Summary = () => {
       key: "INT",
       label: "INT",
       diceRoll: context.diceRollResult.baseStatsDice.INT,
-    }, 
+    },
     {
       key: "MD",
       label: "MD",
@@ -58,27 +58,27 @@ const Summary = () => {
     {
       key: "UM",
       label: "UM",
-      diceRoll: Math.max(
-        context.diceRollResult.baseStatsDice.UM.result1,
-        context.diceRollResult.baseStatsDice.UM.result2
+      diceRoll: context.safeMax(
+        context.diceRollResult?.baseStatsDice?.UM?.result1,
+        context.diceRollResult?.baseStatsDice?.UM?.result2
       ),
-    }, 
+    },
     {
       key: "WI",
       label: "WI",
-      diceRoll: Math.max(
-        context.diceRollResult.baseStatsDice.WI.result1,
-        context.diceRollResult.baseStatsDice.WI.result2
+      diceRoll: context.safeMax(
+        context.diceRollResult?.baseStatsDice?.WI?.result1,
+        context.diceRollResult?.baseStatsDice?.WI?.result2
       ),
-    }, 
+    },
     {
       key: "ZW",
       label: "ZW",
-      diceRoll: Math.max(
-        context.diceRollResult.baseStatsDice.ZW.result1,
-        context.diceRollResult.baseStatsDice.ZW.result2
+      diceRoll: context.safeMax(
+        context.diceRollResult?.baseStatsDice?.CH?.result1,
+        context.diceRollResult?.baseStatsDice?.CH?.result2
       ),
-    }, 
+    },
     {
       key: "CH",
       label: "CH",

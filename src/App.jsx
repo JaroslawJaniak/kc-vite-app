@@ -7,7 +7,7 @@ import {
   Route,
   useNavigate,
 } from "react-router-dom";
-import { Form } from "./pages/Chapter7Page";
+
 import { Menu } from "./components/menu/Menu";
 import Summary from "./components/summary/Summary";
 import { NavButton } from "./utils/NavButton";
@@ -17,7 +17,9 @@ import { Chapter3Page } from "./pages/Chapter3Page";
 import { Chapter4Page } from "./pages/Chapter4Page";
 import { Chapter5Page } from "./pages/Chapter5Page";
 import { Chapter6Page } from "./pages/Chapter6Page";
+import { Chapter7Page } from "./pages/Chapter7Page";
 import { Chapter4aPage } from "./pages/Chapter4aPage";
+import { Chapter8Page } from "./pages/Chapter8Page";
 
 function App() {
   const context = useContext(CharacterStatsContext);
@@ -99,6 +101,8 @@ function App() {
     } else if (currentPath === "/kc-vite-app/chapter6") {
       navigateTo("/kc-vite-app/chapter7");
     } else if (currentPath === "/kc-vite-app/chapter7") {
+      navigateTo("/kc-vite-app/chapter8");
+    } else if (currentPath === "/kc-vite-app/chapter8") {
       navigateTo("/kc-vite-app/");
     }
   };
@@ -106,6 +110,8 @@ function App() {
   const handlePrevious = () => {
     const currentPath = window.location.pathname;
     if (currentPath === "/kc-vite-app/") {
+      navigateTo("/kc-vite-app/chapter8");
+    } else if (currentPath === "/kc-vite-app/chapter8") {
       navigateTo("/kc-vite-app/chapter7");
     } else if (currentPath === "/kc-vite-app/chapter7") {
       navigateTo("/kc-vite-app/chapter6");
@@ -214,9 +220,14 @@ function App() {
               path="/kc-vite-app/chapter6"
               element={<Chapter6Page />}
             ></Route>
-
-            <Route path="/kc-vite-app/chapter7" element={<Form />}></Route>
-            <Route path="/kc-vite-app/" element={<Chapter1Page />}></Route>
+            <Route
+              path="/kc-vite-app/chapter7"
+              element={<Chapter7Page />}
+            ></Route>
+            <Route
+              path="/kc-vite-app/chapter8"
+              element={<Chapter8Page />}
+            ></Route>
           </Routes>
         </div>{" "}
         <div className="md:hidden fixed top-12 right-4 ">{renderSummary()}</div>

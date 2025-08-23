@@ -141,9 +141,9 @@ export const ChapterContent_VI_statsCalculations = () => {
             </td>
             <td>
               {context.baseRaceStats.SF +
-                Math.max(
-                  context.diceRollResult.baseStatsDice.SF.result1,
-                  context.diceRollResult.baseStatsDice.SF.result2
+                context.safeMax(
+                  context.diceRollResult?.baseStatsDice?.SF?.result1,
+                  context.diceRollResult?.baseStatsDice?.SF?.result2
                 ) +
                 Math.max(
                   context.firstProfessionData.stats.SF,
@@ -217,9 +217,9 @@ export const ChapterContent_VI_statsCalculations = () => {
             </td>
             <td>
               {context.baseRaceStats.ZR +
-                Math.max(
-                  context.diceRollResult.baseStatsDice.ZR.result1,
-                  context.diceRollResult.baseStatsDice.ZR.result2
+                context.safeMax(
+                  context.diceRollResult?.baseStatsDice?.ZR?.result1,
+                  context.diceRollResult?.baseStatsDice?.ZR?.result2
                 ) +
                 Math.max(
                   context.firstProfessionData.stats.ZR,
@@ -525,9 +525,9 @@ export const ChapterContent_VI_statsCalculations = () => {
             </td>
             <td>
               {context.baseRaceStats.UM +
-                Math.max(
-                  context.diceRollResult.baseStatsDice.UM.result1,
-                  context.diceRollResult.baseStatsDice.UM.result2
+                context.safeMax(
+                  context.diceRollResult?.baseStatsDice?.UM?.result1,
+                  context.diceRollResult?.baseStatsDice?.UM?.result2
                 ) +
                 Math.max(
                   context.firstProfessionData.stats.UM,
@@ -707,9 +707,9 @@ export const ChapterContent_VI_statsCalculations = () => {
             </td>
             <td>
               {context.baseRaceStats.WI +
-                Math.max(
-                  context.diceRollResult.baseStatsDice.WI.result1,
-                  context.diceRollResult.baseStatsDice.WI.result2
+                context.safeMax(
+                  context.diceRollResult?.baseStatsDice?.WI?.result1,
+                  context.diceRollResult?.baseStatsDice?.WI?.result2
                 ) +
                 Math.max(
                   context.firstProfessionData.stats.WI,
@@ -782,9 +782,9 @@ export const ChapterContent_VI_statsCalculations = () => {
             <td>
               {context.baseRaceStats.ZW +
                 context.firstProfessionData.stats.ZW +
-                Math.max(
-                  context.diceRollResult.baseStatsDice.ZW.result1,
-                  context.diceRollResult.baseStatsDice.ZW.result2
+                context.safeMax(
+                  context.diceRollResult?.baseStatsDice?.ZW?.result1,
+                  context.diceRollResult?.baseStatsDice?.ZW?.result2
                 )}
             </td>
           </tr>

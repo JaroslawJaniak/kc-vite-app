@@ -129,7 +129,22 @@ export const Menu = () => {
                   context.setOpenMenuBtnState(false);
                 }}
               >
-                VII. PODSUMOWANIE PROCESU KREACJI NOWEJ POSTACI
+                VII. ZAWODY
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/kc-vite-app/chapter8"
+                className={({ isActive }) =>
+                  isActive
+                    ? "pl-8 transition-all ease-in-out delay-250 text-red-800"
+                    : "transition-all ease-in-out delay-250"
+                }
+                onClick={() => {
+                  context.setOpenMenuBtnState(false);
+                }}
+              >
+                VII. BIEGŁOSOŚCI
               </NavLink>
             </li>
           </ul>
