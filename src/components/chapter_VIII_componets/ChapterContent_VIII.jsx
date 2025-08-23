@@ -49,7 +49,7 @@ export const ChapterContent_VIII = () => {
 
   return (
     <article>
-      <h3>VII. BIEGLOSCI</h3>
+      <h3>VII. BIEGŁOSCI</h3>
 
       <div>
         <ul>
