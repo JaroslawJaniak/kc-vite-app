@@ -6,9 +6,7 @@ export const dataSocialClass = (k100buttonResult) => {
     socialClassCastDescription: "",
     nobility: false,
     table_trId: "",
-    stats: {
-      CH: 0,
-    },
+    statsModifier: 0,
 
     n: 0,
     k: 0,
@@ -23,7 +21,7 @@ export const dataSocialClass = (k100buttonResult) => {
     socialClass.nobility = false;
     socialClass.n = 1;
     socialClass.k = 10;
-    socialClass.stats.CH = -15;
+    socialClass.statsModifier = -15;
   } else if (k100buttonResult >= 6 && k100buttonResult < 11) {
     socialClass.socialClassName = "ŚKN";
     socialClass.socialClassFullName = "ŚREDNIA KLASA NIŻSZA";
@@ -34,7 +32,7 @@ export const dataSocialClass = (k100buttonResult) => {
     socialClass.table_trId = 2;
     socialClass.n = 2;
     socialClass.k = 10;
-    socialClass.stats.CH = -10;
+    socialClass.statsModifier = -10;
   } else if (k100buttonResult >= 11 && k100buttonResult < 16) {
     socialClass.socialClassName = "WKN";
     socialClass.socialClassFullName = "WYŻSZA KLASA NIŻSZA";
@@ -45,7 +43,7 @@ export const dataSocialClass = (k100buttonResult) => {
     socialClass.table_trId = 3;
     socialClass.n = 5;
     socialClass.k = 10;
-    socialClass.stats.CH = -5;
+    socialClass.statsModifier = -5;
   } else if (k100buttonResult >= 16 && k100buttonResult < 36) {
     socialClass.socialClassName = "NKŚ";
     socialClass.socialClassFullName = "NIŻSZA KLASA ŚREDNIA";
@@ -90,7 +88,7 @@ export const dataSocialClass = (k100buttonResult) => {
     socialClass.table_trId = 7;
     socialClass.n = 1;
     socialClass.k = 100;
-    socialClass.stats.CH = 5;
+    socialClass.statsModifier = 5;
   } else if (k100buttonResult >= 86 && k100buttonResult < 91) {
     socialClass.socialClassName = "ŚKW";
     socialClass.socialClassFullName = "ŚREDNIA KLASA WYŻSZA";
@@ -102,7 +100,7 @@ export const dataSocialClass = (k100buttonResult) => {
     socialClass.table_trId = 8;
     socialClass.n = 2;
     socialClass.k = 100;
-    socialClass.stats.CH = 10;
+    socialClass.statsModifier = 10;
   } else if (k100buttonResult >= 91 && k100buttonResult < 96) {
     socialClass.socialClassName = "WKW";
     socialClass.socialClassFullName = "WYŻSZA  KLASA WYŻSZA";
@@ -114,7 +112,7 @@ export const dataSocialClass = (k100buttonResult) => {
     socialClass.table_trId = 9;
     socialClass.n = 5;
     socialClass.k = 100;
-    socialClass.stats.CH = 15;
+    socialClass.statsModifier = 15;
   } else if (k100buttonResult >= 96 && k100buttonResult <= 100) {
     socialClass.socialClassName = "EW";
     socialClass.socialClassFullName = "ELITA WŁADZY";
@@ -125,7 +123,7 @@ export const dataSocialClass = (k100buttonResult) => {
     socialClass.table_trId = 10;
     socialClass.n = 10;
     socialClass.k = 100;
-    socialClass.stats.CH = 20;
+    socialClass.statsModifier = 20;
   }
 
   return socialClass;

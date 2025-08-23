@@ -23,6 +23,7 @@ const ChapterContent_II_socialClass = () => {
 
   const k100RollResult = (k) => {
     if (k !== 0) {
+      context.setSocialClassData(dataSocialClass(k));
       context.setSocialClass(dataSocialClass(k).socialClassName);
       context.setSocialClassDescription(
         dataSocialClass(k).socialClassDescription

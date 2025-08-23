@@ -1,12 +1,22 @@
 import React, { useContext, useState, useEffect } from "react";
 import DiceButtonComponent from "../utils/buttons/kDice/DiceButtonComponent";
 import { CharacterStatsContext } from "../../context/CharacterStatsContext";
+import { disabilitiesData } from "./chp3_disabilities_data";
 
 export const ChapterContent_III_disabilities = () => {
   const context = useContext(CharacterStatsContext);
 
   const btnStyle =
     "text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300  rounded text-xxs md:text-xs p-0.5 md:p-2  mb-2 w-8 md:w-12 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700";
+
+  const resolveDisabilitiesDiceRoll = (k, path) => {
+    const disabilitie = disabilitiesData(k);
+    console.log("disabilitie: ", k, " - ", disabilitie);
+    console.log("path: ", path);
+    const index = context.getIndexFromKey(path);
+    console.log("index from path: ", index);
+    context.updateDisability(index, disabilitie);
+  };
 
   const renderDisabilities = () => {
     if (context.disabilities.length) {
@@ -25,13 +35,13 @@ export const ChapterContent_III_disabilities = () => {
               path={["disabilitiesChanceDice", "result1"]}
               toggleClick={context.toggleClick}
               updateDiceRollResult={context.updateDiceRollResult}
-              resolveDiceRoll={context.updateDisbilitiesData}
+              resolveDiceRoll={context.updateDisbilitiesChanceData}
               className={btnStyle}
             />{" "}
             {context.diceRollResult.disabilitiesChanceDice.result1 <=
             context.disabilitiesChance ? (
               <span>
-                {" : ułomność "}
+                {" : "}
                 <DiceButtonComponent
                   n={1}
                   k={100}
@@ -43,9 +53,11 @@ export const ChapterContent_III_disabilities = () => {
                   path={["disabilitiesDice", "result1"]}
                   toggleClick={context.toggleClick}
                   updateDiceRollResult={context.updateDiceRollResult}
-                  resolveDiceRoll={context.updateDisbilitiesData}
+                  resolveDiceRoll={resolveDisabilitiesDiceRoll}
                   className={btnStyle}
                 />
+                {" - "}
+                {context.disabilities[index + 1].disabilitieName}
               </span>
             ) : null}
           </div>
@@ -75,14 +87,14 @@ export const ChapterContent_III_disabilities = () => {
                 path={["disabilitiesChanceDice", `result${index + 1}`]}
                 toggleClick={context.toggleClick}
                 updateDiceRollResult={context.updateDiceRollResult}
-                resolveDiceRoll={context.updateDisbilitiesData}
+                resolveDiceRoll={context.updateDisbilitiesChanceData}
                 className={btnStyle}
               />{" "}
               {context.diceRollResult.disabilitiesChanceDice[
                 `result${index + 1}`
               ] <= context.disabilitiesChance ? (
                 <span>
-                  {" : ułomność "}
+                  {" : "}
                   <DiceButtonComponent
                     n={1}
                     k={100}
@@ -100,9 +112,11 @@ export const ChapterContent_III_disabilities = () => {
                     path={["disabilitiesDice", `result${index + 1}`]}
                     toggleClick={context.toggleClick}
                     updateDiceRollResult={context.updateDiceRollResult}
-                    resolveDiceRoll={context.updateDisbilitiesData}
+                    resolveDiceRoll={resolveDisabilitiesDiceRoll}
                     className={btnStyle}
                   />
+                  {" - "}
+                  {context.disabilities[index + 1].disabilitieName}
                 </span>
               ) : null}
             </div>

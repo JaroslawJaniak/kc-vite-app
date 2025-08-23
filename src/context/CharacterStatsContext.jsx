@@ -27,6 +27,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
   const [tablePlcOfBirth_trId, setTablePlcOfBirth_trId] = useState("");
   const [placeOfBirthDescription, setPlaceOfBirthDescription] = useState("");
 
+  const [socialClassData, setSocialClassData] = useState({});
   const [socialClass, setSocialClass] = useState("");
   const [socialClassFullName, setSocialClassFullName] = useState("");
   const [socialClassDescription, setSocialClassDescription] = useState("");
@@ -43,15 +44,57 @@ export const CharacterStatsContextProvider = ({ children }) => {
     useState(false);
   const [isSocialClassNobility, setIsSocialClassNobility] = useState(false);
 
-  const [disabilities, setDisabilities] = useState(["", "", "", ""]);
-  const [disabilitiesK100Result, setDisabilitiesK100Result] = useState(0);
+  const [disabilities, setDisabilities] = useState([
+    {
+      disabilitieName: "",
+      disabilitieDescription: "",
+      statsModifier: 0,
+      n: 0,
+      k: 0,
+    },
+    {
+      disabilitieName: "",
+      disabilitieDescription: "",
+      statsModifier: 0,
+      n: 0,
+      k: 0,
+    },
+    {
+      disabilitieName: "",
+      disabilitieDescription: "",
+      statsModifier: 0,
+      n: 0,
+      k: 0,
+    },
+    {
+      disabilitieName: "",
+      disabilitieDescription: "",
+      statsModifier: 0,
+      n: 0,
+      k: 0,
+    },
+  ]);
 
-  const [disabilitiesChance, setDisabilitiesChance] = useState(20);
+  const [disabilitiesChance, setDisabilitiesChance] = useState(80);
 
-  const [abilities, setAbilities] = useState(["", ""]);
-  const [abilitiesK100Result, setAbilitiesK100Result] = useState(0);
-  const [abilitiesK100Clicked, setAbilitiesK100Clicked] = useState(false);
-  const [abilitiesChance, setAbilitiesChance] = useState(10);
+  const [abilities, setAbilities] = useState([
+    {
+      abilitieName: "",
+      abilitieDescription: "",
+      statsModifier: 0,
+      n: 0,
+      k: 0,
+    },
+    {
+      abilitieName: "",
+      abilitieDescription: "",
+      statsModifier: 0,
+      n: 0,
+      k: 0,
+    },
+  ]);
+
+  const [abilitiesChance, setAbilitiesChance] = useState(80);
 
   const [firstProfession, setFirstProfession] = useState("");
   const [secondProfession, setSecondProfession] = useState("");
@@ -152,7 +195,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
     return total;
   };
 
-  const updateAbilitiesData = (k) => {
+  const updateAbilitiesChanceData = (k) => {
     console.log(`context abilitiesChance1: `, abilitiesChance);
     if (k <= abilitiesChance) {
       setAbilitiesChance(abilitiesChance - 5);
@@ -160,13 +203,82 @@ export const CharacterStatsContextProvider = ({ children }) => {
     }
   };
 
-  const updateDisbilitiesData = (k) => {
+  const updateDisbilitiesChanceData = (k) => {
     console.log(`context abilitiesChance1: `, disabilitiesChance);
     if (k <= disabilitiesChance) {
       setDisabilitiesChance(disabilitiesChance - 5);
       console.log(`context abilitiesChance2: `, disabilitiesChance);
     }
   };
+
+  function updateAbilitiesData(path, value) {
+    setAbilities((prev) => {
+      const newData = { ...prev };
+      let current = newData;
+
+      for (let i = 0; i < path.length - 1; i++) {
+        current[path[i]] = { ...current[path[i]] }; // kopiujemy zagnieżdżenia
+        current = current[path[i]];
+      }
+
+      current[path[path.length - 1]] = value;
+
+      return newData;
+    });
+  }
+
+  function updateDisbilitiesData(path, value) {
+    setDisabilities((prev) => {
+      const newData = { ...prev };
+      let current = newData;
+
+      for (let i = 0; i < path.length - 1; i++) {
+        current[path[i]] = { ...current[path[i]] }; // kopiujemy zagnieżdżenia
+        current = current[path[i]];
+      }
+
+      current[path[path.length - 1]] = value;
+
+      return newData;
+    });
+  }
+
+  // uniwersalna funkcja update
+  const updateAbility = (key, value) => {
+    setAbilities((prev) => ({
+      ...prev,
+      [key]: {
+        ...prev[key], // zachowaj poprzednie pola w danym obiekcie
+        ...value, // nadpisz nowymi wartościami
+      },
+    }));
+  };
+
+  // uniwersalna funkcja update dla tablicy
+  const updateDisability = (index, value) => {
+    setDisabilities((prev) =>
+      prev.map(
+        (item, i) =>
+          i === index
+            ? { ...item, ...value } // aktualizacja tylko danego elementu
+            : item // reszta bez zmian
+      )
+    );
+  };
+
+  const getIndexFromKey = (key) => {
+    if (typeof key !== "string") return null;
+    const match = key.match(/\d+$/); // szuka cyfr na końcu
+    return match ? Number(match[0]) : null;
+  };
+
+  // przykłady użycia:
+  //updateDisability(0, { vision: "low" });
+  //updateDisability(2, { mobility: "reduced" });
+
+  // przykłady użycia
+  //updateAbility("result1", { speed: 10 });
+  //updateAbility("result2", { power: 5, range: "long" });
 
   const [raceData, setRaceData] = useState({
     id: "",
@@ -194,9 +306,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
       { profName: "ALCHEMIK", maxLevel: "" },
     ],
 
-    proficiency: {
-     
-    },
+    proficiency: {},
 
     stats: {
       male: {
@@ -498,7 +608,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
     },
     careerNumber: false,
     career: {},
-    proficiency:{},
+    proficiency: {},
   });
 
   const [diceRollResult, setDiceRollResult] = useState({
@@ -773,18 +883,23 @@ export const CharacterStatsContextProvider = ({ children }) => {
     setOpenMenuBtnState,
     openSummaryBtnState,
     setOpenSummaryBtnState,
+
     maleChecked,
     femaleChecked,
     raceChecked,
     race,
     sex,
     setRace,
+
     placeOfBirth,
     srcPlcOfBirthImage,
     plcOfBirthK100Result,
     plcOfBirthK100Clicked,
     tablePlcOfBirth_trId,
     placeOfBirthDescription,
+
+    socialClassData,
+    setSocialClassData,
     socialClass,
     socialClassFullName,
     socialClassDescription,
@@ -800,17 +915,12 @@ export const CharacterStatsContextProvider = ({ children }) => {
     dice_kSocialClass,
     incomeValue,
     socialClassIncomeK100Clicked,
+
     disabilities,
     setDisabilities,
     abilities,
     setAbilities,
-    disabilitiesK100Result,
-    setDisabilitiesK100Result,
 
-    abilitiesK100Result,
-    setAbilitiesK100Result,
-    abilitiesK100Clicked,
-    setAbilitiesK100Clicked,
     disabilitiesChance,
     setDisabilitiesChance,
     abilitiesChance,
@@ -916,8 +1026,14 @@ export const CharacterStatsContextProvider = ({ children }) => {
     safeMax,
     calculateStat1,
     calculateStat2,
+    updateAbilitiesChanceData,
+    updateDisbilitiesChanceData,
     updateAbilitiesData,
     updateDisbilitiesData,
+    updateAbility,
+    updateDisability,
+
+    getIndexFromKey,
 
     btnStyle,
   };
