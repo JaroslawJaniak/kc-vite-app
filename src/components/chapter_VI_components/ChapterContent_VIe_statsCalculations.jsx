@@ -1,19 +1,10 @@
 import React, { useEffect, useContext, useState } from "react";
-import chp6_table_immunity_stats_0 from "./chp6_table-race-immunity-stats_0";
-import { chp6_table_prof_stats2 } from "./chp6_table-prof-stats2";
-import chp6_table_race_immunity_stats from "./chp6_table-race-immunity-stats";
+
 import { CharacterStatsContext } from "../../context/CharacterStatsContext";
 import DiceButtonComponent from "../utils/buttons/kDice/DiceButtonComponent";
 
 const calculateStat = (base, diceRoll, firstProf, secondProf, bonus) => {
   return base + diceRoll + Math.max(firstProf, secondProf) + (bonus || 0);
-};
-
-const renderStatCell = (stat, k10Stat) => {
-  if (stat === 0) {
-    return k10Stat ? "+" : "-";
-  }
-  return stat + (k10Stat ? "+" : "");
 };
 
 const ChapterContent_VIe_statsCalculations = () => {
@@ -27,17 +18,17 @@ const ChapterContent_VIe_statsCalculations = () => {
     {
       key: "SF",
       label: "SF",
-      diceRoll: Math.max(
-        context.diceRollResult.baseStatsDice.SF.result1,
-        context.diceRollResult.baseStatsDice.SF.result2
+      diceRoll: context.safeMax(
+        context.diceRollResult?.baseStatsDice?.SF?.result1,
+        context.diceRollResult?.baseStatsDice?.SF?.result2
       ),
     },
     {
       key: "ZR",
       label: "ZR",
-      diceRoll: Math.max(
-        context.diceRollResult.baseStatsDice.ZR.result1,
-        context.diceRollResult.baseStatsDice.ZR.result2
+      diceRoll: context.safeMax(
+        context.diceRollResult?.baseStatsDice?.ZR?.result1,
+        context.diceRollResult?.baseStatsDice?.ZR?.result2
       ),
     },
     {
@@ -58,25 +49,25 @@ const ChapterContent_VIe_statsCalculations = () => {
     {
       key: "UM",
       label: "UM",
-      diceRoll: Math.max(
-        context.diceRollResult.baseStatsDice.UM.result1,
-        context.diceRollResult.baseStatsDice.UM.result2
+      diceRoll: context.safeMax(
+        context.diceRollResult?.baseStatsDice?.UM?.result1,
+        context.diceRollResult?.baseStatsDice?.UM?.result2
       ),
     },
     {
       key: "WI",
       label: "WI",
-      diceRoll: Math.max(
-        context.diceRollResult.baseStatsDice.WI.result1,
-        context.diceRollResult.baseStatsDice.WI.result2
+      diceRoll: context.safeMax(
+        context.diceRollResult?.baseStatsDice?.WI?.result1,
+        context.diceRollResult?.baseStatsDice?.WI?.result2
       ),
     },
     {
       key: "ZW",
       label: "ZW",
-      diceRoll: Math.max(
-        context.diceRollResult.baseStatsDice.ZW.result1,
-        context.diceRollResult.baseStatsDice.ZW.result2
+      diceRoll: context.safeMax(
+        context.diceRollResult?.baseStatsDice?.ZW?.result1,
+        context.diceRollResult?.baseStatsDice?.ZW?.result2
       ),
     },
     {
@@ -88,59 +79,6 @@ const ChapterContent_VIe_statsCalculations = () => {
       key: "PR",
       label: "PR",
       diceRoll: context.diceRollResult.baseStatsDice.PR,
-    },
-  ];
-
-  const immunity = [
-    {
-      key: "Odp1",
-      label: "Odp1",
-      diceRoll: context.diceRollResult.bonusImmunityDice.odp1,
-    },
-    {
-      key: "Odp2",
-      label: "Odp2",
-      diceRoll: context.diceRollResult.bonusImmunityDice.odp2,
-    },
-    {
-      key: "Odp3",
-      label: "Odp3",
-      diceRoll: context.diceRollResult.bonusImmunityDice.odp3,
-    },
-    {
-      key: "Odp4",
-      label: "Odp4",
-      diceRoll: context.diceRollResult.bonusImmunityDice.odp4,
-    },
-    {
-      key: "Odp5",
-      label: "Odp5",
-      diceRoll: context.diceRollResult.bonusImmunityDice.odp5,
-    },
-    {
-      key: "Odp6",
-      label: "Odp6",
-      diceRoll: context.diceRollResult.bonusImmunityDice.odp6,
-    },
-    {
-      key: "Odp7",
-      label: "Odp7",
-      diceRoll: context.diceRollResult.bonusImmunityDice.odp7,
-    },
-    {
-      key: "  Odp8",
-      label: "Odp8",
-      diceRoll: context.diceRollResult.bonusImmunityDice.odp8,
-    },
-    {
-      key: "Odp9",
-      label: "Odp9",
-      diceRoll: context.diceRollResult.bonusImmunityDice.odp9,
-    },
-    {
-      key: "Odp10",
-      label: "  Odp10",
-      diceRoll: context.diceRollResult.bonusImmunityDice.odp10,
     },
   ];
 
@@ -248,11 +186,11 @@ const ChapterContent_VIe_statsCalculations = () => {
   );
   const contributionWI = Math.ceil(
     calculateStat(
-      context.baseRaceStats["INT"],
+      context.baseRaceStats["WI"],
       stats[9].diceRoll,
-      context.firstProfessionData.stats["INT"],
-      context.secondProfessionData.stats["INT"],
-      context.diceRollResult.bonusBaseStatsDice["INT"]
+      context.firstProfessionData.stats["WI"],
+      context.secondProfessionData.stats["WI"],
+      context.diceRollResult.bonusBaseStatsDice["WI"]
     ) / 10
   );
 

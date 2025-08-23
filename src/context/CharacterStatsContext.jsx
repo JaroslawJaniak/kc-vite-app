@@ -84,8 +84,8 @@ export const CharacterStatsContextProvider = ({ children }) => {
       W: 0,
     },
     immunity: {
-      bPsych: 0,
-      bFiz: 0,
+      BPsych: 0,
+      BFiz: 0,
       odp1: 0,
       odp2: 0,
       odp3: 0,
@@ -193,6 +193,10 @@ export const CharacterStatsContextProvider = ({ children }) => {
       { profName: "ILUZJONISTA", maxLevel: "" },
       { profName: "ALCHEMIK", maxLevel: "" },
     ],
+
+    proficiency: {
+     
+    },
 
     stats: {
       male: {

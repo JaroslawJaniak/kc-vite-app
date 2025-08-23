@@ -84,16 +84,14 @@ function App() {
 
   const handleNext = () => {
     const currentPath = window.location.pathname;
-    if (currentPath === "/kc-vite-app/") {
-      navigateTo("/kc-vite-app/chapter1");
-    } else if (currentPath === "/kc-vite-app/chapter1") {
+    if (currentPath === "/kc-vite-app/chapter1") {
       navigateTo("/kc-vite-app/chapter2");
     } else if (currentPath === "/kc-vite-app/chapter2") {
       navigateTo("/kc-vite-app/chapter3");
     } else if (currentPath === "/kc-vite-app/chapter3") {
       navigateTo("/kc-vite-app/chapter4");
     } else if (currentPath === "/kc-vite-app/chapter4") {
-      navigateTo("/chapter4a");
+      navigateTo("/kc-vite-app/chapter4a");
     } else if (currentPath === "/kc-vite-app/chapter4a") {
       navigateTo("/kc-vite-app/chapter5");
     } else if (currentPath === "/kc-vite-app/chapter5") {
@@ -103,13 +101,13 @@ function App() {
     } else if (currentPath === "/kc-vite-app/chapter7") {
       navigateTo("/kc-vite-app/chapter8");
     } else if (currentPath === "/kc-vite-app/chapter8") {
-      navigateTo("/kc-vite-app/");
+      navigateTo("/kc-vite-app/chapter1");
     }
   };
 
   const handlePrevious = () => {
     const currentPath = window.location.pathname;
-    if (currentPath === "/kc-vite-app/") {
+    if (currentPath === "/kc-vite-app/chapter1") {
       navigateTo("/kc-vite-app/chapter8");
     } else if (currentPath === "/kc-vite-app/chapter8") {
       navigateTo("/kc-vite-app/chapter7");
@@ -128,7 +126,7 @@ function App() {
     } else if (currentPath === "/kc-vite-app/chapter2") {
       navigateTo("/kc-vite-app/chapter1");
     } else if (currentPath === "/kc-vite-app/chapter1") {
-      navigateTo("/kc-vite-app/");
+      navigateTo("/kc-vite-app/chapter8");
     }
   };
 
@@ -196,6 +194,7 @@ function App() {
               path="/kc-vite-app/chapter1"
               element={<Chapter1Page />}
             ></Route>
+
             <Route
               path="/kc-vite-app/chapter2"
               element={<Chapter2Page />}
