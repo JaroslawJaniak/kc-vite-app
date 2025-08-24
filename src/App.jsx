@@ -7,6 +7,7 @@ import {
   Route,
   useNavigate,
 } from "react-router-dom";
+import ScrollToTop from "./utils/ScrollToTop";
 
 import { Menu } from "./components/menu/Menu";
 import Summary from "./components/summary/Summary";
@@ -189,6 +190,7 @@ function App() {
           <Menu />
         </div>
         <div className="md:col-span-4 bg-gray-100 rounded w-100 m-2 p-1 pt-3 lg:p-3">
+          <ScrollToTop />
           <Routes>
             <Route
               path="/kc-vite-app/chapter1"
