@@ -82,7 +82,12 @@ export const ChapterContent_VI_statsCalculations = () => {
               <DiceButtonComponent
                 n={1}
                 k={100}
-                diceRollResult={context.diceRollResult.baseStatsDice.SF.result1}
+                diceRollResult={
+                  context.abilities[0].statsModifierKey === "SF" ||
+                  context.abilities[1].statsModifierKey === "SF"
+                    ? 100
+                    : context.diceRollResult.baseStatsDice.SF.result1
+                }
                 clicked={context.isClicked.baseStatsDice.SF.result1}
                 disabled={context.isClicked.baseStatsDice.SF.result1}
                 path={["baseStatsDice", "SF", "result1"]}
@@ -101,7 +106,10 @@ export const ChapterContent_VI_statsCalculations = () => {
                   n={1}
                   k={100}
                   diceRollResult={
-                    context.diceRollResult.baseStatsDice.SF.result2
+                    context.abilities[0].statsModifierKey === "SF" ||
+                    context.abilities[1].statsModifierKey === "SF"
+                      ? 100
+                      : context.diceRollResult.baseStatsDice.SF.result2
                   }
                   clicked={context.isClicked.baseStatsDice.SF.result2}
                   disabled={context.isClicked.baseStatsDice.SF.result2}
@@ -132,7 +140,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                   path={["bonusBaseStatsDice", "SF"]}
                   toggleClick={context.toggleClick}
                   updateDiceRollResult={context.updateDiceRollResult}
-                  resolveDiceRoll={context.calculateStat2}
+                  resolveDiceRoll={context.calculateStat1}
                   className={btnStyle}
                 />
               ) : (
@@ -161,7 +169,12 @@ export const ChapterContent_VI_statsCalculations = () => {
               <DiceButtonComponent
                 n={1}
                 k={50}
-                diceRollResult={context.diceRollResult.baseStatsDice.ZR.result1}
+                diceRollResult={
+                  context.abilities[0].statsModifierKey === "ZR" ||
+                  context.abilities[1].statsModifierKey === "ZR"
+                    ? 50
+                    : context.diceRollResult.baseStatsDice.ZR.result1
+                }
                 clicked={context.isClicked.baseStatsDice.ZR.result1}
                 disabled={context.isClicked.baseStatsDice.ZR.result1}
                 path={["baseStatsDice", "ZR", "result1"]}
@@ -178,7 +191,10 @@ export const ChapterContent_VI_statsCalculations = () => {
                   n={1}
                   k={50}
                   diceRollResult={
-                    context.diceRollResult.baseStatsDice.ZR.result2
+                    context.abilities[0].statsModifierKey === "ZR" ||
+                    context.abilities[1].statsModifierKey === "ZR"
+                      ? 50
+                      : context.diceRollResult.baseStatsDice.ZR.result2
                   }
                   clicked={context.isClicked.baseStatsDice.ZR.result2}
                   disabled={context.isClicked.baseStatsDice.ZR.result2}
@@ -208,7 +224,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                   path={["bonusBaseStatsDice", "ZR"]}
                   toggleClick={context.toggleClick}
                   updateDiceRollResult={context.updateDiceRollResult}
-                  resolveDiceRoll={context.calculateStat2}
+                  resolveDiceRoll={context.calculateStat1}
                   className={btnStyle}
                 />
               ) : (
@@ -237,13 +253,18 @@ export const ChapterContent_VI_statsCalculations = () => {
               <DiceButtonComponent
                 n={1}
                 k={50}
-                diceRollResult={context.diceRollResult.baseStatsDice.SZ}
-                clicked={context.isClicked.baseStatsDice.SZ}
-                disabled={context.isClicked.baseStatsDice.SZ}
-                path={["baseStatsDice", "SZ"]}
+                diceRollResult={
+                  context.abilities[0].statsModifierKey === "SZ" ||
+                  context.abilities[1].statsModifierKey === "SZ"
+                    ? 50
+                    : context.diceRollResult.baseStatsDice.SZ
+                }
+                clicked={context.isClicked.baseStatsDice.SZ.result1}
+                disabled={context.isClicked.baseStatsDice.SZ.result1}
+                path={["baseStatsDice", "SZ", "result1"]}
                 toggleClick={context.toggleClick}
                 updateDiceRollResult={context.updateDiceRollResult}
-                resolveDiceRoll={context.calculateStat1}
+                resolveDiceRoll={context.calculateStat2}
                 className={btnStyle}
               />
             </td>
@@ -272,7 +293,10 @@ export const ChapterContent_VI_statsCalculations = () => {
             </td>
             <td>
               {context.baseRaceStats.SZ +
-                context.diceRollResult.baseStatsDice.SZ +
+                context.safeMax(
+                  context.diceRollResult?.baseStatsDice?.SZ?.result1,
+                  context.diceRollResult?.baseStatsDice?.SZ?.result2
+                ) +
                 Math.max(
                   context.firstProfessionData.stats.SZ,
                   context.secondProfessionData.stats.SZ
@@ -289,13 +313,18 @@ export const ChapterContent_VI_statsCalculations = () => {
               <DiceButtonComponent
                 n={1}
                 k={50}
-                diceRollResult={context.diceRollResult.baseStatsDice.INT}
-                clicked={context.isClicked.baseStatsDice.INT}
-                disabled={context.isClicked.baseStatsDice.INT}
-                path={["baseStatsDice", "INT"]}
+                diceRollResult={
+                  context.abilities[0].statsModifierKey === "INT" ||
+                  context.abilities[1].statsModifierKey === "INT"
+                    ? 50
+                    : context.diceRollResult.baseStatsDice.INT
+                }
+                clicked={context.isClicked.baseStatsDice.INT.result1}
+                disabled={context.isClicked.baseStatsDice.INT.result1}
+                path={["baseStatsDice", "INT", "result1"]}
                 toggleClick={context.toggleClick}
                 updateDiceRollResult={context.updateDiceRollResult}
-                resolveDiceRoll={context.calculateStat1}
+                resolveDiceRoll={context.calculateStat2}
                 className={btnStyle}
               />
             </td>
@@ -324,7 +353,10 @@ export const ChapterContent_VI_statsCalculations = () => {
             </td>
             <td>
               {context.baseRaceStats.INT +
-                context.diceRollResult.baseStatsDice.INT +
+                context.safeMax(
+                  context.diceRollResult?.baseStatsDice?.INT?.result1,
+                  context.diceRollResult?.baseStatsDice?.INT?.result2
+                ) +
                 Math.max(
                   context.firstProfessionData.stats.INT,
                   context.secondProfessionData.stats.INT
@@ -341,13 +373,18 @@ export const ChapterContent_VI_statsCalculations = () => {
               <DiceButtonComponent
                 n={1}
                 k={50}
-                diceRollResult={context.diceRollResult.baseStatsDice.MD}
-                clicked={context.isClicked.baseStatsDice.MD}
-                disabled={context.isClicked.baseStatsDice.MD}
-                path={["baseStatsDice", "MD"]}
+                diceRollResult={
+                  context.abilities[0].statsModifierKey === "MD" ||
+                  context.abilities[1].statsModifierKey === "MD"
+                    ? 50
+                    : context.diceRollResult.baseStatsDice.MD
+                }
+                clicked={context.isClicked.baseStatsDice.MD.result1}
+                disabled={context.isClicked.baseStatsDice.MD.result1}
+                path={["baseStatsDice", "MD", "result1"]}
                 toggleClick={context.toggleClick}
                 updateDiceRollResult={context.updateDiceRollResult}
-                resolveDiceRoll={context.calculateStat1}
+                resolveDiceRoll={context.calculateStat2}
                 className={btnStyle}
               />
             </td>
@@ -376,7 +413,10 @@ export const ChapterContent_VI_statsCalculations = () => {
             </td>
             <td>
               {context.baseRaceStats.MD +
-                context.diceRollResult.baseStatsDice.MD +
+                context.safeMax(
+                  context.diceRollResult?.baseStatsDice?.MD?.result1,
+                  context.diceRollResult?.baseStatsDice?.MD?.result2
+                ) +
                 Math.max(
                   context.firstProfessionData.stats.MD,
                   context.secondProfessionData.stats.MD
@@ -402,7 +442,10 @@ export const ChapterContent_VI_statsCalculations = () => {
                     n={1}
                     k={100}
                     diceRollResult={
-                      context.diceRollResult.baseStatsDice.UM.result1
+                      context.abilities[0].statsModifierKey === "UM" ||
+                      context.abilities[1].statsModifierKey === "UM"
+                        ? 100
+                        : context.diceRollResult.baseStatsDice.UM.result1
                     }
                     clicked={context.isClicked.baseStatsDice.UM.result1}
                     disabled={context.isClicked.baseStatsDice.UM.result1}
@@ -432,7 +475,10 @@ export const ChapterContent_VI_statsCalculations = () => {
                   n={1}
                   k={100}
                   diceRollResult={
-                    context.diceRollResult.baseStatsDice.UM.result1
+                    context.abilities[0].statsModifierKey === "UM" ||
+                    context.abilities[1].statsModifierKey === "UM"
+                      ? 100
+                      : context.diceRollResult.baseStatsDice.UM.result1
                   }
                   clicked={context.isClicked.baseStatsDice.UM.result1}
                   disabled={context.isClicked.baseStatsDice.UM.result1}
@@ -458,7 +504,10 @@ export const ChapterContent_VI_statsCalculations = () => {
                     n={1}
                     k={50}
                     diceRollResult={
-                      context.diceRollResult.baseStatsDice.UM.result1
+                      context.abilities[0].statsModifierKey === "UM" ||
+                      context.abilities[1].statsModifierKey === "UM"
+                        ? 50
+                        : context.diceRollResult.baseStatsDice.UM.result1
                     }
                     clicked={context.isClicked.baseStatsDice.UM.result1}
                     disabled={context.isClicked.baseStatsDice.UM.result1}
@@ -488,7 +537,10 @@ export const ChapterContent_VI_statsCalculations = () => {
                   n={1}
                   k={50}
                   diceRollResult={
-                    context.diceRollResult.baseStatsDice.UM.result1
+                    context.abilities[0].statsModifierKey === "UM" ||
+                    context.abilities[1].statsModifierKey === "UM"
+                      ? 50
+                      : context.diceRollResult.baseStatsDice.UM.result1
                   }
                   clicked={context.isClicked.baseStatsDice.UM.result1}
                   disabled={context.isClicked.baseStatsDice.UM.result1}
@@ -516,7 +568,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                   path={["bonusBaseStatsDice", "UM"]}
                   toggleClick={context.toggleClick}
                   updateDiceRollResult={context.updateDiceRollResult}
-                  resolveDiceRoll={context.calculateStat2}
+                  resolveDiceRoll={context.calculateStat1}
                   className={btnStyle}
                 />
               ) : (
@@ -545,15 +597,18 @@ export const ChapterContent_VI_statsCalculations = () => {
               <DiceButtonComponent
                 n={1}
                 k={50}
-                diceRollResult={context.diceRollResult.baseStatsDice.CH}
-                clicked={context.isClicked.baseStatsDice.CH}
-                disabled={context.isClicked.baseStatsDice.CH}
-                mainKey={"baseStatsDice"}
-                subKey={"CH"}
-                path={["baseStatsDice", "CH"]}
+                diceRollResult={
+                  context.abilities[0].statsModifierKey === "CH" ||
+                  context.abilities[1].statsModifierKey === "CH"
+                    ? 50
+                    : context.diceRollResult.baseStatsDice.CH
+                }
+                clicked={context.isClicked.baseStatsDice.CH.result1}
+                disabled={context.isClicked.baseStatsDice.CH.result1}
+                path={["baseStatsDice", "CH", "result1"]}
                 toggleClick={context.toggleClick}
                 updateDiceRollResult={context.updateDiceRollResult}
-                resolveDiceRoll={context.calculateStat1}
+                resolveDiceRoll={context.calculateStat2}
                 className={btnStyle}
               />
             </td>
@@ -582,7 +637,10 @@ export const ChapterContent_VI_statsCalculations = () => {
             </td>
             <td>
               {context.baseRaceStats.CH +
-                context.diceRollResult.baseStatsDice.CH +
+                context.safeMax(
+                  context.diceRollResult?.baseStatsDice?.CH?.result1,
+                  context.diceRollResult?.baseStatsDice?.CH?.result2
+                ) +
                 Math.max(
                   context.firstProfessionData.stats.CH,
                   context.secondProfessionData.stats.CH
@@ -599,10 +657,15 @@ export const ChapterContent_VI_statsCalculations = () => {
               <DiceButtonComponent
                 n={1}
                 k={50}
-                diceRollResult={context.diceRollResult.baseStatsDice.PR}
-                clicked={context.isClicked.baseStatsDice.PR}
-                disabled={context.isClicked.baseStatsDice.PR}
-                path={["baseStatsDice", "PR"]}
+                diceRollResult={
+                  context.abilities[0].statsModifierKey === "PR" ||
+                  context.abilities[1].statsModifierKey === "PR"
+                    ? 50
+                    : context.diceRollResult.baseStatsDice.PR
+                }
+                clicked={context.isClicked.baseStatsDice.PR.result1}
+                disabled={context.isClicked.baseStatsDice.PR.result1}
+                path={["baseStatsDice", "PR", "result1"]}
                 toggleClick={context.toggleClick}
                 updateDiceRollResult={context.updateDiceRollResult}
                 resolveDiceRoll={context.calculateStat1}
@@ -636,7 +699,10 @@ export const ChapterContent_VI_statsCalculations = () => {
             </td>
             <td>
               {context.baseRaceStats.PR +
-                context.diceRollResult.baseStatsDice.PR +
+                context.safeMax(
+                  context.diceRollResult?.baseStatsDice?.PR?.result1,
+                  context.diceRollResult?.baseStatsDice?.PR?.result2
+                ) +
                 Math.max(
                   context.firstProfessionData.stats.PR,
                   context.secondProfessionData.stats.PR
@@ -653,7 +719,12 @@ export const ChapterContent_VI_statsCalculations = () => {
               <DiceButtonComponent
                 n={1}
                 k={50}
-                diceRollResult={context.diceRollResult.baseStatsDice.WI.result1}
+                diceRollResult={
+                  context.abilities[0].statsModifierKey === "WI" ||
+                  context.abilities[1].statsModifierKey === "WI"
+                    ? 50
+                    : context.diceRollResult.baseStatsDice.WI.result1
+                }
                 clicked={context.isClicked.baseStatsDice.WI.result1}
                 disabled={context.isClicked.baseStatsDice.WI.result1}
                 path={["baseStatsDice", "WI", "result1"]}
@@ -668,7 +739,10 @@ export const ChapterContent_VI_statsCalculations = () => {
                   n={1}
                   k={50}
                   diceRollResult={
-                    context.diceRollResult.baseStatsDice.WI.result2
+                    context.abilities[0].statsModifierKey === "WI" ||
+                    context.abilities[1].statsModifierKey === "WI"
+                      ? 50
+                      : context.diceRollResult.baseStatsDice.WI.result2
                   }
                   clicked={context.isClicked.baseStatsDice.WI.result2}
                   disabled={context.isClicked.baseStatsDice.WI.result2}
@@ -698,7 +772,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                   path={["bonusBaseStatsDice", "WI"]}
                   toggleClick={context.toggleClick}
                   updateDiceRollResult={context.updateDiceRollResult}
-                  resolveDiceRoll={context.calculateStat2}
+                  resolveDiceRoll={context.calculateStat1}
                   className={btnStyle}
                 />
               ) : (
@@ -730,7 +804,10 @@ export const ChapterContent_VI_statsCalculations = () => {
                     n={1}
                     k={10}
                     diceRollResult={
-                      context.diceRollResult.baseStatsDice.ZW.result1
+                      context.abilities[0].statsModifierKey === "ZW" ||
+                      context.abilities[1].statsModifierKey === "ZW"
+                        ? 10
+                        : context.diceRollResult.baseStatsDice.ZW.result1
                     }
                     clicked={context.isClicked.baseStatsDice.ZW.result1}
                     disabled={context.isClicked.baseStatsDice.ZW.result1}
@@ -746,7 +823,10 @@ export const ChapterContent_VI_statsCalculations = () => {
                     n={1}
                     k={10}
                     diceRollResult={
-                      context.diceRollResult.baseStatsDice.ZW.result2
+                      context.abilities[0].statsModifierKey === "ZW" ||
+                      context.abilities[1].statsModifierKey === "ZW"
+                        ? 10
+                        : context.diceRollResult.baseStatsDice.ZW.result2
                     }
                     clicked={context.isClicked.baseStatsDice.ZW.result2}
                     disabled={context.isClicked.baseStatsDice.ZW.result2}
@@ -762,7 +842,10 @@ export const ChapterContent_VI_statsCalculations = () => {
                   n={1}
                   k={5}
                   diceRollResult={
-                    context.diceRollResult.baseStatsDice.ZW.result1
+                    context.abilities[0].statsModifierKey === "ZW" ||
+                    context.abilities[1].statsModifierKey === "ZW"
+                      ? 5
+                      : context.diceRollResult.baseStatsDice.ZW.result1
                   }
                   clicked={context.isClicked.baseStatsDice.ZW.result1}
                   disabled={context.isClicked.baseStatsDice.ZW.result1}

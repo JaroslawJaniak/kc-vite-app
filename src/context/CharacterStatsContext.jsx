@@ -75,12 +75,13 @@ export const CharacterStatsContextProvider = ({ children }) => {
     },
   ]);
 
-  const [disabilitiesChance, setDisabilitiesChance] = useState(80);
+  const [disabilitiesChance, setDisabilitiesChance] = useState(20);
 
   const [abilities, setAbilities] = useState([
     {
       abilitieName: "",
       abilitieDescription: "",
+      statsModifierKey: "",
       statsModifier: 0,
       n: 0,
       k: 0,
@@ -88,13 +89,14 @@ export const CharacterStatsContextProvider = ({ children }) => {
     {
       abilitieName: "",
       abilitieDescription: "",
+      statsModifierKey: "",
       statsModifier: 0,
       n: 0,
       k: 0,
     },
   ]);
 
-  const [abilitiesChance, setAbilitiesChance] = useState(80);
+  const [abilitiesChance, setAbilitiesChance] = useState(10);
 
   const [firstProfession, setFirstProfession] = useState("");
   const [secondProfession, setSecondProfession] = useState("");
@@ -566,15 +568,15 @@ export const CharacterStatsContextProvider = ({ children }) => {
     HeightDice: false,
     WeightDice: false,
     baseStatsDice: {
-      ŻYW: false,
+      ŻYW: {},
       SF: {},
       ZR: {},
-      SZ: false,
-      INT: false,
-      MD: false,
+      SZ: {},
+      INT:{},
+      MD: {},
       UM: {},
-      CH: false,
-      PR: false,
+      CH: {},
+      PR: {},
       WI: {},
       ZW: {},
     },
@@ -623,19 +625,19 @@ export const CharacterStatsContextProvider = ({ children }) => {
     HeightDice: 0,
     WeightDice: 0,
     baseStatsDice: {
-      ŻYW: 0,
+      ŻYW: {},
       SF: {},
       ZR: {},
-      SZ: 0,
-      INT: 0,
-      MD: 0,
+      SZ: {},
+      INT:{},
+      MD: {},
       UM: {},
-      CH: 0,
-      PR: 0,
+      CH: {},
+      PR: {},
       WI: {},
       ZW: {},
-      O: 0,
-      W: 0,
+      O: {},
+      W: {},
     },
     bonusBaseStatsDice: {
       ŻYW: 0,

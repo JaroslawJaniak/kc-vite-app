@@ -128,7 +128,7 @@ const ChapterContent_VIe_statsCalculations = () => {
       diceRoll: context.diceRollResult.bonusImmunityDice.odp7,
     },
     {
-      key: "  Odp8",
+      key: "Odp8",
       label: "Odp8",
       diceRoll: context.diceRollResult.bonusImmunityDice.odp8,
     },
@@ -139,7 +139,7 @@ const ChapterContent_VIe_statsCalculations = () => {
     },
     {
       key: "Odp10",
-      label: "  Odp10",
+      label: "Odp10",
       diceRoll: context.diceRollResult.bonusImmunityDice.odp10,
     },
   ];
@@ -202,7 +202,7 @@ const ChapterContent_VIe_statsCalculations = () => {
       ),
     },
     {
-      key: "  Odp8",
+      key: "Odp8",
       label: "Odp8",
       immunityStat: Math.max(
         context.firstProfessionData.stats.Odp8,
@@ -219,7 +219,7 @@ const ChapterContent_VIe_statsCalculations = () => {
     },
     {
       key: "Odp10",
-      label: "  Odp10",
+      label: "Odp10",
       immunityStat: Math.max(
         context.firstProfessionData.stats.Odp10,
         context.secondProfessionData.stats.Odp10

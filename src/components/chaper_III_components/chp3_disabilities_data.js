@@ -2,6 +2,7 @@ export const disabilitiesData = (k100buttonResult) => {
   const disabilitie = {
     disabilitieName: "",
     disabilitieDescription: "",
+    statsModifierKey: "",
     statsModifier: 0,
     n: 0,
     k: 0,
