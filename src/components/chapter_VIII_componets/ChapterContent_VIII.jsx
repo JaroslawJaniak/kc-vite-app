@@ -6,10 +6,28 @@ import { proficiencyData } from "./Chp8_data";
 export const ChapterContent_VIII = () => {
   const context = useContext(CharacterStatsContext);
 
+  const [items, setItems] = useState([]);
+
+  const handleAdd = () => {
+    if (
+      items.length >=
+      Math.max(
+        context.firstProfessionData.proficiency.number,
+        context.secondProfessionData.proficiency.number
+      )
+    )
+      return;
+    // Przykładowa treść elementu: numer pozycji
+    setItems((prev) => [...prev, `Element ${prev.length + 1}`]);
+    
+  };
+
   const proficiencyNumber = Math.max(
     context.firstProfessionData.proficiency.number,
     context.secondProfessionData.proficiency.number
   );
+
+  const isFull = items.length >= proficiencyNumber;
 
   const proficiencyBonusValue = Math.max(
     context.firstProfessionData.proficiency.bonusValue,
@@ -48,9 +66,35 @@ export const ChapterContent_VIII = () => {
       10
   );
 
+
   return (
     <article>
       <h3>VII. BIEGŁOŚCI</h3>
+
+      <div style={{ display: "grid", gap: 8 }}>
+        {/* Przycisk poza <ul> */}
+        <button
+          className={context.btnStyle}
+          onClick={handleAdd}
+          disabled={isFull}
+          aria-disabled={isFull}
+        >
+          ADD
+        </button>
+
+        <ul style={{ margin: 0, paddingLeft: 20 }}>
+          {items.map((label, i) => (
+            <li key={i}>{label}</li>
+          ))}
+        </ul>
+
+        {/* Informacja o limicie (opcjonalnie) */}
+        {isFull && (
+          <small style={{ opacity: 0.7 }}>
+            Osiągnięto maksymalną liczbę elementów: {proficiencyNumber}.
+          </small>
+        )}
+      </div>
 
       <div>
         <form>
@@ -59,7 +103,6 @@ export const ChapterContent_VIII = () => {
               <li key={i}>
                 {i + 1}. <label for="proficiency"></label>
                 <select class="w-48 bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded pl-3 pr-8 py-1 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md appearance-none cursor-pointer">
-                  
                   {proficiencyData.map((proficiency, idx) => (
                     <option key={idx} value={proficiency.weaponGroupName}>
                       {proficiency.weaponGroupName.toUpperCase()}
