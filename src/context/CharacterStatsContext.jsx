@@ -81,7 +81,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
     {
       abilitieName: "",
       abilitieDescription: "",
-      statsModifierKey: "",
+      statsModifierKey: "SF",
       statsModifier: 0,
       n: 0,
       k: 0,
@@ -89,7 +89,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
     {
       abilitieName: "",
       abilitieDescription: "",
-      statsModifierKey: "",
+      statsModifierKey: "ZR",
       statsModifier: 0,
       n: 0,
       k: 0,
