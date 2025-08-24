@@ -82,11 +82,7 @@ export const ChapterContent_VI_statsCalculations = () => {
               <DiceButtonComponent
                 n={1}
                 k={100}
-                diceRollResult={
-                  context.abilities[0].statsModifierKey === "SF" ||
-                  context.abilities[1].statsModifierKey === "SF"
-                    ? 100
-                    : context.diceRollResult.baseStatsDice.SF.result1
+                diceRollResult={context.diceRollResult.baseStatsDice.SF.result1
                 }
                 clicked={context.isClicked.baseStatsDice.SF.result1}
                 disabled={context.isClicked.baseStatsDice.SF.result1}
@@ -106,10 +102,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                   n={1}
                   k={100}
                   diceRollResult={
-                    context.abilities[0].statsModifierKey === "SF" ||
-                    context.abilities[1].statsModifierKey === "SF"
-                      ? 100
-                      : context.diceRollResult.baseStatsDice.SF.result2
+                    context.diceRollResult.baseStatsDice.SF.result2
                   }
                   clicked={context.isClicked.baseStatsDice.SF.result2}
                   disabled={context.isClicked.baseStatsDice.SF.result2}
@@ -170,10 +163,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                 n={1}
                 k={50}
                 diceRollResult={
-                  context.abilities[0].statsModifierKey === "ZR" ||
-                  context.abilities[1].statsModifierKey === "ZR"
-                    ? 50
-                    : context.diceRollResult.baseStatsDice.ZR.result1
+                  context.diceRollResult.baseStatsDice.ZR.result1
                 }
                 clicked={context.isClicked.baseStatsDice.ZR.result1}
                 disabled={context.isClicked.baseStatsDice.ZR.result1}
@@ -191,10 +181,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                   n={1}
                   k={50}
                   diceRollResult={
-                    context.abilities[0].statsModifierKey === "ZR" ||
-                    context.abilities[1].statsModifierKey === "ZR"
-                      ? 50
-                      : context.diceRollResult.baseStatsDice.ZR.result2
+                   context.diceRollResult.baseStatsDice.ZR.result2
                   }
                   clicked={context.isClicked.baseStatsDice.ZR.result2}
                   disabled={context.isClicked.baseStatsDice.ZR.result2}
@@ -254,10 +241,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                 n={1}
                 k={50}
                 diceRollResult={
-                  context.abilities[0].statsModifierKey === "SZ" ||
-                  context.abilities[1].statsModifierKey === "SZ"
-                    ? 50
-                    : context.diceRollResult.baseStatsDice.SZ
+                  context.diceRollResult.baseStatsDice.SZ.result1
                 }
                 clicked={context.isClicked.baseStatsDice.SZ.result1}
                 disabled={context.isClicked.baseStatsDice.SZ.result1}
@@ -314,10 +298,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                 n={1}
                 k={50}
                 diceRollResult={
-                  context.abilities[0].statsModifierKey === "INT" ||
-                  context.abilities[1].statsModifierKey === "INT"
-                    ? 50
-                    : context.diceRollResult.baseStatsDice.INT
+                  context.diceRollResult.baseStatsDice.INT.result1
                 }
                 clicked={context.isClicked.baseStatsDice.INT.result1}
                 disabled={context.isClicked.baseStatsDice.INT.result1}
@@ -374,10 +355,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                 n={1}
                 k={50}
                 diceRollResult={
-                  context.abilities[0].statsModifierKey === "MD" ||
-                  context.abilities[1].statsModifierKey === "MD"
-                    ? 50
-                    : context.diceRollResult.baseStatsDice.MD
+                  context.diceRollResult.baseStatsDice.MD.result1
                 }
                 clicked={context.isClicked.baseStatsDice.MD.result1}
                 disabled={context.isClicked.baseStatsDice.MD.result1}
@@ -442,10 +420,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                     n={1}
                     k={100}
                     diceRollResult={
-                      context.abilities[0].statsModifierKey === "UM" ||
-                      context.abilities[1].statsModifierKey === "UM"
-                        ? 100
-                        : context.diceRollResult.baseStatsDice.UM.result1
+                     context.diceRollResult.baseStatsDice.UM.result1
                     }
                     clicked={context.isClicked.baseStatsDice.UM.result1}
                     disabled={context.isClicked.baseStatsDice.UM.result1}
@@ -475,10 +450,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                   n={1}
                   k={100}
                   diceRollResult={
-                    context.abilities[0].statsModifierKey === "UM" ||
-                    context.abilities[1].statsModifierKey === "UM"
-                      ? 100
-                      : context.diceRollResult.baseStatsDice.UM.result1
+                    context.diceRollResult.baseStatsDice.UM.result1
                   }
                   clicked={context.isClicked.baseStatsDice.UM.result1}
                   disabled={context.isClicked.baseStatsDice.UM.result1}
@@ -504,10 +476,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                     n={1}
                     k={50}
                     diceRollResult={
-                      context.abilities[0].statsModifierKey === "UM" ||
-                      context.abilities[1].statsModifierKey === "UM"
-                        ? 50
-                        : context.diceRollResult.baseStatsDice.UM.result1
+                      context.diceRollResult.baseStatsDice.UM.result1
                     }
                     clicked={context.isClicked.baseStatsDice.UM.result1}
                     disabled={context.isClicked.baseStatsDice.UM.result1}
@@ -537,10 +506,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                   n={1}
                   k={50}
                   diceRollResult={
-                    context.abilities[0].statsModifierKey === "UM" ||
-                    context.abilities[1].statsModifierKey === "UM"
-                      ? 50
-                      : context.diceRollResult.baseStatsDice.UM.result1
+                    context.diceRollResult.baseStatsDice.UM.result1
                   }
                   clicked={context.isClicked.baseStatsDice.UM.result1}
                   disabled={context.isClicked.baseStatsDice.UM.result1}
@@ -598,10 +564,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                 n={1}
                 k={50}
                 diceRollResult={
-                  context.abilities[0].statsModifierKey === "CH" ||
-                  context.abilities[1].statsModifierKey === "CH"
-                    ? 50
-                    : context.diceRollResult.baseStatsDice.CH
+                  context.diceRollResult.baseStatsDice.CH.result1
                 }
                 clicked={context.isClicked.baseStatsDice.CH.result1}
                 disabled={context.isClicked.baseStatsDice.CH.result1}
@@ -658,10 +621,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                 n={1}
                 k={50}
                 diceRollResult={
-                  context.abilities[0].statsModifierKey === "PR" ||
-                  context.abilities[1].statsModifierKey === "PR"
-                    ? 50
-                    : context.diceRollResult.baseStatsDice.PR
+                  context.diceRollResult.baseStatsDice.PR.result1
                 }
                 clicked={context.isClicked.baseStatsDice.PR.result1}
                 disabled={context.isClicked.baseStatsDice.PR.result1}
@@ -720,10 +680,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                 n={1}
                 k={50}
                 diceRollResult={
-                  context.abilities[0].statsModifierKey === "WI" ||
-                  context.abilities[1].statsModifierKey === "WI"
-                    ? 50
-                    : context.diceRollResult.baseStatsDice.WI.result1
+                 context.diceRollResult.baseStatsDice.WI.result1
                 }
                 clicked={context.isClicked.baseStatsDice.WI.result1}
                 disabled={context.isClicked.baseStatsDice.WI.result1}
@@ -842,10 +799,7 @@ export const ChapterContent_VI_statsCalculations = () => {
                   n={1}
                   k={5}
                   diceRollResult={
-                    context.abilities[0].statsModifierKey === "ZW" ||
-                    context.abilities[1].statsModifierKey === "ZW"
-                      ? 5
-                      : context.diceRollResult.baseStatsDice.ZW.result1
+                    context.diceRollResult.baseStatsDice.ZW.result1
                   }
                   clicked={context.isClicked.baseStatsDice.ZW.result1}
                   disabled={context.isClicked.baseStatsDice.ZW.result1}

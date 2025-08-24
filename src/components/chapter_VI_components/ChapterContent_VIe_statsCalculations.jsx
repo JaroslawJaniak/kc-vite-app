@@ -34,17 +34,26 @@ const ChapterContent_VIe_statsCalculations = () => {
     {
       key: "SZ",
       label: "SZ",
-      diceRoll: context.diceRollResult.baseStatsDice.SZ,
+      diceRoll: context.safeMax(
+        context.diceRollResult?.baseStatsDice?.SZ?.result1,
+        context.diceRollResult?.baseStatsDice?.SZ?.result2
+      ),
     },
     {
       key: "INT",
       label: "INT",
-      diceRoll: context.diceRollResult.baseStatsDice.INT,
+      diceRoll: context.safeMax(
+        context.diceRollResult?.baseStatsDice?.INT?.result1,
+        context.diceRollResult?.baseStatsDice?.INT?.result2
+      ),
     },
     {
       key: "MD",
       label: "MD",
-      diceRoll: context.diceRollResult.baseStatsDice.MD,
+      diceRoll: context.safeMax(
+        context.diceRollResult?.baseStatsDice?.MD?.result1,
+        context.diceRollResult?.baseStatsDice?.MD?.result2
+      ),
     },
     {
       key: "UM",
@@ -73,12 +82,18 @@ const ChapterContent_VIe_statsCalculations = () => {
     {
       key: "CH",
       label: "CH",
-      diceRoll: context.diceRollResult.baseStatsDice.CH,
+      diceRoll: context.safeMax(
+        context.diceRollResult?.baseStatsDice?.CH?.result1,
+        context.diceRollResult?.baseStatsDice?.CH?.result2
+      ),
     },
     {
       key: "PR",
       label: "PR",
-      diceRoll: context.diceRollResult.baseStatsDice.PR,
+      diceRoll: context.safeMax(
+        context.diceRollResult?.baseStatsDice?.PR?.result1,
+        context.diceRollResult?.baseStatsDice?.PR?.result2
+      ),
     },
   ];
 

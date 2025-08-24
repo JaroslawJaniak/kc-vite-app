@@ -290,8 +290,8 @@ const Summary = () => {
       context.diceRollResult.bonusBaseStatsDice["SF"]
     ) / 10
   );
-  
-// className={`${styles.sticky} p-4 bg-white cursor-grab active:cursor-grabbing select-none overflow-auto`}
+
+  // className={`${styles.sticky} p-4 bg-white cursor-grab active:cursor-grabbing select-none overflow-auto`}
 
   return (
     <section
@@ -316,7 +316,6 @@ const Summary = () => {
           label="Roczny dochód:"
           value={`${context.chpt2Info.incomeValue} złt`}
         />
-
         <StatRow label="UŁOMNOŚCI:" value={``} />
         <StatRow
           label="1."
@@ -334,7 +333,6 @@ const Summary = () => {
           label="4."
           value={`${context.disabilities[3].disabilitieName}`}
         />
-
         <StatRow label="ZDOLNOŚCI NADNATURALNE:" value={``} />
         <StatRow label="1." value={`${context.abilities[0].abilitieName}`} />
         <StatRow label="2." value={`${context.abilities[1].abilitieName}`} />
@@ -379,26 +377,26 @@ const Summary = () => {
         )}
         <p>
           <b>ODPORNOŚCI:</b>
-          <StatRow
-            key={"bPsych"}
-            label={"BPsych" + ":"}
-            value={
-              contributionŻYW +
-              contributionINT +
-              contributionMD +
-              context.diceRollResult.bonusImmunityDice.BPsych
-            }
-          />
-          <StatRow
-            key={"bFiz"}
-            label={"BFiz" + ":"}
-            value={
-              contributionŻYW * 2 +
-              contributionSF +
-              context.diceRollResult.bonusImmunityDice.BFiz
-            }
-          />
-        </p>
+        </p>{" "}
+        <StatRow
+          key={"bPsych"}
+          label={"BPsych" + ":"}
+          value={
+            contributionŻYW +
+            contributionINT +
+            contributionMD +
+            context.diceRollResult.bonusImmunityDice.BPsych
+          }
+        />
+        <StatRow
+          key={"bFiz"}
+          label={"BFiz" + ":"}
+          value={
+            contributionŻYW * 2 +
+            contributionSF +
+            context.diceRollResult.bonusImmunityDice.BFiz
+          }
+        />
         {immunity.map(({ key, label, diceRoll }, index) =>
           index < 5 ? (
             <StatRow

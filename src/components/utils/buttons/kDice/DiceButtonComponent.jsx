@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import kDice from "./kDice";
+import { CharacterStatsContext } from "../../../../context/CharacterStatsContext";
 
 const DiceButtonComponent = (props) => {
   const {
@@ -16,11 +17,20 @@ const DiceButtonComponent = (props) => {
     className,
   } = props;
 
+  const context = useContext(CharacterStatsContext);
+
   const handleClick = () => {
     if (!clicked) {
       // Sprawdzenie, czy przycisk nie jest już kliknięty
       // Zmiana stanu przez context
-      const diceRoll = kDice(n, k, isPremium); // Rzut kością i uzyskanie wyniku
+      let diceRoll = kDice(n, k, isPremium); // Rzut kością i uzyskanie wyniku
+
+      if (
+        path[1] === context.abilities[0].statsModifierKey ||
+        path[1] === context.abilities[1].statsModifierKey
+      ) {
+        diceRoll = k;
+      }
 
       toggleClick(path); // Zmiana stanu kliknięcia przycisku
       updateDiceRollResult(path, diceRoll); // updateDiceRollResult(["baseStatsDice", "SF", "value2"], 15);

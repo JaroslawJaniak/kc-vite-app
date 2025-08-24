@@ -568,7 +568,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
     HeightDice: false,
     WeightDice: false,
     baseStatsDice: {
-      ŻYW: {},
+      ŻYW: false,
       SF: {},
       ZR: {},
       SZ: {},
@@ -625,7 +625,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
     HeightDice: 0,
     WeightDice: 0,
     baseStatsDice: {
-      ŻYW: {},
+      ŻYW: 0,
       SF: {},
       ZR: {},
       SZ: {},

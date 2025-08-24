@@ -144,7 +144,7 @@ export const Menu = () => {
                   context.setOpenMenuBtnState(false);
                 }}
               >
-                VII. BIEGŁOSOŚCI
+                VII. BIEGŁOŚCI
               </NavLink>
             </li>
           </ul>

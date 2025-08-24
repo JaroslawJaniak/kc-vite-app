@@ -7,7 +7,10 @@ export const ChapterContent_VII_career = () => {
 
   const valueMD =
     context.baseRaceStats.MD +
-    context.diceRollResult.baseStatsDice.MD +
+    context.safeMax(
+      context.diceRollResult?.baseStatsDice?.MD?.result1,
+      context.diceRollResult?.baseStatsDice?.MD?.result2
+    ) +
     Math.max(
       context.firstProfessionData.stats.MD,
       context.secondProfessionData.stats.MD
