@@ -18,8 +18,10 @@ const Summary = () => {
   };
 
   useEffect(() => {
+    context.filterBaseRaceStatsByRaceName();
+
     return () => {};
-  }, []);
+  }, [context.filterBaseRaceStatsByRaceName()]);
 
   //tutaj porównać max i podem w calculate dodawać bez Max.math
   const stats = [
