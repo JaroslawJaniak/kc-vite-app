@@ -112,7 +112,7 @@ const ChapterContent_V = () => {
             path={["HeightDice"]}
             toggleClick={context.toggleClick}
             updateDiceRollResult={context.updateDiceRollResult}
-            resolveDiceRoll={k100RollHeightResult}
+            resolveDiceRoll={(path, diceRoll) => k100RollHeightResult(diceRoll)}
             className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5  my-2 mr-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
           />{" "}
           wzrost: {context.height} cm;
@@ -134,7 +134,8 @@ const ChapterContent_V = () => {
             path={["WeightDice"]}
             toggleClick={context.toggleClick}
             updateDiceRollResult={context.updateDiceRollResult}
-            resolveDiceRoll={k100RollWeightResult}
+            
+            resolveDiceRoll={(path, diceRoll) => k100RollWeightResult(diceRoll)}
             className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5  my-2  mr-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
           />{" "}
           waga: {context.weight} kg;

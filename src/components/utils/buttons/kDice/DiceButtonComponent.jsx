@@ -37,7 +37,7 @@ const DiceButtonComponent = (props) => {
       updateDiceRollResult(path, diceRoll); // updateDiceRollResult(["baseStatsDice", "SF", "value2"], 15);
       console.log(`Rolling2 from button ${n}d${k}: ${diceRoll}`); // Logowanie informacji o rzucie
 
-      resolveDiceRoll(diceRoll, path[1]); // Wywołanie funkcji resolveDiceRoll z wynikiem rzutu
+      resolveDiceRoll(path[1], diceRoll); // Wywołanie funkcji resolveDiceRoll z wynikiem rzutu
     }
   };
 

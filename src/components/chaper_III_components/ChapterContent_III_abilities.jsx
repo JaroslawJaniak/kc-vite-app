@@ -8,7 +8,7 @@ export const ChapterContent_III_abilities = () => {
 
   let abilitieChance = 10;
 
-  const resolveAbilitiesDiceRoll = (k, path) => {
+  const resolveAbilitiesDiceRoll = (path, k) => {
     const abilitie = abilitiesData(k);
     console.log("abilitie: ", k, " - ", abilitie);
     console.log("path: ", path);
@@ -23,6 +23,7 @@ export const ChapterContent_III_abilities = () => {
   return (
     <article>
       <h3>III.b Zdolności nadnaturalne</h3>
+      <div>{context.abilitiesChance}</div>
       Czy postać ma zdolność nadnaturalną {`(${abilitieChance} % szansa)`}{" "}
       <DiceButtonComponent
         n={1}
@@ -33,11 +34,13 @@ export const ChapterContent_III_abilities = () => {
         path={["abilitiesChanceDice", "result1"]}
         toggleClick={context.toggleClick}
         updateDiceRollResult={context.updateDiceRollResult}
-        resolveDiceRoll={context.updateAbilitiesChanceData}
+        resolveDiceRoll={(path, diceRoll) =>
+          context.updateAbilitiesChanceData(diceRoll)
+        } //wrapper
         className={btnStyle}
       />{" "}
       {context.diceRollResult.abilitiesChanceDice.result1 <=
-      context.abilitiesChance ? (
+      abilitieChance ? (
         <>
           <span>
             {" : "}
@@ -70,7 +73,9 @@ export const ChapterContent_III_abilities = () => {
               path={["abilitiesChanceDice", "result2"]}
               toggleClick={context.toggleClick}
               updateDiceRollResult={context.updateDiceRollResult}
-              resolveDiceRoll={context.updateAbilitiesChanceData}
+              resolveDiceRoll={(path, diceRoll) =>
+                context.updateAbilitiesChanceData(diceRoll)
+              } //wrapper
               className={btnStyle}
             />
             {context.diceRollResult.abilitiesChanceDice.result2 <=

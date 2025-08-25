@@ -162,7 +162,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
 
   const safeMax = (...values) => Math.max(...values.map((v) => v ?? 0));
 
-  const calculateStat1 = (k, statName) => {
+  const calculateStat1 = (statName) => {
     // obliczamy wartość statystyki na podstawie rasy, profesji i wyników rzutów kośćmi
     const total =
       baseRaceStats[statName] +
@@ -178,12 +178,12 @@ export const CharacterStatsContextProvider = ({ children }) => {
 
     return total;
   };
-  const calculateStat2 = (k, statName) => {
+  const calculateStat2 = (statName) => {
     const total =
       baseRaceStats[statName] +
-      Math.max(
-        diceRollResult.baseStatsDice[statName].result1,
-        diceRollResult.baseStatsDice[statName].result2
+      safeMax(
+        diceRollResult?.baseStatsDice[statName]?.result1,
+        diceRollResult?.baseStatsDice[statName]?.result2
       ) +
       Math.max(
         firstProfessionData.stats[statName],
@@ -197,19 +197,33 @@ export const CharacterStatsContextProvider = ({ children }) => {
     return total;
   };
 
+  const calculateStat = (path) => {
+    const total =
+      baseRaceStats[path] +
+      safeMax(
+        diceRollResult?.baseStatsDice[path]?.result1,
+        diceRollResult?.baseStatsDice[path]?.result2
+      ) +
+      Math.max(
+        firstProfessionData.stats[path],
+        secondProfessionData.stats[path]
+      );
+
+    // zapisujemy wynik w kontekście (np. do characterData.stats)
+    updateCharacterData(["stats", path], total);
+
+    return total;
+  };
+
   const updateAbilitiesChanceData = (k) => {
-    
     if (k <= abilitiesChance) {
       setAbilitiesChance(abilitiesChance - 5);
-     
     }
   };
 
-  const updateDisbilitiesChanceData = (k) => {
-    
+  const updateDisabilitiesChanceData = (k) => {
     if (k <= disabilitiesChance) {
       setDisabilitiesChance(disabilitiesChance - 5);
-     
     }
   };
 
@@ -572,7 +586,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
       SF: {},
       ZR: {},
       SZ: {},
-      INT:{},
+      INT: {},
       MD: {},
       UM: {},
       CH: {},
@@ -629,7 +643,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
       SF: {},
       ZR: {},
       SZ: {},
-      INT:{},
+      INT: {},
       MD: {},
       UM: {},
       CH: {},
@@ -1028,8 +1042,9 @@ export const CharacterStatsContextProvider = ({ children }) => {
     safeMax,
     calculateStat1,
     calculateStat2,
+    calculateStat,
     updateAbilitiesChanceData,
-    updateDisbilitiesChanceData,
+    updateDisabilitiesChanceData,
     updateAbilitiesData,
     updateDisbilitiesData,
     updateAbility,
