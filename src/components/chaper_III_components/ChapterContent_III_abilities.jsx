@@ -10,10 +10,9 @@ export const ChapterContent_III_abilities = () => {
 
   const resolveAbilitiesDiceRoll = (path, k) => {
     const abilitie = abilitiesData(k);
-    console.log("abilitie: ", k, " - ", abilitie);
-    console.log("path: ", path);
+   
     const index = context.getIndexFromKey(path);
-    console.log("index from path: ", index);
+   
     context.updateAbility(index, abilitie);
   };
 

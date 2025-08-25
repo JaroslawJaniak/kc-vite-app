@@ -1,6 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
 import DiceButtonComponent from "../utils/buttons/kDice/DiceButtonComponent";
 import { CharacterStatsContext } from "../../context/CharacterStatsContext";
+import { careerData_ClassN } from "./chp7_career_class_N_data";
+import { careerData_ClassS } from "./chp7_career_class_S_data";
+import { careerData_ClassW } from "./chp7_career_class_W_data";
 
 export const ChapterContent_VII_career = () => {
   const context = useContext(CharacterStatsContext);
@@ -21,6 +24,43 @@ export const ChapterContent_VII_career = () => {
     0,
     Math.ceil((valueMD - context.diceRollResult.careerNumber) / 20)
   );
+
+  function adjustK(k, start) {
+    if (start === "N") {
+      return Math.max(1, k - 10);
+    }
+    if (start === "W") {
+      return Math.min(100, k + 10);
+    }
+    if (start === "E") {
+      return Math.min(100, k + 20);
+    }
+    return k;
+  }
+
+  const careerMap = {
+    N: careerData_ClassN,
+    Ś: careerData_ClassS,
+    W: careerData_ClassW,
+  };
+
+  const careerResolveDiceRoll = (path, k) => {
+    const start = context.getCharsFromKey(context.socialClass, 1, "start");
+    const end = context.getCharsFromKey(context.socialClass, 1, "end");
+    const index = context.getIndexFromKey(path);
+
+    // najpierw oblicz k na podstawie start
+    k = adjustK(k, start);
+
+    // wybór klasy na podstawie end
+    const fn = careerMap[end];
+    if (fn) {
+      const career = fn(k);
+      context.updateCareer(index, career);
+    }
+
+    
+  };
 
   return (
     <article>
@@ -56,9 +96,10 @@ export const ChapterContent_VII_career = () => {
                 path={["career", `result${i}`]}
                 toggleClick={context.toggleClick}
                 updateDiceRollResult={context.updateDiceRollResult}
-                resolveDiceRoll
+                resolveDiceRoll={careerResolveDiceRoll}
                 className={context.btnStyle}
-              />
+              />{" "}
+              <span>{context.career[i].name}</span>
             </li>
           ))}
         </ul>

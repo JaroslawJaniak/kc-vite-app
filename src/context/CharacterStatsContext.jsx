@@ -96,6 +96,97 @@ export const CharacterStatsContextProvider = ({ children }) => {
     },
   ]);
 
+  const [career, setCareer] = useState([
+    {
+      name: "",
+      description: "",
+      statsModifierKey: "",
+      statsModifier: 0,
+      n: 0,
+      k: 0,
+    },
+    {
+      name: "",
+      description: "",
+      statsModifierKey: "",
+      statsModifier: 0,
+      n: 0,
+      k: 0,
+    },
+    {
+      name: "",
+      description: "",
+      statsModifierKey: "",
+      statsModifier: 0,
+      n: 0,
+      k: 0,
+    },
+    {
+      name: "",
+      description: "",
+      statsModifierKey: "",
+      statsModifier: 0,
+      n: 0,
+      k: 0,
+    },
+    {
+      name: "",
+      description: "",
+      statsModifierKey: "",
+      statsModifier: 0,
+      n: 0,
+      k: 0,
+    },
+    {
+      name: "",
+      description: "",
+      statsModifierKey: "",
+      statsModifier: 0,
+      n: 0,
+      k: 0,
+    },
+    {
+      name: "",
+      description: "",
+      statsModifierKey: "",
+      statsModifier: 0,
+      n: 0,
+      k: 0,
+    },
+    {
+      name: "",
+      description: "",
+      statsModifierKey: "",
+      statsModifier: 0,
+      n: 0,
+      k: 0,
+    },
+  ]);
+
+  const updateCareer = (key, value) => {
+    setCareer((prev) => ({
+      ...prev,
+      [key]: {
+        ...prev[key], // zachowaj poprzednie pola w danym obiekcie
+        ...value, // nadpisz nowymi wartościami
+      },
+    }));
+  };
+
+  // const updateCareer = (newCareer) => {
+  //   setCareer((prevCareer) => [
+  //     ...prevCareer,
+  //     {
+  //       name: newCareer.name || "",
+  //       description: newCareer.description || "",
+  //       statsModifierKey: newCareer.statsModifierKey || "",
+  //       statsModifier: newCareer.statsModifier || 0,
+  //       n: newCareer.n || 0,
+  //       k: newCareer.k || 0,
+  //     },
+  //   ]);
+  // };
+
   const [abilitiesChance, setAbilitiesChance] = useState(10);
 
   const [firstProfession, setFirstProfession] = useState("");
@@ -227,6 +318,8 @@ export const CharacterStatsContextProvider = ({ children }) => {
     }
   };
 
+  
+
   function updateAbilitiesData(path, value) {
     setAbilities((prev) => {
       const newData = { ...prev };
@@ -287,6 +380,22 @@ export const CharacterStatsContextProvider = ({ children }) => {
     const match = key.match(/\d+$/); // szuka cyfr na końcu
     return match ? Number(match[0]) : null;
   };
+
+  const getCharsFromKey = (key, count, direction = "end") => {
+    if (typeof key !== "string" || key.length === 0) return null;
+    if (count <= 0) return "";
+
+    if (direction === "start") {
+      return key.slice(0, count); // pierwsze znaki
+    }
+    return key.slice(-count); // domyślnie ostatnie znaki
+  };
+
+  // przykłady użycia
+  // console.log(getCharsFromKey("result123", 1, "end")); // "3"
+  // console.log(getCharsFromKey("result123", 2, "end")); // "23"
+  // console.log(getCharsFromKey("result123", 3, "start")); // "res"
+  // console.log(getCharsFromKey("abc", 5, "start")); // "abc"
 
   // przykłady użycia:
   //updateDisability(0, { vision: "low" });
@@ -542,18 +651,16 @@ export const CharacterStatsContextProvider = ({ children }) => {
     W: 0,
   });
 
-  const [career, setCareer] = useState([]);
-
   const filterBaseRaceStatsByRaceName = () => {
     if (race !== "") {
       const [filteredRace] = chp1_race_description.filter((raceData) => {
-        console.log(raceData.raceName + "===" + race); // Debugging line
+        //console.log(raceData.raceName + "===" + race); // Debugging line
         // Check if the raceName matches
         return raceData.raceName === race; // This will return the first matching raceData object
       });
 
-      console.log(filteredRace);
-      console.log(filteredRace.stats.male);
+      //console.log(filteredRace);
+      //console.log(filteredRace.stats.male);
 
       if (maleChecked && filteredRace.stats.male !== undefined) {
         setbaseRaceStats(filteredRace.stats.male);
@@ -1050,7 +1157,11 @@ export const CharacterStatsContextProvider = ({ children }) => {
     updateAbility,
     updateDisability,
 
+    career,
+    updateCareer,
+
     getIndexFromKey,
+    getCharsFromKey,
 
     btnStyle,
   };

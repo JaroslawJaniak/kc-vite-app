@@ -178,11 +178,11 @@ export const abilitiesData = (k100buttonResult) => {
   } else if (k100buttonResult >= 97 && k100buttonResult < 99) {
     abilitie.abilitieName = "szczęściarz";
     abilitie.abilitieDescription = "";
-  } else if ((k100buttonResult = 99)) {
+  } else if ((k100buttonResult === 99)) {
     abilitie.abilitieName = "inna zdolność";
     abilitie.abilitieDescription =
       "zależna od MG, a powstała poprzez wymieszanie sie kilku ułoności";
-  } else if ((k100buttonResult = 100)) {
+  } else if ((k100buttonResult === 100)) {
     abilitie.abilitieName = "bołogosławieństwo obfitości";
     abilitie.abilitieDescription =
       "zależna od MG, a powstała poprzez wymieszanie sie kilku ułoności";

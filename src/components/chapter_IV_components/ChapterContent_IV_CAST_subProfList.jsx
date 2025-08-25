@@ -50,7 +50,7 @@ export const ChapterContent_IV_CAST_subProfList = (props) => {
             )
             .map((subProf) => (
               <p>
-                {console.log("subprof: ", typeof(subProf))}
+                
                 <InputComponent
                   type={"checkbox"}
                   name={subProf}
