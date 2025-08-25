@@ -147,6 +147,21 @@ export const Menu = () => {
                 VII. BIEGŁOŚCI
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                to="/kc-vite-app/chapter9"
+                className={({ isActive }) =>
+                  isActive
+                    ? "pl-8 transition-all ease-in-out delay-250 text-red-800"
+                    : "transition-all ease-in-out delay-250"
+                }
+                onClick={() => {
+                  context.setOpenMenuBtnState(false);
+                }}
+              >
+                IX. PODSUMOWANIE
+              </NavLink>
+            </li>
           </ul>
         </ol>
       </nav>

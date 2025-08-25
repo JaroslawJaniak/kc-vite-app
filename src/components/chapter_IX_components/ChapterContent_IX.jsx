@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import { CharacterStatsContext } from "../../context/CharacterStatsContext";
 import { NewLineText } from "../utils/NewLineText";
-import styles from "./summary.module.css";
+
 
 const StatRow = ({ label, value }) => (
   <p>
@@ -10,7 +10,7 @@ const StatRow = ({ label, value }) => (
   </p>
 );
 
-const Summary = () => {
+export const ChapterContent_IX = () => {
   const context = useContext(CharacterStatsContext);
 
   const calculateStat = (base, diceRoll, firstProf, secondProf, bonus) => {
@@ -297,7 +297,7 @@ const Summary = () => {
     <section
       className={`p-4 bg-white cursor-grab active:cursor-grabbing select-none overflow-auto`}
     >
-      <article className="overflow-auto">
+      <article className="">
         <StatRow label="Płeć:" value={context.chpt1Info.sex} />
         <StatRow label="Rasa:" value={context.chpt1Info.race} />
         <NewLineText text={context.chpt1Info.description} />
@@ -432,4 +432,4 @@ const Summary = () => {
   );
 };
 
-export default Summary;
+

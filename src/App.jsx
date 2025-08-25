@@ -21,6 +21,7 @@ import { Chapter6Page } from "./pages/Chapter6Page";
 import { Chapter7Page } from "./pages/Chapter7Page";
 import { Chapter4aPage } from "./pages/Chapter4aPage";
 import { Chapter8Page } from "./pages/Chapter8Page";
+import { Chapter9Page } from "./pages/Chapter9Page";
 
 function App() {
   const context = useContext(CharacterStatsContext);
@@ -102,6 +103,8 @@ function App() {
     } else if (currentPath === "/kc-vite-app/chapter7") {
       navigateTo("/kc-vite-app/chapter8");
     } else if (currentPath === "/kc-vite-app/chapter8") {
+      navigateTo("/kc-vite-app/chapter9");
+    } else if (currentPath === "/kc-vite-app/chapter9") {
       navigateTo("/kc-vite-app/chapter1");
     }
   };
@@ -109,6 +112,8 @@ function App() {
   const handlePrevious = () => {
     const currentPath = window.location.pathname;
     if (currentPath === "/kc-vite-app/chapter1") {
+      navigateTo("/kc-vite-app/chapter9");
+    } else if (currentPath === "/kc-vite-app/chapter9") {
       navigateTo("/kc-vite-app/chapter8");
     } else if (currentPath === "/kc-vite-app/chapter8") {
       navigateTo("/kc-vite-app/chapter7");
@@ -125,9 +130,9 @@ function App() {
     } else if (currentPath === "/kc-vite-app/chapter3") {
       navigateTo("/kc-vite-app/chapter2");
     } else if (currentPath === "/kc-vite-app/chapter2") {
-      navigateTo("/kc-vite-app/chapter1");
+      navigateTo("/kc-vite-app/");
     } else if (currentPath === "/kc-vite-app/chapter1") {
-      navigateTo("/kc-vite-app/chapter8");
+      navigateTo("/kc-vite-app/chapter9");
     }
   };
 
@@ -229,10 +234,14 @@ function App() {
               path="/kc-vite-app/chapter8"
               element={<Chapter8Page />}
             ></Route>
+            <Route
+              path="/kc-vite-app/chapter9"
+              element={<Chapter9Page />}
+            ></Route>
           </Routes>
         </div>{" "}
         <div className="md:hidden fixed top-12 right-4 ">{renderSummary()}</div>
-        <div className="hidden md:block">
+        <div className="hidden md:block overflow-auto">
           <Summary />
         </div>
       </div>

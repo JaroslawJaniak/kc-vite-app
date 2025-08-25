@@ -6,6 +6,8 @@ import { abilitiesData } from "./chp3_abilities_data";
 export const ChapterContent_III_abilities = () => {
   const context = useContext(CharacterStatsContext);
 
+  let abilitieChance = 10;
+
   const resolveAbilitiesDiceRoll = (k, path) => {
     const abilitie = abilitiesData(k);
     console.log("abilitie: ", k, " - ", abilitie);
@@ -21,7 +23,7 @@ export const ChapterContent_III_abilities = () => {
   return (
     <article>
       <h3>III.b Zdolności nadnaturalne</h3>
-      Czy postać ma zdolność nadnaturalną {`(10 % szansa)`}{" "}
+      Czy postać ma zdolność nadnaturalną {`(${abilitieChance} % szansa)`}{" "}
       <DiceButtonComponent
         n={1}
         k={100}
@@ -55,7 +57,8 @@ export const ChapterContent_III_abilities = () => {
             {context.abilities[1].abilitieName}
           </span>
           <div>
-            Czy postać ma drugą zdolność nadnaturalną {`(5 % szansa)`}{" "}
+            Czy postać ma drugą zdolność nadnaturalną{" "}
+            {`(${(abilitieChance -= 5)} % szansa)`}{" "}
             <DiceButtonComponent
               n={1}
               k={100}

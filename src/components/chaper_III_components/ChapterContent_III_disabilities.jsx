@@ -9,6 +9,8 @@ export const ChapterContent_III_disabilities = () => {
   const btnStyle =
     "text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300  rounded text-xxs md:text-xs p-0.5 md:p-2  mb-2 w-8 md:w-12 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700";
 
+  let disabilitieChance = 20;
+
   const resolveDisabilitiesDiceRoll = (k, path) => {
     const disabilitie = disabilitiesData(k);
     console.log("disabilitie: ", k, " - ", disabilitie);
@@ -23,7 +25,7 @@ export const ChapterContent_III_disabilities = () => {
       return context.disabilities.map((disabilitie, index) =>
         index === 0 ? (
           <div key={index}>
-            Czy postać ma ułomność {`(${context.disabilitiesChance} % szansa)`}
+            Czy postać ma ułomność {`(${disabilitieChance} % szansa)`}
             <DiceButtonComponent
               n={1}
               k={100}
@@ -69,7 +71,7 @@ export const ChapterContent_III_disabilities = () => {
           >
             <div key={index}>
               Czy postać ma ułomność{" "}
-              {`(${context.disabilitiesChance} % szansa)`}
+              {`(${(disabilitieChance -= 5)} % szansa)`}
               <DiceButtonComponent
                 n={1}
                 k={100}

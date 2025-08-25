@@ -4,8 +4,7 @@ import { ChapterContent_IVv2_characterSelection } from "../components/chapter_IV
 export const Chapter4aPage = () => {
   return (
     <div>
-      Chapter4CharacterPage
-      <ChapterContent_IVv2_characterSelection />      
+      <ChapterContent_IVv2_characterSelection />
     </div>
   );
 };

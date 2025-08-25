@@ -198,18 +198,18 @@ export const CharacterStatsContextProvider = ({ children }) => {
   };
 
   const updateAbilitiesChanceData = (k) => {
-    console.log(`context abilitiesChance1: `, abilitiesChance);
+    
     if (k <= abilitiesChance) {
       setAbilitiesChance(abilitiesChance - 5);
-      console.log(`context abilitiesChance2: `, abilitiesChance);
+     
     }
   };
 
   const updateDisbilitiesChanceData = (k) => {
-    console.log(`context abilitiesChance1: `, disabilitiesChance);
+    
     if (k <= disabilitiesChance) {
       setDisabilitiesChance(disabilitiesChance - 5);
-      console.log(`context abilitiesChance2: `, disabilitiesChance);
+     
     }
   };
 
