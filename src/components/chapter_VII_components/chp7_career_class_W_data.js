@@ -42,7 +42,7 @@ export const careerData_ClassW = (k100buttonResult) => {
     career.description = "";
   } else if (k100buttonResult >= 21 && k100buttonResult < 24) {
     career.name = "płatnerz";
-    career.statsModifierKey = "ZW";
+    
     career.description = "";
   } else if (k100buttonResult >= 24 && k100buttonResult < 27) {
     career.name = "malarz";
@@ -151,7 +151,7 @@ export const careerData_ClassW = (k100buttonResult) => {
     career.name = "zawód lokalny";
     career.description = "";
   } else if (k100buttonResult === 100) {
-    career.name = "zawód niezwyklew rzadko spotykany";
+    career.name = "zawód niezwykle rzadko spotykany";
     career.description = "";
   }
 

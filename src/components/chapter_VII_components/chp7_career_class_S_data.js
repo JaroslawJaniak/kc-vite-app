@@ -11,147 +11,147 @@ export const careerData_ClassS = (k100buttonResult) => {
   if (k100buttonResult === 1) {
     career.name = "rzuć jeszcze raz  i sprawdź na liście zawodów klasy niższej";
     career.description = " i sprawdź na liście zawodów klasy niższej";
-  } else if (k100buttonResult === 2) {
-    career.name = "rzuć jeszcze raz i sprawdź na liście zawodów klasy średniej";
-    career.description = " i sprawdź na liście zawodów klasy średniej";
-  } else if (k100buttonResult >= 3 && k100buttonResult < 6) {
-    career.name = "poborca";
-    career.statsModifierKey = "CH";
-    career.statsModifier = 10;
+  } else if (k100buttonResult >= 2 && k100buttonResult < 5) {
+    career.name = "żebrak";
+    career.description = "";
+  } else if (k100buttonResult >= 5 && k100buttonResult < 8) {
+    career.name = "goniec";
+
+    career.description = "";
+  } else if (k100buttonResult >= 8 && k100buttonResult < 11) {
+    career.name = "stajenny";
+
+    career.description = "";
+  } else if (k100buttonResult >= 11 && k100buttonResult < 14) {
+    career.name = "górnik";
+    career.statsModifierKey = "SF";
+    career.statsModifier = 20;
     career.n = 1;
     career.k = 10;
+    career.isPremium = true;
     career.description = "";
-  } else if (k100buttonResult >= 6 && k100buttonResult < 9) {
+  } else if (k100buttonResult >= 14 && k100buttonResult < 17) {
     career.name = "marynarz";
-    career.statsModifierKey = "MD";
-    career.statsModifier = 2;
     career.description = "";
-  } else if (k100buttonResult >= 9 && k100buttonResult < 12) {
-    career.name = "bosman";
-    career.statsModifierKey = "MD";
-    career.statsModifier = 5;
+  } else if (k100buttonResult >= 17 && k100buttonResult < 20) {
+    career.name = "tragarz";
+    career.statsModifierKey = "SF";
+    career.statsModifier = 10;
     career.description = "";
-  } else if (k100buttonResult >= 12 && k100buttonResult < 15) {
-    career.name = "skryba";
+  } else if (k100buttonResult >= 20 && k100buttonResult < 23) {
+    career.name = "służacy";
     career.description = "";
-  } else if (k100buttonResult >= 15 && k100buttonResult < 18) {
+  } else if (k100buttonResult >= 23 && k100buttonResult < 26) {
     career.name = "kucharz";
-    career.description = "";
-  } else if (k100buttonResult >= 18 && k100buttonResult < 21) {
-    career.name = "zbrojmistrz";
-    career.description = "";
-  } else if (k100buttonResult >= 21 && k100buttonResult < 24) {
-    career.name = "płatnerz";
-    career.statsModifierKey = "ZW";
-    career.description = "";
-  } else if (k100buttonResult >= 24 && k100buttonResult < 27) {
-    career.name = "malarz";
 
     career.description = "";
-  } else if (k100buttonResult >= 27 && k100buttonResult < 30) {
-    career.name = "złotnik";
+  } else if (k100buttonResult >= 26 && k100buttonResult < 29) {
+    career.name = "dozorca";
 
     career.description = "";
-  } else if (k100buttonResult >= 30 && k100buttonResult < 33) {
-    career.name = "bibliotekarz";
-    career.statsModifierKey = "MD";
-    career.statsModifier = 20;
+  } else if (k100buttonResult >= 29 && k100buttonResult < 32) {
+    career.name = "krawiec";
+
     career.description = "";
-  } else if (k100buttonResult >= 33 && k100buttonResult < 36) {
+  } else if (k100buttonResult >= 32 && k100buttonResult < 35) {
     career.name = "treser";
-    career.description = "";
-  } else if (k100buttonResult >= 36 && k100buttonResult < 39) {
-    career.name = "jeździec";
-    career.description = "";
-  } else if (k100buttonResult >= 39 && k100buttonResult < 42) {
-    career.name = "sokolnik";
 
     career.description = "";
-  } else if (k100buttonResult >= 42 && k100buttonResult < 45) {
+  } else if (k100buttonResult >= 35 && k100buttonResult < 38) {
+    career.name = "fryzjer";
+    career.description = "";
+  } else if (k100buttonResult >= 38 && k100buttonResult < 41) {
+    career.name = "ptasznik";
+    career.description = "";
+  } else if (k100buttonResult >= 41 && k100buttonResult < 44) {
     career.name = "woźnica";
 
     career.description = "";
-  } else if (k100buttonResult >= 45 && k100buttonResult < 48) {
-    career.name = "jubiler";
+  } else if (k100buttonResult >= 44 && k100buttonResult < 47) {
+    career.name = "murarz";
 
     career.description = "";
-  } else if (k100buttonResult >= 48 && k100buttonResult < 51) {
-    career.name = "tkacz gobelinów";
+  } else if (k100buttonResult >= 47 && k100buttonResult < 50) {
+    career.name = "tkacz";
 
     career.description = "";
-  } else if (k100buttonResult >= 51 && k100buttonResult < 54) {
+  } else if (k100buttonResult >= 50 && k100buttonResult < 53) {
     career.name = "rzeźbiarz";
     career.statsModifierKey = "ZR";
     career.statsModifier = 5;
     career.description = "";
-  } else if (k100buttonResult >= 54 && k100buttonResult < 57) {
-    career.name = "tancerz";
-    career.statsModifierKey = "ZR";
-    career.statsModifier = 10;
+  } else if (k100buttonResult >= 53 && k100buttonResult < 56) {
+    career.name = "garbarz";
+
     career.description = "";
-  } else if (k100buttonResult >= 57 && k100buttonResult < 60) {
+  } else if (k100buttonResult >= 56 && k100buttonResult < 59) {
+    career.name = "bosman";
+
+    career.description = "";
+  } else if (k100buttonResult >= 59 && k100buttonResult < 62) {
+    career.name = "grabarz";
+
+    career.description = "";
+  } else if (k100buttonResult >= 62 && k100buttonResult < 65) {
+    career.name = "piekarz";
+
+    career.description = "";
+  } else if (k100buttonResult >= 65 && k100buttonResult < 68) {
+    career.name = "kowal";
+    career.statsModifierKey = "SF";
+    career.statsModifier = 20;
+    career.proficiencyModifier = 20;
+    career.n = 1;
+    career.k = 10;
+    career.isPremium = true;
+
+    career.description = "";
+  } else if (k100buttonResult >= 68 && k100buttonResult < 71) {
+    career.name = "stolarz";
+
+    career.description = "";
+  } else if (k100buttonResult >= 71 && k100buttonResult < 74) {
+    career.name = "garncarz";
+
+    career.description = "";
+  } else if (k100buttonResult >= 74 && k100buttonResult < 77) {
+    career.name = "skryba";
+
+    career.description = "";
+  } else if (k100buttonResult >= 77 && k100buttonResult < 80) {
+    career.name = "kat";
+
+    career.description = "";
+  } else if (k100buttonResult >= 80 && k100buttonResult < 83) {
     career.name = "tłumacz";
-
     career.description = "";
-  } else if (k100buttonResult >= 60 && k100buttonResult < 63) {
+  } else if (k100buttonResult >= 83 && k100buttonResult < 86) {
     career.name = "architekt";
-
     career.description = "";
-  } else if (k100buttonResult >= 63 && k100buttonResult < 66) {
+  } else if (k100buttonResult >= 86 && k100buttonResult < 89) {
     career.name = "minerolog";
 
     career.description = "";
-  } else if (k100buttonResult >= 66 && k100buttonResult < 69) {
-    career.name = "śpiewak";
+  } else if (k100buttonResult >= 89 && k100buttonResult < 92) {
+    career.name = "płatnerz";
 
     career.description = "";
-  } else if (k100buttonResult >= 69 && k100buttonResult < 72) {
-    career.name = "aktor";
-    career.statsModifierKey = "PR";
-    career.statsModifier = 20;
+  } else if (k100buttonResult >= 92 && k100buttonResult < 95) {
+    career.name = "złotnik";
     career.description = "";
-  } else if (k100buttonResult >= 72 && k100buttonResult < 75) {
-    career.name = "poeta";
-    career.statsModifierKey = "INT";
-    career.statsModifier = 5;
-    career.description = "";
-  } else if (k100buttonResult >= 75 && k100buttonResult < 78) {
-    career.name = "pisarz";
-    career.statsModifierKey = "MD";
-    career.statsModifier = 5;
-    career.description = "";
-  } else if (k100buttonResult >= 78 && k100buttonResult < 81) {
-    career.name = "szkutnik";
-    career.description = "";
-  } else if (k100buttonResult >= 81 && k100buttonResult < 84) {
-    career.name = "gracz (szuler)";
-    career.description = "";
-  } else if (k100buttonResult >= 84 && k100buttonResult < 87) {
-    career.name = "myśliwy";
+  } else if (k100buttonResult >= 95 && k100buttonResult < 98) {
+    career.name = "jubiler";
 
     career.description = "";
-  } else if (k100buttonResult >= 87 && k100buttonResult < 90) {
-    career.name = "religioznawca";
-    career.statsModifierKey = "MD";
-    career.statsModifier = 5;
-    career.description = "";
-  } else if (k100buttonResult >= 90 && k100buttonResult < 93) {
-    career.name = "kolekcjoner";
-    career.description = "";
-  } else if (k100buttonResult >= 93 && k100buttonResult < 96) {
-    career.name = "historyk";
-    career.statsModifierKey = "MD";
-    career.statsModifier = 5;
-    career.description = "";
-  } else if (k100buttonResult >= 96 && k100buttonResult < 99) {
-    career.name = "akademik";
+  } else if (k100buttonResult === 98) {
+    career.name = "zawód lokalny";
 
     career.description = "";
   } else if (k100buttonResult === 99) {
-    career.name = "zawód lokalny";
-    career.description = "";
+    career.name = "rzuć jeszcze raz  i sprawdź na liście zawodów klasy wyższej";
+    career.description = "sprawdź na liście zawodów klasy wyższej";
   } else if (k100buttonResult === 100) {
-    career.name = "zawód niezwyklew rzadko spotykany";
+    career.name = "zawód niezwykle rzadko spotykany";
     career.description = "";
   }
 

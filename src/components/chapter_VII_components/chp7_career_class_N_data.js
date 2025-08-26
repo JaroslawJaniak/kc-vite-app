@@ -20,7 +20,10 @@ export const careerData_ClassN = (k100buttonResult) => {
     career.description = "";
   } else if (k100buttonResult >= 10 && k100buttonResult < 13) {
     career.name = "górnik";
-
+    career.statsModifierKey = "SF";
+    career.statsModifier = 20;
+    career.n = 1;
+    career.k = 10;
     career.description = "";
   } else if (k100buttonResult >= 13 && k100buttonResult < 16) {
     career.name = "goniec";
@@ -55,7 +58,7 @@ export const careerData_ClassN = (k100buttonResult) => {
     career.description = "";
   } else if (k100buttonResult >= 34 && k100buttonResult < 37) {
     career.name = "marynarz";
-    career.statsModifierKey = "SF";
+    career.statsModifierKey = "MD";
     career.statsModifier = 2;
     career.description = "";
   } else if (k100buttonResult >= 37 && k100buttonResult < 40) {
