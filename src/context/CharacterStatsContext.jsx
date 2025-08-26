@@ -87,7 +87,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
       k: 0,
     },
     {
-      abilitieName: "",
+      abilitieName: "bołogosławieństwo obfitości",
       abilitieDescription: "",
       statsModifierKey: "",
       statsModifier: 0,
@@ -251,7 +251,8 @@ export const CharacterStatsContextProvider = ({ children }) => {
     });
   }
 
-  const safeMax = (...values) => Math.max(...values.map((v) => v ?? 0));
+  //const safeMax = (...values) => Math.max(...values.map((v) => v ?? 0));
+  const safeMax = (...values) => Math.max(0, ...values.map((v) => v ?? 0));
 
   const calculateStat1 = (statName) => {
     // obliczamy wartość statystyki na podstawie rasy, profesji i wyników rzutów kośćmi

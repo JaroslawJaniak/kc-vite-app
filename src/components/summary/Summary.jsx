@@ -31,7 +31,8 @@ const Summary = () => {
       label: "SF",
       diceRoll: context.safeMax(
         context.diceRollResult?.baseStatsDice?.SF?.result1,
-        context.diceRollResult?.baseStatsDice?.SF?.result2
+        context.diceRollResult?.baseStatsDice?.SF?.result2,
+        context.diceRollResult?.baseStatsDice?.SF?.result3
       ),
     },
     {
@@ -39,7 +40,8 @@ const Summary = () => {
       label: "ZR",
       diceRoll: context.safeMax(
         context.diceRollResult?.baseStatsDice?.ZR?.result1,
-        context.diceRollResult?.baseStatsDice?.ZR?.result2
+        context.diceRollResult?.baseStatsDice?.ZR?.result2,
+        context.diceRollResult?.baseStatsDice?.ZR?.result3
       ),
     },
     {
@@ -47,7 +49,8 @@ const Summary = () => {
       label: "SZ",
       diceRoll: context.safeMax(
         context.diceRollResult?.baseStatsDice?.SZ?.result1,
-        context.diceRollResult?.baseStatsDice?.SZ?.result2
+        context.diceRollResult?.baseStatsDice?.SZ?.result2,
+        context.diceRollResult?.baseStatsDice?.SZ?.result3
       ),
     },
     {
@@ -55,7 +58,8 @@ const Summary = () => {
       label: "INT",
       diceRoll: context.safeMax(
         context.diceRollResult?.baseStatsDice?.INT?.result1,
-        context.diceRollResult?.baseStatsDice?.INT?.result2
+        context.diceRollResult?.baseStatsDice?.INT?.result2,
+        context.diceRollResult?.baseStatsDice?.INT?.result3
       ),
     },
     {
@@ -63,7 +67,8 @@ const Summary = () => {
       label: "MD",
       diceRoll: context.safeMax(
         context.diceRollResult?.baseStatsDice?.MD?.result1,
-        context.diceRollResult?.baseStatsDice?.MD?.result2
+        context.diceRollResult?.baseStatsDice?.MD?.result2,
+        context.diceRollResult?.baseStatsDice?.MD?.result3
       ),
     },
     {
@@ -71,7 +76,8 @@ const Summary = () => {
       label: "UM",
       diceRoll: context.safeMax(
         context.diceRollResult?.baseStatsDice?.UM?.result1,
-        context.diceRollResult?.baseStatsDice?.UM?.result2
+        context.diceRollResult?.baseStatsDice?.UM?.result2,
+        context.diceRollResult?.baseStatsDice?.UM?.result3
       ),
     },
     {
@@ -79,7 +85,8 @@ const Summary = () => {
       label: "WI",
       diceRoll: context.safeMax(
         context.diceRollResult?.baseStatsDice?.WI?.result1,
-        context.diceRollResult?.baseStatsDice?.WI?.result2
+        context.diceRollResult?.baseStatsDice?.WI?.result2,
+        context.diceRollResult?.baseStatsDice?.WI?.result3
       ),
     },
     {
@@ -87,7 +94,8 @@ const Summary = () => {
       label: "ZW",
       diceRoll: context.safeMax(
         context.diceRollResult?.baseStatsDice?.ZW?.result1,
-        context.diceRollResult?.baseStatsDice?.ZW?.result2
+        context.diceRollResult?.baseStatsDice?.ZW?.result2,
+        context.diceRollResult?.baseStatsDice?.ZW?.result3
       ),
     },
     {
@@ -95,7 +103,8 @@ const Summary = () => {
       label: "CH",
       diceRoll: context.safeMax(
         context.diceRollResult?.baseStatsDice?.CH?.result1,
-        context.diceRollResult?.baseStatsDice?.CH?.result2
+        context.diceRollResult?.baseStatsDice?.CH?.result2,
+        context.diceRollResult?.baseStatsDice?.CH?.result3
       ),
     },
     {
@@ -103,7 +112,8 @@ const Summary = () => {
       label: "PR",
       diceRoll: context.safeMax(
         context.diceRollResult?.baseStatsDice?.PR?.result1,
-        context.diceRollResult?.baseStatsDice?.PR?.result2
+        context.diceRollResult?.baseStatsDice?.PR?.result2,
+        context.diceRollResult?.baseStatsDice?.PR?.result3
       ),
     },
   ];

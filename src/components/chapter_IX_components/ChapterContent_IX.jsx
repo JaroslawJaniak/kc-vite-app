@@ -29,7 +29,8 @@ export const ChapterContent_IX = () => {
       label: "SF",
       diceRoll: context.safeMax(
         context.diceRollResult?.baseStatsDice?.SF?.result1,
-        context.diceRollResult?.baseStatsDice?.SF?.result2
+        context.diceRollResult?.baseStatsDice?.SF?.result2,
+        context.diceRollResult?.baseStatsDice?.SF?.result3
       ),
     },
     {
@@ -37,7 +38,8 @@ export const ChapterContent_IX = () => {
       label: "ZR",
       diceRoll: context.safeMax(
         context.diceRollResult?.baseStatsDice?.ZR?.result1,
-        context.diceRollResult?.baseStatsDice?.ZR?.result2
+        context.diceRollResult?.baseStatsDice?.ZR?.result2,
+        context.diceRollResult?.baseStatsDice?.ZR?.result3
       ),
     },
     {
@@ -45,7 +47,8 @@ export const ChapterContent_IX = () => {
       label: "SZ",
       diceRoll: context.safeMax(
         context.diceRollResult?.baseStatsDice?.SZ?.result1,
-        context.diceRollResult?.baseStatsDice?.SZ?.result2
+        context.diceRollResult?.baseStatsDice?.SZ?.result2,
+        context.diceRollResult?.baseStatsDice?.SZ?.result3
       ),
     },
     {
@@ -53,7 +56,8 @@ export const ChapterContent_IX = () => {
       label: "INT",
       diceRoll: context.safeMax(
         context.diceRollResult?.baseStatsDice?.INT?.result1,
-        context.diceRollResult?.baseStatsDice?.INT?.result2
+        context.diceRollResult?.baseStatsDice?.INT?.result2,
+        context.diceRollResult?.baseStatsDice?.INT?.result3
       ),
     },
     {
@@ -61,7 +65,8 @@ export const ChapterContent_IX = () => {
       label: "MD",
       diceRoll: context.safeMax(
         context.diceRollResult?.baseStatsDice?.MD?.result1,
-        context.diceRollResult?.baseStatsDice?.MD?.result2
+        context.diceRollResult?.baseStatsDice?.MD?.result2,
+        context.diceRollResult?.baseStatsDice?.MD?.result3
       ),
     },
     {
@@ -69,7 +74,8 @@ export const ChapterContent_IX = () => {
       label: "UM",
       diceRoll: context.safeMax(
         context.diceRollResult?.baseStatsDice?.UM?.result1,
-        context.diceRollResult?.baseStatsDice?.UM?.result2
+        context.diceRollResult?.baseStatsDice?.UM?.result2,
+        context.diceRollResult?.baseStatsDice?.UM?.result3
       ),
     },
     {
@@ -77,7 +83,8 @@ export const ChapterContent_IX = () => {
       label: "WI",
       diceRoll: context.safeMax(
         context.diceRollResult?.baseStatsDice?.WI?.result1,
-        context.diceRollResult?.baseStatsDice?.WI?.result2
+        context.diceRollResult?.baseStatsDice?.WI?.result2,
+        context.diceRollResult?.baseStatsDice?.WI?.result3
       ),
     },
     {
@@ -85,7 +92,8 @@ export const ChapterContent_IX = () => {
       label: "ZW",
       diceRoll: context.safeMax(
         context.diceRollResult?.baseStatsDice?.ZW?.result1,
-        context.diceRollResult?.baseStatsDice?.ZW?.result2
+        context.diceRollResult?.baseStatsDice?.ZW?.result2,
+        context.diceRollResult?.baseStatsDice?.ZW?.result3
       ),
     },
     {
@@ -93,7 +101,8 @@ export const ChapterContent_IX = () => {
       label: "CH",
       diceRoll: context.safeMax(
         context.diceRollResult?.baseStatsDice?.CH?.result1,
-        context.diceRollResult?.baseStatsDice?.CH?.result2
+        context.diceRollResult?.baseStatsDice?.CH?.result2,
+        context.diceRollResult?.baseStatsDice?.CH?.result3
       ),
     },
     {
@@ -101,7 +110,8 @@ export const ChapterContent_IX = () => {
       label: "PR",
       diceRoll: context.safeMax(
         context.diceRollResult?.baseStatsDice?.PR?.result1,
-        context.diceRollResult?.baseStatsDice?.PR?.result2
+        context.diceRollResult?.baseStatsDice?.PR?.result2,
+        context.diceRollResult?.baseStatsDice?.PR?.result3
       ),
     },
   ];
