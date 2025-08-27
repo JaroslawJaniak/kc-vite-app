@@ -7,7 +7,7 @@ export const Menu = () => {
   const context = useContext(CharacterStatsContext);
 
   return (
-    <section className={`${styles.sticky} p-4 bg-white`}>
+    <section className={`${styles.sticky} p-4 bg-white select-none`}>
       <nav>
         <ol>
           <ul className="[&>*]:my-2">

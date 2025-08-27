@@ -307,7 +307,7 @@ const Summary = () => {
 
   return (
     <section
-      className={`p-4 bg-white cursor-grab active:cursor-grabbing select-none overflow-auto`}
+      className={`p-4 bg-white select-none overflow-auto`}
     >
       <article className="overflow-auto">
         <StatRow label="Płeć:" value={context.chpt1Info.sex} />

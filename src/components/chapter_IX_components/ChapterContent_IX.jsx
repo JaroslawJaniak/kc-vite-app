@@ -305,7 +305,7 @@ export const ChapterContent_IX = () => {
 
   return (
     <section
-      className={`p-4 bg-white cursor-grab active:cursor-grabbing select-none overflow-auto`}
+      className={`p-4 bg-white select-none overflow-auto`}
     >
       <article className="">
         <StatRow label="Płeć:" value={context.chpt1Info.sex} />
