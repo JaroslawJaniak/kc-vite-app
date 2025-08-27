@@ -178,46 +178,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
       n: 0,
       k: 0,
     },
-    {
-      name: "",
-      description: "",
-      statsModifierKey: "",
-      statsModifier: 0,
-      n: 0,
-      k: 0,
-    },
-    {
-      name: "",
-      description: "",
-      statsModifierKey: "",
-      statsModifier: 0,
-      n: 0,
-      k: 0,
-    },
-    {
-      name: "",
-      description: "",
-      statsModifierKey: "",
-      statsModifier: 0,
-      n: 0,
-      k: 0,
-    },
-    {
-      name: "",
-      description: "",
-      statsModifierKey: "",
-      statsModifier: 0,
-      n: 0,
-      k: 0,
-    },
-    {
-      name: "",
-      description: "",
-      statsModifierKey: "",
-      statsModifier: 0,
-      n: 0,
-      k: 0,
-    },
+  
   ]);
 
   const updateCareer = (key, value) => {

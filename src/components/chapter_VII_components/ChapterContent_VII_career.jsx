@@ -90,7 +90,9 @@ export const ChapterContent_VII_career = () => {
           k={100}
           diceRollResult={context.diceRollResult.careerNumber}
           clicked={context.isClicked.careerNumber}
-          disabled={context.isClicked.careerNumber}
+          disabled={
+            context.isClicked.careerNumber || context.socialClass === ""
+          }
           path={["careerNumber"]}
           toggleClick={context.toggleClick}
           updateDiceRollResult={context.updateDiceRollResult}
@@ -116,7 +118,7 @@ export const ChapterContent_VII_career = () => {
                 resolveDiceRoll={careerResolveDiceRoll}
                 className={context.btnStyle}
               />{" "}
-              <span>{context.career[i].name}</span> {" "}
+              <span>{context.career[i].name}</span>{" "}
               <>
                 {context.career[i].name ===
                 "rzuć jeszcze raz  i sprawdź na liście zawodów klasy średniej" ? (
@@ -191,7 +193,7 @@ export const ChapterContent_VII_career = () => {
                 ) : (
                   ""
                 )}
-              </> {" "}
+              </>{" "}
               <span>{context.career[careerNumber + i].name}</span>
             </li>
           ))}
