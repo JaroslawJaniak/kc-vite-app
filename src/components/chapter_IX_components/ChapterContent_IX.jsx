@@ -2,7 +2,6 @@ import React, { useEffect, useContext } from "react";
 import { CharacterStatsContext } from "../../context/CharacterStatsContext";
 import { NewLineText } from "../utils/NewLineText";
 
-
 const StatRow = ({ label, value }) => (
   <p>
     <b>{label} </b>
@@ -20,6 +19,8 @@ export const ChapterContent_IX = () => {
   useEffect(() => {
     return () => {};
   }, []);
+
+  
 
   //tutaj porównać max i podem w calculate dodawać bez Max.math
   const stats = [
@@ -304,9 +305,7 @@ export const ChapterContent_IX = () => {
   // className={`${styles.sticky} p-4 bg-white cursor-grab active:cursor-grabbing select-none overflow-auto`}
 
   return (
-    <section
-      className={`p-4 bg-white select-none overflow-auto`}
-    >
+    <section className={`p-4 bg-white select-none overflow-auto`}>
       <article className="">
         <StatRow label="Płeć:" value={context.chpt1Info.sex} />
         <StatRow label="Rasa:" value={context.chpt1Info.race} />
@@ -437,9 +436,13 @@ export const ChapterContent_IX = () => {
             />
           )
         )}
+        <p>
+          <b>ZAWODY:</b>
+        </p>{" "}
+        {Array.from({ length: context.careerNumber }, (_, i) => (
+          <StatRow key={i} label={`${i + 1}.`} value={context.career[i].name} />
+        ))}
       </article>
     </section>
   );
 };
-
-

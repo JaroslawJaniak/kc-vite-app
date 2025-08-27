@@ -306,9 +306,7 @@ const Summary = () => {
   // className={`${styles.sticky} p-4 bg-white cursor-grab active:cursor-grabbing select-none overflow-auto`}
 
   return (
-    <section
-      className={`p-4 bg-white select-none overflow-auto`}
-    >
+    <section className={`p-4 bg-white select-none overflow-auto`}>
       <article className="overflow-auto">
         <StatRow label="Płeć:" value={context.chpt1Info.sex} />
         <StatRow label="Rasa:" value={context.chpt1Info.race} />
@@ -346,7 +344,6 @@ const Summary = () => {
           value={`${context.disabilities[3].disabilitieName}`}
         />
         <StatRow label="ZDOLNOŚCI NADNATURALNE:" value={``} />
-       
         <StatRow label="1." value={`${context.abilities[0].abilitieName}`} />
         <StatRow label="2." value={`${context.abilities[1].abilitieName}`} />
         <StatRow
@@ -440,6 +437,12 @@ const Summary = () => {
             />
           )
         )}
+        <p>
+          <b>ZAWODY:</b>
+        </p>{" "}
+        {Array.from({ length: context.careerNumber }, (_, i) => (
+          <StatRow key={i} label={`${i + 1}.`} value={context.career[i].name} />
+        ))}
       </article>
     </section>
   );

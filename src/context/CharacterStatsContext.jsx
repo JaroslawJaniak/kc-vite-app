@@ -178,8 +178,49 @@ export const CharacterStatsContextProvider = ({ children }) => {
       n: 0,
       k: 0,
     },
-  
+    {
+      name: "",
+      description: "",
+      statsModifierKey: "",
+      statsModifier: 0,
+      n: 0,
+      k: 0,
+    },
+    {
+      name: "",
+      description: "",
+      statsModifierKey: "",
+      statsModifier: 0,
+      n: 0,
+      k: 0,
+    },
+    {
+      name: "",
+      description: "",
+      statsModifierKey: "",
+      statsModifier: 0,
+      n: 0,
+      k: 0,
+    },
+    {
+      name: "",
+      description: "",
+      statsModifierKey: "",
+      statsModifier: 0,
+      n: 0,
+      k: 0,
+    },
+    {
+      name: "",
+      description: "",
+      statsModifierKey: "",
+      statsModifier: 0,
+      n: 0,
+      k: 0,
+    },
   ]);
+
+  
 
   const updateCareer = (key, value) => {
     setCareer((prev) => ({
@@ -966,6 +1007,20 @@ export const CharacterStatsContextProvider = ({ children }) => {
 
   const filterCharactersByProfession = () => {};
 
+  const valueMD =
+    baseRaceStats.MD +
+    safeMax(
+      diceRollResult?.baseStatsDice?.MD?.result1,
+      diceRollResult?.baseStatsDice?.MD?.result2
+    ) +
+    Math.max(firstProfessionData.stats.MD, secondProfessionData.stats.MD) +
+    diceRollResult.bonusBaseStatsDice.MD;
+
+  const careerNumber = Math.max(
+    0,
+    Math.ceil((valueMD - diceRollResult.careerNumber) / 20)
+  );
+
   const chpt1Info = {
     name: "",
     sex: sex,
@@ -1181,6 +1236,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
     getCharsFromKey,
 
     btnStyle,
+    careerNumber,
   };
 
   return (
