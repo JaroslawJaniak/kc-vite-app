@@ -43,7 +43,7 @@ export const ChapterContent_III_disabilities = () => {
                 !(
                   context.diceRollResult.disabilitiesChanceDice[
                     `result${index}`
-                  ] <= context.disabilitiesChance
+                  ] <= disabilitieChance
                 )
               }
             >
