@@ -6,14 +6,14 @@ import { abilitiesData } from "./chp3_abilities_data";
 export const ChapterContent_III_abilities = () => {
   const context = useContext(CharacterStatsContext);
 
-  let abilitieChance = 80;
+  let abilitieChance = 10;
 
   const resolveAbilitiesDiceRoll = (path, k) => {
     const abilitie = abilitiesData(k);
-   
+
     const index = context.getIndexFromKey(path);
-   
-    context.updateAbility(index-1, abilitie);
+
+    context.updateAbility(index - 1, abilitie);
   };
 
   const btnStyle =
@@ -38,8 +38,7 @@ export const ChapterContent_III_abilities = () => {
         } //wrapper
         className={btnStyle}
       />{" "}
-      {context.diceRollResult.abilitiesChanceDice.result1 <=
-      abilitieChance ? (
+      {context.diceRollResult.abilitiesChanceDice.result1 <= abilitieChance ? (
         <>
           <span>
             {" : "}

@@ -9,7 +9,7 @@ export const ChapterContent_III_disabilities = () => {
   const btnStyle =
     "text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300  rounded text-xxs md:text-xs p-0.5 md:p-2  mb-2 w-8 md:w-12 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700";
 
-  let disabilitieChance = 85;
+  let disabilitieChance = 25;
 
   const resolveDisabilitiesDiceRoll = (path, k) => {
     const disabilitie = disabilitiesData(k);
