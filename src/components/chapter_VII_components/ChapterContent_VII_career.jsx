@@ -35,6 +35,7 @@ export const ChapterContent_VII_career = () => {
     if (start === "E") {
       return Math.min(100, k + 20);
     }
+
     return k;
   }
 
@@ -44,22 +45,38 @@ export const ChapterContent_VII_career = () => {
     W: careerData_ClassW,
   };
 
+  const start = context.getCharsFromKey(context.socialClass, 1, "start");
+  const end = context.getCharsFromKey(context.socialClass, 1, "end");
+  let newDiceRollValue = 0;
+
   const careerResolveDiceRoll = (path, k) => {
-    const start = context.getCharsFromKey(context.socialClass, 1, "start");
-    const end = context.getCharsFromKey(context.socialClass, 1, "end");
     const index = context.getIndexFromKey(path);
 
     // najpierw oblicz k na podstawie start
-    k = adjustK(k, start);
+    newDiceRollValue = adjustK(k, start);
 
     // wybór klasy na podstawie end
     const fn = careerMap[end];
     if (fn) {
-      const career = fn(k);
+      const career = fn(newDiceRollValue);
       context.updateCareer(index, career);
     }
+  };
 
-    
+  const careerResolveDiceRollClassN = (path, k) => {
+    const index = context.getIndexFromKey(path);
+    const career = careerData_ClassN(k);
+    context.updateCareer(index, career);
+  };
+  const careerResolveDiceRollClassS = (path, k) => {
+    const index = context.getIndexFromKey(path);
+    const career = careerData_ClassS(k);
+    context.updateCareer(index, career);
+  };
+  const careerResolveDiceRollClassW = (path, k) => {
+    const index = context.getIndexFromKey(path);
+    const career = careerData_ClassW(k);
+    context.updateCareer(index, career);
   };
 
   return (
@@ -99,7 +116,83 @@ export const ChapterContent_VII_career = () => {
                 resolveDiceRoll={careerResolveDiceRoll}
                 className={context.btnStyle}
               />{" "}
-              <span>{context.career[i].name}</span>
+              <span>{context.career[i].name}</span> {" "}
+              <>
+                {context.career[i].name ===
+                "rzuć jeszcze raz  i sprawdź na liście zawodów klasy średniej" ? (
+                  <DiceButtonComponent
+                    n={1}
+                    k={100}
+                    diceRollResult={
+                      context.diceRollResult.career[`result${careerNumber + i}`]
+                    }
+                    clicked={
+                      context.isClicked.career[`result${careerNumber + i}`]
+                    }
+                    disabled={
+                      context.isClicked.career[`result${careerNumber + i}`]
+                    }
+                    path={["career", `result${careerNumber + i}`]}
+                    toggleClick={context.toggleClick}
+                    updateDiceRollResult={context.updateDiceRollResult}
+                    resolveDiceRoll={careerResolveDiceRollClassS}
+                    className={context.btnStyle}
+                  />
+                ) : (
+                  ""
+                )}
+              </>
+              <>
+                {context.career[i].name ===
+                "rzuć jeszcze raz  i sprawdź na liście zawodów klasy wyższej" ? (
+                  <DiceButtonComponent
+                    n={1}
+                    k={100}
+                    diceRollResult={
+                      context.diceRollResult.career[`result${careerNumber + i}`]
+                    }
+                    clicked={
+                      context.isClicked.career[`result${careerNumber + i}`]
+                    }
+                    disabled={
+                      context.isClicked.career[`result${careerNumber + i}`]
+                    }
+                    path={["career", `result${careerNumber + i}`]}
+                    toggleClick={context.toggleClick}
+                    updateDiceRollResult={context.updateDiceRollResult}
+                    resolveDiceRoll={careerResolveDiceRollClassW}
+                    className={context.btnStyle}
+                  />
+                ) : (
+                  ""
+                )}
+              </>
+              <>
+                {context.career[i].name ===
+                "rzuć jeszcze raz  i sprawdź na liście zawodów klasy niższej" ? (
+                  <DiceButtonComponent
+                    n={1}
+                    k={100}
+                    diceRollResult={
+                      context.diceRollResult.career[`result${careerNumber + i}`]
+                    }
+                    clicked={
+                      context.isClicked.career[`result${careerNumber + i}`]
+                    }
+                    disabled={
+                      context.isClicked.career[`result${careerNumber + i}`]
+                    }
+                    path={["career", `result${careerNumber + i}`]}
+                    toggleClick={context.toggleClick}
+                    updateDiceRollResult={context.updateDiceRollResult}
+                    resolveDiceRoll={careerResolveDiceRollClassN}
+                    className={context.btnStyle}
+                  />
+                ) : (
+                  ""
+                )}
+              </> {" "}
+              <span>{context.career[careerNumber + i].name}</span>
             </li>
           ))}
         </ul>

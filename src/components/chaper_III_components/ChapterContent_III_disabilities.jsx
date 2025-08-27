@@ -9,7 +9,7 @@ export const ChapterContent_III_disabilities = () => {
   const btnStyle =
     "text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300  rounded text-xxs md:text-xs p-0.5 md:p-2  mb-2 w-8 md:w-12 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700";
 
-  let disabilitieChance = 20;
+  let disabilitieChance = 85;
 
   const resolveDisabilitiesDiceRoll = (path, k) => {
     const disabilitie = disabilitiesData(k);
@@ -17,62 +17,53 @@ export const ChapterContent_III_disabilities = () => {
     console.log("path: ", path);
     const index = context.getIndexFromKey(path);
     console.log("index from path: ", index);
-    context.updateDisability(index, disabilitie);
+    context.updateDisability(index - 1, disabilitie);
   };
 
-  const renderDisabilities = () => {
+  const renderDisabilitiesV02 = () => {
     if (context.disabilities.length) {
-      return context.disabilities.map((disabilitie, index) =>
-        index === 0 ? (
-          <div key={index}>
-            Czy postać ma ułomność {`(${disabilitieChance} % szansa)`}
-            <DiceButtonComponent
-              n={1}
-              k={100}
-              diceRollResult={
-                context.diceRollResult.disabilitiesChanceDice.result1
-              }
-              clicked={context.isClicked.disabilitiesChanceDice.result1}
-              disabled={context.isClicked.disabilitiesChanceDice.result1}
-              path={["disabilitiesChanceDice", "result1"]}
-              toggleClick={context.toggleClick}
-              updateDiceRollResult={context.updateDiceRollResult}
-              resolveDiceRoll={(path, diceRoll) =>
-                context.updateDisabilitiesChanceData(diceRoll)
-              } //wrapper
-              className={btnStyle}
-            />{" "}
-            {context.diceRollResult.disabilitiesChanceDice.result1 <=
-            context.disabilitiesChance ? (
-              <span>
-                {" : "}
-                <DiceButtonComponent
-                  n={1}
-                  k={100}
-                  diceRollResult={
-                    context.diceRollResult.disabilitiesDice.result1
-                  }
-                  clicked={context.isClicked.disabilitiesDice.result1}
-                  disabled={context.isClicked.disabilitiesDice.result1}
-                  path={["disabilitiesDice", "result1"]}
-                  toggleClick={context.toggleClick}
-                  updateDiceRollResult={context.updateDiceRollResult}
-                  resolveDiceRoll={resolveDisabilitiesDiceRoll}
-                  className={btnStyle}
-                />
-                {" - "}
-                {context.disabilities[index + 1].disabilitieName}
-              </span>
-            ) : null}
-          </div>
-        ) : context.diceRollResult.disabilitiesChanceDice[`result${index}`] <=
-          context.disabilitiesChance ? (
+      return context.disabilities.map((disabilitie, index) => (
+        <>
           <div
-            hidden={!context.isClicked.disabilitiesChanceDice[`result${index}`]}
+            hidden={
+              index !== 0 &&
+              !context.isClicked.disabilitiesChanceDice[`result${index}`] &&
+              !(
+                context.diceRollResult.disabilitiesChanceDice[
+                  `result${index}`
+                ] <= disabilitieChance
+              )
+            }
             key={index}
           >
-            <div key={index}>
-              Czy postać ma ułomność {`(${(disabilitieChance -= 5)} % szansa)`}
+            <div
+              key={index}
+              hidden={
+                index !== 0 &&
+                !(
+                  context.diceRollResult.disabilitiesChanceDice[
+                    `result${index}`
+                  ] <= context.disabilitiesChance
+                )
+              }
+            >
+              V02 Czy postać ma ułomność{" "}
+              {`(${(disabilitieChance -= 5)} % szansa)`}
+              <span>{`index: ${index}  ${disabilitieChance}%`}</span>
+              <span>
+                -
+                {context.isClicked.disabilitiesChanceDice[
+                  `result${index}`
+                ]?.toString()}
+                -
+              </span>
+              <span>
+                {
+                  context.diceRollResult.disabilitiesChanceDice[
+                    `result${index}`
+                  ]
+                }
+              </span>{" "}
               <DiceButtonComponent
                 n={1}
                 k={100}
@@ -97,8 +88,19 @@ export const ChapterContent_III_disabilities = () => {
               />{" "}
               {context.diceRollResult.disabilitiesChanceDice[
                 `result${index + 1}`
-              ] <= context.disabilitiesChance ? (
+              ] <= disabilitieChance ? (
                 <span>
+                  {" "}
+                  <span>
+                    -{" "}
+                    {
+                      context.diceRollResult.disabilitiesChanceDice[
+                        `result${index + 1}`
+                      ]
+                    }{" "}
+                    {`<=`} {context.disabilitiesChance} || {`<=`}{" "}
+                    {disabilitieChance}
+                  </span>
                   {" : "}
                   <DiceButtonComponent
                     n={1}
@@ -121,20 +123,21 @@ export const ChapterContent_III_disabilities = () => {
                     className={btnStyle}
                   />
                   {" - "}
-                  {context.disabilities[index + 1].disabilitieName}
+                  {context.disabilities[index].disabilitieName}
                 </span>
               ) : null}
             </div>
           </div>
-        ) : null
-      );
-    } else return <p>Brak;</p>;
+        </>
+      ));
+    }
   };
 
   return (
     <article>
       <h3>III.a Ułomności</h3>
-      {renderDisabilities()}
+
+      {renderDisabilitiesV02()}
     </article>
   );
 };

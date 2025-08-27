@@ -6,14 +6,14 @@ import { abilitiesData } from "./chp3_abilities_data";
 export const ChapterContent_III_abilities = () => {
   const context = useContext(CharacterStatsContext);
 
-  let abilitieChance = 10;
+  let abilitieChance = 80;
 
   const resolveAbilitiesDiceRoll = (path, k) => {
     const abilitie = abilitiesData(k);
    
     const index = context.getIndexFromKey(path);
    
-    context.updateAbility(index, abilitie);
+    context.updateAbility(index-1, abilitie);
   };
 
   const btnStyle =
@@ -56,7 +56,7 @@ export const ChapterContent_III_abilities = () => {
               className={btnStyle}
             />
             {" - "}
-            {context.abilities[1].abilitieName}
+            {context.abilities[0].abilitieName}
           </span>
           <div>
             Czy postać ma drugą zdolność nadnaturalną{" "}
@@ -78,7 +78,7 @@ export const ChapterContent_III_abilities = () => {
               className={btnStyle}
             />
             {context.diceRollResult.abilitiesChanceDice.result2 <=
-            context.abilitiesChance ? (
+            abilitieChance ? (
               <span>
                 {" : zdonlność "}
                 <DiceButtonComponent

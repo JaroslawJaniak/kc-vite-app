@@ -22,6 +22,7 @@ const DiceButtonComponent = (props) => {
   const handleClick = () => {
     if (!clicked) {
       // Sprawdzenie, czy przycisk nie jest już kliknięty
+      
       // Zmiana stanu przez context
       let diceRoll = kDice(n, k, isPremium); // Rzut kością i uzyskanie wyniku
       console.log(`Rolling1 from button ${n}d${k}: ${diceRoll}`);

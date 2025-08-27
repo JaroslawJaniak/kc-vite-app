@@ -75,7 +75,8 @@ export const CharacterStatsContextProvider = ({ children }) => {
     },
   ]);
 
-  const [disabilitiesChance, setDisabilitiesChance] = useState(20);
+  const [disabilitiesChance, setDisabilitiesChance] = useState(80);
+  const [abilitiesChance, setAbilitiesChance] = useState(80);
 
   const [abilities, setAbilities] = useState([
     {
@@ -87,7 +88,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
       k: 0,
     },
     {
-      abilitieName: "bołogosławieństwo obfitości",
+      abilitieName: "",
       abilitieDescription: "",
       statsModifierKey: "",
       statsModifier: 0,
@@ -97,6 +98,62 @@ export const CharacterStatsContextProvider = ({ children }) => {
   ]);
 
   const [career, setCareer] = useState([
+    {
+      name: "",
+      description: "",
+      statsModifierKey: "",
+      statsModifier: 0,
+      n: 0,
+      k: 0,
+    },
+    {
+      name: "",
+      description: "",
+      statsModifierKey: "",
+      statsModifier: 0,
+      n: 0,
+      k: 0,
+    },
+    {
+      name: "",
+      description: "",
+      statsModifierKey: "",
+      statsModifier: 0,
+      n: 0,
+      k: 0,
+    },
+    {
+      name: "",
+      description: "",
+      statsModifierKey: "",
+      statsModifier: 0,
+      n: 0,
+      k: 0,
+    },
+    {
+      name: "",
+      description: "",
+      statsModifierKey: "",
+      statsModifier: 0,
+      n: 0,
+      k: 0,
+    },
+    {
+      name: "",
+      description: "",
+      statsModifierKey: "",
+      statsModifier: 0,
+      n: 0,
+      k: 0,
+    },
+    {
+      name: "",
+      description: "",
+      statsModifierKey: "",
+      statsModifier: 0,
+      n: 0,
+      k: 0,
+    },
     {
       name: "",
       description: "",
@@ -187,7 +244,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
   //   ]);
   // };
 
-  const [abilitiesChance, setAbilitiesChance] = useState(10);
+  
 
   const [firstProfession, setFirstProfession] = useState("");
   const [secondProfession, setSecondProfession] = useState("");
@@ -318,8 +375,6 @@ export const CharacterStatsContextProvider = ({ children }) => {
       setDisabilitiesChance(disabilitiesChance - 5);
     }
   };
-
-  
 
   function updateAbilitiesData(path, value) {
     setAbilities((prev) => {

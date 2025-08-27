@@ -346,6 +346,7 @@ const Summary = () => {
           value={`${context.disabilities[3].disabilitieName}`}
         />
         <StatRow label="ZDOLNOŚCI NADNATURALNE:" value={``} />
+       
         <StatRow label="1." value={`${context.abilities[0].abilitieName}`} />
         <StatRow label="2." value={`${context.abilities[1].abilitieName}`} />
         <StatRow
