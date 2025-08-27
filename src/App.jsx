@@ -86,7 +86,7 @@ function App() {
 
   const handleNext = () => {
     const currentPath = window.location.pathname;
-    if (currentPath === "/kc-vite-app/chapter1") {
+    if (currentPath === "/kc-vite-app") {
       navigateTo("/kc-vite-app/chapter2");
     } else if (currentPath === "/kc-vite-app/chapter2") {
       navigateTo("/kc-vite-app/chapter3");
@@ -105,13 +105,13 @@ function App() {
     } else if (currentPath === "/kc-vite-app/chapter8") {
       navigateTo("/kc-vite-app/chapter9");
     } else if (currentPath === "/kc-vite-app/chapter9") {
-      navigateTo("/kc-vite-app/chapter1");
+      navigateTo("/kc-vite-app");
     }
   };
 
   const handlePrevious = () => {
     const currentPath = window.location.pathname;
-    if (currentPath === "/kc-vite-app/chapter1") {
+    if (currentPath === "/kc-vite-app") {
       navigateTo("/kc-vite-app/chapter9");
     } else if (currentPath === "/kc-vite-app/chapter9") {
       navigateTo("/kc-vite-app/chapter8");
@@ -130,10 +130,8 @@ function App() {
     } else if (currentPath === "/kc-vite-app/chapter3") {
       navigateTo("/kc-vite-app/chapter2");
     } else if (currentPath === "/kc-vite-app/chapter2") {
-      navigateTo("/kc-vite-app/");
-    } else if (currentPath === "/kc-vite-app/chapter1") {
-      navigateTo("/kc-vite-app/chapter9");
-    }
+      navigateTo("/kc-vite-app");
+    } 
   };
 
   return (
@@ -198,7 +196,7 @@ function App() {
           <ScrollToTop />
           <Routes>
             <Route
-              path="/kc-vite-app/chapter1"
+              path="/kc-vite-app/"
               element={<Chapter1Page />}
             ></Route>
 

@@ -13,7 +13,7 @@ export const Menu = () => {
           <ul className="[&>*]:my-2">
             <li>
               <NavLink
-                to="/kc-vite-app/chapter1"
+                to="/kc-vite-app/"
                 className={({ isActive }) =>
                   isActive
                     ? "pl-8 transition-all ease-in-out delay-250 text-red-800"
