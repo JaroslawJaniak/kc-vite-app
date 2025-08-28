@@ -50,6 +50,12 @@ const Summary = () => {
           context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0
         );
       },
+      get careerStatsModifier() {
+        return (
+          context.diceRollResult.careerStatsModifier[this.key] +
+            context.career.statsModifier || 0
+        );
+      },
     },
     {
       key: "SF",
@@ -74,6 +80,12 @@ const Summary = () => {
       get abilitieStatsModifier() {
         return (
           context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0
+        );
+      },
+      get careerStatsModifier() {
+        return (
+          context.diceRollResult.careerStatsModifier[this.key] +
+            context.career.statsModifier || 0
         );
       },
     },
@@ -102,6 +114,12 @@ const Summary = () => {
           context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0
         );
       },
+      get careerStatsModifier() {
+        return (
+          context.diceRollResult.careerStatsModifier[this.key] +
+            context.career.statsModifier || 0
+        );
+      },
     },
     {
       key: "SZ",
@@ -126,6 +144,12 @@ const Summary = () => {
       get abilitieStatsModifier() {
         return (
           context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0
+        );
+      },
+      get careerStatsModifier() {
+        return (
+          context.diceRollResult.careerStatsModifier[this.key] +
+            context.career.statsModifier || 0
         );
       },
     },
@@ -154,6 +178,12 @@ const Summary = () => {
           context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0
         );
       },
+      get careerStatsModifier() {
+        return (
+          context.diceRollResult.careerStatsModifier[this.key] +
+            context.career[0].statsModifier || 0
+        );
+      },
     },
     {
       key: "MD",
@@ -178,6 +208,12 @@ const Summary = () => {
       get abilitieStatsModifier() {
         return (
           context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0
+        );
+      },
+      get careerStatsModifier() {
+        return (
+          context.diceRollResult.careerStatsModifier[this.key] +
+            context.career.statsModifier || 0
         );
       },
     },
@@ -206,6 +242,12 @@ const Summary = () => {
           context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0
         );
       },
+      get careerStatsModifier() {
+        return (
+          context.diceRollResult.careerStatsModifier[this.key] +
+            context.career.statsModifier || 0
+        );
+      },
     },
     {
       key: "WI",
@@ -232,6 +274,12 @@ const Summary = () => {
           context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0
         );
       },
+      get careerStatsModifier() {
+        return (
+          context.diceRollResult.careerStatsModifier[this.key] +
+            context.career.statsModifier || 0
+        );
+      },
     },
     {
       key: "ZW",
@@ -256,6 +304,12 @@ const Summary = () => {
       get abilitieStatsModifier() {
         return (
           context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0
+        );
+      },
+      get careerStatsModifier() {
+        return (
+          context.diceRollResult.careerStatsModifier[this.key] +
+            context.career.statsModifier || 0
         );
       },
     },
@@ -286,6 +340,12 @@ const Summary = () => {
           context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0
         );
       },
+      get careerStatsModifier() {
+        return (
+          context.diceRollResult.careerStatsModifier[this.key] +
+            context.career.statsModifier || 0
+        );
+      },
     },
     {
       key: "PR",
@@ -310,6 +370,12 @@ const Summary = () => {
       get abilitieStatsModifier() {
         return (
           context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0
+        );
+      },
+      get careerStatsModifier() {
+        return (
+          context.diceRollResult.careerStatsModifier[this.key] +
+            context.career.statsModifier || 0
         );
       },
     },
@@ -561,6 +627,7 @@ const Summary = () => {
             baseValue,
             bonusSocialClassValue,
             abilitieStatsModifier,
+            careerStatsModifier,
           }) => (
             <StatRow
               key={key}
@@ -569,6 +636,7 @@ const Summary = () => {
                 baseValue,
                 bonusSocialClassValue && `+ (${bonusSocialClassValue})`,
                 abilitieStatsModifier && `+ (${abilitieStatsModifier})`,
+                careerStatsModifier && `+ (${careerStatsModifier})`,
               ]
                 .filter(Boolean) // usuwa false/null/undefined
                 .join(" ")}

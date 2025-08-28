@@ -49,6 +49,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
       disabilitieName: "",
       disabilitieDescription: "",
       statsModifier: 0,
+      isPremium: false,
       n: 0,
       k: 0,
     },
@@ -56,6 +57,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
       disabilitieName: "",
       disabilitieDescription: "",
       statsModifier: 0,
+      isPremium: false,
       n: 0,
       k: 0,
     },
@@ -63,6 +65,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
       disabilitieName: "",
       disabilitieDescription: "",
       statsModifier: 0,
+      isPremium: false,
       n: 0,
       k: 0,
     },
@@ -70,6 +73,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
       disabilitieName: "",
       disabilitieDescription: "",
       statsModifier: 0,
+      isPremium: false,
       n: 0,
       k: 0,
     },
@@ -84,6 +88,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
       abilitieDescription: "",
       statsModifierKey: "",
       statsModifier: 0,
+      isPremium: false,
       n: 0,
       k: 0,
     },
@@ -92,6 +97,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
       abilitieDescription: "",
       statsModifierKey: "",
       statsModifier: 0,
+      isPremium: false,
       n: 0,
       k: 0,
     },
@@ -101,8 +107,18 @@ export const CharacterStatsContextProvider = ({ children }) => {
     {
       name: "",
       description: "",
+      statsModifierKey: "INT",
+      statsModifier: 20,
+      isPremium: true,
+      n: 1,
+      k: 10,
+    },
+    {
+      name: "",
+      description: "",
       statsModifierKey: "",
       statsModifier: 0,
+      isPremium: false,
       n: 0,
       k: 0,
     },
@@ -111,6 +127,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
       description: "",
       statsModifierKey: "",
       statsModifier: 0,
+      isPremium: false,
       n: 0,
       k: 0,
     },
@@ -119,6 +136,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
       description: "",
       statsModifierKey: "",
       statsModifier: 0,
+      isPremium: false,
       n: 0,
       k: 0,
     },
@@ -127,6 +145,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
       description: "",
       statsModifierKey: "",
       statsModifier: 0,
+      isPremium: false,
       n: 0,
       k: 0,
     },
@@ -135,6 +154,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
       description: "",
       statsModifierKey: "",
       statsModifier: 0,
+      isPremium: false,
       n: 0,
       k: 0,
     },
@@ -143,6 +163,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
       description: "",
       statsModifierKey: "",
       statsModifier: 0,
+      isPremium: false,
       n: 0,
       k: 0,
     },
@@ -151,6 +172,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
       description: "",
       statsModifierKey: "",
       statsModifier: 0,
+      isPremium: false,
       n: 0,
       k: 0,
     },
@@ -159,6 +181,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
       description: "",
       statsModifierKey: "",
       statsModifier: 0,
+      isPremium: false,
       n: 0,
       k: 0,
     },
@@ -167,6 +190,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
       description: "",
       statsModifierKey: "",
       statsModifier: 0,
+      isPremium: false,
       n: 0,
       k: 0,
     },
@@ -175,6 +199,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
       description: "",
       statsModifierKey: "",
       statsModifier: 0,
+      isPremium: false,
       n: 0,
       k: 0,
     },
@@ -183,6 +208,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
       description: "",
       statsModifierKey: "",
       statsModifier: 0,
+      isPremium: false,
       n: 0,
       k: 0,
     },
@@ -191,6 +217,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
       description: "",
       statsModifierKey: "",
       statsModifier: 0,
+      isPremium: false,
       n: 0,
       k: 0,
     },
@@ -199,6 +226,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
       description: "",
       statsModifierKey: "",
       statsModifier: 0,
+      isPremium: false,
       n: 0,
       k: 0,
     },
@@ -207,20 +235,11 @@ export const CharacterStatsContextProvider = ({ children }) => {
       description: "",
       statsModifierKey: "",
       statsModifier: 0,
-      n: 0,
-      k: 0,
-    },
-    {
-      name: "",
-      description: "",
-      statsModifierKey: "",
-      statsModifier: 0,
+      isPremium: false,
       n: 0,
       k: 0,
     },
   ]);
-
-  
 
   const updateCareer = (key, value) => {
     setCareer((prev) => ({
@@ -245,8 +264,6 @@ export const CharacterStatsContextProvider = ({ children }) => {
   //     },
   //   ]);
   // };
-
-  
 
   const [firstProfession, setFirstProfession] = useState("");
   const [secondProfession, setSecondProfession] = useState("");
@@ -848,6 +865,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
     abilitiesStatsModifier: {},
     careerNumber: 0,
     career: {},
+    careerStatsModifier: {},
     proficiency: {},
   });
 

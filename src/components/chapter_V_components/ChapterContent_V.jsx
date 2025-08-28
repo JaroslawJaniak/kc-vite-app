@@ -7,7 +7,7 @@ import ChapterContent_V_table2b from "./ChapterContent_V_table2b";
 import { chp5_table2 } from "./chp5_table2";
 import chp5_info from "./chp5_info";
 import DiceButtonComponent from "../utils/buttons/kDice/DiceButtonComponent";
-
+import ChapterContent_Vb from "./ChapterContent_Vb";
 import { dataHeight } from "./chp5_data";
 import { dataWeight } from "./chp5_data";
 
@@ -134,12 +134,13 @@ const ChapterContent_V = () => {
             path={["WeightDice"]}
             toggleClick={context.toggleClick}
             updateDiceRollResult={context.updateDiceRollResult}
-            
             resolveDiceRoll={(path, diceRoll) => k100RollWeightResult(diceRoll)}
             className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5  my-2  mr-2 w-24 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
           />{" "}
           waga: {context.weight} kg;
         </div>
+        <p>VI.c Modyfikacje wynikające z wagi</p>
+        <ChapterContent_Vb />
       </div>
       <div hidden={!isRaceGenderChecked && !context.maleChecked}>
         <ChapterContent_V_table2a item={chp5_table2} />

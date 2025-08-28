@@ -26,18 +26,46 @@ const DiceButtonComponent = (props) => {
       // Zmiana stanu przez context
       let diceRoll = kDice(n, k, isPremium); // Rzut kością i uzyskanie wyniku
 
-      console.log(`Rolling1 from button ${n}d${k}: ${diceRoll}`);
       if (
         path[0] === "baseStatsDice" &&
         (path[1] === context.abilities[0].statsModifierKey ||
           path[1] === context.abilities[1].statsModifierKey)
       ) {
         const premiumDiceRoll = kDice(1, 10, true);
-        
+
         updateDiceRollResult(
           ["abilitiesStatsModifier", path[1]],
           premiumDiceRoll
         );
+      }
+
+      console.log("path: ", path[1]);
+      console.log(
+        "has path: ",
+        context.career.some((el) => el.statsModifierKey === path[1])
+      );
+
+      //const index = context.career.findIndex(el => el.statsModifierKey === path[1]);
+
+      if (context.career.some((el) => el.statsModifierKey === path[1])) {
+        const index = context.career.findIndex(
+          (el) => el.statsModifierKey === path[1]
+        );
+
+        console.log("--- path inside if: ", path[1]);
+        console.log(
+          "--- career path inside if: ",
+          context.career[index].n,
+          context.career[index].k,
+          context.career[index].isPremium
+        );
+        const premiumDiceRoll = kDice(
+          context.career[index].n,
+          context.career[index].k,
+          context.career[index].isPremium
+        );
+        console.log("--- premiumDiceRoll inside if: ", premiumDiceRoll);
+        updateDiceRollResult(["careerStatsModifier", path[1], `result${index}`], premiumDiceRoll);
       }
 
       toggleClick(path); // Zmiana stanu kliknięcia przycisku
