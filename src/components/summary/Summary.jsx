@@ -25,96 +25,293 @@ const Summary = () => {
 
   //tutaj porównać max i podem w calculate dodawać bez Max.math
   const stats = [
-    { key: "ŻYW", label: "ŻYW", diceRoll: null },
+    {
+      key: "ŻYW",
+      label: "ŻYW",
+      get diceRoll() {
+        return context.safeMax(
+          context.diceRollResult?.baseStatsDice?.[this.key]?.result1,
+          context.diceRollResult?.baseStatsDice?.[this.key]?.result2,
+          context.diceRollResult?.baseStatsDice?.[this.key]?.result3
+        );
+      },
+      get baseValue() {
+        return calculateStat(
+          context.baseRaceStats[this.key],
+          this.diceRoll,
+          context.firstProfessionData.stats[this.key],
+          context.secondProfessionData.stats[this.key],
+          context.diceRollResult.bonusBaseStatsDice[this.key]
+        );
+      },
+      get bonusSocialClassValue() {},
+      get abilitieStatsModifier() {
+        return (
+          context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0
+        );
+      },
+    },
     {
       key: "SF",
       label: "SF",
-      diceRoll: context.safeMax(
-        context.diceRollResult?.baseStatsDice?.SF?.result1,
-        context.diceRollResult?.baseStatsDice?.SF?.result2,
-        context.diceRollResult?.baseStatsDice?.SF?.result3
-      ),
+      get diceRoll() {
+        return context.safeMax(
+          context.diceRollResult?.baseStatsDice?.[this.key]?.result1,
+          context.diceRollResult?.baseStatsDice?.[this.key]?.result2,
+          context.diceRollResult?.baseStatsDice?.[this.key]?.result3
+        );
+      },
+      get baseValue() {
+        return calculateStat(
+          context.baseRaceStats[this.key],
+          this.diceRoll,
+          context.firstProfessionData.stats[this.key],
+          context.secondProfessionData.stats[this.key],
+          context.diceRollResult.bonusBaseStatsDice[this.key]
+        );
+      },
+      get bonusSocialClassValue() {},
+      get abilitieStatsModifier() {
+        return (
+          context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0
+        );
+      },
     },
     {
       key: "ZR",
       label: "ZR",
-      diceRoll: context.safeMax(
-        context.diceRollResult?.baseStatsDice?.ZR?.result1,
-        context.diceRollResult?.baseStatsDice?.ZR?.result2,
-        context.diceRollResult?.baseStatsDice?.ZR?.result3
-      ),
+      get diceRoll() {
+        return context.safeMax(
+          context.diceRollResult?.baseStatsDice?.[this.key]?.result1,
+          context.diceRollResult?.baseStatsDice?.[this.key]?.result2,
+          context.diceRollResult?.baseStatsDice?.[this.key]?.result3
+        );
+      },
+      get baseValue() {
+        return calculateStat(
+          context.baseRaceStats[this.key],
+          this.diceRoll,
+          context.firstProfessionData.stats[this.key],
+          context.secondProfessionData.stats[this.key],
+          context.diceRollResult.bonusBaseStatsDice[this.key]
+        );
+      },
+      get bonusSocialClassValue() {},
+      get abilitieStatsModifier() {
+        return (
+          context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0
+        );
+      },
     },
     {
       key: "SZ",
       label: "SZ",
-      diceRoll: context.safeMax(
-        context.diceRollResult?.baseStatsDice?.SZ?.result1,
-        context.diceRollResult?.baseStatsDice?.SZ?.result2,
-        context.diceRollResult?.baseStatsDice?.SZ?.result3
-      ),
+      get diceRoll() {
+        return context.safeMax(
+          context.diceRollResult?.baseStatsDice?.[this.key]?.result1,
+          context.diceRollResult?.baseStatsDice?.[this.key]?.result2,
+          context.diceRollResult?.baseStatsDice?.[this.key]?.result3
+        );
+      },
+      get baseValue() {
+        return calculateStat(
+          context.baseRaceStats[this.key],
+          this.diceRoll,
+          context.firstProfessionData.stats[this.key],
+          context.secondProfessionData.stats[this.key],
+          context.diceRollResult.bonusBaseStatsDice[this.key]
+        );
+      },
+      get bonusSocialClassValue() {},
+      get abilitieStatsModifier() {
+        return (
+          context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0
+        );
+      },
     },
     {
       key: "INT",
       label: "INT",
-      diceRoll: context.safeMax(
-        context.diceRollResult?.baseStatsDice?.INT?.result1,
-        context.diceRollResult?.baseStatsDice?.INT?.result2,
-        context.diceRollResult?.baseStatsDice?.INT?.result3
-      ),
+      get diceRoll() {
+        return context.safeMax(
+          context.diceRollResult?.baseStatsDice?.[this.key]?.result1,
+          context.diceRollResult?.baseStatsDice?.[this.key]?.result2,
+          context.diceRollResult?.baseStatsDice?.[this.key]?.result3
+        );
+      },
+      get baseValue() {
+        return calculateStat(
+          context.baseRaceStats[this.key],
+          this.diceRoll,
+          context.firstProfessionData.stats[this.key],
+          context.secondProfessionData.stats[this.key],
+          context.diceRollResult.bonusBaseStatsDice[this.key]
+        );
+      },
+      get bonusSocialClassValue() {},
+      get abilitieStatsModifier() {
+        return (
+          context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0
+        );
+      },
     },
     {
       key: "MD",
       label: "MD",
-      diceRoll: context.safeMax(
-        context.diceRollResult?.baseStatsDice?.MD?.result1,
-        context.diceRollResult?.baseStatsDice?.MD?.result2,
-        context.diceRollResult?.baseStatsDice?.MD?.result3
-      ),
+      get diceRoll() {
+        return context.safeMax(
+          context.diceRollResult?.baseStatsDice?.[this.key]?.result1,
+          context.diceRollResult?.baseStatsDice?.[this.key]?.result2,
+          context.diceRollResult?.baseStatsDice?.[this.key]?.result3
+        );
+      },
+      get baseValue() {
+        return calculateStat(
+          context.baseRaceStats[this.key],
+          this.diceRoll,
+          context.firstProfessionData.stats[this.key],
+          context.secondProfessionData.stats[this.key],
+          context.diceRollResult.bonusBaseStatsDice[this.key]
+        );
+      },
+      get bonusSocialClassValue() {},
+      get abilitieStatsModifier() {
+        return (
+          context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0
+        );
+      },
     },
     {
       key: "UM",
       label: "UM",
-      diceRoll: context.safeMax(
-        context.diceRollResult?.baseStatsDice?.UM?.result1,
-        context.diceRollResult?.baseStatsDice?.UM?.result2,
-        context.diceRollResult?.baseStatsDice?.UM?.result3
-      ),
+      get diceRoll() {
+        return context.safeMax(
+          context.diceRollResult?.baseStatsDice?.[this.key]?.result1,
+          context.diceRollResult?.baseStatsDice?.[this.key]?.result2,
+          context.diceRollResult?.baseStatsDice?.[this.key]?.result3
+        );
+      },
+      get baseValue() {
+        return calculateStat(
+          context.baseRaceStats[this.key],
+          this.diceRoll,
+          context.firstProfessionData.stats[this.key],
+          context.secondProfessionData.stats[this.key],
+          context.diceRollResult.bonusBaseStatsDice[this.key]
+        );
+      },
+      get bonusSocialClassValue() {},
+      get abilitieStatsModifier() {
+        return (
+          context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0
+        );
+      },
     },
     {
       key: "WI",
       label: "WI",
-      diceRoll: context.safeMax(
-        context.diceRollResult?.baseStatsDice?.WI?.result1,
-        context.diceRollResult?.baseStatsDice?.WI?.result2,
-        context.diceRollResult?.baseStatsDice?.WI?.result3
-      ),
+      get diceRoll() {
+        return context.safeMax(
+          context.diceRollResult?.baseStatsDice?.[this.key]?.result1,
+          context.diceRollResult?.baseStatsDice?.[this.key]?.result2,
+          context.diceRollResult?.baseStatsDice?.[this.key]?.result3
+        );
+      },
+      get baseValue() {
+        return calculateStat(
+          context.baseRaceStats[this.key],
+          this.diceRoll,
+          context.firstProfessionData.stats[this.key],
+          context.secondProfessionData.stats[this.key],
+          context.diceRollResult.bonusBaseStatsDice[this.key]
+        );
+      },
+      get bonusSocialClassValue() {},
+      get abilitieStatsModifier() {
+        return (
+          context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0
+        );
+      },
     },
     {
       key: "ZW",
       label: "ZW",
-      diceRoll: context.safeMax(
-        context.diceRollResult?.baseStatsDice?.ZW?.result1,
-        context.diceRollResult?.baseStatsDice?.ZW?.result2,
-        context.diceRollResult?.baseStatsDice?.ZW?.result3
-      ),
+      get diceRoll() {
+        return context.safeMax(
+          context.diceRollResult?.baseStatsDice?.[this.key]?.result1,
+          context.diceRollResult?.baseStatsDice?.[this.key]?.result2,
+          context.diceRollResult?.baseStatsDice?.[this.key]?.result3
+        );
+      },
+      get baseValue() {
+        return calculateStat(
+          context.baseRaceStats[this.key],
+          this.diceRoll,
+          context.firstProfessionData.stats[this.key],
+          context.secondProfessionData.stats[this.key],
+          context.diceRollResult.bonusBaseStatsDice[this.key]
+        );
+      },
+      get bonusSocialClassValue() {},
+      get abilitieStatsModifier() {
+        return (
+          context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0
+        );
+      },
     },
     {
       key: "CH",
       label: "CH",
-      diceRoll: context.safeMax(
-        context.diceRollResult?.baseStatsDice?.CH?.result1,
-        context.diceRollResult?.baseStatsDice?.CH?.result2,
-        context.diceRollResult?.baseStatsDice?.CH?.result3
-      ),
+      get diceRoll() {
+        return context.safeMax(
+          context.diceRollResult?.baseStatsDice?.[this.key]?.result1,
+          context.diceRollResult?.baseStatsDice?.[this.key]?.result2,
+          context.diceRollResult?.baseStatsDice?.[this.key]?.result3
+        );
+      },
+      get baseValue() {
+        return calculateStat(
+          context.baseRaceStats[this.key],
+          this.diceRoll,
+          context.firstProfessionData.stats[this.key],
+          context.secondProfessionData.stats[this.key],
+          context.diceRollResult.bonusBaseStatsDice[this.key]
+        );
+      },
+      get bonusSocialClassValue() {
+        return context.socialClassData.statsModifier || 0;
+      },
+      get abilitieStatsModifier() {
+        return (
+          context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0
+        );
+      },
     },
     {
       key: "PR",
       label: "PR",
-      diceRoll: context.safeMax(
-        context.diceRollResult?.baseStatsDice?.PR?.result1,
-        context.diceRollResult?.baseStatsDice?.PR?.result2,
-        context.diceRollResult?.baseStatsDice?.PR?.result3
-      ),
+      get diceRoll() {
+        return context.safeMax(
+          context.diceRollResult?.baseStatsDice?.[this.key]?.result1,
+          context.diceRollResult?.baseStatsDice?.[this.key]?.result2,
+          context.diceRollResult?.baseStatsDice?.[this.key]?.result3
+        );
+      },
+      get baseValue() {
+        return calculateStat(
+          context.baseRaceStats[this.key],
+          this.diceRoll,
+          context.firstProfessionData.stats[this.key],
+          context.secondProfessionData.stats[this.key],
+          context.diceRollResult.bonusBaseStatsDice[this.key]
+        );
+      },
+      get bonusSocialClassValue() {},
+      get abilitieStatsModifier() {
+        return (
+          context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0
+        );
+      },
     },
   ];
 
@@ -356,32 +553,25 @@ const Summary = () => {
         <p>
           <b>WSPÓŁCZYNNIKI:</b>
         </p>
-        {stats.map(({ key, label, diceRoll }) =>
-          key !== "CH" ? (
+        {stats.map(
+          ({
+            key,
+            label,
+            diceRoll,
+            baseValue,
+            bonusSocialClassValue,
+            abilitieStatsModifier,
+          }) => (
             <StatRow
               key={key}
               label={label + ":"}
-              value={calculateStat(
-                context.baseRaceStats[key],
-                diceRoll,
-                context.firstProfessionData.stats[key],
-                context.secondProfessionData.stats[key],
-                context.diceRollResult.bonusBaseStatsDice[key]
-              )}
-            />
-          ) : (
-            <StatRow
-              key={key}
-              label={label + ":"}
-              value={
-                calculateStat(
-                  context.baseRaceStats[key],
-                  diceRoll,
-                  context.firstProfessionData.stats[key],
-                  context.secondProfessionData.stats[key],
-                  context.diceRollResult.bonusBaseStatsDice[key]
-                ) + (context.socialClassData.statsModifier || 0)
-              }
+              value={[
+                baseValue,
+                bonusSocialClassValue && `+ (${bonusSocialClassValue})`,
+                abilitieStatsModifier && `+ (${abilitieStatsModifier})`,
+              ]
+                .filter(Boolean) // usuwa false/null/undefined
+                .join(" ")}
             />
           )
         )}
