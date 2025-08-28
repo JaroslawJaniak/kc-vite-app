@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import { CharacterStatsContext } from "../../context/CharacterStatsContext";
 import { NewLineText } from "../utils/NewLineText";
-import styles from "./summary.module.css";
+
 
 const StatRow = ({ label, value }) => (
   <p>
