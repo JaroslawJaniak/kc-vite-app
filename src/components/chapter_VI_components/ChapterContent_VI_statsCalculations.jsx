@@ -272,7 +272,6 @@ export const ChapterContent_VI_statsCalculations = () => {
                   context.secondProfessionData.stats.ZR
                 ) +
                 context.diceRollResult.bonusBaseStatsDice.ZR}
-              {context.diceRollResult?.abilitiesStatsModifier?.ZR || 0}
             </td>
           </tr>
           <tr>
