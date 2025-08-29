@@ -16,7 +16,7 @@ export const ChapterContent_VI_statsCalculations = () => {
   }, []);
 
   const hasAbility = (abilities, name) => {
-    return abilities.some((a) => a.abilitieName === name);
+    return abilities.some((a) => a?.abilitieName === name);
   };
 
   return (

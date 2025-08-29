@@ -181,7 +181,7 @@ const Summary = () => {
       get careerStatsModifier() {
         return (
           context.diceRollResult.careerStatsModifier[this.key] +
-            context.career[0].statsModifier || 0
+            context.career.statsModifier || 0
         );
       },
     },
@@ -698,9 +698,9 @@ const Summary = () => {
         <p>
           <b>ZAWODY:</b>
         </p>{" "}
-        {Array.from({ length: context.careerNumber }, (_, i) => (
+        {/* {Array.from({ length: context.careerNumber }, (_, i) => (
           <StatRow key={i} label={`${i + 1}.`} value={context.career[i].name} />
-        ))}
+        ))} */}
       </article>
     </section>
   );

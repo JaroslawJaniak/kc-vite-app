@@ -50,8 +50,6 @@ export const ChapterContent_VII_career = () => {
   let newDiceRollValue = 0;
 
   const careerResolveDiceRoll = (path, k) => {
-    const index = context.getIndexFromKey(path);
-
     // najpierw oblicz k na podstawie start
     newDiceRollValue = adjustK(k, start);
 
@@ -59,9 +57,23 @@ export const ChapterContent_VII_career = () => {
     const fn = careerMap[end];
     if (fn) {
       const career = fn(newDiceRollValue);
-      context.updateCareer(index, career);
+      context.updateCareer(career);
     }
   };
+
+  // const careerResolveDiceRoll = (path, k) => {
+  //   const index = context.getIndexFromKey(path);
+
+  //   // najpierw oblicz k na podstawie start
+  //   newDiceRollValue = adjustK(k, start);
+
+  //   // wybór klasy na podstawie end
+  //   const fn = careerMap[end];
+  //   if (fn) {
+  //     const career = fn(newDiceRollValue);
+  //     context.updateCareer(index, career);
+  //   }
+  // };
 
   const careerResolveDiceRollClassN = (path, k) => {
     const index = context.getIndexFromKey(path);
@@ -118,9 +130,9 @@ export const ChapterContent_VII_career = () => {
                 resolveDiceRoll={careerResolveDiceRoll}
                 className={context.btnStyle}
               />{" "}
-              <span>{context.career[i].name}</span>{" "}
+              <span>{context.career[i]?.name}</span>{" "}
               <>
-                {context.career[i].name ===
+                {context.career[i]?.name ===
                 "rzuć jeszcze raz  i sprawdź na liście zawodów klasy średniej" ? (
                   <DiceButtonComponent
                     n={1}
@@ -145,7 +157,7 @@ export const ChapterContent_VII_career = () => {
                 )}
               </>
               <>
-                {context.career[i].name ===
+                {context.career[i]?.name ===
                 "rzuć jeszcze raz  i sprawdź na liście zawodów klasy wyższej" ? (
                   <DiceButtonComponent
                     n={1}
@@ -170,7 +182,7 @@ export const ChapterContent_VII_career = () => {
                 )}
               </>
               <>
-                {context.career[i].name ===
+                {context.career[i]?.name ===
                 "rzuć jeszcze raz  i sprawdź na liście zawodów klasy niższej" ? (
                   <DiceButtonComponent
                     n={1}
@@ -194,7 +206,7 @@ export const ChapterContent_VII_career = () => {
                   ""
                 )}
               </>{" "}
-              <span>{context.career[careerNumber + i].name}</span>
+              <span>{context.career[careerNumber + i]?.name || ""}</span>
             </li>
           ))}
         </ul>

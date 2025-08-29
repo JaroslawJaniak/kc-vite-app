@@ -38,15 +38,19 @@ const DiceButtonComponent = (props) => {
           premiumDiceRoll
         );
       }
+      toggleClick(path); // Zmiana stanu kliknięcia przycisku
+      updateDiceRollResult(path, diceRoll); // updateDiceRollResult(["baseStatsDice", "SF", "value2"], 15);
+      console.log(`Rolling2 from button ${n}d${k}: ${diceRoll}`); // Logowanie informacji o rzucie
 
-      console.log("path: ", path[1]);
-      console.log(
-        "has path: ",
-        context.career.some((el) => el.statsModifierKey === path[1])
-      );
+      resolveDiceRoll(path[1], diceRoll); // Wywołanie funkcji resolveDiceRoll z wynikiem rzutu
+      // console.log("path: ", path[1]);
+      // console.log(
+      //   "has path: ",
+      //   context.career.some((el) => el.statsModifierKey === path[1])
+      // );
 
       //const index = context.career.findIndex(el => el.statsModifierKey === path[1]);
-
+      /*
       if (context.career.some((el) => el.statsModifierKey === path[1])) {
         const index = context.career.findIndex(
           (el) => el.statsModifierKey === path[1]
@@ -67,12 +71,7 @@ const DiceButtonComponent = (props) => {
         console.log("--- premiumDiceRoll inside if: ", premiumDiceRoll);
         updateDiceRollResult(["careerStatsModifier", path[1], `result${index}`], premiumDiceRoll);
       }
-
-      toggleClick(path); // Zmiana stanu kliknięcia przycisku
-      updateDiceRollResult(path, diceRoll); // updateDiceRollResult(["baseStatsDice", "SF", "value2"], 15);
-      console.log(`Rolling2 from button ${n}d${k}: ${diceRoll}`); // Logowanie informacji o rzucie
-
-      resolveDiceRoll(path[1], diceRoll); // Wywołanie funkcji resolveDiceRoll z wynikiem rzutu
+*/
     }
   };
 

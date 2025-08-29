@@ -103,144 +103,19 @@ export const CharacterStatsContextProvider = ({ children }) => {
     },
   ]);
 
-  const [career, setCareer] = useState([
-    {
-      name: "",
-      description: "",
-      statsModifierKey: "INT",
-      statsModifier: 20,
-      isPremium: true,
-      n: 1,
-      k: 10,
-    },
-    {
-      name: "",
-      description: "",
-      statsModifierKey: "",
-      statsModifier: 0,
-      isPremium: false,
-      n: 0,
-      k: 0,
-    },
-    {
-      name: "",
-      description: "",
-      statsModifierKey: "",
-      statsModifier: 0,
-      isPremium: false,
-      n: 0,
-      k: 0,
-    },
-    {
-      name: "",
-      description: "",
-      statsModifierKey: "",
-      statsModifier: 0,
-      isPremium: false,
-      n: 0,
-      k: 0,
-    },
-    {
-      name: "",
-      description: "",
-      statsModifierKey: "",
-      statsModifier: 0,
-      isPremium: false,
-      n: 0,
-      k: 0,
-    },
-    {
-      name: "",
-      description: "",
-      statsModifierKey: "",
-      statsModifier: 0,
-      isPremium: false,
-      n: 0,
-      k: 0,
-    },
-    {
-      name: "",
-      description: "",
-      statsModifierKey: "",
-      statsModifier: 0,
-      isPremium: false,
-      n: 0,
-      k: 0,
-    },
-    {
-      name: "",
-      description: "",
-      statsModifierKey: "",
-      statsModifier: 0,
-      isPremium: false,
-      n: 0,
-      k: 0,
-    },
-    {
-      name: "",
-      description: "",
-      statsModifierKey: "",
-      statsModifier: 0,
-      isPremium: false,
-      n: 0,
-      k: 0,
-    },
-    {
-      name: "",
-      description: "",
-      statsModifierKey: "",
-      statsModifier: 0,
-      isPremium: false,
-      n: 0,
-      k: 0,
-    },
-    {
-      name: "",
-      description: "",
-      statsModifierKey: "",
-      statsModifier: 0,
-      isPremium: false,
-      n: 0,
-      k: 0,
-    },
-    {
-      name: "",
-      description: "",
-      statsModifierKey: "",
-      statsModifier: 0,
-      isPremium: false,
-      n: 0,
-      k: 0,
-    },
-    {
-      name: "",
-      description: "",
-      statsModifierKey: "",
-      statsModifier: 0,
-      isPremium: false,
-      n: 0,
-      k: 0,
-    },
-    {
-      name: "",
-      description: "",
-      statsModifierKey: "",
-      statsModifier: 0,
-      isPremium: false,
-      n: 0,
-      k: 0,
-    },
-    {
-      name: "",
-      description: "",
-      statsModifierKey: "",
-      statsModifier: 0,
-      isPremium: false,
-      n: 0,
-      k: 0,
-    },
-  ]);
+  const [career, setCareer] = useState([]);
 
+  // {
+  //     name: "",
+  //     description: "",
+  //     statsModifierKey: "INT",
+  //     statsModifier: 20,
+  //     isPremium: true,
+  //     n: 1,
+  //     k: 10,
+  //   },
+
+  /*
   const updateCareer = (key, value) => {
     setCareer((prev) => ({
       ...prev,
@@ -250,20 +125,21 @@ export const CharacterStatsContextProvider = ({ children }) => {
       },
     }));
   };
+*/
 
-  // const updateCareer = (newCareer) => {
-  //   setCareer((prevCareer) => [
-  //     ...prevCareer,
-  //     {
-  //       name: newCareer.name || "",
-  //       description: newCareer.description || "",
-  //       statsModifierKey: newCareer.statsModifierKey || "",
-  //       statsModifier: newCareer.statsModifier || 0,
-  //       n: newCareer.n || 0,
-  //       k: newCareer.k || 0,
-  //     },
-  //   ]);
-  // };
+  const updateCareer = (newCareer) => {
+    setCareer((prevCareer) => [
+      ...prevCareer,
+      {
+        name: newCareer.name || "",
+        description: newCareer.description || "",
+        statsModifierKey: newCareer.statsModifierKey || "",
+        statsModifier: newCareer.statsModifier || 0,
+        n: newCareer.n || 0,
+        k: newCareer.k || 0,
+      },
+    ]);
+  };
 
   const [firstProfession, setFirstProfession] = useState("");
   const [secondProfession, setSecondProfession] = useState("");
