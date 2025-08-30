@@ -145,9 +145,9 @@ export const ChapterContent_VII_career = () => {
                 {context.career[i]?.statsModifierKey}
                 {context.career[i]?.statsModifierKey ? (
                   <DiceButtonComponent
-                    n={1}
-                    k={10}
-                    isPremium={true}
+                    n={context.career[i]?.n}
+                    k={context.career[i]?.k}
+                    isPremium={context.career[i]?.isPremium}
                     diceRollResult={
                       context.diceRollResult?.careerStatsModifier[
                         context.career[i]?.statsModifierKey
@@ -184,15 +184,15 @@ export const ChapterContent_VII_career = () => {
                     n={1}
                     k={100}
                     diceRollResult={
-                      context.diceRollResult.career[`result${1 + i}`]
+                      context.diceRollResult.career[`result${careerNumber + i}`]
                     }
                     clicked={
-                      context.isClicked.career[`result${1 + i}`]
+                      context.isClicked.career[`result${careerNumber + i}`]
                     }
                     disabled={
-                      context.isClicked.career[`result${1 + i}`]
+                      context.isClicked.career[`result${careerNumber + i}`]
                     }
-                    path={["career", `result${1 + i}`]}
+                    path={["career", `result${careerNumber + i}`]}
                     toggleClick={context.toggleClick}
                     updateDiceRollResult={context.updateDiceRollResult}
                     resolveDiceRoll={careerResolveDiceRollClassS}
@@ -234,15 +234,15 @@ export const ChapterContent_VII_career = () => {
                     n={1}
                     k={100}
                     diceRollResult={
-                      context.diceRollResult.career[`result${1 + i}`]
+                      context.diceRollResult.career[`result${careerNumber + i}`]
                     }
                     clicked={
-                      context.isClicked.career[`result${1 + i}`]
+                      context.isClicked.career[`result${careerNumber + i}`]
                     }
                     disabled={
-                      context.isClicked.career[`result${1 + i}`]
+                      context.isClicked.career[`result${careerNumber + i}`]
                     }
-                    path={["career", `result${1 + i}`]}
+                    path={["career", `result${careerNumber + i}`]}
                     toggleClick={context.toggleClick}
                     updateDiceRollResult={context.updateDiceRollResult}
                     resolveDiceRoll={careerResolveDiceRollClassN}
@@ -252,33 +252,33 @@ export const ChapterContent_VII_career = () => {
                   ""
                 )}
               </>{" "}
-              <span>{context.career[1 + i]?.name || ""}</span>
+              <span>{context.career[careerNumber + i]?.name || ""}</span>
               <>
-                {context.career[i]?.statsModifierKey}
-                {context.career[i]?.statsModifierKey ? (
+                {context.career[careerNumber + i]?.statsModifierKey}
+                {context.career[careerNumber + i]?.statsModifierKey ? (
                   <DiceButtonComponent
-                    n={1}
-                    k={10}
-                    isPremium={true}
+                    n={context.career[i]?.n}
+                    k={context.career[i]?.k}
+                    isPremium={context.career[i]?.isPremium}
                     diceRollResult={
                       context.diceRollResult?.careerStatsModifier[
-                        context.career[i]?.statsModifierKey
-                      ][`result${i}`]
+                        context.career[careerNumber + i]?.statsModifierKey
+                      ][`result${careerNumber + i}`]
                     }
                     clicked={
                       context.isClicked?.careerStatsModifier[
-                        context.career[i]?.statsModifierKey
-                      ][`result${i}`]
+                        context.career[careerNumber + i]?.statsModifierKey
+                      ][`result${careerNumber + i}`]
                     }
                     disabled={
                       context.isClicked?.careerStatsModifier[
-                        context.career[i]?.statsModifierKey
-                      ][`result${i}`]
+                        context.career[careerNumber + i]?.statsModifierKey
+                      ][`result${careerNumber + i}`]
                     }
                     path={[
                       "careerStatsModifier",
-                      context.career[i]?.statsModifierKey,
-                      `result${i}`,
+                      context.career[careerNumber + i]?.statsModifierKey,
+                      `result${careerNumber + i}`,
                     ]}
                     toggleClick={context.toggleClick}
                     updateDiceRollResult={context.updateDiceRollResult}

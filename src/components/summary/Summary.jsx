@@ -2,7 +2,6 @@ import React, { useEffect, useContext } from "react";
 import { CharacterStatsContext } from "../../context/CharacterStatsContext";
 import { NewLineText } from "../utils/NewLineText";
 
-
 const StatRow = ({ label, value }) => (
   <p>
     <b>{label} </b>
@@ -17,6 +16,26 @@ const Summary = () => {
     return base + diceRoll + Math.max(firstProf, secondProf) + (bonus || 0);
   };
 
+  function sumObjectValues(obj) {
+    if (!obj || typeof obj !== "object") return 0;
+    return Object.values(obj).reduce((sum, value) => sum + value, 0);
+  }
+
+  function sumByKey(arr, key) {
+    return arr.reduce(
+      (acc, item) =>
+        item.statsModifierKey === key ? acc + item.statsModifier : acc,
+      0
+    );
+  }
+
+/*
+   function sumByKey(arr, key) {
+     return arr
+       .filter((item) => item.statsModifierKey === key) // bierzemy tylko pasujące
+       .reduce((sum, item) => sum + item.statsModifier, 0); // sumujemy wartości
+   }
+*/
   useEffect(() => {
     context.filterBaseRaceStatsByRaceName();
 
@@ -52,8 +71,8 @@ const Summary = () => {
       },
       get careerStatsModifier() {
         return (
-          context.diceRollResult.careerStatsModifier[this.key] +
-            context.career.statsModifier || 0
+          context.diceRollResult.careerStatsModifier[this.key] 
+            
         );
       },
     },
@@ -84,8 +103,10 @@ const Summary = () => {
       },
       get careerStatsModifier() {
         return (
-          context.diceRollResult.careerStatsModifier[this.key] +
-            context.career.statsModifier || 0
+          sumByKey(context.career, this.key) +
+          sumObjectValues(
+            context.diceRollResult.careerStatsModifier[this.key] || 0
+          )
         );
       },
     },
@@ -115,10 +136,12 @@ const Summary = () => {
         );
       },
       get careerStatsModifier() {
-        return (
-          context.diceRollResult.careerStatsModifier[this.key] +
-            context.career.statsModifier || 0
-        );
+       return (
+         sumByKey(context.career, this.key) +
+         sumObjectValues(
+           context.diceRollResult.careerStatsModifier[this.key] || 0
+         )
+       );
       },
     },
     {
@@ -148,8 +171,10 @@ const Summary = () => {
       },
       get careerStatsModifier() {
         return (
-          context.diceRollResult.careerStatsModifier[this.key] +
-            context.career.statsModifier || 0
+          sumByKey(context.career, this.key) +
+          sumObjectValues(
+            context.diceRollResult.careerStatsModifier[this.key] || 0
+          )
         );
       },
     },
@@ -179,10 +204,12 @@ const Summary = () => {
         );
       },
       get careerStatsModifier() {
-        return (
-          context.diceRollResult.careerStatsModifier[this.key] +
-            context.career.statsModifier || 0
-        );
+       return (
+         sumByKey(context.career, this.key) +
+         sumObjectValues(
+           context.diceRollResult.careerStatsModifier[this.key] || 0
+         )
+       );
       },
     },
     {
@@ -212,8 +239,10 @@ const Summary = () => {
       },
       get careerStatsModifier() {
         return (
-          context.diceRollResult.careerStatsModifier[this.key] +
-            context.career.statsModifier || 0
+          sumByKey(context.career, this.key) +
+          sumObjectValues(
+            context.diceRollResult.careerStatsModifier[this.key] || 0
+          )
         );
       },
     },
@@ -243,10 +272,12 @@ const Summary = () => {
         );
       },
       get careerStatsModifier() {
-        return (
-          context.diceRollResult.careerStatsModifier[this.key] +
-            context.career.statsModifier || 0
-        );
+       return (
+         sumByKey(context.career, this.key) +
+         sumObjectValues(
+           context.diceRollResult.careerStatsModifier[this.key] || 0
+         )
+       );
       },
     },
     {
@@ -275,10 +306,12 @@ const Summary = () => {
         );
       },
       get careerStatsModifier() {
-        return (
-          context.diceRollResult.careerStatsModifier[this.key] +
-            context.career.statsModifier || 0
-        );
+       return (
+         sumByKey(context.career, this.key) +
+         sumObjectValues(
+           context.diceRollResult.careerStatsModifier[this.key] || 0
+         )
+       );
       },
     },
     {
@@ -307,10 +340,12 @@ const Summary = () => {
         );
       },
       get careerStatsModifier() {
-        return (
-          context.diceRollResult.careerStatsModifier[this.key] +
-            context.career.statsModifier || 0
-        );
+       return (
+         sumByKey(context.career, this.key) +
+         sumObjectValues(
+           context.diceRollResult.careerStatsModifier[this.key] || 0
+         )
+       );
       },
     },
     {
@@ -342,8 +377,10 @@ const Summary = () => {
       },
       get careerStatsModifier() {
         return (
-          context.diceRollResult.careerStatsModifier[this.key] +
-            context.career.statsModifier || 0
+          sumByKey(context.career, this.key) +
+          sumObjectValues(
+            context.diceRollResult.careerStatsModifier[this.key] || 0
+          )
         );
       },
     },
@@ -373,10 +410,12 @@ const Summary = () => {
         );
       },
       get careerStatsModifier() {
-        return (
-          context.diceRollResult.careerStatsModifier[this.key] +
-            context.career.statsModifier || 0
-        );
+       return (
+         sumByKey(context.career, this.key) +
+         sumObjectValues(
+           context.diceRollResult.careerStatsModifier[this.key] || 0
+         )
+       );
       },
     },
   ];

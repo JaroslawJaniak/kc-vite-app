@@ -32,6 +32,8 @@ export const careerData_ClassS = (k100buttonResult) => {
     career.description = "";
   } else if (k100buttonResult >= 14 && k100buttonResult < 17) {
     career.name = "marynarz";
+    career.statsModifierKey = "MD";
+    career.statsModifier = 2;
     career.description = "";
   } else if (k100buttonResult >= 17 && k100buttonResult < 20) {
     career.name = "tragarz";
@@ -86,7 +88,8 @@ export const careerData_ClassS = (k100buttonResult) => {
     career.description = "";
   } else if (k100buttonResult >= 56 && k100buttonResult < 59) {
     career.name = "bosman";
-
+    career.statsModifierKey = "MD";
+    career.statsModifier = 4;
     career.description = "";
   } else if (k100buttonResult >= 59 && k100buttonResult < 62) {
     career.name = "grabarz";
@@ -112,7 +115,8 @@ export const careerData_ClassS = (k100buttonResult) => {
     career.description = "";
   } else if (k100buttonResult >= 71 && k100buttonResult < 74) {
     career.name = "garncarz";
-
+    career.statsModifierKey = "ZR";
+    career.statsModifier = 5;
     career.description = "";
   } else if (k100buttonResult >= 74 && k100buttonResult < 77) {
     career.name = "skryba";

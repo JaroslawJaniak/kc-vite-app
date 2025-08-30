@@ -28,8 +28,8 @@ export const careerData_ClassW = (k100buttonResult) => {
     career.description = "";
   } else if (k100buttonResult >= 9 && k100buttonResult < 12) {
     career.name = "bosman";
-    career.statsModifierKey = "MD";
-    career.statsModifier = 5;
+     career.statsModifierKey = "MD";
+     career.statsModifier = 4;
     career.description = "";
   } else if (k100buttonResult >= 12 && k100buttonResult < 15) {
     career.name = "skryba";

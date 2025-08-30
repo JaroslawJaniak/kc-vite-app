@@ -114,6 +114,8 @@ export const CharacterStatsContextProvider = ({ children }) => {
     );
   };
 
+  
+
   const [career, setCareer] = useState([]);
 
   // {
