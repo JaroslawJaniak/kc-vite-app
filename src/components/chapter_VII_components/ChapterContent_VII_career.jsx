@@ -47,16 +47,15 @@ export const ChapterContent_VII_career = () => {
 
   const start = context.getCharsFromKey(context.socialClass, 1, "start");
   const end = context.getCharsFromKey(context.socialClass, 1, "end");
-  let newDiceRollValue = 0;
 
   const careerResolveDiceRoll = (path, k) => {
     // najpierw oblicz k na podstawie start
-    newDiceRollValue = adjustK(k, start);
+    const adjustDiceRoll = adjustK(k, start); //(+/-)10 w zależności od N/W...
 
-    // wybór klasy na podstawie end
+    // wybór klasy na podstawie end (czy losujemy z klasy N,Ś, czy W)
     const fn = careerMap[end];
     if (fn) {
-      const career = fn(newDiceRollValue);
+      const career = fn(adjustDiceRoll);
       context.updateCareer(career);
     }
   };
@@ -65,12 +64,12 @@ export const ChapterContent_VII_career = () => {
   //   const index = context.getIndexFromKey(path);
 
   //   // najpierw oblicz k na podstawie start
-  //   newDiceRollValue = adjustK(k, start);
+  //   adjustDiceRoll = adjustK(k, start);
 
   //   // wybór klasy na podstawie end
   //   const fn = careerMap[end];
   //   if (fn) {
-  //     const career = fn(newDiceRollValue);
+  //     const career = fn(adjustDiceRoll);
   //     context.updateCareer(index, career);
   //   }
   // };
@@ -96,7 +95,7 @@ export const ChapterContent_VII_career = () => {
       <h3>VII. ZAWODY</h3>
 
       <div>
-        {`liczba zawodów to (${valueMD} -`}{" "}
+        {`liczba zawodów to ((MD = ${valueMD}) -`}{" "}
         <DiceButtonComponent
           n={1}
           k={100}
@@ -112,6 +111,17 @@ export const ChapterContent_VII_career = () => {
           className={context.btnStyle}
         />{" "}
         {`)/20 (cecha górna): `} <span>{`${careerNumber}`}</span>
+      </div>
+      <div>
+        Zawody z listy zawodów klasy{" "}
+        {end === "N"
+          ? "niższej"
+          : end === "Ś"
+          ? "średniej"
+          : end === "W"
+          ? "wyższej"
+          : "(nie wylosowano KLASY SPOŁECZNEJ)"}
+        :
       </div>
       <div hidden={!context.isClicked.careerNumber}>
         <ul>
@@ -131,6 +141,45 @@ export const ChapterContent_VII_career = () => {
                 className={context.btnStyle}
               />{" "}
               <span>{context.career[i]?.name}</span>{" "}
+              <>
+                {context.career[i]?.statsModifierKey !== "" ? (
+                  <>
+                    {context.career[i]?.statsModifierKey}
+                    {context.career[i]?.statsModifierKey ? <DiceButtonComponent
+                      n={1}
+                      k={10}
+                      isPremium={true}
+                      diceRollResult={
+                        context.diceRollResult?.careerStatsModifier[
+                          context.career[i]?.statsModifierKey
+                        ][`result${i}`]
+                      }
+                      clicked={
+                        context.isClicked?.careerStatsModifier[
+                          context.career[i]?.statsModifierKey
+                        ][`result${i}`]
+                      }
+                      disabled={
+                        context.isClicked?.careerStatsModifier[
+                          context.career[i]?.statsModifierKey
+                        ][`result${i}`]
+                      }
+                      path={[
+                        "careerStatsModifier",
+                        context.career[i]?.statsModifierKey,
+                        `result${i}`,
+                      ]}
+                      toggleClick={context.toggleClick}
+                      updateDiceRollResult={context.updateDiceRollResult}
+                      resolveDiceRoll
+                      className={context.btnStyle}
+                    /> : "gówno"}
+                    
+                  </>
+                ) : (
+                  <>{"brak context.career[i]?.statsModifierKey"}</>
+                )}
+              </>
               <>
                 {context.career[i]?.name ===
                 "rzuć jeszcze raz  i sprawdź na liście zawodów klasy średniej" ? (

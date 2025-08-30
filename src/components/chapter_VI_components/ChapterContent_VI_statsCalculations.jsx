@@ -7,16 +7,19 @@ export const ChapterContent_VI_statsCalculations = () => {
   const btnStyle =
     "text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300  rounded text-xxs md:text-xs p-0.5 md:p-2  mb-2 w-8 md:w-12 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700";
 
+  
+
   useEffect(() => {
     context.filterBaseRaceStatsByRaceName();
     context.filterProfStatsByFirstProf();
     context.filterProfStatsBySecondProf();
+    
 
     return () => {};
   }, []);
 
   const hasAbility = (abilities, name) => {
-    return abilities.some((a) => a?.abilitieName === name);
+    return false;
   };
 
   return (
@@ -83,7 +86,7 @@ export const ChapterContent_VI_statsCalculations = () => {
             </td>
             <td>{context.baseRaceStats.SF}</td>
             <td>
-              {hasAbility(context.abilities, "bołogosławieństwo obfitości") ? (
+              {context.isDoubleBaseStatsDice ? (
                 <>
                   <DiceButtonComponent
                     n={1}
@@ -183,7 +186,7 @@ export const ChapterContent_VI_statsCalculations = () => {
             </td>
             <td>{context.baseRaceStats.ZR}</td>
             <td>
-              {hasAbility(context.abilities, "bołogosławieństwo obfitości") ? (
+              {context.isDoubleBaseStatsDice ? (
                 <>
                   <DiceButtonComponent
                     n={1}
@@ -280,7 +283,7 @@ export const ChapterContent_VI_statsCalculations = () => {
             </td>
             <td>{context.baseRaceStats.SZ}</td>
             <td>
-              {hasAbility(context.abilities, "bołogosławieństwo obfitości") ? (
+              {context.isDoubleBaseStatsDice ? (
                 <>
                   <DiceButtonComponent
                     n={1}
@@ -356,7 +359,7 @@ export const ChapterContent_VI_statsCalculations = () => {
             </td>
             <td>{context.baseRaceStats.INT}</td>
             <td>
-              {hasAbility(context.abilities, "bołogosławieństwo obfitości") ? (
+              {context.isDoubleBaseStatsDice ? (
                 <>
                   <DiceButtonComponent
                     n={1}
@@ -434,7 +437,7 @@ export const ChapterContent_VI_statsCalculations = () => {
             </td>
             <td>{context.baseRaceStats.MD}</td>
             <td>
-              {hasAbility(context.abilities, "bołogosławieństwo obfitości") ? (
+              {context.isDoubleBaseStatsDice ? (
                 <>
                   <DiceButtonComponent
                     n={1}
@@ -760,7 +763,7 @@ export const ChapterContent_VI_statsCalculations = () => {
             </td>
             <td>{context.baseRaceStats.CH}</td>
             <td>
-              {hasAbility(context.abilities, "bołogosławieństwo obfitości") ? (
+              {context.isDoubleBaseStatsDice ? (
                 <>
                   <DiceButtonComponent
                     n={1}
@@ -836,7 +839,7 @@ export const ChapterContent_VI_statsCalculations = () => {
             </td>
             <td>{context.baseRaceStats.PR}</td>
             <td>
-              {hasAbility(context.abilities, "bołogosławieństwo obfitości") ? (
+              {context.isDoubleBaseStatsDice ? (
                 <>
                   <DiceButtonComponent
                     n={1}
@@ -914,7 +917,7 @@ export const ChapterContent_VI_statsCalculations = () => {
             </td>
             <td>{context.baseRaceStats.WI}</td>
             <td>
-              {hasAbility(context.abilities, "bołogosławieństwo obfitości") ? (
+              {context.isDoubleBaseStatsDice ? (
                 <>
                   <DiceButtonComponent
                     n={1}

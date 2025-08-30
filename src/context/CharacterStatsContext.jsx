@@ -81,6 +81,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
 
   const [disabilitiesChance, setDisabilitiesChance] = useState(80);
   const [abilitiesChance, setAbilitiesChance] = useState(80);
+  const [isDoubleBaseStatsDice, setIsDoubleBaseStatsDice] = useState(false);
 
   const [abilities, setAbilities] = useState([
     {
@@ -102,6 +103,16 @@ export const CharacterStatsContextProvider = ({ children }) => {
       k: 0,
     },
   ]);
+
+  const isAbilityBlogoslawienstwoObfitosci = () => {
+    console.log(
+      "from context abilities.some()",
+      abilities.some((a) => a.abilitieName === "bołogosławieństwo obfitości")
+    );
+    return abilities.some(
+      (a) => a.abilitieName === "bołogosławieństwo obfitości"
+    );
+  };
 
   const [career, setCareer] = useState([]);
 
@@ -282,6 +293,9 @@ export const CharacterStatsContextProvider = ({ children }) => {
       }
 
       current[path[path.length - 1]] = value;
+
+      if (newData.abilitieName === "bołogosławieństwo obfitości")
+        setIsDoubleBaseStatsDice(true);
 
       return newData;
     });
@@ -682,6 +696,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
     },
     careerNumber: false,
     career: {},
+    careerStatsModifier: { SF: {}, ZR: {}, INT: {}, MD: {}, CH: {}, PR: {} },
     proficiency: {},
   });
 
@@ -741,7 +756,14 @@ export const CharacterStatsContextProvider = ({ children }) => {
     abilitiesStatsModifier: {},
     careerNumber: 0,
     career: {},
-    careerStatsModifier: {},
+    careerStatsModifier: {
+      SF: {},
+      ZR: {},
+      INT: {},
+      MD: {},
+      CH: {},
+      PR: {},
+    },
     proficiency: {},
   });
 
@@ -1123,6 +1145,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
     updateDisbilitiesData,
     updateAbility,
     updateDisability,
+    isDoubleBaseStatsDice,
 
     career,
     updateCareer,

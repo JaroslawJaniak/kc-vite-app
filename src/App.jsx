@@ -131,7 +131,7 @@ function App() {
       navigateTo("/kc-vite-app/chapter2");
     } else if (currentPath === "/kc-vite-app/chapter2") {
       navigateTo("/kc-vite-app");
-    } 
+    }
   };
 
   return (
@@ -187,7 +187,7 @@ function App() {
         className="bottom-2 right-3 fixed z-50 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm w-16 h-10   py-1.5 me-2 mb-2  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
       />
 
-      <div className="md:grid  md:grid-cols-6 gap-1">
+      <div className="md:grid  md:grid-cols-6 gap-1 text-lg md:text-sm">
         <div className="md:hidden fixed top-12 left-4">{renderMenu()}</div>
         <div className="hidden md:block">
           <Menu />
@@ -195,10 +195,7 @@ function App() {
         <div className="md:col-span-4 bg-gray-100 rounded w-100 m-2 p-1 pt-3 lg:p-3">
           <ScrollToTop />
           <Routes>
-            <Route
-              path="/kc-vite-app/"
-              element={<Chapter1Page />}
-            ></Route>
+            <Route path="/kc-vite-app/" element={<Chapter1Page />}></Route>
 
             <Route
               path="/kc-vite-app/chapter2"
