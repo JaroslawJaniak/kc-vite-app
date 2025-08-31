@@ -316,19 +316,24 @@ const ChapterContent_VIe_statsCalculations = () => {
               {context.secondProfessionData.stats.Odp1}
             </td>
             <td className="text-center">
-              <DiceButtonComponent
-                n={1}
-                k={10}
-                isPremium={true}
-                diceRollResult={context.diceRollResult.bonusImmunityDice.odp1}
-                clicked={context.isClicked.bonusImmunityDice.odp1}
-                disabled={context.isClicked.bonusImmunityDice.odp1}
-                path={["bonusImmunityDice", "odp1"]}
-                toggleClick={context.toggleClick}
-                updateDiceRollResult={context.updateDiceRollResult}
-                resolveDiceRoll={context.calculateStat1}
-                className={btnStyle}
-              />
+              {context.firstProfessionData.stats.k10_Odp1 ||
+              context.secondProfessionData.stats.k10_Odp1 ? (
+                <DiceButtonComponent
+                  n={1}
+                  k={10}
+                  isPremium={true}
+                  diceRollResult={context.diceRollResult.bonusImmunityDice.odp1}
+                  clicked={context.isClicked.bonusImmunityDice.odp1}
+                  disabled={context.isClicked.bonusImmunityDice.odp1}
+                  path={["bonusImmunityDice", "odp1"]}
+                  toggleClick={context.toggleClick}
+                  updateDiceRollResult={context.updateDiceRollResult}
+                  resolveDiceRoll={context.calculateStat1}
+                  className={btnStyle}
+                />
+              ) : (
+                " "
+              )}
             </td>
             <td className="text-center">
               {contributionŻYW +
@@ -357,19 +362,24 @@ const ChapterContent_VIe_statsCalculations = () => {
               {context.secondProfessionData.stats.Odp2}
             </td>
             <td className="text-center">
-              <DiceButtonComponent
-                n={1}
-                k={10}
-                isPremium={true}
-                diceRollResult={context.diceRollResult.bonusImmunityDice.odp2}
-                clicked={context.isClicked.bonusImmunityDice.odp2}
-                disabled={context.isClicked.bonusImmunityDice.odp2}
-                path={["bonusImmunityDice", "odp2"]}
-                toggleClick={context.toggleClick}
-                updateDiceRollResult={context.updateDiceRollResult}
-                resolveDiceRoll={context.calculateStat1}
-                className={btnStyle}
-              />
+              {context.firstProfessionData.stats.k10_Odp2 ||
+              context.secondProfessionData.stats.k10_Odp2 ? (
+                <DiceButtonComponent
+                  n={1}
+                  k={10}
+                  isPremium={true}
+                  diceRollResult={context.diceRollResult.bonusImmunityDice.odp2}
+                  clicked={context.isClicked.bonusImmunityDice.odp2}
+                  disabled={context.isClicked.bonusImmunityDice.odp2}
+                  path={["bonusImmunityDice", "odp2"]}
+                  toggleClick={context.toggleClick}
+                  updateDiceRollResult={context.updateDiceRollResult}
+                  resolveDiceRoll={context.calculateStat1}
+                  className={btnStyle}
+                />
+              ) : (
+                ""
+              )}
             </td>
             <td className="text-center">
               {contributionŻYW +
@@ -400,19 +410,24 @@ const ChapterContent_VIe_statsCalculations = () => {
               {context.secondProfessionData.stats.Odp3}
             </td>
             <td className="text-center">
-              <DiceButtonComponent
-                n={1}
-                k={10}
-                isPremium={true}
-                diceRollResult={context.diceRollResult.bonusImmunityDice.odp3}
-                clicked={context.isClicked.bonusImmunityDice.odp3}
-                disabled={context.isClicked.bonusImmunityDice.odp3}
-                path={["bonusImmunityDice", "odp3"]}
-                toggleClick={context.toggleClick}
-                updateDiceRollResult={context.updateDiceRollResult}
-                resolveDiceRoll={context.calculateStat1}
-                className={btnStyle}
-              />
+              {context.firstProfessionData.stats.k10_Odp3 ||
+              context.secondProfessionData.stats.k10_Odp3 ? (
+                <DiceButtonComponent
+                  n={1}
+                  k={10}
+                  isPremium={true}
+                  diceRollResult={context.diceRollResult.bonusImmunityDice.odp3}
+                  clicked={context.isClicked.bonusImmunityDice.odp3}
+                  disabled={context.isClicked.bonusImmunityDice.odp3}
+                  path={["bonusImmunityDice", "odp3"]}
+                  toggleClick={context.toggleClick}
+                  updateDiceRollResult={context.updateDiceRollResult}
+                  resolveDiceRoll={context.calculateStat1}
+                  className={btnStyle}
+                />
+              ) : (
+                ""
+              )}
             </td>
             <td className="text-center">
               {contributionŻYW +
@@ -441,19 +456,24 @@ const ChapterContent_VIe_statsCalculations = () => {
               {context.secondProfessionData.stats.Odp4}
             </td>
             <td className="text-center">
-              <DiceButtonComponent
-                n={1}
-                k={10}
-                isPremium={true}
-                diceRollResult={context.diceRollResult.bonusImmunityDice.odp4}
-                clicked={context.isClicked.bonusImmunityDice.odp4}
-                disabled={context.isClicked.bonusImmunityDice.odp4}
-                path={["bonusImmunityDice", "odp4"]}
-                toggleClick={context.toggleClick}
-                updateDiceRollResult={context.updateDiceRollResult}
-                resolveDiceRoll={context.calculateStat1}
-                className={btnStyle}
-              />
+              {context.firstProfessionData.stats.k10_Odp4 ||
+              context.secondProfessionData.stats.k10_Odp4 ? (
+                <DiceButtonComponent
+                  n={1}
+                  k={10}
+                  isPremium={true}
+                  diceRollResult={context.diceRollResult.bonusImmunityDice.odp4}
+                  clicked={context.isClicked.bonusImmunityDice.odp4}
+                  disabled={context.isClicked.bonusImmunityDice.odp4}
+                  path={["bonusImmunityDice", "odp4"]}
+                  toggleClick={context.toggleClick}
+                  updateDiceRollResult={context.updateDiceRollResult}
+                  resolveDiceRoll={context.calculateStat1}
+                  className={btnStyle}
+                />
+              ) : (
+                ""
+              )}
             </td>
             <td className="text-center">
               {contributionŻYW +
@@ -482,19 +502,24 @@ const ChapterContent_VIe_statsCalculations = () => {
               {context.secondProfessionData.stats.Odp5}
             </td>
             <td className="text-center">
-              <DiceButtonComponent
-                n={1}
-                k={10}
-                isPremium={true}
-                diceRollResult={context.diceRollResult.bonusImmunityDice.odp5}
-                clicked={context.isClicked.bonusImmunityDice.odp5}
-                disabled={context.isClicked.bonusImmunityDice.odp5}
-                path={["bonusImmunityDice", "odp5"]}
-                toggleClick={context.toggleClick}
-                updateDiceRollResult={context.updateDiceRollResult}
-                resolveDiceRoll={context.calculateStat1}
-                className={btnStyle}
-              />
+              {context.firstProfessionData.stats.k10_Odp5 ||
+              context.secondProfessionData.stats.k10_Odp5 ? (
+                <DiceButtonComponent
+                  n={1}
+                  k={10}
+                  isPremium={true}
+                  diceRollResult={context.diceRollResult.bonusImmunityDice.odp5}
+                  clicked={context.isClicked.bonusImmunityDice.odp5}
+                  disabled={context.isClicked.bonusImmunityDice.odp5}
+                  path={["bonusImmunityDice", "odp5"]}
+                  toggleClick={context.toggleClick}
+                  updateDiceRollResult={context.updateDiceRollResult}
+                  resolveDiceRoll={context.calculateStat1}
+                  className={btnStyle}
+                />
+              ) : (
+                ""
+              )}
             </td>
             <td className="text-center">
               {contributionŻYW +
@@ -522,19 +547,24 @@ const ChapterContent_VIe_statsCalculations = () => {
               {context.secondProfessionData.stats.Odp6}
             </td>
             <td className="text-center">
-              <DiceButtonComponent
-                n={1}
-                k={10}
-                isPremium={true}
-                diceRollResult={context.diceRollResult.bonusImmunityDice.odp6}
-                clicked={context.isClicked.bonusImmunityDice.odp6}
-                disabled={context.isClicked.bonusImmunityDice.odp6}
-                path={["bonusImmunityDice", "odp6"]}
-                toggleClick={context.toggleClick}
-                updateDiceRollResult={context.updateDiceRollResult}
-                resolveDiceRoll={context.calculateStat1}
-                className={btnStyle}
-              />
+              {context.firstProfessionData.stats.k10_Odp6 ||
+              context.secondProfessionData.stats.k10_Odp6 ? (
+                <DiceButtonComponent
+                  n={1}
+                  k={10}
+                  isPremium={true}
+                  diceRollResult={context.diceRollResult.bonusImmunityDice.odp6}
+                  clicked={context.isClicked.bonusImmunityDice.odp6}
+                  disabled={context.isClicked.bonusImmunityDice.odp6}
+                  path={["bonusImmunityDice", "odp6"]}
+                  toggleClick={context.toggleClick}
+                  updateDiceRollResult={context.updateDiceRollResult}
+                  resolveDiceRoll={context.calculateStat1}
+                  className={btnStyle}
+                />
+              ) : (
+                ""
+              )}
             </td>
             <td className="text-center">
               {contributionŻYW * 2 +
@@ -561,19 +591,24 @@ const ChapterContent_VIe_statsCalculations = () => {
               {context.secondProfessionData.stats.Odp7}
             </td>
             <td className="text-center">
-              <DiceButtonComponent
-                n={1}
-                k={10}
-                isPremium={true}
-                diceRollResult={context.diceRollResult.bonusImmunityDice.odp7}
-                clicked={context.isClicked.bonusImmunityDice.odp7}
-                disabled={context.isClicked.bonusImmunityDice.odp7}
-                path={["bonusImmunityDice", "odp7"]}
-                toggleClick={context.toggleClick}
-                updateDiceRollResult={context.updateDiceRollResult}
-                resolveDiceRoll={context.calculateStat1}
-                className={btnStyle}
-              />
+              {context.firstProfessionData.stats.k10_Odp7 ||
+              context.secondProfessionData.stats.k10_Odp7 ? (
+                <DiceButtonComponent
+                  n={1}
+                  k={10}
+                  isPremium={true}
+                  diceRollResult={context.diceRollResult.bonusImmunityDice.odp7}
+                  clicked={context.isClicked.bonusImmunityDice.odp7}
+                  disabled={context.isClicked.bonusImmunityDice.odp7}
+                  path={["bonusImmunityDice", "odp7"]}
+                  toggleClick={context.toggleClick}
+                  updateDiceRollResult={context.updateDiceRollResult}
+                  resolveDiceRoll={context.calculateStat1}
+                  className={btnStyle}
+                />
+              ) : (
+                ""
+              )}
             </td>
             <td className="text-center">
               {contributionŻYW * 2 +
@@ -600,19 +635,24 @@ const ChapterContent_VIe_statsCalculations = () => {
               {context.secondProfessionData.stats.Odp8}
             </td>
             <td className="text-center">
-              <DiceButtonComponent
-                n={1}
-                k={10}
-                isPremium={true}
-                diceRollResult={context.diceRollResult.bonusImmunityDice.odp8}
-                clicked={context.isClicked.bonusImmunityDice.odp8}
-                disabled={context.isClicked.bonusImmunityDice.odp8}
-                path={["bonusImmunityDice", "odp8"]}
-                toggleClick={context.toggleClick}
-                updateDiceRollResult={context.updateDiceRollResult}
-                resolveDiceRoll={context.calculateStat1}
-                className={btnStyle}
-              />
+              {context.firstProfessionData.stats.k10_Odp8 ||
+              context.secondProfessionData.stats.k10_Odp8 ? (
+                <DiceButtonComponent
+                  n={1}
+                  k={10}
+                  isPremium={true}
+                  diceRollResult={context.diceRollResult.bonusImmunityDice.odp8}
+                  clicked={context.isClicked.bonusImmunityDice.odp8}
+                  disabled={context.isClicked.bonusImmunityDice.odp8}
+                  path={["bonusImmunityDice", "odp8"]}
+                  toggleClick={context.toggleClick}
+                  updateDiceRollResult={context.updateDiceRollResult}
+                  resolveDiceRoll={context.calculateStat1}
+                  className={btnStyle}
+                />
+              ) : (
+                ""
+              )}
             </td>
             <td className="text-center">
               {contributionŻYW * 2 +
@@ -639,19 +679,24 @@ const ChapterContent_VIe_statsCalculations = () => {
               {context.secondProfessionData.stats.Odp9}
             </td>
             <td className="text-center">
-              <DiceButtonComponent
-                n={1}
-                k={10}
-                isPremium={true}
-                diceRollResult={context.diceRollResult.bonusImmunityDice.odp9}
-                clicked={context.isClicked.bonusImmunityDice.odp9}
-                disabled={context.isClicked.bonusImmunityDice.odp9}
-                path={["bonusImmunityDice", "odp9"]}
-                toggleClick={context.toggleClick}
-                updateDiceRollResult={context.updateDiceRollResult}
-                resolveDiceRoll={context.calculateStat1}
-                className={btnStyle}
-              />
+              {context.firstProfessionData.stats.k10_Odp9 ||
+              context.secondProfessionData.stats.k10_Odp9 ? (
+                <DiceButtonComponent
+                  n={1}
+                  k={10}
+                  isPremium={true}
+                  diceRollResult={context.diceRollResult.bonusImmunityDice.odp9}
+                  clicked={context.isClicked.bonusImmunityDice.odp9}
+                  disabled={context.isClicked.bonusImmunityDice.odp9}
+                  path={["bonusImmunityDice", "odp9"]}
+                  toggleClick={context.toggleClick}
+                  updateDiceRollResult={context.updateDiceRollResult}
+                  resolveDiceRoll={context.calculateStat1}
+                  className={btnStyle}
+                />
+              ) : (
+                ""
+              )}
             </td>
             <td className="text-center">
               {contributionŻYW * 2 +
@@ -680,19 +725,26 @@ const ChapterContent_VIe_statsCalculations = () => {
               {context.secondProfessionData.stats.Odp10}
             </td>
             <td className="text-center">
-              <DiceButtonComponent
-                n={1}
-                k={10}
-                isPremium={true}
-                diceRollResult={context.diceRollResult.bonusImmunityDice.odp10}
-                clicked={context.isClicked.bonusImmunityDice.odp10}
-                disabled={context.isClicked.bonusImmunityDice.odp10}
-                path={["bonusImmunityDice", "odp10"]}
-                toggleClick={context.toggleClick}
-                updateDiceRollResult={context.updateDiceRollResult}
-                resolveDiceRoll={context.calculateStat1}
-                className={btnStyle}
-              />
+              {context.firstProfessionData.stats.k10_Odp10 ||
+              context.secondProfessionData.stats.k10_Odp10 ? (
+                <DiceButtonComponent
+                  n={1}
+                  k={10}
+                  isPremium={true}
+                  diceRollResult={
+                    context.diceRollResult.bonusImmunityDice.odp10
+                  }
+                  clicked={context.isClicked.bonusImmunityDice.odp10}
+                  disabled={context.isClicked.bonusImmunityDice.odp10}
+                  path={["bonusImmunityDice", "odp10"]}
+                  toggleClick={context.toggleClick}
+                  updateDiceRollResult={context.updateDiceRollResult}
+                  resolveDiceRoll={context.calculateStat1}
+                  className={btnStyle}
+                />
+              ) : (
+                ""
+              )}
             </td>
             <td className="text-center">
               {contributionŻYW * 2 +
