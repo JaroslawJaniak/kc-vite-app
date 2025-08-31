@@ -47,11 +47,7 @@ export const ChapterContent_III_disabilities = () => {
                 )
               }
             >
-              Czy postać ma ułomność{" "}
-              {`(${(disabilitieChance -= 5)} % szansa)`}
-              
-              
-              {" "}
+              Czy postać ma ułomność {`(${(disabilitieChance -= 5)} % szansa)`}{" "}
               <DiceButtonComponent
                 n={1}
                 k={100}
@@ -78,9 +74,7 @@ export const ChapterContent_III_disabilities = () => {
                 `result${index + 1}`
               ] <= disabilitieChance ? (
                 <span>
-                 
-                 
-                  {" -> "}
+                  <span >{context.svgArrowRight}</span>{" "}
                   <DiceButtonComponent
                     n={1}
                     k={100}

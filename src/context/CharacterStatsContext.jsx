@@ -10,6 +10,26 @@ export const CharacterStatsContextProvider = ({ children }) => {
   const btnStyle =
     "text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300  rounded text-xxs md:text-xs p-0.5 md:p-2  mb-2 w-8 md:w-12 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700";
 
+  const svgArrowRight = (
+    <svg
+      class="w-6 h-6 text-gray-800 dark:text-white inline"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      fill="none"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M19 12H5m14 0-4 4m4-4-4-4"
+      />
+    </svg>
+  );
+
   const [openMenuBtnState, setOpenMenuBtnState] = useState(false);
   const [openSummaryBtnState, setOpenSummaryBtnState] = useState(false);
 
@@ -113,8 +133,6 @@ export const CharacterStatsContextProvider = ({ children }) => {
       (a) => a.abilitieName === "bołogosławieństwo obfitości"
     );
   };
-
-  
 
   const [career, setCareer] = useState([]);
 
@@ -1156,6 +1174,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
     getCharsFromKey,
 
     btnStyle,
+    svgArrowRight,
     careerNumber,
   };
 

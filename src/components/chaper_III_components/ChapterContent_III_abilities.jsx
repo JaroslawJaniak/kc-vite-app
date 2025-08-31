@@ -41,7 +41,7 @@ export const ChapterContent_III_abilities = () => {
       {context.diceRollResult.abilitiesChanceDice.result1 <= abilitieChance ? (
         <>
           <span>
-            {" : "}
+            <span>{context.svgArrowRight}</span>{" "}
             <DiceButtonComponent
               n={1}
               k={100}
@@ -79,7 +79,7 @@ export const ChapterContent_III_abilities = () => {
             {context.diceRollResult.abilitiesChanceDice.result2 <=
             abilitieChance ? (
               <span>
-                {" : zdonlność "}
+                <span>{context.svgArrowRight}</span>{" "}
                 <DiceButtonComponent
                   n={1}
                   k={100}
