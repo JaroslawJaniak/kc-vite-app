@@ -47,23 +47,11 @@ export const ChapterContent_III_disabilities = () => {
                 )
               }
             >
-              V02 Czy postać ma ułomność{" "}
+              Czy postać ma ułomność{" "}
               {`(${(disabilitieChance -= 5)} % szansa)`}
-              <span>{`index: ${index}  ${disabilitieChance}%`}</span>
-              <span>
-                -
-                {context.isClicked.disabilitiesChanceDice[
-                  `result${index}`
-                ]?.toString()}
-                -
-              </span>
-              <span>
-                {
-                  context.diceRollResult.disabilitiesChanceDice[
-                    `result${index}`
-                  ]
-                }
-              </span>{" "}
+              
+              
+              {" "}
               <DiceButtonComponent
                 n={1}
                 k={100}
@@ -90,18 +78,9 @@ export const ChapterContent_III_disabilities = () => {
                 `result${index + 1}`
               ] <= disabilitieChance ? (
                 <span>
-                  {" "}
-                  <span>
-                    -{" "}
-                    {
-                      context.diceRollResult.disabilitiesChanceDice[
-                        `result${index + 1}`
-                      ]
-                    }{" "}
-                    {`<=`} {context.disabilitiesChance} || {`<=`}{" "}
-                    {disabilitieChance}
-                  </span>
-                  {" : "}
+                 
+                 
+                  {" -> "}
                   <DiceButtonComponent
                     n={1}
                     k={100}

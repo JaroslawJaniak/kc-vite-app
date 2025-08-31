@@ -79,8 +79,8 @@ export const CharacterStatsContextProvider = ({ children }) => {
     },
   ]);
 
-  const [disabilitiesChance, setDisabilitiesChance] = useState(80);
-  const [abilitiesChance, setAbilitiesChance] = useState(80);
+  const [disabilitiesChance, setDisabilitiesChance] = useState(20);
+  const [abilitiesChance, setAbilitiesChance] = useState(10);
   const [isDoubleBaseStatsDice, setIsDoubleBaseStatsDice] = useState(false);
 
   const [abilities, setAbilities] = useState([
