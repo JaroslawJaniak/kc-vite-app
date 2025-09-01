@@ -124,17 +124,12 @@ export const CharacterStatsContextProvider = ({ children }) => {
     },
   ]);
 
-  const isAbilityBlogoslawienstwoObfitosci = () => {
-    console.log(
-      "from context abilities.some()",
-      abilities.some((a) => a.abilitieName === "bołogosławieństwo obfitości")
-    );
-    return abilities.some(
-      (a) => a.abilitieName === "bołogosławieństwo obfitości"
-    );
-  };
-
   const [career, setCareer] = useState([]);
+  const [careerChild, setCareerChild] = useState([]);
+
+  const [careerS, setCareerS] = useState([]);
+  const [diceRollResultS, setDiceRollResultS] = useState({});
+  const [isClickedS, setIsClickedS] = useState({});
 
   // {
   //     name: "",
@@ -146,20 +141,67 @@ export const CharacterStatsContextProvider = ({ children }) => {
   //     k: 10,
   //   },
 
-  /*
-  const updateCareer = (key, value) => {
-    setCareer((prev) => ({
-      ...prev,
-      [key]: {
-        ...prev[key], // zachowaj poprzednie pola w danym obiekcie
-        ...value, // nadpisz nowymi wartościami
-      },
+  function initCareerSlots(count, classType) {
+    const slots = Array.from({ length: count }, (_, i) => ({
+      id: Date.now() + i,
+      sourceClass: classType,
+      resolved: false,
+      name: null,
+      diceResult: null,
+      clicked: false,
     }));
-  };
-*/
+    setCareerS(slots);
+  }
+
+  function updateCareerAtIndex(index, newCareer) {
+    setCareerS((prev) => {
+      const updated = [...prev];
+      updated[index] = {
+        ...updated[index],
+        ...newCareer,
+        resolved: true,
+      };
+      return updated;
+    });
+  }
+
+  function addCareerSlot(sourceClass) {
+    setCareerS((prev) => [
+      ...prev,
+      {
+        id: Date.now(),
+        sourceClass,
+        resolved: false,
+        name: null,
+        diceResult: null,
+        clicked: false,
+      },
+    ]);
+  }
+
+  function toggleClickP(path) {
+    setIsClickedS((prev) => ({
+      ...prev,
+      [path.join(".")]: true,
+    }));
+  }
 
   const updateCareer = (newCareer) => {
     setCareer((prevCareer) => [
+      ...prevCareer,
+      {
+        name: newCareer.name || "",
+        description: newCareer.description || "",
+        statsModifierKey: newCareer.statsModifierKey || "",
+        statsModifier: newCareer.statsModifier || 0,
+        n: newCareer.n || 0,
+        k: newCareer.k || 0,
+      },
+    ]);
+  };
+
+  const updateCareerChild = (newCareer) => {
+    setCareerChild((prevCareer) => [
       ...prevCareer,
       {
         name: newCareer.name || "",
@@ -716,6 +758,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
     },
     careerNumber: false,
     career: {},
+    careerChild: {},
     careerStatsModifier: { SF: {}, ZR: {}, INT: {}, MD: {}, CH: {}, PR: {} },
     proficiency: {},
   });
@@ -776,6 +819,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
     abilitiesStatsModifier: {},
     careerNumber: 0,
     career: {},
+    careerChild: {},
     careerStatsModifier: {
       SF: {},
       ZR: {},
@@ -1168,7 +1212,9 @@ export const CharacterStatsContextProvider = ({ children }) => {
     isDoubleBaseStatsDice,
 
     career,
+    careerChild,
     updateCareer,
+    updateCareerChild,
 
     getIndexFromKey,
     getCharsFromKey,
@@ -1176,6 +1222,14 @@ export const CharacterStatsContextProvider = ({ children }) => {
     btnStyle,
     svgArrowRight,
     careerNumber,
+
+    initCareerSlots,
+    updateCareerAtIndex,
+    addCareerSlot,
+    toggleClickP,
+    careerS,
+    diceRollResultS,
+    isClickedS,
   };
 
   return (

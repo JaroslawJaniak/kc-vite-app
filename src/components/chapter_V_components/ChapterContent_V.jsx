@@ -26,7 +26,7 @@ const ChapterContent_V = () => {
         .classList.add("activeTrTable");
     }
 
-    if (context.tableWeight_tdId !== "") {
+    if (context.tableWeight_tdId !== "" && context.tableWeight_tdId) {
       document
         .getElementById("td_weight_male" + context.tableWeight_tdId)
         .classList.add("activeTrTable");

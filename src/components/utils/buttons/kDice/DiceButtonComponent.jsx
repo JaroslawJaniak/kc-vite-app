@@ -76,7 +76,7 @@ const DiceButtonComponent = (props) => {
   };
 
   return (
-    <button disabled={disabled} className={className} onClick={handleClick}>
+    <button hidden={n===0 && k ===0} disabled={disabled} className={className} onClick={handleClick}>
       {clicked ? diceRollResult : `${n}k${k}${isPremium ? "+" : ""}`}
     </button>
   );
