@@ -760,6 +760,14 @@ export const CharacterStatsContextProvider = ({ children }) => {
     career: {},
     careerChild: {},
     careerStatsModifier: { SF: {}, ZR: {}, INT: {}, MD: {}, CH: {}, PR: {} },
+    careerChildStatsModifier: {
+      SF: {},
+      ZR: {},
+      INT: {},
+      MD: {},
+      CH: {},
+      PR: {},
+    },
     proficiency: {},
   });
 
@@ -821,6 +829,14 @@ export const CharacterStatsContextProvider = ({ children }) => {
     career: {},
     careerChild: {},
     careerStatsModifier: {
+      SF: {},
+      ZR: {},
+      INT: {},
+      MD: {},
+      CH: {},
+      PR: {},
+    },
+    careerChildStatsModifier: {
       SF: {},
       ZR: {},
       INT: {},

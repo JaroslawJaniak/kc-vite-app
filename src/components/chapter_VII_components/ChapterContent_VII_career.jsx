@@ -115,6 +115,46 @@ export const ChapterContent_VII_career = () => {
           className={context.btnStyle}
         />{" "}
         <span>{context.career[i]?.name}</span>{" "}
+        <>
+          {context.career[i]?.statsModifierKey ? (
+            <>
+              {context.svgArrowRight}
+              <span>{` ${context.career[i]?.statsModifierKey} + ${context.career[i]?.statsModifier}`}</span>{" "}
+              {context.career[i]?.n ? " + ":""}
+              <DiceButtonComponent
+                n={context.career[i]?.n}
+                k={context.career[i]?.k}
+                isPremium={context.career[i]?.isPremium}
+                diceRollResult={
+                  context.diceRollResult?.careerStatsModifier[
+                    context.career[i]?.statsModifierKey
+                  ][`result${i}`]
+                }
+                clicked={
+                  context.isClicked?.careerStatsModifier[
+                    context.career[i]?.statsModifierKey
+                  ][`result${i}`]
+                }
+                disabled={
+                  context.isClicked?.careerStatsModifier[
+                    context.career[i]?.statsModifierKey
+                  ][`result${i}`]
+                }
+                path={[
+                  "careerStatsModifier",
+                  context.career[i]?.statsModifierKey,
+                  `result${i}`,
+                ]}
+                toggleClick={context.toggleClick}
+                updateDiceRollResult={context.updateDiceRollResult}
+                resolveDiceRoll
+                className={context.btnStyle}
+              />
+            </>
+          ) : (
+            ""
+          )}
+        </>
       </>
     );
   };
@@ -135,50 +175,51 @@ export const ChapterContent_VII_career = () => {
           className={context.btnStyle}
         />{" "}
         <span>{context.careerChild[i]?.name}</span>{" "}
+        <>
+          {context.careerChild[i]?.statsModifierKey ? (
+            <>
+              {context.svgArrowRight}
+              <span>{` ${context.careerChild[i]?.statsModifierKey} + ${context.careerChild[i]?.statsModifier}`}</span>{" "}
+              {context.careerChild[i]?.n ? " + " : ""}
+              <DiceButtonComponent
+                n={context.careerChild[i]?.n}
+                k={context.careerChild[i]?.k}
+                isPremium={context.careerChild[i]?.isPremium}
+                diceRollResult={
+                  context.diceRollResult?.careerChildStatsModifier[
+                    context.careerChild[i]?.statsModifierKey
+                  ][`result${i}`]
+                }
+                clicked={
+                  context.isClicked?.careerChildStatsModifier[
+                    context.careerChild[i]?.statsModifierKey
+                  ][`result${i}`]
+                }
+                disabled={
+                  context.isClicked?.careerChildStatsModifier[
+                    context.careerChild[i]?.statsModifierKey
+                  ][`result${i}`]
+                }
+                path={[
+                  "careerChildStatsModifier",
+                  context.careerChild[i]?.statsModifierKey,
+                  `result${i}`,
+                ]}
+                toggleClick={context.toggleClick}
+                updateDiceRollResult={context.updateDiceRollResult}
+                resolveDiceRoll
+                className={context.btnStyle}
+              />
+            </>
+          ) : (
+            ""
+          )}
+        </>
       </>
     );
   };
 
-  const renderCareerStatsModifierDiceButtonComponent = (i) => {
-    return (
-      <>
-        {context.career[i]?.statsModifierKey}
-        {context.career[i]?.statsModifierKey ? (
-          <DiceButtonComponent
-            n={context.career[i]?.n}
-            k={context.career[i]?.k}
-            isPremium={context.career[i]?.isPremium}
-            diceRollResult={
-              context.diceRollResult?.careerStatsModifier[
-                context.career[i]?.statsModifierKey
-              ][`result${i}`]
-            }
-            clicked={
-              context.isClicked?.careerStatsModifier[
-                context.career[i]?.statsModifierKey
-              ][`result${i}`]
-            }
-            disabled={
-              context.isClicked?.careerStatsModifier[
-                context.career[i]?.statsModifierKey
-              ][`result${i}`]
-            }
-            path={[
-              "careerStatsModifier",
-              context.career[i]?.statsModifierKey,
-              `result${i}`,
-            ]}
-            toggleClick={context.toggleClick}
-            updateDiceRollResult={context.updateDiceRollResult}
-            resolveDiceRoll
-            className={context.btnStyle}
-          />
-        ) : (
-          ""
-        )}
-      </>
-    );
-  };
+  
 
   return (
     <article>
@@ -214,36 +255,50 @@ export const ChapterContent_VII_career = () => {
         :
       </div>
       <div hidden={!context.isClicked.careerNumber}></div>
-      
+
       <ul>
         {Array.from({ length: careerNumber }, (_, i) => {
           return (
             <li key={i}>
               {i + 1}.{" "}
               {renderCareerDiceButtonComponent(careerResolveDiceRoll, i)}
-              {renderCareerStatsModifierDiceButtonComponent(i)}
               <>
                 {context.career[i]?.name ===
-                "rzuć jeszcze raz  i sprawdź na liście zawodów klasy średniej"
-                  ? renderCareerChildDiceButtonComponent(
+                "rzuć jeszcze raz  i sprawdź na liście zawodów klasy średniej" ? (
+                  <>
+                    {context.svgArrowRight}
+                    {renderCareerChildDiceButtonComponent(
                       careerResolveDiceRollClassS,
                       j++
-                    )
-                  : ""}
+                    )}
+                  </>
+                ) : (
+                  ""
+                )}
                 {context.career[i]?.name ===
-                "rzuć jeszcze raz  i sprawdź na liście zawodów klasy wyższej"
-                  ? renderCareerChildDiceButtonComponent(
+                "rzuć jeszcze raz  i sprawdź na liście zawodów klasy wyższej" ? (
+                  <>
+                    {context.svgArrowRight}
+                    {renderCareerChildDiceButtonComponent(
                       careerResolveDiceRollClassW,
                       j++
-                    )
-                  : ""}
+                    )}
+                  </>
+                ) : (
+                  ""
+                )}
                 {context.career[i]?.name ===
-                "rzuć jeszcze raz  i sprawdź na liście zawodów klasy niższej"
-                  ? renderCareerChildDiceButtonComponent(
+                "rzuć jeszcze raz  i sprawdź na liście zawodów klasy niższej" ? (
+                  <>
+                    {context.svgArrowRight}
+                    {renderCareerChildDiceButtonComponent(
                       careerResolveDiceRollClassN,
                       j++
-                    )
-                  : ""}
+                    )}
+                  </>
+                ) : (
+                  ""
+                )}
               </>
             </li>
           );

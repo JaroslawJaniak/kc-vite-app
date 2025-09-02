@@ -92,7 +92,7 @@ export const ChapterContent_VII_career = () => {
     context.updateCareer(career);
   };
 
-  const renderCareerDiceButtonComponent = ( resolveDiceRoll, index) => {
+  const renderCareerDiceButtonComponent = (resolveDiceRoll, index) => {
     return (
       <>
         <DiceButtonComponent
@@ -205,37 +205,40 @@ export const ChapterContent_VII_career = () => {
               />{" "}
               <span>{context.career[i]?.name}</span>{" "}
               <>
-                {context.career[i]?.statsModifierKey}
+                
                 {context.career[i]?.statsModifierKey ? (
-                  <DiceButtonComponent
-                    n={context.career[i]?.n}
-                    k={context.career[i]?.k}
-                    isPremium={context.career[i]?.isPremium}
-                    diceRollResult={
-                      context.diceRollResult?.careerStatsModifier[
-                        context.career[i]?.statsModifierKey
-                      ][`result${i}`]
-                    }
-                    clicked={
-                      context.isClicked?.careerStatsModifier[
-                        context.career[i]?.statsModifierKey
-                      ][`result${i}`]
-                    }
-                    disabled={
-                      context.isClicked?.careerStatsModifier[
-                        context.career[i]?.statsModifierKey
-                      ][`result${i}`]
-                    }
-                    path={[
-                      "careerStatsModifier",
-                      context.career[i]?.statsModifierKey,
-                      `result${i}`,
-                    ]}
-                    toggleClick={context.toggleClick}
-                    updateDiceRollResult={context.updateDiceRollResult}
-                    resolveDiceRoll
-                    className={context.btnStyle}
-                  />
+                  <>
+                    <span>{context.career[i]?.statsModifierKey}</span>{" "}
+                    <DiceButtonComponent
+                      n={context.career[i]?.n}
+                      k={context.career[i]?.k}
+                      isPremium={context.career[i]?.isPremium}
+                      diceRollResult={
+                        context.diceRollResult?.careerStatsModifier[
+                          context.career[i]?.statsModifierKey
+                        ][`result${i}`]
+                      }
+                      clicked={
+                        context.isClicked?.careerStatsModifier[
+                          context.career[i]?.statsModifierKey
+                        ][`result${i}`]
+                      }
+                      disabled={
+                        context.isClicked?.careerStatsModifier[
+                          context.career[i]?.statsModifierKey
+                        ][`result${i}`]
+                      }
+                      path={[
+                        "careerStatsModifier",
+                        context.career[i]?.statsModifierKey,
+                        `result${i}`,
+                      ]}
+                      toggleClick={context.toggleClick}
+                      updateDiceRollResult={context.updateDiceRollResult}
+                      resolveDiceRoll
+                      className={context.btnStyle}
+                    />
+                  </>
                 ) : (
                   ""
                 )}
