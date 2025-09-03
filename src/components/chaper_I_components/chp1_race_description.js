@@ -70,6 +70,40 @@ export const chp1_race_description = [
       Odp9: 10,
       Odp10: 0,
     },
+    proficiency: [
+      {
+        weaponGroupName: "miecze lekkie",
+        weaponBonus: 5,
+      },
+      {
+        weaponGroupName: "miecze ciężkie",
+        weaponBonus: 5,
+      },
+      {
+        weaponGroupName: "lance",
+        weaponBonus: 5,
+      },
+      {
+        weaponGroupName: "kopie",
+        weaponBonus: 5,
+      },
+      {
+        weaponGroupName: "włócznie",
+        weaponBonus: 5,
+      },
+      {
+        weaponGroupName: "rapiery i szpady",
+        weaponBonus: 5,
+      },
+      {
+        weaponGroupName: "kusze typowe",
+        weaponBonus: 5,
+      },
+      {
+        weaponGroupName: "kusze ciężkie",
+        weaponBonus: 5,
+      },
+    ],
     description:
       "- +5 pkt. do biegłości w mieczach, lancach, kopiach, kuszach, włóczniach i rapierach;\n- samouzdrowienie (czyli automatyczne odzyskiwanie punktów Wytrzymałości utraconych w wyniku odniesionych obrażeń) 2 pkt. obrażeń po każdych 8 godzinach wypoczynku;",
   },
@@ -144,6 +178,29 @@ export const chp1_race_description = [
       Odp9: 10,
       Odp10: 10,
     },
+    proficiency: [
+      {
+        weaponGroupName: "miecze lekkie",
+        weaponBonus: 10,
+      },
+      {
+        weaponGroupName: "miecze ciężkie",
+        weaponBonus: 10,
+      },
+      {
+        weaponGroupName: "lance",
+        weaponBonus: 5,
+      },
+
+      {
+        weaponGroupName: "włócznie",
+        weaponBonus: 5,
+      },
+      {
+        weaponGroupName: "łuki proste",
+        weaponBonus: 5,
+      },
+    ],
     description:
       "- 10 pkt. do biegłości w mieczach oraz 5 pkt. w łukach. włóczniach i lancach;\n- infrawizja (zdolność widzenia w naturalnych ciemnościach) o zasięgu równym 1/10 SZ (metrów);\n- samouzdrowienie 1 pkt. obrażeń po 8 godzinach wypoczynku;",
   },
@@ -215,6 +272,29 @@ export const chp1_race_description = [
       Odp9: 0,
       Odp10: 10,
     },
+    proficiency: [
+      {
+        weaponGroupName: "miecze lekkie",
+        weaponBonus: 10,
+      },
+      {
+        weaponGroupName: "miecze ciężkie",
+        weaponBonus: 10,
+      },
+      {
+        weaponGroupName: "sztylety",
+        weaponBonus: 5,
+      },
+
+      {
+        weaponGroupName: "włócznie",
+        weaponBonus: 5,
+      },
+      {
+        weaponGroupName: "łuki proste",
+        weaponBonus: 10,
+      },
+    ],
     description:
       "- 10 pkt. do biegłości w mieczach i łukach (z wyjątkiem refleksyjnych) oraz 5 pkt. we włóczniach i sztyletach;\n- infrawizja o zasięgu równym 2/10 SZ;\n- dwukrotnie większy niż wynikający ze współczynników zasięg słuchu i wzroku;\n- samouzdrowienie 1 pkt. obrażeń po 8 godzinach wypoczynku;",
   },
@@ -288,6 +368,25 @@ export const chp1_race_description = [
       Odp9: 0,
       Odp10: 20,
     },
+    proficiency: [
+      {
+        weaponGroupName: "maczugi",
+        weaponBonus: 5,
+      },
+
+      {
+        weaponGroupName: "pały",
+        weaponBonus: 5,
+      },
+      {
+        weaponGroupName: "młoty",
+        weaponBonus: 5,
+      },
+      {
+        weaponGroupName: "walka bez broni",
+        weaponBonus: 5,
+      },
+    ],
     description:
       "- 5 pkt. do biegłości w kamieniach, maczugach, pałach, młotach oraz w walce na pięści;\n- dodatkowa Obrona 5 pkt. i Wyparowania 20 pkt., wynikające z grubości skóry (wszelkich obrażeń odniesionych w wyniku każdego rodzaju ataku - kłutego, tnącego lub obuchowego);\n- samouzdrowienie 4 pkt. obrażeń po 8 godzinach wypoczynku;",
   },
@@ -362,6 +461,20 @@ export const chp1_race_description = [
       Odp9: 10,
       Odp10: 10,
     },
+    proficiency: [
+      {
+        weaponGroupName: "szable",
+        weaponBonus: 10,
+      },
+      {
+        weaponGroupName: "łuki refleksyjne",
+        weaponBonus: 10,
+      },
+      {
+        weaponGroupName: "noże",
+        weaponBonus: 5,
+      },
+    ],
     description:
       "- 10 pkt. do biegłości w szablach, łukach refleksyjnych oraz 5 pkt. w nożach\n- infrawizja (1/10 SZ);\n- samouzdrowienie 2 pkt. obrażeń po 8 godzinach wypoczynku;",
   },
@@ -428,6 +541,40 @@ export const chp1_race_description = [
       Odp9: 10,
       Odp10: 0,
     },
+    proficiency: [
+      {
+        weaponGroupName: "topory typowe",
+        weaponBonus: 10,
+      },
+      {
+        weaponGroupName: "topory koliste",
+        weaponBonus: 10,
+      },
+      {
+        weaponGroupName: "topory obusieczne",
+        weaponBonus: 10,
+      },
+      {
+        weaponGroupName: "kusze typowe",
+        weaponBonus: 5,
+      },
+      {
+        weaponGroupName: "kusze ciężkie",
+        weaponBonus: 5,
+      },
+      {
+        weaponGroupName: "młoty",
+        weaponBonus: 5,
+      },
+      {
+        weaponGroupName: "sztylety",
+        weaponBonus: 5,
+      },
+      {
+        weaponGroupName: "oskardy",
+        weaponBonus: 5,
+      },
+    ],
     description:
       "- 10 pkt. do biegłości w toporach oraz 5 pkt. w kuszach, młotach, oskardach i sztyletach;\n- infrawizja (2/10 SZ);\n- dodatkowa Obrona 5 pkt. i Wyparowania 20 pkt.;\n- samouzdrowienie 3 pkt. obrażeń po 8 godzinach wypoczynku;",
   },
@@ -498,6 +645,28 @@ export const chp1_race_description = [
       Odp9: 0,
       Odp10: 10,
     },
+    proficiency: [
+      {
+        weaponGroupName: "topory typowe",
+        weaponBonus: 10,
+      },
+      {
+        weaponGroupName: "topory koliste",
+        weaponBonus: 10,
+      },
+      {
+        weaponGroupName: "topory obusieczne",
+        weaponBonus: 10,
+      },
+      {
+        weaponGroupName: "młoty",
+        weaponBonus: 10,
+      },
+      {
+        weaponGroupName: "miecze lekkie",
+        weaponBonus: 5,
+      },
+    ],
     description:
       "- 10 pkt. do biegłości w młotach i toporach oraz 5 pkt. w krótkich mieczach;\n- infrawizja (2/10 SZ);\n- dodatkowa Obrona 2pkt. i Wyparowania 10 pkt.;\n- samouzdrowienie 3 pkt. obrażeń po 8 godzinach wypoczynku;",
   },
@@ -566,6 +735,25 @@ export const chp1_race_description = [
       Odp9: 0,
       Odp10: 0,
     },
+    proficiency: [
+      {
+        weaponGroupName: "proce",
+        weaponBonus: 10,
+      },
+      {
+        weaponGroupName: "łuki proste",
+        weaponBonus: 5,
+      },
+
+      {
+        weaponGroupName: "sztylety",
+        weaponBonus: 5,
+      },
+      {
+        weaponGroupName: "miecze lekkie",
+        weaponBonus: 5,
+      },
+    ],
     description:
       "- 10 pkt. do biegłości w kamieniach oraz 5 pkt. w krótkich łukach, sztyletach i krótkich mieczach;\n- dodatkowa Obrona 5 pkt. i Wyparowania 20 pkt.;\n- samouzdrowienie 3 pkt. obrażeń po 8 godzinach wypoczynku;",
   },
@@ -639,6 +827,33 @@ export const chp1_race_description = [
       Odp9: 0,
       Odp10: 0,
     },
+    proficiency: [
+      {
+        weaponGroupName: "toporomiecze",
+        weaponBonus: 10,
+      },
+      {
+        weaponGroupName: "walka bez broni",
+        weaponBonus: 10,
+      },
+
+      {
+        weaponGroupName: "miecze lekkie",
+        weaponBonus: 5,
+      },
+      {
+        weaponGroupName: "miecze ciężkie",
+        weaponBonus: 5,
+      },
+      {
+        weaponGroupName: "kusze typowe",
+        weaponBonus: 5,
+      },
+      {
+        weaponGroupName: "kusze ciężkie",
+        weaponBonus: 5,
+      },
+    ],
     description:
       "- 10 pkt. do biegłości w toporomieczach i w ataku pazurami oraz 5 pkt. w mieczach i kuszach;\n- nie mogą nosić smoczych skór i zbroi o ograniczeniach większych niż 1/2 ZR, 1/2 SZ;\n- dodatkowa Obrona 20 pkt. i Wyparowania 60 pki.;\n- samouzdrowienie 5 pkt. obrażeń po 8 godzinach wypoczynku;",
   },

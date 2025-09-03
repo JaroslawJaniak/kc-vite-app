@@ -256,7 +256,7 @@ export const ChapterContent_VII_career = () => {
       </div>
       <div hidden={!context.isClicked.careerNumber}></div>
 
-      <ul>
+      <ul className="pt-2 pb-6 pl-4">
         {Array.from({ length: careerNumber }, (_, i) => {
           return (
             <li key={i}>

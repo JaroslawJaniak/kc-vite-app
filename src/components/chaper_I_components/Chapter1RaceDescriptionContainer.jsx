@@ -13,6 +13,7 @@ export const Chapter1RaceDescriptionContainer = (props) => {
     context.setAvailableProfessionsByRace(race.availableProfessions);
     context.setRaceData(race);
     console.log("raceData.raceName:", context.raceData);
+    console.log("raceData. proficiency:", context.raceData.proficiency);
   };
 
   return (

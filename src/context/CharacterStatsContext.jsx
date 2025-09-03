@@ -64,6 +64,134 @@ export const CharacterStatsContextProvider = ({ children }) => {
     useState(false);
   const [isSocialClassNobility, setIsSocialClassNobility] = useState(false);
 
+  const [firstProfessionData, setFirstProfessionData] = useState({
+    id: "",
+    profName: "",
+    castName: "",
+    combiningProfessions: [
+      ["", "", ""],
+      ["", "", ""],
+      ["", "", "", ""],
+    ],
+    exeptionCombiningProfessions: [],
+    character: ["", "", "", "", "", "", "", "", ""],
+    proficiency: {
+      number: 0,
+      minValue: 0,
+      bonusValue: 0,
+    },
+    usedWeapons: "",
+    usedArmour: "",
+    uesedMagic: "",
+    formation: "",
+    stats: {
+      ŻYW: 0,
+      SF: 0,
+      ZR: 0,
+      SZ: 0,
+      INT: 0,
+      MD: 0,
+      UM: 0,
+      CH: 0,
+      PR: 0,
+      WI: 0,
+      ZW: 0,
+      Odp1: 0,
+      Odp2: 0,
+      Odp3: 0,
+      Odp4: 0,
+      Odp5: 0,
+      Odp6: 0,
+      Odp7: 0,
+      Odp8: 0,
+      Odp9: 0,
+      Odp10: 0,
+    },
+  });
+  const [secondProfessionData, setSecondProfessionData] = useState({
+    id: "",
+    profName: "",
+    castName: "",
+    combiningProfessions: [
+      ["", "", ""],
+      ["", "", ""],
+      ["", "", "", ""],
+    ],
+    exeptionCombiningProfessions: [],
+    character: ["", "", "", "", "", "", "", "", ""],
+    proficiency: {
+      number: 0,
+      minValue: 0,
+      bonusValue: 0,
+    },
+    usedWeapons: "",
+    usedArmour: "",
+    uesedMagic: "",
+    formation: "",
+    stats: {
+      ŻYW: 0,
+      SF: 0,
+      ZR: 0,
+      SZ: 0,
+      INT: 0,
+      MD: 0,
+      UM: 0,
+      CH: 0,
+      PR: 0,
+      WI: 0,
+      ZW: 0,
+      Odp1: 0,
+      Odp2: 0,
+      Odp3: 0,
+      Odp4: 0,
+      Odp5: 0,
+      Odp6: 0,
+      Odp7: 0,
+      Odp8: 0,
+      Odp9: 0,
+      Odp10: 0,
+    },
+  });
+  const [firstProfessionChecked, setFirstProfessionChecked] = useState(false);
+  const [secondProfessionChecked, setSecondProfessionChecked] = useState(false);
+
+  const [isSecondProfessionChecked, setIsSecondProfessionChecked] =
+    useState(false);
+
+  const [exeptionChecked, setExeptionChecked] = useState(false);
+  const [availableProfessionsByRace, setAvailableProfessionsByRace] = useState([
+    { profName: "WOJOWNIK", maxLevel: "" },
+    { profName: "ŁOWCA", maxLevel: "" },
+    { profName: "GWARDZISTA", maxLevel: "" },
+    { profName: "BARBARZYŃCA", maxLevel: "" },
+    { profName: "RYCERZ", maxLevel: "" },
+    { profName: "PALADYN", maxLevel: "" },
+    { profName: "CZARNY RYCERZ", maxLevel: "" },
+    { profName: "ZŁODZIEJ", maxLevel: "" },
+    { profName: "ZABÓJCA", maxLevel: "" },
+    { profName: "KUPIEC", maxLevel: "" },
+    { profName: "KAPŁAN", maxLevel: "" },
+    { profName: "DRUID", maxLevel: "" },
+    { profName: "ASTROLOG", maxLevel: "" },
+    { profName: "PÓŁBÓG", maxLevel: "" },
+    { profName: "MAG", maxLevel: "" },
+    { profName: "CZARNOKSIĘŻNIK", maxLevel: "" },
+    { profName: "ILUZJONISTA", maxLevel: "" },
+    { profName: "ALCHEMIK", maxLevel: "" },
+  ]);
+  const [isProfAvailable, setIsProfAvailable] = useState();
+
+  const [availableProfessions, setAvailableProfessions] = useState(professions);
+
+  const [availableCharacters, setAvailableCharacters] = useState([]);
+
+  const [firstProfessionCharacters, setFirstProfessionCharacters] = useState(
+    []
+  );
+  const [secondProfessionCharacters, setSecondProfessionCharacters] = useState(
+    []
+  );
+
   const [disabilities, setDisabilities] = useState([
     {
       disabilitieName: "",
@@ -126,6 +254,24 @@ export const CharacterStatsContextProvider = ({ children }) => {
 
   const [career, setCareer] = useState([]);
   const [careerChild, setCareerChild] = useState([]);
+
+  const proficiencyNumber = Math.max(
+    firstProfessionData.proficiency.number,
+    secondProfessionData.proficiency.number
+  );
+
+  const [proficiency, setProficiency] = useState(
+    Array(proficiencyNumber).fill("")
+  );
+
+  function updateProficiency(value, index) {
+    setProficiency((prev) => {
+      const newValues = [...prev];
+      newValues[index] = value;
+
+      return newValues;
+    });
+  }
 
   const [careerS, setCareerS] = useState([]);
   const [diceRollResultS, setDiceRollResultS] = useState({});
@@ -458,7 +604,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
       { profName: "ALCHEMIK", maxLevel: "" },
     ],
 
-    proficiency: {},
+    proficiency: [],
 
     stats: {
       male: {
@@ -508,133 +654,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
     description: "",
   });
 
-  const [firstProfessionData, setFirstProfessionData] = useState({
-    id: "",
-    profName: "",
-    castName: "",
-    combiningProfessions: [
-      ["", "", ""],
-      ["", "", ""],
-      ["", "", "", ""],
-    ],
-    exeptionCombiningProfessions: [],
-    character: ["", "", "", "", "", "", "", "", ""],
-    proficiency: {
-      number: 0,
-      minValue: 0,
-      bonusValue: 0,
-    },
-    usedWeapons: "",
-    usedArmour: "",
-    uesedMagic: "",
-    formation: "",
-    stats: {
-      ŻYW: 0,
-      SF: 0,
-      ZR: 0,
-      SZ: 0,
-      INT: 0,
-      MD: 0,
-      UM: 0,
-      CH: 0,
-      PR: 0,
-      WI: 0,
-      ZW: 0,
-      Odp1: 0,
-      Odp2: 0,
-      Odp3: 0,
-      Odp4: 0,
-      Odp5: 0,
-      Odp6: 0,
-      Odp7: 0,
-      Odp8: 0,
-      Odp9: 0,
-      Odp10: 0,
-    },
-  });
-  const [secondProfessionData, setSecondProfessionData] = useState({
-    id: "",
-    profName: "",
-    castName: "",
-    combiningProfessions: [
-      ["", "", ""],
-      ["", "", ""],
-      ["", "", "", ""],
-    ],
-    exeptionCombiningProfessions: [],
-    character: ["", "", "", "", "", "", "", "", ""],
-    proficiency: {
-      number: 0,
-      minValue: 0,
-      bonusValue: 0,
-    },
-    usedWeapons: "",
-    usedArmour: "",
-    uesedMagic: "",
-    formation: "",
-    stats: {
-      ŻYW: 0,
-      SF: 0,
-      ZR: 0,
-      SZ: 0,
-      INT: 0,
-      MD: 0,
-      UM: 0,
-      CH: 0,
-      PR: 0,
-      WI: 0,
-      ZW: 0,
-      Odp1: 0,
-      Odp2: 0,
-      Odp3: 0,
-      Odp4: 0,
-      Odp5: 0,
-      Odp6: 0,
-      Odp7: 0,
-      Odp8: 0,
-      Odp9: 0,
-      Odp10: 0,
-    },
-  });
-  const [firstProfessionChecked, setFirstProfessionChecked] = useState(false);
-  const [secondProfessionChecked, setSecondProfessionChecked] = useState(false);
-
-  const [isSecondProfessionChecked, setIsSecondProfessionChecked] =
-    useState(false);
-
-  const [exeptionChecked, setExeptionChecked] = useState(false);
-  const [availableProfessionsByRace, setAvailableProfessionsByRace] = useState([
-    { profName: "WOJOWNIK", maxLevel: "" },
-    { profName: "ŁOWCA", maxLevel: "" },
-    { profName: "GWARDZISTA", maxLevel: "" },
-    { profName: "BARBARZYŃCA", maxLevel: "" },
-    { profName: "RYCERZ", maxLevel: "" },
-    { profName: "PALADYN", maxLevel: "" },
-    { profName: "CZARNY RYCERZ", maxLevel: "" },
-    { profName: "ZŁODZIEJ", maxLevel: "" },
-    { profName: "ZABÓJCA", maxLevel: "" },
-    { profName: "KUPIEC", maxLevel: "" },
-    { profName: "KAPŁAN", maxLevel: "" },
-    { profName: "DRUID", maxLevel: "" },
-    { profName: "ASTROLOG", maxLevel: "" },
-    { profName: "PÓŁBÓG", maxLevel: "" },
-    { profName: "MAG", maxLevel: "" },
-    { profName: "CZARNOKSIĘŻNIK", maxLevel: "" },
-    { profName: "ILUZJONISTA", maxLevel: "" },
-    { profName: "ALCHEMIK", maxLevel: "" },
-  ]);
-  const [isProfAvailable, setIsProfAvailable] = useState();
-
-  const [availableProfessions, setAvailableProfessions] = useState(professions);
-
-  const [availableCharacters, setAvailableCharacters] = useState([]);
-
-  const [firstProfessionCharacters, setFirstProfessionCharacters] = useState(
-    []
-  );
-  const [secondProfessionCharacters, setSecondProfessionCharacters] = useState(
-    []
-  );
+  
 
   const [character, setCharacter] = useState("");
   const [characterChecked, setCharacterChecked] = useState(false);
@@ -1231,13 +1251,16 @@ export const CharacterStatsContextProvider = ({ children }) => {
     careerChild,
     updateCareer,
     updateCareerChild,
+    careerNumber,
+
+    proficiency,
+    updateProficiency,
 
     getIndexFromKey,
     getCharsFromKey,
 
     btnStyle,
     svgArrowRight,
-    careerNumber,
 
     initCareerSlots,
     updateCareerAtIndex,
