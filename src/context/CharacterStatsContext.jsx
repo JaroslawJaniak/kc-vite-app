@@ -326,7 +326,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
     const newProficiencyList = availableProficiency.filter(
       (proficiency) => proficiency.weaponGroupName !== selectProficiencyName
     );
-    console.log("filtr: ", newProficiencyList);
+    
     setAvailableProficiency(newProficiencyList);
   };
 

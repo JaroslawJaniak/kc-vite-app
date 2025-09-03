@@ -6,12 +6,12 @@ import { proficiencyData } from "./Chp8_data";
 export const ChapterContent_VIII = () => {
   const context = useContext(CharacterStatsContext);
 
-  const [proficiency, setProficiency] = useState([]);
+  
 
-  const selectChangeHandler = (event, index, selectElement) => {
-    setProficiency((prev) => [...prev, event.target.value]);
+  const selectChangeHandler = (event, index) => {
+    //setProficiency((prev) => [...prev, event.target.value]);
     context.updateProficiency(event.target.value, index);
-    filterAvailableProficiency(event.target.value);
+    //context.filterAvailableProficiency(event.target.value);
   };
 
   const proficiencyNumber = Math.max(
@@ -85,16 +85,14 @@ export const ChapterContent_VIII = () => {
           <ul>
             {Array.from({ length: proficiencyNumber }, (_, i) => {
               return (
-                <li key={i}>
+                <li key={i} className="pb-4">
                   {i + 1}.<label for="proficiency"></label>
                   <select
                     hidden={context.isClicked.proficiency[`result${i}`]}
-                    onChange={(event) => selectChangeHandler(event, i, this)}
-                    class="w-48 bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded pl-3 pr-8 py-1 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md appearance-none cursor-pointer"
+                    onChange={(event) => selectChangeHandler(event, i)}
+                    class="w-52bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded pl-3 pr-8 py-1 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-xs focus:shadow-md appearance-none cursor-pointer"
                   >
-                    <option value={`${context.proficiency[i - 1]}`}>
-                      --Please choose an option--
-                    </option>
+                    <option>Wybierz z listy...</option>
                     {context.availableProficiency.map((proficiency, idx) => {
                       return (
                         <option key={idx} value={proficiency.weaponGroupName}>
