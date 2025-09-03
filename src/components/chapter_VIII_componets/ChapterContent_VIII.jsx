@@ -8,9 +8,10 @@ export const ChapterContent_VIII = () => {
 
   const [proficiency, setProficiency] = useState([]);
 
-  const selectChangeHandler = (event, index) => {
+  const selectChangeHandler = (event, index, selectElement) => {
     setProficiency((prev) => [...prev, event.target.value]);
     context.updateProficiency(event.target.value, index);
+    filterAvailableProficiency(event.target.value);
   };
 
   const proficiencyNumber = Math.max(
@@ -85,12 +86,16 @@ export const ChapterContent_VIII = () => {
             {Array.from({ length: proficiencyNumber }, (_, i) => {
               return (
                 <li key={i}>
-                  {i + 1}. <label for="proficiency"></label>
+                  {i + 1}.<label for="proficiency"></label>
                   <select
-                    onChange={(event) => selectChangeHandler(event, i)}
+                    hidden={context.isClicked.proficiency[`result${i}`]}
+                    onChange={(event) => selectChangeHandler(event, i, this)}
                     class="w-48 bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded pl-3 pr-8 py-1 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md appearance-none cursor-pointer"
                   >
-                    {proficiencyData.map((proficiency, idx) => {
+                    <option value={`${context.proficiency[i - 1]}`}>
+                      --Please choose an option--
+                    </option>
+                    {context.availableProficiency.map((proficiency, idx) => {
                       return (
                         <option key={idx} value={proficiency.weaponGroupName}>
                           {proficiency.weaponGroupName.toUpperCase()}
@@ -100,10 +105,7 @@ export const ChapterContent_VIII = () => {
                   </select>
                   {context.proficiency[i] ? (
                     <>
-                      {" "}
-                      {
-                        context.svgArrowRight
-                      } {`(${context.proficiency[i]})`}{" "}
+                      {` ${context.proficiency[i].toUpperCase()}: `}{" "}
                       <DiceButtonComponent
                         n={1}
                         k={100}
