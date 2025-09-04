@@ -12,7 +12,7 @@ export const abilitiesData = (k100buttonResult) => {
     abilitie.abilitieName = "twardziel";
     abilitie.statsModifierKey = "ŻYW";
     abilitie.abilitieDescription =
-      "wzrost postaci jest mniejszy od minimalnego wzrostu jego rasy o 20 + k10 cm (patrz punkt V oraz tabela V.a) konsekwencją tego jest zmniejszenie SZ postaci o połowę tej różnicy";
+      "";
   } else if (k100buttonResult >= 3 && k100buttonResult < 5) {
     abilitie.abilitieName = "siłacz";
     abilitie.statsModifierKey = "SF";
@@ -173,7 +173,7 @@ export const abilitiesData = (k100buttonResult) => {
     abilitie.abilitieName = "orator";
     abilitie.abilitieDescription = "";
   } else if (k100buttonResult >= 95 && k100buttonResult < 97) {
-    abilitie.abilitieName = "wyczuwając zachwianie równowagi sił";
+    abilitie.abilitieName = "wyczuwający zachwianie równowagi sił";
     abilitie.abilitieDescription = "";
   } else if (k100buttonResult >= 97 && k100buttonResult < 99) {
     abilitie.abilitieName = "szczęściarz";

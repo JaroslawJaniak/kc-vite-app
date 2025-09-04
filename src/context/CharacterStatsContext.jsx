@@ -317,6 +317,14 @@ export const CharacterStatsContextProvider = ({ children }) => {
     },
   ];
 
+  function raceProficiencyBonus(proficiencyName) {
+    const item = raceData.proficiency.find(
+      (element) => element.weaponGroupName === proficiencyName
+    );
+
+    return item?.weaponBonus || 0;
+  }
+
   const [availableProficiency, setAvailableProficiency] =
     useState(proficiencyData);
 
@@ -1393,6 +1401,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
     updateProficiency,
     availableProficiency,
     filterAvailableProficiency,
+    raceProficiencyBonus,
 
     getIndexFromKey,
     getCharsFromKey,

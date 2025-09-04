@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { CharacterStatsContext } from "../../context/CharacterStatsContext";
-import characterSheet1 from "../../assets/Karat_postaci_KC_1.png";
-import characterSheet2 from "../../assets/Karat_postaci_KC_2.png";
+
 
 export const ChapterContent_X_characterSheet = () => {
   return (

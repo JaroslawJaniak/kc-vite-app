@@ -125,13 +125,15 @@ export const ChapterContent_VIII = () => {
                         className={context.btnStyle}
                       />{" "}
                       + {`${proficiencyBonusValue}`}
-                      {raceProficiencyBonus(context.proficiency[i])
-                        ? ` + ${raceProficiencyBonus(context.proficiency[i])}`
+                      {context.raceProficiencyBonus(context.proficiency[i])
+                        ? ` + ${context.raceProficiencyBonus(
+                            context.proficiency[i]
+                          )}`
                         : ""}{" "}
                       ={" "}
                       {`${
                         proficiencyBonusValue +
-                        raceProficiencyBonus(context.proficiency[i]) +
+                        context.raceProficiencyBonus(context.proficiency[i]) +
                         Math.max(
                           context.diceRollResult.proficiency[`result${i}`] ?? 0,
                           proficiencyMinValue
@@ -140,6 +142,7 @@ export const ChapterContent_VIII = () => {
                       / TR
                       {`(${
                         proficiencyBonusValue +
+                        context.raceProficiencyBonus(context.proficiency[i]) +
                         Math.max(
                           context.diceRollResult.proficiency[`result${i}`] ?? 0,
                           proficiencyMinValue

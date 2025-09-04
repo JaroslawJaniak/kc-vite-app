@@ -254,7 +254,7 @@ export const ChapterContent_VII_career = () => {
           : "(nie wylosowano KLASY SPOŁECZNEJ)"}
         :
       </div>
-      <div hidden={!context.isClicked.careerNumber}></div>
+      <div hidden={!context.isClicked.careerNumber}>
 
       <ul className="pt-2 pb-6 pl-4">
         {Array.from({ length: careerNumber }, (_, i) => {
@@ -304,6 +304,7 @@ export const ChapterContent_VII_career = () => {
           );
         })}
       </ul>
+      </div>
     </article>
   );
 };

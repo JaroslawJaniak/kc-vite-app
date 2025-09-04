@@ -420,6 +420,9 @@ const Summary = () => {
     },
   ];
 
+  const actualBPsych = 0
+  const actualBFiz = 0;
+
   const immunity = [
     {
       key: "Odp1",
