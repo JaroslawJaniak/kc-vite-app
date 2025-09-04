@@ -162,6 +162,21 @@ export const Menu = () => {
                 IX. PODSUMOWANIE
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                to="/kc-vite-app/chapter10"
+                className={({ isActive }) =>
+                  isActive
+                    ? "pl-8 transition-all ease-in-out delay-250 text-red-800"
+                    : "transition-all ease-in-out delay-250"
+                }
+                onClick={() => {
+                  context.setOpenMenuBtnState(false);
+                }}
+              >
+                X. KARTA POSTACI
+              </NavLink>
+            </li>
           </ul>
         </ol>
       </nav>

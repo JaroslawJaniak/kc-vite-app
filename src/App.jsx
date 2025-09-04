@@ -22,6 +22,7 @@ import { Chapter7Page } from "./pages/Chapter7Page";
 import { Chapter4aPage } from "./pages/Chapter4aPage";
 import { Chapter8Page } from "./pages/Chapter8Page";
 import { Chapter9Page } from "./pages/Chapter9Page";
+import { Chapter10Page } from "./pages/Chapter10Page";
 
 function App() {
   const context = useContext(CharacterStatsContext);
@@ -232,6 +233,10 @@ function App() {
             <Route
               path="/kc-vite-app/chapter9"
               element={<Chapter9Page />}
+            ></Route>
+            <Route
+              path="/kc-vite-app/chapter10"
+              element={<Chapter10Page />}
             ></Route>
           </Routes>
         </div>{" "}

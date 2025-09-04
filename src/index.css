@@ -16,8 +16,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif; */
-    font-family:   'Courier New', Courier;
-    
+  font-family: "Courier New", Courier;
+
   font-size: 12px;
   height: 100vh;
   padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px)
@@ -30,17 +30,34 @@ body {
   grid-template-columns: 20% 60% 20%;
   margin: 0 auto;
   padding: 16px;
-  
 }
-
-
 
 .main-container {
   border-right: 1px solid #efefef;
   border-left: 1px solid #efefef;
 }
 
+.characterSheet_part1 {
+  background-image: url("src/assets/Karat_postaci_KC_01.png");
+  background-repeat: no-repeat;
+  background-position: center;
+ 
+  height: 1100px;
+}
+.characterSheet_part2 {
+  background-image: url("src/assets/Karat_postaci_KC_02.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  
+  height: 1100px;
+}
 
-
-
-
+.Warstwa_1_kopia {
+  background-image: url("Warstwa 1 kopia.png");
+  position: absolute;
+  left: 30px;
+  top: 18px;
+  width: 735px;
+  height: 1100px;
+  z-index: 5;
+}
