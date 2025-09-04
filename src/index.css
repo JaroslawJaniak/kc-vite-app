@@ -40,16 +40,16 @@ body {
 .characterSheet_part1 {
   background-image: url("src/assets/Karat_postaci_KC_01.png");
   background-repeat: no-repeat;
-  background-position: center;
- 
-  height: 1100px;
+  
+ width: 792px;
+  height: 1130px;
 }
 .characterSheet_part2 {
   background-image: url("src/assets/Karat_postaci_KC_02.png");
   background-repeat: no-repeat;
-  background-position: center;
   
-  height: 1100px;
+   width: 792px;
+  height: 1130px;
 }
 
 .Warstwa_1_kopia {

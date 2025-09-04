@@ -13,23 +13,23 @@ export const ChapterContent_X_characterSheet = () => {
         className="m-auto shadow-2xl "
       /> */}
       <form className="border">
-        <div className="characterSheet_part1">
+        <div className="characterSheet_part1 relative m-auto">
           {" "}
-          <div className="relative 0">
+          <div className="">
             {" "}
             <input
               id="username"
               type="text"
               name="username"
               placeholder="El Silvaran"
-              className="absolute top-0 left-28 block min-w-0 w-28 grow bg-transparent pl-2 text-base text-white placeholder:text-gray-500 focus:outline-none sm:text-sm/6"
+              className="absolute top-10 left-80 block min-w-0 w-28 grow bg-transparent pl-2 text-base text-white placeholder:text-gray-500 focus:outline-none sm:text-sm/6"
             />
             <input
               id="username"
               type="text"
               name="username"
               placeholder="Rasa"
-              className="absolute top-10 left-96 block min-w-0 w-28 grow bg-transparent pl-2 text-base text-white placeholder:text-gray-500 focus:outline-none sm:text-sm/6"
+              className="absolute top-10 right-96 block min-w-0 w-28 grow bg-transparent pl-2 text-base text-white placeholder:text-gray-500 focus:outline-none sm:text-sm/6"
             />
             <input
               id="username"
@@ -41,9 +41,9 @@ export const ChapterContent_X_characterSheet = () => {
           </div>
         </div>
 
-        <div className="characterSheet_part2">
+        <div className="characterSheet_part2 relative m-auto">
           {" "}
-          <div className="relative 0">
+          <div className="">
             {" "}
             <input
               id="username"
