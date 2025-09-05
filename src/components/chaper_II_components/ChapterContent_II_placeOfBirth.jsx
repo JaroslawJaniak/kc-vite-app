@@ -53,9 +53,9 @@ th {
   return (
     <section
       id="chapter_section2__place_of_birth"
-      className="section2__place_of_birth"
+      className="section2__place_of_birth "
     >
-      <h3>{chp2_info1.title}</h3>
+      <h3 className="">{chp2_info1.title}</h3>
       <DiceButtonComponent
         n={1}
         k={100}

@@ -623,14 +623,16 @@ export const ChapterContent_IX = () => {
   // className={`${styles.sticky} p-4 bg-white cursor-grab active:cursor-grabbing select-none overflow-auto`}
 
   return (
-    <section className={`p-12 bg-white select-none overflow-auto`}>
-      <div className="border p-2 mb-4">
+    <section
+      className={`p-12  select-none w-full  bg-[url(/background_kc.jpg)] bg-contain`}
+    >
+      <div className="border rounded  p-4 mb-4 w-1/2 bg-white">
         {" "}
         <StatRow label="Płeć:" value={context.chpt1Info.sex} />
         <StatRow label="Rasa:" value={context.chpt1Info.race} />
         <NewLineText text={context.chpt1Info.description} className="pl-4" />
       </div>
-      <div className="border p-2 mb-4">
+      <div className="border rounded-sm shadow-md p-4 mb-4 w-1/2 bg-white">
         <StatRow
           label="Miejsce urodzenia:"
           value={context.chpt2Info.placeOfBirth}
@@ -638,7 +640,7 @@ export const ChapterContent_IX = () => {
 
         <p className="pl-4">{context.chpt2Info.placeOfBirthDescription}</p>
       </div>
-      <div className="border p-2 mb-4">
+      <div className="border rounded-sm shadow-md p-4 mb-4 w-1/2 bg-white">
         <StatRow
           label="Wyjściowa klasa społeczna:"
           value={context.chpt2Info.socialClass}
@@ -651,219 +653,235 @@ export const ChapterContent_IX = () => {
           value={`${context.chpt2Info.incomeValue} złt`}
         />
       </div>
-      <StatRow label="UŁOMNOŚCI:" value={``} />
-      <StatRow
-        label="1."
-        value={`${
-          context.disabilities[0].disabilitieName
-            ? context.disabilities[0].disabilitieName
-            : "-"
-        }`}
-        className="pl-4"
-      />
-      <StatRow
-        label="2."
-        value={`${
-          context.disabilities[1].disabilitieName
-            ? context.disabilities[1].disabilitieName
-            : "-"
-        }`}
-        className="pl-4"
-      />
-      <StatRow
-        label="3."
-        value={`${
-          context.disabilities[2].disabilitieName
-            ? context.disabilities[2].disabilitieName
-            : "-"
-        }`}
-        className="pl-4"
-      />
-      <StatRow
-        label="4."
-        value={`${
-          context.disabilities[3].disabilitieName
-            ? context.disabilities[3].disabilitieName
-            : "-"
-        }`}
-        className="pl-4"
-      />
-      <StatRow label="ZDOLNOŚCI NADNATURALNE:" value={``} />
-      <StatRow
-        label="1."
-        value={`${
-          context.abilities[0].abilitieName
-            ? context.abilities[0].abilitieName
-            : "-"
-        }`}
-        className="pl-4"
-      />
-      <StatRow
-        label="2."
-        value={`${
-          context.abilities[1].abilitieName
-            ? context.abilities[1].abilitieName
-            : "-"
-        }`}
-        className="pl-4"
-      />
-      <StatRow
-        label="Profesja:"
-        value={`${context.firstProfession}  ${context.secondProfession}`}
-      />
-      <StatRow label="Charakter:" value={context.character} />
-      <StatRow label="Wzrost:" value={`${context.height} cm`} />
-      <StatRow label="Waga:" value={`${context.weight} kg`} />
-      <p>
-        <b>WSPÓŁCZYNNIKI:</b>
-      </p>
-      {stats.map(
-        ({
-          key,
-          label,
-          diceRoll,
-          baseValue,
-          bonusSocialClassValue,
-          abilitieStatsModifier,
-          careerStatsModifier,
-        }) => (
-          <StatRow
-            key={key}
-            label={label + ":"}
-            value={[
-              actualStatValue(
-                baseValue,
-                bonusSocialClassValue,
-                abilitieStatsModifier,
+      <div className="border rounded-sm shadow-md p-4 mb-4 w-1/2 bg-white">
+        <StatRow label="UŁOMNOŚCI:" value={``} />
+        <StatRow
+          label="1."
+          value={`${
+            context.disabilities[0].disabilitieName
+              ? context.disabilities[0].disabilitieName
+              : "-"
+          }`}
+          className="pl-4"
+        />
+        <StatRow
+          label="2."
+          value={`${
+            context.disabilities[1].disabilitieName
+              ? context.disabilities[1].disabilitieName
+              : "-"
+          }`}
+          className="pl-4"
+        />
+        <StatRow
+          label="3."
+          value={`${
+            context.disabilities[2].disabilitieName
+              ? context.disabilities[2].disabilitieName
+              : "-"
+          }`}
+          className="pl-4"
+        />
+        <StatRow
+          label="4."
+          value={`${
+            context.disabilities[3].disabilitieName
+              ? context.disabilities[3].disabilitieName
+              : "-"
+          }`}
+          className="pl-4"
+        />
+      </div>
+      <div className="border rounded-sm shadow-md p-4 mb-4 w-1/2 bg-white">
+        <StatRow label="ZDOLNOŚCI NADNATURALNE:" value={``} />
+        <StatRow
+          label="1."
+          value={`${
+            context.abilities[0].abilitieName
+              ? context.abilities[0].abilitieName
+              : "-"
+          }`}
+          className="pl-4"
+        />
+        <StatRow
+          label="2."
+          value={`${
+            context.abilities[1].abilitieName
+              ? context.abilities[1].abilitieName
+              : "-"
+          }`}
+          className="pl-4"
+        />
+      </div>
+      <div className="border rounded-sm shadow-md p-4 mb-4 w-1/2 bg-white">
+        <StatRow
+          label="Profesja:"
+          value={`${context.firstProfession}  ${context.secondProfession}`}
+        />
+        <StatRow label="Charakter:" value={context.character} />
+      </div>
+      <div className="border rounded-sm shadow-md p-4 mb-4 w-1/2 bg-white">
+        <StatRow label="Wzrost:" value={`${context.height} cm`} />
+        <StatRow label="Waga:" value={`${context.weight} kg`} />
+      </div>
+      <div className="border rounded-sm shadow-md p-4 mb-4 w-1/2 bg-white">
+        <p>
+          <b>WSPÓŁCZYNNIKI:</b>
+        </p>
+        {stats.map(
+          ({
+            key,
+            label,
+            diceRoll,
+            baseValue,
+            bonusSocialClassValue,
+            abilitieStatsModifier,
+            careerStatsModifier,
+          }) => (
+            <StatRow
+              key={key}
+              label={label + ":"}
+              value={[
+                actualStatValue(
+                  baseValue,
+                  bonusSocialClassValue,
+                  abilitieStatsModifier,
+                  careerStatsModifier
+                ),
+                bonusSocialClassValue ||
+                abilitieStatsModifier ||
                 careerStatsModifier
-              ),
-              bonusSocialClassValue ||
-              abilitieStatsModifier ||
-              careerStatsModifier
-                ? `(`
-                : "",
-              bonusSocialClassValue ||
-              abilitieStatsModifier ||
-              careerStatsModifier
-                ? baseValue
-                : "",
-              bonusSocialClassValue && `+ ${bonusSocialClassValue}`,
-              abilitieStatsModifier && `+ ${abilitieStatsModifier}`,
-              careerStatsModifier && `+ ${careerStatsModifier}`,
-              bonusSocialClassValue ||
-              abilitieStatsModifier ||
-              careerStatsModifier
-                ? `)`
-                : "",
-            ]
-              .filter(Boolean) // usuwa false/null/undefined
-              .join(" ")}
-            className="pl-4"
-          />
-        )
-      )}
-      <p>
-        <b>ODPORNOŚCI:</b>
-      </p>{" "}
-      <StatRow
-        key={"bPsych"}
-        label={"BPsych" + ":"}
-        value={
-          contributionŻYW +
-          contributionINT +
-          contributionMD +
-          context.diceRollResult.bonusImmunityDice.BPsych
-        }
-      />
-      <StatRow
-        key={"bFiz"}
-        label={"BFiz" + ":"}
-        value={
-          contributionŻYW * 2 +
-          contributionSF +
-          context.diceRollResult.bonusImmunityDice.BFiz
-        }
-      />
-      {immunity.map(({ key, label, diceRoll }, index) =>
-        index < 5 ? (
-          <StatRow
-            key={key}
-            label={label + ":"}
-            value={
-              contributionŻYW +
-              contributionINT +
-              contributionMD +
-              context.diceRollResult.bonusImmunityDice.BPsych +
-              immunityProf[index].immunityStat +
-              context.raceData.immunity[`Odp${index + 1}`] +
-              context.diceRollResult.bonusImmunityDice[`odp${index + 1}`]
-            }
-            className="pl-4"
-          />
-        ) : (
-          <StatRow
-            key={key}
-            label={label + ":"}
-            value={
-              contributionŻYW * 2 +
-              contributionSF +
-              context.diceRollResult.bonusImmunityDice.BFiz +
-              immunityProf[index].immunityStat +
-              context.raceData.immunity[`Odp${index + 1}`] +
-              context.diceRollResult.bonusImmunityDice[`odp${index + 1}`]
-            }
-            className="pl-4"
-          />
-        )
-      )}
-      <p>
-        <b>ZAWODY:</b>
-      </p>{" "}
-      <div hidden={!context.isClicked.careerNumber}>
-        {Array.from({ length: context.careerNumber }, (_, i) => (
+                  ? `(`
+                  : "",
+                bonusSocialClassValue ||
+                abilitieStatsModifier ||
+                careerStatsModifier
+                  ? baseValue
+                  : "",
+                bonusSocialClassValue && `+ ${bonusSocialClassValue}`,
+                abilitieStatsModifier && `+ ${abilitieStatsModifier}`,
+                careerStatsModifier && `+ ${careerStatsModifier}`,
+                bonusSocialClassValue ||
+                abilitieStatsModifier ||
+                careerStatsModifier
+                  ? `)`
+                  : "",
+              ]
+                .filter(Boolean) // usuwa false/null/undefined
+                .join(" ")}
+              className="pl-4"
+            />
+          )
+        )}
+      </div>
+      <div className="border rounded-sm shadow-md p-4 mb-4 w-1/2 bg-white">
+        <p>
+          <b>ODPORNOŚCI:</b>
+        </p>{" "}
+        <StatRow
+          key={"bPsych"}
+          label={"BPsych" + ":"}
+          value={
+            contributionŻYW +
+            contributionINT +
+            contributionMD +
+            context.diceRollResult.bonusImmunityDice.BPsych
+          }
+        />
+        <StatRow
+          key={"bFiz"}
+          label={"BFiz" + ":"}
+          value={
+            contributionŻYW * 2 +
+            contributionSF +
+            context.diceRollResult.bonusImmunityDice.BFiz
+          }
+        />
+        {immunity.map(({ key, label, diceRoll }, index) =>
+          index < 5 ? (
+            <StatRow
+              key={key}
+              label={label + ":"}
+              value={
+                contributionŻYW +
+                contributionINT +
+                contributionMD +
+                context.diceRollResult.bonusImmunityDice.BPsych +
+                immunityProf[index].immunityStat +
+                context.raceData.immunity[`Odp${index + 1}`] +
+                context.diceRollResult.bonusImmunityDice[`odp${index + 1}`]
+              }
+              className="pl-4"
+            />
+          ) : (
+            <StatRow
+              key={key}
+              label={label + ":"}
+              value={
+                contributionŻYW * 2 +
+                contributionSF +
+                context.diceRollResult.bonusImmunityDice.BFiz +
+                immunityProf[index].immunityStat +
+                context.raceData.immunity[`Odp${index + 1}`] +
+                context.diceRollResult.bonusImmunityDice[`odp${index + 1}`]
+              }
+              className="pl-4"
+            />
+          )
+        )}
+      </div>
+      <div className="border rounded-sm shadow-md p-4 mb-4 w-1/2 bg-white">
+        <p>
+          <b>ZAWODY:</b>
+        </p>{" "}
+        <div hidden={!context.isClicked.careerNumber}>
+          {Array.from({ length: context.careerNumber }, (_, i) => (
+            <StatRow
+              key={i}
+              label={`${i + 1}.`}
+              value={context.career[i]?.name}
+              className="pl-4"
+            />
+          ))}
+        </div>
+      </div>
+      <div className="border rounded-sm shadow-md p-4 mb-4 w-1/2 bg-white">
+        <p>
+          <b>BIEGŁOŚCI:</b>
+        </p>{" "}
+        {Array.from({ length: proficiencyNumber }, (_, i) => (
           <StatRow
             key={i}
-            label={`${i + 1}.`}
-            value={context.career[i]?.name}
+            label={
+              context.proficiency[i]
+                ? `${i + 1}. ${context.proficiency[i]}: `
+                : `${i + 1}.`
+            }
+            value={
+              context.proficiency[i]
+                ? `${
+                    proficiencyBonusValue +
+                    context.raceProficiencyBonus(context.proficiency[i]) +
+                    Math.max(
+                      context.diceRollResult.proficiency[`result${i}`] ?? 0,
+                      proficiencyMinValue
+                    )
+                  } / TR ${
+                    proficiencyBonusValue +
+                    context.raceProficiencyBonus(context.proficiency[i]) +
+                    Math.max(
+                      context.diceRollResult.proficiency[`result${i}`] ?? 0,
+                      proficiencyMinValue
+                    ) +
+                    contributionSF +
+                    contributionZR
+                  }`
+                : "-"
+            }
             className="pl-4"
           />
         ))}
       </div>
-      <p>
-        <b>BIEGŁOŚCI:</b>
-      </p>{" "}
-      {Array.from({ length: proficiencyNumber }, (_, i) => (
-        <StatRow
-          key={i}
-          label={
-            context.proficiency[i]
-              ? `${i + 1}. ${context.proficiency[i]}: `
-              : `${i + 1}.`
-          }
-          value={
-            context.proficiency[i]
-              ? `${
-                  proficiencyBonusValue +
-                  context.raceProficiencyBonus(context.proficiency[i]) +
-                  Math.max(
-                    context.diceRollResult.proficiency[`result${i}`] ?? 0,
-                    proficiencyMinValue
-                  )
-                } / TR ${
-                  proficiencyBonusValue +
-                  context.raceProficiencyBonus(context.proficiency[i]) +
-                  Math.max(
-                    context.diceRollResult.proficiency[`result${i}`] ?? 0,
-                    proficiencyMinValue
-                  ) +
-                  contributionSF +
-                  contributionZR
-                }`
-              : "-"
-          }
-          className="pl-4"
-        />
-      ))}
     </section>
   );
 };

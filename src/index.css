@@ -52,6 +52,17 @@ body {
   height: 1130px;
 }
 
+.characterSheet_part0 {
+    background-image: url("/Karat_postaci_KC_j2.jpg");
+  background-repeat: no-repeat;
+  
+   
+}
+
+.flip {
+  transform: scaleX(-1);
+}
+
 .Warstwa_1_kopia {
   background-image: url("Warstwa 1 kopia.png");
   position: absolute;

@@ -8,6 +8,7 @@ export const Menu = () => {
 
   return (
     <section className={`${styles.sticky} p-4 bg-white select-none`}>
+      <img src="./img_menu.jpg" alt="" />
       <nav>
         <ol>
           <ul className="[&>*]:my-2">

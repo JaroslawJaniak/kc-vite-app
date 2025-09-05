@@ -9,7 +9,7 @@ import { Button } from "@material-tailwind/react";
 
 export const Chapter1 = () => {
   return (
-    <section className="section mb-20">
+    <section className="section mb-20 ">
       <h2>I. WYBÓR RASY I PŁCI</h2>
 
       <Chapter1GenderSelection />
