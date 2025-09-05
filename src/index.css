@@ -38,14 +38,14 @@ body {
 }
 
 .characterSheet_part1 {
-  background-image: url("src/assets/Karat_postaci_KC_j1.jpg");
+  background-image: url("/Karat_postaci_KC_j1.jpg");
   background-repeat: no-repeat;
   
  width: 792px;
   height: 1130px;
 }
 .characterSheet_part2 {
-  background-image: url("src/assets/Karat_postaci_KC_j2.jpg");
+  background-image: url("/Karat_postaci_KC_j2.jpg");
   background-repeat: no-repeat;
   
    width: 792px;

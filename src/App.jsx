@@ -241,7 +241,7 @@ function App() {
           </Routes>
         </div>{" "}
         <div className="md:hidden fixed top-12 right-4 ">{renderSummary()}</div>
-        <div className="hidden md:block overflow-auto">
+        <div className="hidden md:block sticky top-0">
           <Summary />
         </div>
       </div>

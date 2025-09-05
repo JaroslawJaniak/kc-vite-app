@@ -5,12 +5,7 @@ import { CharacterStatsContext } from "../../context/CharacterStatsContext";
 export const ChapterContent_X_characterSheet = () => {
   return (
     <section className="section mb-20">
-      {/* <img
-        id="map"
-        src={characterSheet1}
-        alt="map"
-        className="m-auto shadow-2xl "
-      /> */}
+     
       <form className="border">
         <div className="characterSheet_part1 relative m-auto">
           {" "}
