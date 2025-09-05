@@ -47,7 +47,18 @@ export const CharacterStatsContextProvider = ({ children }) => {
   const [tablePlcOfBirth_trId, setTablePlcOfBirth_trId] = useState("");
   const [placeOfBirthDescription, setPlaceOfBirthDescription] = useState("");
 
-  const [socialClassData, setSocialClassData] = useState({});
+  const [socialClassData, setSocialClassData] = useState({
+    socialClassName: "",
+    socialClassFullName: "",
+    socialClassDescription: "",
+    socialClassCastDescription: "",
+    nobility: false,
+    table_trId: "",
+    statsModifier: 0,
+
+    n: 0,
+    k: 0,
+  });
   const [socialClass, setSocialClass] = useState("");
   const [socialClassFullName, setSocialClassFullName] = useState("");
   const [socialClassDescription, setSocialClassDescription] = useState("");
@@ -334,7 +345,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
     const newProficiencyList = availableProficiency.filter(
       (proficiency) => proficiency.weaponGroupName !== selectProficiencyName
     );
-    
+
     setAvailableProficiency(newProficiencyList);
   };
 

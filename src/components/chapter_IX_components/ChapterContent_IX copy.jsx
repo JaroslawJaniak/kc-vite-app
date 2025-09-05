@@ -2,11 +2,6 @@ import React, { useEffect, useContext } from "react";
 import { CharacterStatsContext } from "../../context/CharacterStatsContext";
 import { NewLineText } from "../utils/NewLineText";
 
-import { calculateStat } from "./data_stats";
-import { actualStatValue } from "./data_stats";
-import { sumByKey } from "./data_stats";
-import { sumObjectValues } from "./data_stats";
-
 const StatRow = ({ label, value, className }) => (
   <p className={className}>
     <b>{label} </b>
@@ -17,14 +12,44 @@ const StatRow = ({ label, value, className }) => (
 export const ChapterContent_IX = () => {
   const context = useContext(CharacterStatsContext);
 
+  const calculateStat = (base, diceRoll, firstProf, secondProf, bonus) => {
+    return base + diceRoll + Math.max(firstProf, secondProf) + (bonus || 0);
+  };
+
+  const actualStatValue = (
+    baseValue,
+    bonusSocialClassValue,
+    abilitieStatsModifier,
+    careerStatsModifier
+  ) => {
+    return (
+      baseValue +
+        bonusSocialClassValue +
+        abilitieStatsModifier +
+        careerStatsModifier || baseValue
+    );
+  };
+
+  function sumObjectValues(obj) {
+    if (!obj || typeof obj !== "object") return 0;
+    return Object.values(obj).reduce((sum, value) => sum + value, 0);
+  }
+
+  function sumByKey(arr, key) {
+    return arr.reduce(
+      (acc, item) =>
+        item.statsModifierKey === key ? acc + item.statsModifier : acc,
+      0
+    );
+  }
+
   useEffect(() => {
     context.filterBaseRaceStatsByRaceName();
 
     return () => {};
   }, [context.filterBaseRaceStatsByRaceName()]);
 
-  
-
+  //tutaj porównać max i podem w calculate dodawać bez Max.math
   const stats = [
     {
       key: "ŻYW",
@@ -47,7 +72,9 @@ export const ChapterContent_IX = () => {
       },
       get bonusSocialClassValue() {},
       get abilitieStatsModifier() {
-        return context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0;
+        return (
+          context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0
+        );
       },
       get careerStatsModifier() {
         return (
@@ -79,7 +106,9 @@ export const ChapterContent_IX = () => {
       },
       get bonusSocialClassValue() {},
       get abilitieStatsModifier() {
-        return context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0;
+        return (
+          context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0
+        );
       },
       get careerStatsModifier() {
         return (
@@ -111,7 +140,9 @@ export const ChapterContent_IX = () => {
       },
       get bonusSocialClassValue() {},
       get abilitieStatsModifier() {
-        return context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0;
+        return (
+          context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0
+        );
       },
       get careerStatsModifier() {
         return (
@@ -143,7 +174,9 @@ export const ChapterContent_IX = () => {
       },
       get bonusSocialClassValue() {},
       get abilitieStatsModifier() {
-        return context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0;
+        return (
+          context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0
+        );
       },
       get careerStatsModifier() {
         return (
@@ -175,7 +208,9 @@ export const ChapterContent_IX = () => {
       },
       get bonusSocialClassValue() {},
       get abilitieStatsModifier() {
-        return context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0;
+        return (
+          context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0
+        );
       },
       get careerStatsModifier() {
         return (
@@ -207,7 +242,9 @@ export const ChapterContent_IX = () => {
       },
       get bonusSocialClassValue() {},
       get abilitieStatsModifier() {
-        return context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0;
+        return (
+          context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0
+        );
       },
       get careerStatsModifier() {
         return (
@@ -239,7 +276,9 @@ export const ChapterContent_IX = () => {
       },
       get bonusSocialClassValue() {},
       get abilitieStatsModifier() {
-        return context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0;
+        return (
+          context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0
+        );
       },
       get careerStatsModifier() {
         return (
@@ -271,7 +310,9 @@ export const ChapterContent_IX = () => {
       },
       get bonusSocialClassValue() {},
       get abilitieStatsModifier() {
-        return context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0;
+        return (
+          context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0
+        );
       },
       get careerStatsModifier() {
         return (
@@ -303,7 +344,9 @@ export const ChapterContent_IX = () => {
       },
       get bonusSocialClassValue() {},
       get abilitieStatsModifier() {
-        return context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0;
+        return (
+          context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0
+        );
       },
       get careerStatsModifier() {
         return (
@@ -337,7 +380,9 @@ export const ChapterContent_IX = () => {
         return context.socialClassData.statsModifier || 0;
       },
       get abilitieStatsModifier() {
-        return context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0;
+        return (
+          context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0
+        );
       },
       get careerStatsModifier() {
         return (
@@ -369,7 +414,9 @@ export const ChapterContent_IX = () => {
       },
       get bonusSocialClassValue() {},
       get abilitieStatsModifier() {
-        return context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0;
+        return (
+          context.diceRollResult.abilitiesStatsModifier[this.key] + 20 || 0
+        );
       },
       get careerStatsModifier() {
         return (
@@ -381,7 +428,7 @@ export const ChapterContent_IX = () => {
       },
     },
   ];
-  
+
   const immunity = [
     {
       key: "Odp1",
@@ -600,7 +647,6 @@ export const ChapterContent_IX = () => {
     ) / 20
   );
 
-
   // className={`${styles.sticky} p-4 bg-white cursor-grab active:cursor-grabbing select-none overflow-auto`}
 
   return (
@@ -704,18 +750,16 @@ export const ChapterContent_IX = () => {
               key={key}
               label={label + ":"}
               value={[
+                baseValue,
                 actualStatValue(
                   baseValue,
                   bonusSocialClassValue,
                   abilitieStatsModifier,
                   careerStatsModifier
                 ),
-                `(`,
-                baseValue,
-                bonusSocialClassValue && `+ ${bonusSocialClassValue}`,
-                abilitieStatsModifier && `+ ${abilitieStatsModifier}`,
-                careerStatsModifier && `+ ${careerStatsModifier}`,
-                `)`,
+                bonusSocialClassValue && `+ (${bonusSocialClassValue})`,
+                abilitieStatsModifier && `+ (${abilitieStatsModifier})`,
+                careerStatsModifier && `+ (${careerStatsModifier})`,
               ]
                 .filter(Boolean) // usuwa false/null/undefined
                 .join(" ")}
