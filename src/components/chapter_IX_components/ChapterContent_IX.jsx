@@ -624,7 +624,7 @@ export const ChapterContent_IX = () => {
 
   return (
     <section
-      className={`p-12  select-none w-full  bg-[url(/background_kc.jpg)] bg-contain`}
+      className={`p-12 select-none w-full  bg-[url(/background_kc.jpg)] bg-contain bg-repeat-round`}
     >
       <div className="border rounded  p-4 mb-4 w-1/2 bg-white">
         {" "}

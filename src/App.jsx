@@ -193,7 +193,7 @@ function App() {
         <div className="hidden md:block">
           <Menu />
         </div>
-        <div className="md:col-span-4 bg-gray-100 rounded w-100 m-2 p-1 pt-3 lg:p-3">
+        <div className="md:col-span-4 bg-gray-100 rounded w-100 m-2 p-1 pt-3 lg:p-3 ">
           <ScrollToTop />
           <Routes>
             <Route path="/kc-vite-app/" element={<Chapter1Page />}></Route>
