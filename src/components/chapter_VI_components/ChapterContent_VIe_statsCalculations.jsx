@@ -231,7 +231,7 @@ const ChapterContent_VIe_statsCalculations = () => {
 
   const defaultViewImmunityCalculations = (
     <>
-      <div className="mt-2">
+      <div className="mt-2 rounded p-4 text-brown-100  text-xs backdrop-blur-lg shadow-2xl mb-4">
         <b>ODPORNOŚCI:</b>
         <div className="">
           <span>BPsych</span> <span>{`(1/20ŻYW + 1/10INT + 1/10MD + `}</span>
@@ -282,7 +282,7 @@ const ChapterContent_VIe_statsCalculations = () => {
         </div>
       </div>
 
-      <table className="  text-xxs md:text-xs dark:text-gray-400 [&_*]:border-hidden bg-transparent ">
+      <table className="  text-xxs md:text-xs dark:text-gray-400 [&_*]:border-hidden bg-transparent rounded p-4 text-brown-100  text-xs backdrop-blur-lg shadow-2xl mb-4">
         <thead>
           <tr>
             <th>odporność</th>

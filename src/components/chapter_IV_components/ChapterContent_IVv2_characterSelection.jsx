@@ -17,7 +17,7 @@ export const ChapterContent_IVv2_characterSelection = () => {
   //characterChecked,
   //setCharacterChecked;
   return (
-    <section>
+    <section className="text-brown-100 p-2 text-xs backdrop-blur-lg shadow-2xl" >
       <h2>IV.a WYBÓR CHARAKTERU</h2>
 
       {context.availableCharacters.map((character) => (

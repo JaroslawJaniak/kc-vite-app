@@ -32,7 +32,7 @@ export const ChapterContent_IV_CAST_subProfList = (props) => {
   };
 
   return (
-    <div className="ml-4  [&>*]:lowercase grid grid-cols-2">
+    <div className="ml-4  [&>*]:lowercase grid grid-cols-2 ">
       {props.mainProf.combiningProfessions.map((subProfList) => (
         <div
           className={` p-1 ${
@@ -49,8 +49,7 @@ export const ChapterContent_IV_CAST_subProfList = (props) => {
               )
             )
             .map((subProf) => (
-              <p>
-                
+              <p className="text-brown-100">
                 <InputComponent
                   type={"checkbox"}
                   name={subProf}

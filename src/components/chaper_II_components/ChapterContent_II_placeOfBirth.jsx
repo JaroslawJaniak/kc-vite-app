@@ -72,7 +72,7 @@ th {
       <p>{chp2_info1.tableLabel}</p>
       <table
         id="table1_origin_place_of_birth"
-        className="w-72 md:w-auto lg:w-3/4"
+        className="w-72 md:w-auto lg:w-3/4 rounded-sm text-brown-700"
       >
         {chp2_place_of_birth.map((chp2_place_of_birth) => (
           <tr id={chp2_place_of_birth.id} className={"td__k100"}>

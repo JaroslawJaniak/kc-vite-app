@@ -20,7 +20,7 @@ const Chapter1GenderSelection = () => {
   };
 
   return (
-    <form>
+    <form className="">
       <InputComponent
         id={"checkboxMale"}
         type={chp1_sex_info.male.type}

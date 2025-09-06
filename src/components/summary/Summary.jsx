@@ -612,7 +612,7 @@ const Summary = () => {
 
   return (
     <section className={`p-4 bg-white select-none sticky top-8`}>
-      <img className="flip" src="./img_menu.jpg" alt="" />
+      
       <StatRow label="Płeć:" value={context.chpt1Info.sex} />
       <StatRow label="Rasa:" value={context.chpt1Info.race} />
       <NewLineText text={context.chpt1Info.description} />

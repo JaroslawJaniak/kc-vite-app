@@ -16,10 +16,10 @@ const ChapterContent_VIe = () => {
   const context = useContext(CharacterStatsContext);
 
   const deafaultView = (
-    <div>
+    <div className="text-brown-700 backdrop-blur-lg shadow-2xl p-4">
       <table
         id="table_base-stats"
-        className="[&>*]:p-0 [&>*]:m-0 text-xxs md:text-xs"
+        className="[&>*]:p-0 [&>*]:m-0 text-xxs md:text-xs my-4"
       >
         <tr>
           <td></td>

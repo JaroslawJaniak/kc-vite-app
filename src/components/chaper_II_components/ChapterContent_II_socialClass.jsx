@@ -106,9 +106,13 @@ const ChapterContent_II_socialClass = () => {
       </div>
       <p>{chp2_info2.tableLabel}</p>
       {chp2_table_social_class.map((chp2_table_social_class) => (
-        <div>
-          <h3>{chp2_table_social_class.socialClassName}</h3>
-          <span>{chp2_table_social_class.socialClassCastDescription}</span>
+        <div className="backdrop-blur-lg p-4 m-2 text-brown-700 shadow-2xl">
+          <h3 className=" text-brown-100">
+            {chp2_table_social_class.socialClassName}
+          </h3>
+          <span className=" text-brown-100">
+            {chp2_table_social_class.socialClassCastDescription}
+          </span>
           <table className={"w-72 md:w-auto lg:w-3/4"}>
             {chp2_table_social_class.socialClassTableInfo.map(
               (socialClassTableInfo) => (

@@ -28,7 +28,7 @@ export const ChapterContent_IV_CAST_Component = (props) => {
   };
 
   return (
-    <div>
+    <div className="text-brown-100">
       {props.professionsList
         .filter((mainProf) => mainProf.castName === props.castName)
         .map((prof) => (

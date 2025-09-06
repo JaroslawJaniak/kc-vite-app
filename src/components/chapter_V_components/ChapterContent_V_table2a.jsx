@@ -8,7 +8,7 @@ const ChapterContent_V_table2a = (props) => {
       <table
         hidden={false}
         id="table1_height_weight_male"
-        className="[&>*]:p-0 [&>*]:m-0 text-xxs md:text-xs"
+        className="[&>*]:p-0 [&>*]:m-0 text-xxs md:text-xs text-brown-700"
       >
         <tr id="table1_tr1" className="tr_height_weight ">
           <td>{chp5_table2a_rw1.text1}</td>
@@ -35,10 +35,7 @@ const ChapterContent_V_table2a = (props) => {
         </tr>
 
         {props.item.map((tableContent, index) => (
-          <tr
-            key={tableContent.id + index}
-            className={`tr_height_weight  `}
-          >
+          <tr key={tableContent.id + index} className={`tr_height_weight  `}>
             <td id={"male" + tableContent.race} className="uppercase">
               {tableContent.race}
             </td>

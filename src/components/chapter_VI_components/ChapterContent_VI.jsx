@@ -12,7 +12,7 @@ import ChapterContent_VIe_statsCalculations from "./ChapterContent_VIe_statsCalc
 
 const ChapterContent_VI = () => {
   return (
-    <section className="section mb-20">
+    <section className="section mb-20 text-brown-100 ">
       <p>{chp6_info.text0}</p>
       <p>{chp6_info.text1}</p>
       <ChapterContent_VI_statsCalculations />

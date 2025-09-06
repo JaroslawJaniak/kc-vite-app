@@ -90,7 +90,7 @@ const ChapterContent_V = () => {
   };
 
   return (
-    <section className="section mb-20">
+    <section className="section mb-20 rounded  text-brown-100 p-2 text-xs backdrop-blur-lg shadow-2xl">
       <h3>{chp5_info.text1}</h3>
 
       <div>

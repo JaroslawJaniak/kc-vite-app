@@ -7,7 +7,7 @@ const ChapterContent_II = () => {
   
 
   return (
-    <section className="mb-20">
+    <section className="mb-20  m-2 border-gray-900 rounded  text-brown-100 p-2 text-xs ">
       <h2>II. LOSOWANIE POCHODZENIA</h2>
       <ChapterContent_II_placeOfBirth />
       <ChapterContent_II_socialClass />

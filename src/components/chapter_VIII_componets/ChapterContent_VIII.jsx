@@ -65,22 +65,22 @@ export const ChapterContent_VIII = () => {
   }
 
   return (
-    <article>
+    <article className="text-brown-100">
       <h3>VII. BIEGŁOŚCI</h3>
 
-      <div>
+      <div className="rounded p-4 text-brown-100  text-xs backdrop-blur-lg shadow-2xl mb-4">
         Premia do biegłości wynikajaca z rasy postaci{" "}
         {`(${context.raceData.raceName.toUpperCase()})`}:
+        <ul className="pt-2 pb-6 pl-4">
+          {Array.from(context.raceData.proficiency, (item) => (
+            <li>
+              {item.weaponGroupName}: +{item.weaponBonus}
+            </li>
+          ))}
+        </ul>
       </div>
-      <ul className="pt-2 pb-6 pl-4">
-        {Array.from(context.raceData.proficiency, (item) => (
-          <li>
-            {item.weaponGroupName}: +{item.weaponBonus}
-          </li>
-        ))}
-      </ul>
 
-      <div>
+      <div className="rounded p-4 text-brown-100  text-xs backdrop-blur-lg shadow-2xl mb-4">
         <form>
           <ul>
             {Array.from({ length: proficiencyNumber }, (_, i) => {
@@ -90,7 +90,7 @@ export const ChapterContent_VIII = () => {
                   <select
                     hidden={context.isClicked.proficiency[`result${i}`]}
                     onChange={(event) => selectChangeHandler(event, i)}
-                    class="w-52bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded pl-3 pr-8 py-1 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-xs focus:shadow-md appearance-none cursor-pointer"
+                    class="w-52bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded pl-3 pr-8 py-1 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-xs focus:shadow-md appearance-none cursor-pointer text-brown-700"
                   >
                     <option>Wybierz z listy...</option>
                     {context.availableProficiency.map((proficiency, idx) => {

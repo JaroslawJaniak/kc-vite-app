@@ -7,7 +7,7 @@ const ChapterContent_VIa = () => {
 const context = useContext(CharacterStatsContext);
 
   const deafaultView = (
-    <div>
+    <div className="rounded p-4 text-brown-100  text-xs backdrop-blur-lg shadow-2xl">
       <table
         id="table_base-stats"
         className=" [&>*]:p-0 [&>*]:m-0 text-xxs md:text-xs"

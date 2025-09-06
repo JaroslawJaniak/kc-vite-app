@@ -6,7 +6,7 @@ const ChapterContent_V_table1 = (props) => {
       <p>
         Zestawienie wyników rzutu k100 oraz ich konsekwencji dla wzrostu i wagi
       </p>
-      <table id="table1_describe" class="table_origin">
+      <table id="table1_describe" className="table_origin text-brown-700">
         {chp5_table1.map((tableInfo) => (
           <tr key={tableInfo.id} id={tableInfo.id}>
             <td className="td__k100">{tableInfo.k100}</td>

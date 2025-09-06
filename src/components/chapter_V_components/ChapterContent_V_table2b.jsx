@@ -62,7 +62,7 @@ const ChapterContent_V_table2b = (props) => {
       <table
         hidden={false}
         id="table1_height_weight_male"
-        className="[&>*]:p-0 [&>*]:m-0 text-xxs md:text-xs"
+        className="[&>*]:p-0 [&>*]:m-0 text-xxs md:text-xs text-brown-700"
       >
         <tr id="table1_tr1" class="tr_height_weight">
           <td className="td__race">{chp5_table2b_rw1.text1}</td>

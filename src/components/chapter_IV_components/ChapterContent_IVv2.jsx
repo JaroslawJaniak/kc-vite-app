@@ -15,7 +15,7 @@ export const ChapterContent_IVv2 = () => {
   }, []);
 
   return (
-    <div className="mb-20">
+    <div className="mb-20 border-gray-900 rounded  text-brown-100 p-2 text-xs backdrop-blur-lg shadow-2xl">
       <ChapterContent_IV_second_profession />
       <ChapterContent_IV_exeption hidden={!context.isSecondProfessionChecked} />
       <hr className="my-3 " />

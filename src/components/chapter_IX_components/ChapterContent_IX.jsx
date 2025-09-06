@@ -620,19 +620,19 @@ export const ChapterContent_IX = () => {
     ) / 20
   );
 
-  // className={`${styles.sticky} p-4 bg-white cursor-grab active:cursor-grabbing select-none overflow-auto`}
+  // className={`${styles.sticky} p-4 backdrop-blur-lg cursor-grab active:cursor-grabbing select-none overflow-auto`}
 
   return (
     <section
-      className={`p-12 select-none w-full  bg-[url(/background_kc.jpg)] bg-contain bg-repeat-round`}
+      className={`p-12 select-none w-full  bg-[url(/background_kc2.2.jpg)] bg-contain bg-repeat-round`}
     >
-      <div className="border rounded  p-4 mb-4 w-1/2 bg-white">
+      <div className="border-gray-900  rounded  text-brown-100 text-brown-100 p-4 mb-4 xl:w-2/3 backdrop-blur-lg">
         {" "}
         <StatRow label="Płeć:" value={context.chpt1Info.sex} />
         <StatRow label="Rasa:" value={context.chpt1Info.race} />
         <NewLineText text={context.chpt1Info.description} className="pl-4" />
       </div>
-      <div className="border rounded-sm shadow-md p-4 mb-4 w-1/2 bg-white">
+      <div className="border-gray-900 rounded  text-brown-100 shadow-md p-4 mb-4 xl:w-2/3 backdrop-blur-lg">
         <StatRow
           label="Miejsce urodzenia:"
           value={context.chpt2Info.placeOfBirth}
@@ -640,7 +640,7 @@ export const ChapterContent_IX = () => {
 
         <p className="pl-4">{context.chpt2Info.placeOfBirthDescription}</p>
       </div>
-      <div className="border rounded-sm shadow-md p-4 mb-4 w-1/2 bg-white">
+      <div className="border-gray-900 rounded  text-brown-100 shadow-md p-4 mb-4 xl:w-2/3 backdrop-blur-lg">
         <StatRow
           label="Wyjściowa klasa społeczna:"
           value={context.chpt2Info.socialClass}
@@ -653,7 +653,7 @@ export const ChapterContent_IX = () => {
           value={`${context.chpt2Info.incomeValue} złt`}
         />
       </div>
-      <div className="border rounded-sm shadow-md p-4 mb-4 w-1/2 bg-white">
+      <div className="border-gray-900 rounded  text-brown-100 shadow-md p-4 mb-4 xl:w-2/3 backdrop-blur-lg">
         <StatRow label="UŁOMNOŚCI:" value={``} />
         <StatRow
           label="1."
@@ -692,7 +692,7 @@ export const ChapterContent_IX = () => {
           className="pl-4"
         />
       </div>
-      <div className="border rounded-sm shadow-md p-4 mb-4 w-1/2 bg-white">
+      <div className="border-gray-900 rounded  text-brown-100 shadow-md p-4 mb-4 xl:w-2/3 backdrop-blur-lg">
         <StatRow label="ZDOLNOŚCI NADNATURALNE:" value={``} />
         <StatRow
           label="1."
@@ -713,18 +713,18 @@ export const ChapterContent_IX = () => {
           className="pl-4"
         />
       </div>
-      <div className="border rounded-sm shadow-md p-4 mb-4 w-1/2 bg-white">
+      <div className="border-gray-900 rounded  text-brown-100 shadow-md p-4 mb-4 xl:w-2/3 backdrop-blur-lg">
         <StatRow
           label="Profesja:"
           value={`${context.firstProfession}  ${context.secondProfession}`}
         />
         <StatRow label="Charakter:" value={context.character} />
       </div>
-      <div className="border rounded-sm shadow-md p-4 mb-4 w-1/2 bg-white">
+      <div className="border-gray-900 rounded  text-brown-100 shadow-md p-4 mb-4 xl:w-2/3 backdrop-blur-lg">
         <StatRow label="Wzrost:" value={`${context.height} cm`} />
         <StatRow label="Waga:" value={`${context.weight} kg`} />
       </div>
-      <div className="border rounded-sm shadow-md p-4 mb-4 w-1/2 bg-white">
+      <div className="border-gray-900 rounded  text-brown-100 shadow-md p-4 mb-4 xl:w-2/3 backdrop-blur-lg">
         <p>
           <b>WSPÓŁCZYNNIKI:</b>
         </p>
@@ -774,7 +774,7 @@ export const ChapterContent_IX = () => {
           )
         )}
       </div>
-      <div className="border rounded-sm shadow-md p-4 mb-4 w-1/2 bg-white">
+      <div className="border-gray-900 rounded  text-brown-100 shadow-md p-4 mb-4 xl:w-2/3 backdrop-blur-lg">
         <p>
           <b>ODPORNOŚCI:</b>
         </p>{" "}
@@ -830,7 +830,7 @@ export const ChapterContent_IX = () => {
           )
         )}
       </div>
-      <div className="border rounded-sm shadow-md p-4 mb-4 w-1/2 bg-white">
+      <div className="border-gray-900 rounded  text-brown-100 shadow-md p-4 mb-4 xl:w-2/3 backdrop-blur-lg">
         <p>
           <b>ZAWODY:</b>
         </p>{" "}
@@ -845,7 +845,7 @@ export const ChapterContent_IX = () => {
           ))}
         </div>
       </div>
-      <div className="border rounded-sm shadow-md p-4 mb-4 w-1/2 bg-white">
+      <div className="border-gray-900 rounded  text-brown-100 shadow-md p-4 mb-4 xl:w-2/3 backdrop-blur-lg">
         <p>
           <b>BIEGŁOŚCI:</b>
         </p>{" "}

@@ -120,7 +120,7 @@ export const ChapterContent_VII_career = () => {
             <>
               {context.svgArrowRight}
               <span>{` ${context.career[i]?.statsModifierKey} + ${context.career[i]?.statsModifier}`}</span>{" "}
-              {context.career[i]?.n ? " + ":""}
+              {context.career[i]?.n ? " + " : ""}
               <DiceButtonComponent
                 n={context.career[i]?.n}
                 k={context.career[i]?.k}
@@ -219,13 +219,11 @@ export const ChapterContent_VII_career = () => {
     );
   };
 
-  
-
   return (
     <article>
       <h3>VII. ZAWODY</h3>
 
-      <div>
+      <div className="rounded p-4 text-brown-100  text-xs backdrop-blur-lg shadow-2xl mb-4">
         {`liczba zawodów to ((MD = ${valueMD}) -`}{" "}
         <DiceButtonComponent
           n={1}
@@ -243,7 +241,7 @@ export const ChapterContent_VII_career = () => {
         />{" "}
         {`)/20 (cecha górna): `} <span>{`${careerNumber}`}</span>
       </div>
-      <div>
+      <div className="rounded p-4 text-brown-100  text-xs backdrop-blur-lg shadow-2xl mb-4">
         Zawody z listy zawodów klasy{" "}
         {end === "N"
           ? "niższej"
@@ -253,57 +251,56 @@ export const ChapterContent_VII_career = () => {
           ? "wyższej"
           : "(nie wylosowano KLASY SPOŁECZNEJ)"}
         :
-      </div>
-      <div hidden={!context.isClicked.careerNumber}>
-
-      <ul className="pt-2 pb-6 pl-4">
-        {Array.from({ length: careerNumber }, (_, i) => {
-          return (
-            <li key={i}>
-              {i + 1}.{" "}
-              {renderCareerDiceButtonComponent(careerResolveDiceRoll, i)}
-              <>
-                {context.career[i]?.name ===
-                "rzuć jeszcze raz  i sprawdź na liście zawodów klasy średniej" ? (
+        <div hidden={!context.isClicked.careerNumber}>
+          <ul className="pt-2 pb-6 pl-4">
+            {Array.from({ length: careerNumber }, (_, i) => {
+              return (
+                <li key={i}>
+                  {i + 1}.{" "}
+                  {renderCareerDiceButtonComponent(careerResolveDiceRoll, i)}
                   <>
-                    {context.svgArrowRight}
-                    {renderCareerChildDiceButtonComponent(
-                      careerResolveDiceRollClassS,
-                      j++
+                    {context.career[i]?.name ===
+                    "rzuć jeszcze raz  i sprawdź na liście zawodów klasy średniej" ? (
+                      <>
+                        {context.svgArrowRight}
+                        {renderCareerChildDiceButtonComponent(
+                          careerResolveDiceRollClassS,
+                          j++
+                        )}
+                      </>
+                    ) : (
+                      ""
+                    )}
+                    {context.career[i]?.name ===
+                    "rzuć jeszcze raz  i sprawdź na liście zawodów klasy wyższej" ? (
+                      <>
+                        {context.svgArrowRight}
+                        {renderCareerChildDiceButtonComponent(
+                          careerResolveDiceRollClassW,
+                          j++
+                        )}
+                      </>
+                    ) : (
+                      ""
+                    )}
+                    {context.career[i]?.name ===
+                    "rzuć jeszcze raz  i sprawdź na liście zawodów klasy niższej" ? (
+                      <>
+                        {context.svgArrowRight}
+                        {renderCareerChildDiceButtonComponent(
+                          careerResolveDiceRollClassN,
+                          j++
+                        )}
+                      </>
+                    ) : (
+                      ""
                     )}
                   </>
-                ) : (
-                  ""
-                )}
-                {context.career[i]?.name ===
-                "rzuć jeszcze raz  i sprawdź na liście zawodów klasy wyższej" ? (
-                  <>
-                    {context.svgArrowRight}
-                    {renderCareerChildDiceButtonComponent(
-                      careerResolveDiceRollClassW,
-                      j++
-                    )}
-                  </>
-                ) : (
-                  ""
-                )}
-                {context.career[i]?.name ===
-                "rzuć jeszcze raz  i sprawdź na liście zawodów klasy niższej" ? (
-                  <>
-                    {context.svgArrowRight}
-                    {renderCareerChildDiceButtonComponent(
-                      careerResolveDiceRollClassN,
-                      j++
-                    )}
-                  </>
-                ) : (
-                  ""
-                )}
-              </>
-            </li>
-          );
-        })}
-      </ul>
+                </li>
+              );
+            })}
+          </ul>
+        </div>{" "}
       </div>
     </article>
   );

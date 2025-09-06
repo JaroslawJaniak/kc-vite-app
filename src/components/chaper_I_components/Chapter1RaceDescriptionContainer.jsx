@@ -17,7 +17,7 @@ export const Chapter1RaceDescriptionContainer = (props) => {
   };
 
   return (
-    <div className="race checkbox-container bg-white p-1 m-1 w-100 lg:w-96 border rounded border-gray-300">
+    <div className="race checkbox-container  m-2 lg:w-2/3 border-gray-900 rounded  text-brown-100 p-2 text-xs backdrop-blur-lg shadow-2xl">
       <InputComponent
         id={"checkboxMale"}
         type={props.race_description.type}

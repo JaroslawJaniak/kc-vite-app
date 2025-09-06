@@ -6,7 +6,7 @@ export const ChapterContent_X_characterSheet = () => {
   return (
     <section className="section mb-20">
      
-      <form className="border">
+      <form className="">
         <div className="characterSheet_part1 relative m-auto">
           {" "}
           <div className="">

@@ -23,8 +23,8 @@ export const ChapterContent_VI_statsCalculations = () => {
   };
 
   return (
-    <div>
-      <table className=" w-full text-xxs md:text-xs dark:text-gray-400 [&_*]:border-hidden bg-transparent [&_*]:text-center">
+    <div className="rounded p-4 text-brown-100  text-xs backdrop-blur-lg shadow-2xl mb-4">
+      <table className=" w-full text-xxs md:text-xs text-brown-100 [&_*]:border-hidden bg-transparent [&_*]:text-center">
         <thead>
           <tr>
             <th></th>
