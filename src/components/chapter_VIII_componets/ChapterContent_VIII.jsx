@@ -122,7 +122,7 @@ export const ChapterContent_VIII = () => {
                         toggleClick={context.toggleClick}
                         updateDiceRollResult={context.updateDiceRollResult}
                         resolveDiceRoll
-                        className={context.btnStyle}
+                        className={context.btnStyle2}
                       />{" "}
                       + {`${proficiencyBonusValue}`}
                       {context.raceProficiencyBonus(context.proficiency[i])

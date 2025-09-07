@@ -112,7 +112,7 @@ export const ChapterContent_VII_career = () => {
           toggleClick={context.toggleClick}
           updateDiceRollResult={context.updateDiceRollResult}
           resolveDiceRoll={resolveDiceRoll}
-          className={context.btnStyle}
+          className={context.btnStyle2}
         />{" "}
         <span>{context.career[i]?.name}</span>{" "}
         <>
@@ -148,7 +148,7 @@ export const ChapterContent_VII_career = () => {
                 toggleClick={context.toggleClick}
                 updateDiceRollResult={context.updateDiceRollResult}
                 resolveDiceRoll
-                className={context.btnStyle}
+                className={context.btnStyle2}
               />
             </>
           ) : (
@@ -172,7 +172,7 @@ export const ChapterContent_VII_career = () => {
           toggleClick={context.toggleClick}
           updateDiceRollResult={context.updateDiceRollResult}
           resolveDiceRoll={resolveDiceRoll}
-          className={context.btnStyle}
+          className={context.btnStyle2}
         />{" "}
         <span>{context.careerChild[i]?.name}</span>{" "}
         <>
@@ -208,7 +208,7 @@ export const ChapterContent_VII_career = () => {
                 toggleClick={context.toggleClick}
                 updateDiceRollResult={context.updateDiceRollResult}
                 resolveDiceRoll
-                className={context.btnStyle}
+                className={context.btnStyle2}
               />
             </>
           ) : (
@@ -220,7 +220,7 @@ export const ChapterContent_VII_career = () => {
   };
 
   return (
-    <article>
+    <article className="text-brown-100 ">
       <h3>VII. ZAWODY</h3>
 
       <div className="rounded p-4 text-brown-100  text-xs backdrop-blur-lg shadow-2xl mb-4">
@@ -237,7 +237,7 @@ export const ChapterContent_VII_career = () => {
           toggleClick={context.toggleClick}
           updateDiceRollResult={context.updateDiceRollResult}
           resolveDiceRoll
-          className={context.btnStyle}
+          className={context.btnStyle2}
         />{" "}
         {`)/20 (cecha górna): `} <span>{`${careerNumber}`}</span>
       </div>

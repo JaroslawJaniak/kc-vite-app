@@ -36,7 +36,7 @@ export const ChapterContent_III_abilities = () => {
         resolveDiceRoll={(path, diceRoll) =>
           context.updateAbilitiesChanceData(diceRoll)
         } //wrapper
-        className={btnStyle}
+        className={context.btnStyle2}
       />{" "}
       {context.diceRollResult.abilitiesChanceDice.result1 <= abilitieChance ? (
         <>
@@ -52,7 +52,7 @@ export const ChapterContent_III_abilities = () => {
               toggleClick={context.toggleClick}
               updateDiceRollResult={context.updateDiceRollResult}
               resolveDiceRoll={resolveAbilitiesDiceRoll}
-              className={btnStyle}
+              className={context.btnStyle2}
             />
             {" - "}
             {context.abilities[0].abilitieName}
@@ -74,7 +74,7 @@ export const ChapterContent_III_abilities = () => {
               resolveDiceRoll={(path, diceRoll) =>
                 context.updateAbilitiesChanceData(diceRoll)
               } //wrapper
-              className={btnStyle}
+              className={context.btnStyle2}
             />
             {context.diceRollResult.abilitiesChanceDice.result2 <=
             abilitieChance ? (
@@ -90,7 +90,7 @@ export const ChapterContent_III_abilities = () => {
                   toggleClick={context.toggleClick}
                   updateDiceRollResult={context.updateDiceRollResult}
                   resolveDiceRoll={resolveAbilitiesDiceRoll}
-                  className={btnStyle}
+                  className={context.btnStyle2}
                 />
                 {" - "}
                 {context.abilities[1].abilitieName}

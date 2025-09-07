@@ -194,7 +194,7 @@ function App() {
           <Menu />
         </div>
         
-        <div className="md:col-span-4 bg-gray-100 rounded-sm w-100 m-2 p-8 pt-3 lg:p-12 bg-[url(/background_kc2.2.jpg)] bg-contain bg-repeat-round border border-white border-8">
+        <div className="md:col-span-6 bg-gray-100 rounded-sm w-100 m-2 p-8 pt-3 lg:p-12 bg-[url(/background_kc2.2.jpg)] bg-contain bg-repeat-round border border-white border-8">
           <ScrollToTop />
           <Routes>
             <Route path="/kc-vite-app/" element={<Chapter1Page />}></Route>
@@ -241,10 +241,10 @@ function App() {
             ></Route>
           </Routes>
         </div>{" "}
-        <div className="md:hidden fixed top-12 right-4 ">{renderSummary()}</div>
+        {/* <div className="md:hidden fixed top-12  w-full">{renderSummary()}</div>
         <div className=" hidden md:block  md:col-span-2 md:sticky top-0 ">
           <Summary />
-        </div>
+        </div> */}
       </div>
     </main>
   );

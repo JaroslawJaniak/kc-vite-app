@@ -10,9 +10,12 @@ export const CharacterStatsContextProvider = ({ children }) => {
   const btnStyle =
     "text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300  rounded text-xxs md:text-xs p-0.5 md:p-2  mb-2 w-8 md:w-12 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700";
 
+  const btnStyle2 =
+    "text-brown-700 bg-brown-100 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300  rounded text-xxs md:text-xs p-0.5 md:p-2  mb-2 w-8 md:w-12 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700";
+
   const svgArrowRight = (
     <svg
-      class="w-6 h-6 text-gray-800 dark:text-white inline"
+      className="w-6 h-6 text-brown-100 dark:text-white inline"
       aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -1418,6 +1421,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
     getCharsFromKey,
 
     btnStyle,
+    btnStyle2,
     svgArrowRight,
 
     initCareerSlots,

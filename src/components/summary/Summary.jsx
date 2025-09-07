@@ -611,7 +611,7 @@ const Summary = () => {
   // className={`${styles.sticky} p-4 bg-white cursor-grab active:cursor-grabbing select-none overflow-auto`}
 
   return (
-    <section className={`p-4 bg-white select-none sticky top-8`}>
+    <section className={`p-4 bg-white w-full`}>
       
       <StatRow label="Płeć:" value={context.chpt1Info.sex} />
       <StatRow label="Rasa:" value={context.chpt1Info.race} />

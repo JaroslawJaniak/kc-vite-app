@@ -10,7 +10,7 @@ const context = useContext(CharacterStatsContext);
     <div className="rounded p-4 text-brown-100  text-xs backdrop-blur-lg shadow-2xl">
       <table
         id="table_base-stats"
-        className=" [&>*]:p-0 [&>*]:m-0 text-xxs md:text-xs"
+        className=" [&>*]:p-0 [&>*]:m-0 text-xxs md:text-xs text-brown-700"
       >
         <tr>
           {chp6_table_base_stats1.map((item) => (

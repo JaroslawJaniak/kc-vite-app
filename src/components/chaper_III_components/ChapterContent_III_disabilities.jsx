@@ -6,9 +6,7 @@ import { disabilitiesData } from "./chp3_disabilities_data";
 export const ChapterContent_III_disabilities = () => {
   const context = useContext(CharacterStatsContext);
 
-  const btnStyle =
-    "text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300  rounded text-xxs md:text-xs p-0.5 md:p-2  mb-2 w-8 md:w-12 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700";
-
+  
   let disabilitieChance = 25;
 
   const resolveDisabilitiesDiceRoll = (path, k) => {
@@ -68,7 +66,7 @@ export const ChapterContent_III_disabilities = () => {
                 resolveDiceRoll={(path, diceRoll) =>
                   context.updateDisabilitiesChanceData(diceRoll)
                 } //wrapper
-                className={btnStyle}
+                className={context.btnStyle2}
               />{" "}
               {context.diceRollResult.disabilitiesChanceDice[
                 `result${index + 1}`
@@ -93,7 +91,7 @@ export const ChapterContent_III_disabilities = () => {
                     toggleClick={context.toggleClick}
                     updateDiceRollResult={context.updateDiceRollResult}
                     resolveDiceRoll={resolveDisabilitiesDiceRoll}
-                    className={btnStyle}
+                    className={context.btnStyle2}
                   />
                   {" - "}
                   {context.disabilities[index].disabilitieName}
@@ -130,7 +128,7 @@ export const ChapterContent_III_disabilities = () => {
         toggleClick={context.toggleClick}
         updateDiceRollResult={context.updateDiceRollResult}
         resolveDiceRoll={context.updateAbilitiesData}
-        className={btnStyle}
+        className={context.btnStyle2}
       />{" "}
       {context.diceRollResult.disabilitiesChanceDice.result1 <=
       context.disabilitiesChance ? (
@@ -147,7 +145,7 @@ export const ChapterContent_III_disabilities = () => {
               toggleClick={context.toggleClick}
               updateDiceRollResult={context.updateDiceRollResult}
               resolveDiceRoll={context.updateAbilitiesData}
-              className={btnStyle}
+              className={context.btnStyle2}
             />
           </span>
           <div>
@@ -164,7 +162,7 @@ export const ChapterContent_III_disabilities = () => {
               toggleClick={context.toggleClick}
               updateDiceRollResult={context.updateDiceRollResult}
               resolveDiceRoll={context.updateAbilitiesData}
-              className={btnStyle}
+              className={context.btnStyle2}
             />
             {context.diceRollResult.disabilitiesChanceDice.result2 <=
             context.abilitiesChance ? (
@@ -182,7 +180,7 @@ export const ChapterContent_III_disabilities = () => {
                   toggleClick={context.toggleClick}
                   updateDiceRollResult={context.updateDiceRollResult}
                   resolveDiceRoll={context.updateAbilitiesData}
-                  className={btnStyle}
+                  className={context.btnStyle2}
                 />
               </span>
             ) : (
