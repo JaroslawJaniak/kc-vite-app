@@ -7,7 +7,6 @@ export const dataHeight = (k100Result, raceName, sex) => {
   const dataHeight = {
     height: 0,
     tdId: "",
-    
   };
 
   if (k100Result >= 1 && k100Result < 21) {
@@ -62,22 +61,22 @@ export const dataWeight = (k100Result, raceName, sex) => {
   if (sex === "Kobieta" && raceName !== "Półolbrzymy") {
     dataWeight.weight -= 10; // Adjust weight for
     if (dataWeight.weight < raceData.weightAvr) {
-      dataWeight.underweight = raceData.weightAvr - 10 - dataWeight.weight; // Ensure weight is not negative
+      dataWeight.underweight = raceData.weightAvr - dataWeight.weight; // Ensure weight is not negative
     } else if (dataWeight.weight > raceData.weightAvr) {
-      dataWeight.underweight = dataWeight.weight - raceData.weightAvr;
+      dataWeight.overweight = dataWeight.weight - raceData.weightAvr - 10;
     }
   } else if (sex === "Kobieta" && raceName === "Półolbrzymy") {
     dataWeight.weight += 10; // Adjust weight for Półolbrzymy
     if (dataWeight.weight < raceData.weightAvr) {
-      dataWeight.underweight = raceData.weightAvr + 10 - dataWeight.weight; // Ensure weight is not negative
+      dataWeight.underweight = raceData.weightAvr - dataWeight.weight; // Ensure weight is not negative
     } else if (dataWeight.weight > raceData.weightAvr + 20) {
-      dataWeight.underweight = dataWeight.weight - raceData.weightAvr;
+      dataWeight.overweight = dataWeight.weight - raceData.weightAvr - 10;
     }
   } else {
     if (dataWeight.weight < raceData.weightAvr) {
       dataWeight.underweight = raceData.weightAvr - dataWeight.weight; // Ensure weight is not negative
     } else if (dataWeight.weight > raceData.weightAvr + 10) {
-      dataWeight.underweight = dataWeight.weight - raceData.weightAvr;
+      dataWeight.overweight = dataWeight.weight - raceData.weightAvr - 10;
     }
   }
 

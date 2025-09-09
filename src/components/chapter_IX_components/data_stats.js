@@ -6,7 +6,7 @@ export const actualStatValue = (
   baseValue,
   bonusSocialClassValue,
   abilitieStatsModifier,
-  careerStatsModifier
+  careerStatsModifier, weightStatsModifier
 ) => {
   console.log(
     "log: ",
@@ -17,7 +17,7 @@ export const actualStatValue = (
   );
   const actualStatValue =
    abilitieStatsModifier + careerStatsModifier + baseValue + ( bonusSocialClassValue ||
-    0);
+    0) + (weightStatsModifier || 0);
 
   return actualStatValue;
 };

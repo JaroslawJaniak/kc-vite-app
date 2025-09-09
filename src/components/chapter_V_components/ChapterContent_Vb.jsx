@@ -13,7 +13,7 @@ const ChapterContent_Vb = () => {
      
       
         <span>
-          Niedowaga <span>{context.overweight} kg;</span>
+          Nadwaga <span>{context.overweight} kg;</span>
         </span>
        
      

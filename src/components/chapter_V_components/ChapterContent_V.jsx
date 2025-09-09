@@ -61,8 +61,17 @@ const ChapterContent_V = () => {
     }
   };
 
+
   const k100RollWeightResult = (k) => {
     if (k !== 0) {
+      console.log(
+        "over: ",
+        dataWeight(k, context.race, context.sex).overweight
+      );
+      console.log(
+        "under: ",
+        dataWeight(k, context.race, context.sex).underweight
+      );
       context.setWeightK100Result(k);
       context.setWeight(dataWeight(k, context.race, context.sex).weight);
       context.setUnderweight(

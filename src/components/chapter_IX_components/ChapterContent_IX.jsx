@@ -57,6 +57,15 @@ export const ChapterContent_IX = () => {
           )
         );
       },
+      get weightStatsModifier() {
+        if (context.ovrerweight > 0) {
+          return context.overweight;
+        } else if (context.underweight > 0) {
+          return context.underweight * -1;
+        } else {
+          return 0;
+        }
+      },
     },
     {
       key: "SF",
@@ -90,6 +99,15 @@ export const ChapterContent_IX = () => {
             context.diceRollResult.careerStatsModifier[this.key] || 0
           )
         );
+      },
+      get weightStatsModifier() {
+        if (context.ovrerweight > 0) {
+          return context.overweight;
+        } else if (context.underweight > 0) {
+          return context.underweight * -1;
+        } else {
+          return 0;
+        }
       },
     },
     {
@@ -125,6 +143,15 @@ export const ChapterContent_IX = () => {
           )
         );
       },
+      get weightStatsModifier() {
+        if (context.ovrerweight > 0) {
+          return context.overweight * (-1 / 2);
+        } else if (context.underweight > 0) {
+          return context.underweight * (1 / 2);
+        } else {
+          return 0;
+        }
+      },
     },
     {
       key: "SZ",
@@ -158,6 +185,15 @@ export const ChapterContent_IX = () => {
             context.diceRollResult.careerStatsModifier[this.key] || 0
           )
         );
+      },
+      get weightStatsModifier() {
+        if (context.ovrerweight > 0) {
+          return context.overweight * (-1 / 2);
+        } else if (context.underweight > 0) {
+          return context.underweight * (1 / 2);
+        } else {
+          return 0;
+        }
       },
     },
     {
@@ -399,6 +435,7 @@ export const ChapterContent_IX = () => {
           )
         );
       },
+      get weightStatsModifier() {},
     },
   ];
 
@@ -737,6 +774,7 @@ export const ChapterContent_IX = () => {
             bonusSocialClassValue,
             abilitieStatsModifier,
             careerStatsModifier,
+            weightStatsModifier,
           }) => (
             <StatRow
               key={key}
@@ -746,24 +784,32 @@ export const ChapterContent_IX = () => {
                   baseValue,
                   bonusSocialClassValue,
                   abilitieStatsModifier,
-                  careerStatsModifier
+                  careerStatsModifier,
+                  weightStatsModifier
                 ),
                 bonusSocialClassValue ||
                 abilitieStatsModifier ||
-                careerStatsModifier
+                careerStatsModifier ||
+                weightStatsModifier
                   ? `(`
                   : "",
                 bonusSocialClassValue ||
                 abilitieStatsModifier ||
-                careerStatsModifier
+                careerStatsModifier ||
+                weightStatsModifier
                   ? baseValue
                   : "",
                 bonusSocialClassValue && `+ ${bonusSocialClassValue}`,
                 abilitieStatsModifier && `+ ${abilitieStatsModifier}`,
                 careerStatsModifier && `+ ${careerStatsModifier}`,
+                weightStatsModifier &&
+                  (weightStatsModifier > 0
+                    ? `+ ${weightStatsModifier}`
+                    : `- ${Math.abs(weightStatsModifier)}`),
                 bonusSocialClassValue ||
                 abilitieStatsModifier ||
-                careerStatsModifier
+                careerStatsModifier ||
+                weightStatsModifier
                   ? `)`
                   : "",
               ]
