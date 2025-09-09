@@ -13,6 +13,9 @@ export const CharacterStatsContextProvider = ({ children }) => {
   const btnStyle2 =
     "text-brown-700 bg-brown-100 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300  rounded text-xxs md:text-xs p-0.5 md:p-2  mb-2 w-8 md:w-12 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700";
 
+  const navBtnStyle2 =
+    "bottom-2 left-3 fixed z-50 text-brown-700 bg-brown-100 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded  w-24 h-12   py-1.5 me-2 mb-2  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700";
+
   const svgArrowRight = (
     <svg
       className="w-6 h-6 text-brown-100 dark:text-white inline"
@@ -1422,6 +1425,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
 
     btnStyle,
     btnStyle2,
+    navBtnStyle2,
     svgArrowRight,
 
     initCareerSlots,

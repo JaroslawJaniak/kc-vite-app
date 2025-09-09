@@ -165,7 +165,7 @@ function App() {
           </svg>
         }
         handleClick={handlePrevious}
-        className="bottom-2 left-3 fixed z-50 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm w-16 h-10   py-1.5 me-2 mb-2  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+        className={context.navBtnStyle2}
       />
 
       <NavButton
@@ -185,15 +185,14 @@ function App() {
           </svg>
         }
         handleClick={handleNext}
-        className="bottom-2 right-3 fixed z-50 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm w-16 h-10   py-1.5 me-2 mb-2  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+        className="bottom-2 right-3 fixed z-50 text-brown-700 bg-brown-100 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded  w-24 h-12   py-1.5 me-2 mb-2  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
       />
 
       <div className="md:grid  md:grid-cols-8 gap-4 text-lg md:text-sm">
-        <div className="md:hidden fixed top-12 left-4">{renderMenu()}</div>
+        <div className="md:hidden fixed z-50 top-12 left-4">{renderMenu()}</div>
         <div className="hidden md:block md:col-span-2">
           <Menu />
         </div>
-        
         <div className="md:col-span-6 bg-gray-100 rounded-sm w-100 m-2 p-8 pt-3 lg:p-12 bg-[url(/background_kc2.2.jpg)] bg-contain bg-repeat-round border border-white border-8">
           <ScrollToTop />
           <Routes>

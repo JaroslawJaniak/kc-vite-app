@@ -163,8 +163,8 @@ const ChapterContent_V = () => {
         }
       >
         <div className="md:w-96 h-32 m-auto mt-4 flex justify-center ">
-          <p className="text-xl m-auto font-mono font-bold text-red-900">
-            {chp5_info.text2}
+          <p className="text-xl m-auto font-mono font-bold text-orange-400">
+            - {chp5_info.text2} -
           </p>
         </div>
       </div>
