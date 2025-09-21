@@ -107,12 +107,18 @@ function App() {
       navigateTo("/kc-vite-app/chapter9");
     } else if (currentPath === "/kc-vite-app/chapter9") {
       navigateTo("/kc-vite-app");
+    } else if (currentPath === "/kc-vite-app/chapter9") {
+      navigateTo("/kc-vite-app");
+    } else if (currentPath === "/kc-vite-app/chapter10") {
+      navigateTo("/kc-vite-app");
     }
   };
 
   const handlePrevious = () => {
     const currentPath = window.location.pathname;
     if (currentPath === "/kc-vite-app") {
+      navigateTo("/kc-vite-app/chapter10");
+    } else if (currentPath === "/kc-vite-app/chapter10") {
       navigateTo("/kc-vite-app/chapter9");
     } else if (currentPath === "/kc-vite-app/chapter9") {
       navigateTo("/kc-vite-app/chapter8");
@@ -140,12 +146,12 @@ function App() {
       <NavButton
         text={menuBtnText}
         handleClick={handleOpenMenuBtnState}
-        className="md:hidden  top-2 left-3 fixed z-1 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm w-36  py-1.5 me-2 mb-2  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+        className="lg:hidden  top-2 left-3 fixed z-1 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm w-36  py-1.5 me-2 mb-2  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
       />
       <NavButton
         text={summaryBtnText}
         handleClick={handleOpenSummaryBtnState}
-        className="md:hidden top-2 right-3 fixed z-1 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm w-36   py-1.5 me-2 mb-2  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+        className="lg:hidden top-2 right-3 fixed z-1 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded text-sm w-36   py-1.5 me-2 mb-2  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
       />
 
       <NavButton
@@ -188,16 +194,15 @@ function App() {
         className="bottom-2 right-3 fixed z-50 text-brown-700 bg-brown-100 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded  w-24 h-12   py-1.5 me-2 mb-2  dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
       />
 
-      <div className="md:grid  md:grid-cols-8 gap-4 text-lg md:text-sm">
-        <div className="md:hidden fixed z-50 top-12 left-4">{renderMenu()}</div>
-        <div className="hidden md:block md:col-span-2">
+      <div className="lg:grid  lg:grid-cols-8 gap-4 text-lg lg:text-sm">
+        <div className="lg:hidden fixed z-50 top-12 left-4">{renderMenu()}</div>
+        <div className="hidden lg:block lg:col-span-2">
           <Menu />
         </div>
-        <div className="md:col-span-6 bg-gray-100 rounded-sm w-100 m-2 p-8 pt-3 lg:p-12 bg-[url(/background_kc2.2.jpg)] bg-contain bg-repeat-round border border-white border-8">
+        <div className="lg:col-span-6 bg-gray-100 rounded-sm w-100 m-2 p-8 pt-3 lg:p-12 bg-[url(/background_kc2.2.jpg)] bg-contain bg-repeat-round border-white border-8">
           <ScrollToTop />
           <Routes>
             <Route path="/kc-vite-app/" element={<Chapter1Page />}></Route>
-
             <Route
               path="/kc-vite-app/chapter2"
               element={<Chapter2Page />}
@@ -240,8 +245,8 @@ function App() {
             ></Route>
           </Routes>
         </div>{" "}
-        {/* <div className="md:hidden fixed top-12  w-full">{renderSummary()}</div>
-        <div className=" hidden md:block  md:col-span-2 md:sticky top-0 ">
+        {/* <div className="lg:hidden fixed top-12  w-full">{renderSummary()}</div>
+        <div className=" hidden lg:block  lg:col-span-2 lg:sticky top-0 ">
           <Summary />
         </div> */}
       </div>

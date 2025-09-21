@@ -950,6 +950,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
       PR: {},
     },
     proficiency: {},
+    proficiency_KNIGHT: {},
   });
 
   const [diceRollResult, setDiceRollResult] = useState({
@@ -1026,6 +1027,7 @@ export const CharacterStatsContextProvider = ({ children }) => {
       PR: {},
     },
     proficiency: {},
+    proficiency_KNIGHT: {},
   });
 
   function updateDiceRollResult(path, value) {

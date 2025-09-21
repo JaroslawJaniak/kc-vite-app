@@ -24,7 +24,7 @@ const DiceButtonComponent = (props) => {
       // Sprawdzenie, czy przycisk nie jest już kliknięty
 
       // Zmiana stanu przez context
-      let diceRoll = kDice(n, k, isPremium); // Rzut kością i uzyskanie wyniku
+      let diceRollResult = kDice(n, k, isPremium); // Rzut kością i uzyskanie wyniku
 
       if (
         path[0] === "baseStatsDice" &&
@@ -39,10 +39,10 @@ const DiceButtonComponent = (props) => {
         );
       }
       toggleClick(path); // Zmiana stanu kliknięcia przycisku
-      if (path) updateDiceRollResult(path, diceRoll); // updateDiceRollResult(["baseStatsDice", "SF", "value2"], 15);
-      console.log(`Rolling2 from button ${n}d${k}: ${diceRoll}`); // Logowanie informacji o rzucie
+      if (path) updateDiceRollResult(path, diceRollResult); // updateDiceRollResult(["baseStatsDice", "SF", "value2"], 15);
+      console.log(`Rolling2 from button ${n}d${k}: ${diceRollResult}`); // Logowanie informacji o rzucie
 
-      resolveDiceRoll(path[1], diceRoll); // Wywołanie funkcji resolveDiceRoll z wynikiem rzutu
+      resolveDiceRoll(path[1], diceRollResult); // Wywołanie funkcji resolveDiceRoll z wynikiem rzutu
       // console.log("path: ", path[1]);
       // console.log(
       //   "has path: ",

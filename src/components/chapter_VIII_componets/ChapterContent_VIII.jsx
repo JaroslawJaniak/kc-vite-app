@@ -6,8 +6,6 @@ import { proficiencyData } from "./Chp8_data";
 export const ChapterContent_VIII = () => {
   const context = useContext(CharacterStatsContext);
 
-  
-
   const selectChangeHandler = (event, index) => {
     //setProficiency((prev) => [...prev, event.target.value]);
     context.updateProficiency(event.target.value, index);
@@ -64,6 +62,99 @@ export const ChapterContent_VIII = () => {
     return item?.weaponBonus || 0;
   }
 
+  const maxProficiencyValue = (i) => {
+    const maxValue = Math.max(
+      context.diceRollResult.proficiency[`result${i}`] ?? 0,
+      context.diceRollResult.proficiency_KNIGHT[`result${i}`] ?? 0
+    );
+
+    return Math.max(maxValue, proficiencyMinValue);
+  };
+
+  const renderedProficienciesButton = (i) => {
+    return (
+      <>
+        {` ${context.proficiency[i].toUpperCase()}: `}{" "}
+        {context.firstProfessionData.castName.toUpperCase() === "RYCERSKA" ||
+        context.secondProfessionData.castName.toUpperCase() === "RYCERSKA" ? (
+          <>
+            <DiceButtonComponent
+              n={1}
+              k={100}
+              diceRollResult={
+                (context.diceRollResult.proficiency_KNIGHT[`result${i}`] =
+                  Math.max(
+                    context.diceRollResult.proficiency_KNIGHT[`result${i}`] ??
+                      0,
+                    proficiencyMinValue
+                  ))
+              }
+              clicked={context.isClicked.proficiency_KNIGHT[`result${i}`]}
+              disabled={context.isClicked.proficiency_KNIGHT[`result${i}`]}
+              path={["proficiency_KNIGHT", `result${i}`]}
+              toggleClick={context.toggleClick}
+              updateDiceRollResult={context.updateDiceRollResult}
+              resolveDiceRoll
+              className={context.btnStyle2}
+            />{" "}
+            /
+          </>
+        ) : (
+          ""
+        )}{" "}
+        <DiceButtonComponent
+          n={1}
+          k={100}
+          diceRollResult={
+            (context.diceRollResult.proficiency[`result${i}`] = Math.max(
+              context.diceRollResult.proficiency[`result${i}`] ?? 0,
+              proficiencyMinValue
+            ))
+          }
+          clicked={context.isClicked.proficiency[`result${i}`]}
+          disabled={context.isClicked.proficiency[`result${i}`]}
+          path={["proficiency", `result${i}`]}
+          toggleClick={context.toggleClick}
+          updateDiceRollResult={context.updateDiceRollResult}
+          resolveDiceRoll
+          className={context.btnStyle2}
+        />{" "}
+        + {`${proficiencyBonusValue}`}
+        {context.raceProficiencyBonus(context.proficiency[i])
+          ? ` + ${context.raceProficiencyBonus(context.proficiency[i])}`
+          : ""}{" "}
+        ={" "}
+        {`${
+          proficiencyBonusValue +
+          context.raceProficiencyBonus(context.proficiency[i]) +
+          maxProficiencyValue(i)
+        }`}{" "}
+        / TR
+        {`(${
+          proficiencyBonusValue +
+          context.raceProficiencyBonus(context.proficiency[i]) +
+          maxProficiencyValue(i) +
+          contributionSF +
+          contributionZR
+        })`}{" "}
+      </>
+    );
+  };
+
+  const isHidden = (i) => {
+    if (
+      context.firstProfessionData.castName.toUpperCase() === "RYCERSKA" ||
+      context.secondProfessionData.castName.toUpperCase() === "RYCERSKA"
+    ) {
+      return context.isClicked.proficiency[`result${i}`] &&
+        context.isClicked.proficiency_KNIGHT[`result${i}`]
+        ? true
+        : false;
+    } else {
+      return context.isClicked.proficiency[`result${i}`] ? true : false;
+    }
+  };
+
   return (
     <article className="text-brown-100">
       <h3>VII. BIEGŁOŚCI</h3>
@@ -88,7 +179,11 @@ export const ChapterContent_VIII = () => {
                 <li key={i} className="pb-4">
                   {i + 1}.<label for="proficiency"></label>
                   <select
-                    hidden={context.isClicked.proficiency[`result${i}`]}
+                    hidden={
+                      isHidden(i)
+                      //context.isClicked.proficiency[`result${i}`]
+                    } //tODO: && context.isClicked.proficiency_KNIGHT[`result${i}`]
+                    value={context.proficiency[i] || ""}
                     onChange={(event) => selectChangeHandler(event, i)}
                     class="w-52bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded pl-3 pr-8 py-1 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-xs focus:shadow-md appearance-none cursor-pointer text-brown-700"
                   >
@@ -101,59 +196,7 @@ export const ChapterContent_VIII = () => {
                       );
                     })}
                   </select>
-                  {context.proficiency[i] ? (
-                    <>
-                      {` ${context.proficiency[i].toUpperCase()}: `}{" "}
-                      <DiceButtonComponent
-                        n={1}
-                        k={100}
-                        diceRollResult={
-                          (context.diceRollResult.proficiency[`result${i}`] =
-                            Math.max(
-                              context.diceRollResult.proficiency[
-                                `result${i}`
-                              ] ?? 0,
-                              proficiencyMinValue
-                            ))
-                        }
-                        clicked={context.isClicked.proficiency[`result${i}`]}
-                        disabled={context.isClicked.proficiency[`result${i}`]}
-                        path={["proficiency", `result${i}`]}
-                        toggleClick={context.toggleClick}
-                        updateDiceRollResult={context.updateDiceRollResult}
-                        resolveDiceRoll
-                        className={context.btnStyle2}
-                      />{" "}
-                      + {`${proficiencyBonusValue}`}
-                      {context.raceProficiencyBonus(context.proficiency[i])
-                        ? ` + ${context.raceProficiencyBonus(
-                            context.proficiency[i]
-                          )}`
-                        : ""}{" "}
-                      ={" "}
-                      {`${
-                        proficiencyBonusValue +
-                        context.raceProficiencyBonus(context.proficiency[i]) +
-                        Math.max(
-                          context.diceRollResult.proficiency[`result${i}`] ?? 0,
-                          proficiencyMinValue
-                        )
-                      }`}{" "}
-                      / TR
-                      {`(${
-                        proficiencyBonusValue +
-                        context.raceProficiencyBonus(context.proficiency[i]) +
-                        Math.max(
-                          context.diceRollResult.proficiency[`result${i}`] ?? 0,
-                          proficiencyMinValue
-                        ) +
-                        contributionSF +
-                        contributionZR
-                      })`}{" "}
-                    </>
-                  ) : (
-                    ""
-                  )}
+                  {context.proficiency[i] ? renderedProficienciesButton(i) : ""}
                 </li>
               );
             })}

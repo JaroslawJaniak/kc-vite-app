@@ -657,13 +657,60 @@ export const ChapterContent_IX = () => {
     ) / 20
   );
 
+  const [characterStats, setCharacterStats] = React.useState({});
+
+  const saveCharacterStats = () => {
+    const statsToSave = {
+      raceData: { sex: "", race: "", description: "" },
+      placeOfBirthData: { placeOfBirth: "", placeOfBirthDescription: "" },
+      socialClassData: {
+        socialClass: "",
+        socialClassFullName: "",
+        socialClassDescription: "",
+        socialClassCastDescription: "",
+        incomeValue: 0,
+      },
+      firstProfessionData: {},
+      secondProfessionData: {},
+      stats: {
+        ŻYW: 0,
+        SF: 0,
+        ZR: 0,
+        SZ: 0,
+        INT: 0,
+        MD: 0,
+        UM: 0,
+        CH: 0,
+        PR: 0,
+        WI: 0,
+        ZW: 0,
+        O: 0,
+        W: 0,
+      },
+      immunity: {
+        BPsych: 0,
+        BFiz: 0,
+        odp1: 0,
+        odp2: 0,
+        odp3: 0,
+        odp4: 0,
+        odp5: 0,
+        odp6: 0,
+        odp7: 0,
+        odp8: 0,
+        odp9: 0,
+        odp10: 0,
+      },
+    };
+  };
+
   // className={`${styles.sticky} p-4 backdrop-blur-lg cursor-grab active:cursor-grabbing select-none overflow-auto`}
 
   return (
     <section
       className={`p-12 select-none w-full  bg-[url(/background_kc2.2.jpg)] bg-contain bg-repeat-round`}
     >
-      <div className="border-gray-900  rounded  text-brown-100 text-brown-100 p-4 mb-4 xl:w-2/3 backdrop-blur-lg">
+      <div className="border-gray-900  rounded  text-brown-100 p-4 mb-4 xl:w-2/3 backdrop-blur-lg">
         {" "}
         <StatRow label="Płeć:" value={context.chpt1Info.sex} />
         <StatRow label="Rasa:" value={context.chpt1Info.race} />
